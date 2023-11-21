@@ -13,9 +13,10 @@ Envia todos os livros da Bíblia Sagrada pra seu destinatário.
 
 ## Como utilizar?
 
-1. Copie todo o código desse arquivo: [link aqui](/travazapp_biblia_sagrada.js)
-1. Use  [Whatsapp Web](https://web.whatsapp.com/) no computador ;
-1. Abra a conversa que você quer enviar esses textos sagrados;
+1. Clique nesse [link aqui](/travazapp_biblia_sagrada.js)
+1. Cliquem em "Copy Raw File" no canto direito
+1. Use  [Whatsapp Web](https://web.whatsapp.com/) no computador 
+1. Abra a conversa que você quer enviar esses textos sagrados
 1. Pressione a tecla F12 para abrir as Ferramentas de Desenvolvedor.
 1. Clique em CONSOLE
 1. na linha com  ">", cole este código com CTRL+V
