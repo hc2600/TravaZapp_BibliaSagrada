@@ -1,8 +1,12 @@
 # TravaZapp_BibliaSagrada
->Script que envia textos da Bíblia Sagrada (em Português) para seu destinatário. 
+>Script que envia textos da Bíblia Sagrada (em Português) para seu destinatário.
+>Uma boa resposta para enviar aos golpistas de Whatsapp
 
 
-![*"Se alguém quer ser o primeiro, seja o último e o servo de todos". (Marcos 9, 35)*](/bible02.jpg)
+![Ilustração mostrando Jesus lavando os pés dos apóstolos](/img/bible02.jpg)
+
+        "Se alguém quer ser o primeiro, seja o último e o servo de todos".
+        (Marcos 9, 35)
 
 
 ## **A Bíblia existe para que possamos compreender, temer, respeitar e amar Deus sobre todas as coisas, assim ela se denomina como a Sagrada Escritura: " __E desde a infância conheces as Sagradas Escrituras e sabes que elas têm o condão de te proporcionar a sabedoria que conduz à salvação, pela fé em Jesus Cristo__ " .**
@@ -13,7 +17,7 @@ Envia todos os livros da Bíblia Sagrada pra seu destinatário.
 
 ## Como utilizar?
 
-1. Clique nesse [link aqui](/travazapp_biblia_sagrada.js)
+1. Clique em um desses links [Antigo Testamento](/travazapp_biblia_antigo_testamento.js) ou [Novo Testamento](/travazapp_biblia_novo_testamento.js)
 1. Cliquem em "Copy Raw File" no canto direito
 1. Use  [Whatsapp Web](https://web.whatsapp.com/) no computador 
 1. Abra a conversa que você quer enviar esses textos sagrados

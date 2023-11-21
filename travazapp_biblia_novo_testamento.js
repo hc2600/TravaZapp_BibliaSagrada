@@ -1,0 +1,7978 @@
+async function enviarScript(scriptText){
+	const lines = scriptText.split(/[\n\t]+/).map(line => line.trim()).filter(line => line);
+	main = document.querySelector("#main"),
+	textarea = main.querySelector(`div[contenteditable="true"]`)
+	
+	if(!textarea) throw new Error("Não há uma conversa aberta")
+	
+	for(const line of lines){
+		console.log(line)
+	
+		textarea.focus();
+		document.execCommand('insertText', false, line);
+		textarea.dispatchEvent(new Event('change', {bubbles: true}));
+	
+		setTimeout(() => {
+			(main.querySelector(`[data-testid="send"]`) || main.querySelector(`[data-icon="send"]`)).click();
+		}, 100);
+		
+		if(lines.indexOf(line) !== lines.length - 1) await new Promise(resolve => setTimeout(resolve, 250));
+	}
+	
+	return lines.length;
+}
+
+enviarScript(`
+São Mateus, 1
+1. Genealogia de Jesus Cristo, filho de Davi, filho de Abraão.
+2. Abraão gerou Isaac. Isaac gerou Jacó. Jacó gerou Judá e seus irmãos.
+3. Judá gerou, de Tamar, Farés e Zara. Farés gerou Esron. Esron gerou Arão.
+4. Arão gerou Aminadab. Aminadab gerou Naasson. Naasson gerou Salmon.
+5. Salmon gerou Booz, de Raab. Booz gerou Obed, de Rute. Obed gerou Jessé. Jessé gerou o rei Davi.
+6. O rei Davi gerou Salomão, daquela que fora mulher de Urias.
+7. Salomão gerou Roboão. Roboão gerou Abias. Abias gerou Asa.
+8. Asa gerou Josafá. Josafá gerou Jorão. Jorão gerou Ozias.
+9. Ozias gerou Joatão. Joatão gerou Acaz. Acaz gerou Ezequias.
+10. Ezequias gerou Manassés. Manassés gerou Amon. Amon gerou Josias.
+11. Josias gerou Jeconias e seus irmãos, no cativeiro de Babilônia.
+12. E, depois do cativeiro de Babilônia, Jeconias gerou Salatiel. Salatiel gerou Zorobabel.
+13. Zorobabel gerou Abiud. Abiud gerou Eliacim. Eliacim gerou Azor.
+14. Azor gerou Sadoc. Sadoc gerou Aquim. Aquim gerou Eliud.
+15. Eliud gerou Eleazar. Eleazar gerou Matã. Matã gerou Jacó.
+16. Jacó gerou José, esposo de Maria, da qual nasceu Jesus, que é chamado Cristo.
+17. Portanto, as gerações, desde Abraão até Davi, são quatorze. Desde Davi até o cativeiro de Babilônia, quatorze gerações. E, depois do cativeiro até Cristo, quatorze gerações.
+18. Eis como nasceu Jesus Cristo: Maria, sua mãe, estava desposada com José. Antes de coabitarem, aconteceu que ela concebeu por virtude do Espírito Santo.
+19. José, seu esposo, que era homem de bem, não querendo difamá-la, resolveu rejeitá-la secretamente.
+20. Enquanto assim pensava, eis que um anjo do Senhor lhe apareceu em sonhos e lhe disse: José, filho de Davi, não temas receber Maria por esposa, pois o que nela foi concebido vem do Espírito Santo.
+21. Ela dará à luz um filho, a quem porás o nome de Jesus, porque ele salvará o seu povo de seus pecados.
+22. Tudo isto aconteceu para que se cumprisse o que o Senhor falou pelo profeta:
+23. Eis que a Virgem conceberá e dará à luz um filho, que se chamará Emanuel (Is 7, 14), que significa: Deus conosco.
+24. Despertando, José fez como o anjo do Senhor lhe havia mandado e recebeu em sua casa sua esposa.
+25. E, sem que ele a tivesse conhecido, ela deu à luz o seu filho, que recebeu o nome de Jesus.São Mateus, 2
+1. Tendo, pois, Jesus nascido em Belém de Judá, no tempo do rei Herodes, eis que magos vieram do oriente a Jerusalém.
+2. Perguntaram eles: Onde está o rei dos judeus que acaba de nascer? Vimos a sua estrela no oriente e viemos adorá-lo.
+3. A esta notícia, o rei Herodes ficou perturbado e toda Jerusalém com ele.
+4. Convocou os príncipes dos sacerdotes e os escribas do povo e indagou deles onde havia de nascer o Cristo.
+5. Disseram-lhe: Em Belém, na Judéia, porque assim foi escrito pelo profeta:
+6. E tu, Belém, terra de Judá, não és de modo algum a menor entre as cidades de Judá, porque de ti sairá o chefe que governará Israel, meu povo(Miq 5,2).
+7. Herodes, então, chamou secretamente os magos e perguntou-lhes sobre a época exata em que o astro lhes tinha aparecido.
+8. E, enviando-os a Belém, disse: Ide e informai-vos bem a respeito do menino. Quando o tiverdes encontrado, comunicai-me, para que eu também vá adorá-lo.
+9. Tendo eles ouvido as palavras do rei, partiram. E eis que e estrela, que tinham visto no oriente, os foi precedendo até chegar sobre o lugar onde estava o menino e ali parou.
+10. A aparição daquela estrela os encheu de profunda alegria.
+11. Entrando na casa, acharam o menino com Maria, sua mãe. Prostrando-se diante dele, o adoraram. Depois, abrindo seus tesouros, ofereceram-lhe como presentes: ouro, incenso e mirra.
+12. Avisados em sonhos de não tornarem a Herodes, voltaram para sua terra por outro caminho.
+13. Depois de sua partida, um anjo do Senhor apareceu em sonhos a José e disse: Levanta-te, toma o menino e sua mãe e foge para o Egito; fica lá até que eu te avise, porque Herodes vai procurar o menino para o matar.
+14. José levantou-se durante a noite, tomou o menino e sua mãe e partiu para o Egito.
+15. Ali permaneceu até a morte de Herodes para que se cumprisse o que o Senhor dissera pelo profeta: Eu chamei do Egito meu filho (Os 11,1).
+16. Vendo, então, Herodes que tinha sido enganado pelos magos, ficou muito irado e mandou massacrar em Belém e nos seus arredores todos os meninos de dois anos para baixo, conforme o tempo exato que havia indagado dos magos.
+17. Cumpriu-se, então, o que foi dito pelo profeta Jeremias:
+18. Em Ramá se ouviu uma voz, choro e grandes lamentos: é Raquel a chorar seus filhos; não quer consolação, porque já não existem (Jer 31,15)!
+19. Com a morte de Herodes, o anjo do Senhor apareceu em sonhos a José, no Egito, e disse:
+20. Levanta-te, toma o menino e sua mãe e retorna à terra de Israel, porque morreram os que atentavam contra a vida do menino.
+21. José levantou-se, tomou o menino e sua mãe e foi para a terra de Israel.
+22. Ao ouvir, porém, que Arquelau reinava na Judéia, em lugar de seu pai Herodes, não ousou ir para lá. Avisado divinamente em sonhos, retirou-se para a província da Galiléia
+23. e veio habitar na cidade de Nazaré para que se cumprisse o que foi dito pelos profetas: Será chamado Nazareno.São Mateus, 3
+1. Naqueles dias, apareceu João Batista, pregando no deserto da Judéia.
+2. Dizia ele: Fazei penitência porque está próximo o Reino dos céus.
+3. Este é aquele de quem falou o profeta Isaías, quando disse: Uma voz clama no deserto: Preparai o caminho do Senhor, endireitai as suas veredas (Is 40,3).
+4. João usava uma vestimenta de pêlos de camelo e um cinto de couro em volta dos rins. Alimentava-se de gafanhotos e mel silvestre.
+5. Pessoas de Jerusalém, de toda a Judéia e de toda a circunvizinhança do Jordão vinham a ele.
+6. Confessavam seus pecados e eram batizados por ele nas águas do Jordão.
+7. Ao ver, porém, que muitos dos fariseus e dos saduceus vinham ao seu batismo, disse-lhes: Raça de víboras, quem vos ensinou a fugir da cólera vindoura?
+8. Dai, pois, frutos de verdadeira penitência.
+9. Não digais dentro de vós: Nós temos a Abraão por pai! Pois eu vos digo: Deus é poderoso para suscitar destas pedras filhos a Abraão.
+10. O machado já está posto à raiz das árvores: toda árvore que não produzir bons frutos será cortada e lançada ao fogo.
+11. Eu vos batizo com água, em sinal de penitência, mas aquele que virá depois de mim é mais poderoso do que eu e nem sou digno de carregar seus calçados. Ele vos batizará no Espírito Santo e em fogo.
+12. Tem na mão a pá, limpará sua eira e recolherá o trigo ao celeiro. As palhas, porém, queimá-las-á num fogo inextinguível.
+13. Da Galiléia foi Jesus ao Jordão ter com João, a fim de ser batizado por ele.
+14. João recusava-se: Eu devo ser batizado por ti e tu vens a mim!
+15. Mas Jesus lhe respondeu: Deixa por agora, pois convém cumpramos a justiça completa. Então João cedeu.
+16. Depois que Jesus foi batizado, saiu logo da água. Eis que os céus se abriram e viu descer sobre ele, em forma de pomba, o Espírito de Deus.
+17. E do céu baixou uma voz: Eis meu Filho muito amado em quem ponho minha afeição.São Mateus, 4
+1. Em seguida, Jesus foi conduzido pelo Espírito ao deserto para ser tentado pelo demônio.
+2. Jejuou quarenta dias e quarenta noites. Depois, teve fome.
+3. O tentador aproximou-se dele e lhe disse: Se és Filho de Deus, ordena que estas pedras se tornem pães.
+4. Jesus respondeu: Está escrito: Não só de pão vive o homem, mas de toda palavra que procede da boca de Deus (Dt 8,3).
+5. O demônio transportou-o à Cidade Santa, colocou-o no ponto mais alto do templo e disse-lhe:
+6. Se és Filho de Deus, lança-te abaixo, pois está escrito: Ele deu a seus anjos ordens a teu respeito; proteger-te-ão com as mãos, com cuidado, para não machucares o teu pé em alguma pedra (Sl 90,11s).
+7. Disse-lhe Jesus: Também está escrito: Não tentarás o Senhor teu Deus (Dt 6,16).
+8. O demônio transportou-o uma vez mais, a um monte muito alto, e lhe mostrou todos os reinos do mundo e a sua glória, e disse-lhe:
+9. Dar-te-ei tudo isto se, prostrando-te diante de mim, me adorares.
+10. Respondeu-lhe Jesus: Para trás, Satanás, pois está escrito: Adorarás o Senhor teu Deus, e só a ele servirás (Dt 6,13).
+11. Em seguida, o demônio o deixou, e os anjos aproximaram-se dele para servi-lo.
+12. Quando, pois, Jesus ouviu que João fora preso, retirou-se para a Galiléia.
+13. Deixando a cidade de Nazaré, foi habitar em Cafarnaum, à margem do lago, nos confins de Zabulon e Neftali,
+14. para que se cumprisse o que foi dito pelo profeta Isaías:
+15. A terra de Zabulon e de Neftali, região vizinha ao mar, a terra além do Jordão, a Galiléia dos gentios,
+16. este povo, que jazia nas trevas, viu resplandecer uma grande luz; e surgiu uma aurora para os que jaziam na região sombria da morte (Is 9,1).
+17. Desde então, Jesus começou a pregar: Fazei penitência, pois o Reino dos céus está próximo.
+18. Caminhando ao longo do mar da Galiléia, viu dois irmãos: Simão (chamado Pedro) e André, seu irmão, que lançavam a rede ao mar, pois eram pescadores.
+19. E disse-lhes: Vinde após mim e vos farei pescadores de homens.
+20. Na mesma hora abandonaram suas redes e o seguiram.
+21. Passando adiante, viu outros dois irmãos: Tiago, filho de Zebedeu, e seu irmão João, que estavam com seu pai Zebedeu consertando as redes. Chamou-os,
+22. e eles abandonaram a barca e seu pai e o seguiram.
+23. Jesus percorria toda a Galiléia, ensinando nas suas sinagogas, pregando o Evangelho do Reino, curando todas as doenças e enfermidades entre o povo.
+24. Sua fama espalhou-se por toda a Síria: traziam-lhe os doentes e os enfermos, os possessos, os lunáticos, os paralíticos. E ele curava a todos.
+25. Grandes multidões acompanharam-no da Galiléia, da Decápole, de Jerusalém, da Judéia e dos países do outro lado do Jordão.São Mateus, 5
+1. Vendo aquelas multidões, Jesus subiu à montanha. Sentou-se e seus discípulos aproximaram-se dele.
+2. Então abriu a boca e lhes ensinava, dizendo:
+3. Bem-aventurados os que têm um coração de pobre, porque deles é o Reino dos céus!
+4. Bem-aventurados os que choram, porque serão consolados!
+5. Bem-aventurados os mansos, porque possuirão a terra!
+6. Bem-aventurados os que têm fome e sede de justiça, porque serão saciados!
+7. Bem-aventurados os misericordiosos, porque alcançarão misericórdia!
+8. Bem-aventurados os puros de coração, porque verão Deus!
+9. Bem-aventurados os pacíficos, porque serão chamados filhos de Deus!
+10. Bem-aventurados os que são perseguidos por causa da justiça, porque deles é o Reino dos céus!
+11. Bem-aventurados sereis quando vos caluniarem, quando vos perseguirem e disserem falsamente todo o mal contra vós por causa de mim.
+12. Alegrai-vos e exultai, porque será grande a vossa recompensa nos céus, pois assim perseguiram os profetas que vieram antes de vós.
+13. Vós sois o sal da terra. Se o sal perde o sabor, com que lhe será restituído o sabor? Para nada mais serve senão para ser lançado fora e calcado pelos homens.
+14. Vós sois a luz do mundo. Não se pode esconder uma cidade situada sobre uma montanha
+15. nem se acende uma luz para colocá-la debaixo do alqueire, mas sim para colocá-la sobre o candeeiro, a fim de que brilhe a todos os que estão em casa.
+16. Assim, brilhe vossa luz diante dos homens, para que vejam as vossas boas obras e glorifiquem vosso Pai que está nos céus.
+17. Não julgueis que vim abolir a lei ou os profetas. Não vim para os abolir, mas sim para levá-los à perfeição.
+18. Pois em verdade vos digo: passará o céu e a terra, antes que desapareça um jota, um traço da lei.
+19. Aquele que violar um destes mandamentos, por menor que seja, e ensinar assim aos homens, será declarado o menor no Reino dos céus. Mas aquele que os guardar e os ensinar será declarado grande no Reino dos céus.
+20. Digo-vos, pois, se vossa justiça não for maior que a dos escribas e fariseus, não entrareis no Reino dos céus.
+21. Ouvistes o que foi dito aos antigos: Não matarás, mas quem matar será castigado pelo juízo do tribunal.
+22. Mas eu vos digo: todo aquele que se irar contra seu irmão será castigado pelos juízes. Aquele que disser a seu irmão: Raca, será castigado pelo Grande Conselho. Aquele que lhe disser: Louco, será condenado ao fogo da geena.
+23. Se estás, portanto, para fazer a tua oferta diante do altar e te lembrares de que teu irmão tem alguma coisa contra ti,
+24. deixa lá a tua oferta diante do altar e vai primeiro reconciliar-te com teu irmão; só então vem fazer a tua oferta.
+25. Entra em acordo sem demora com o teu adversário, enquanto estás em caminho com ele, para que não suceda que te entregue ao juiz, e o juiz te entregue ao seu ministro e sejas posto em prisão.
+26. Em verdade te digo: dali não sairás antes de teres pago o último centavo.
+27. Ouvistes que foi dito aos antigos: Não cometerás adultério.
+28. Eu, porém, vos digo: todo aquele que lançar um olhar de cobiça para uma mulher, já adulterou com ela em seu coração.
+29. Se teu olho direito é para ti causa de queda, arranca-o e lança-o longe de ti, porque te é preferível perder-se um só dos teus membros, a que o teu corpo todo seja lançado na geena.
+30. E se tua mão direita é para ti causa de queda, corta-a e lança-a longe de ti, porque te é preferível perder-se um só dos teus membros, a que o teu corpo inteiro seja atirado na geena.
+31. Foi também dito: Todo aquele que rejeitar sua mulher, dê-lhe carta de divórcio.
+32. Eu, porém, vos digo: todo aquele que rejeita sua mulher, a faz tornar-se adúltera, a não ser que se trate de matrimônio falso; e todo aquele que desposa uma mulher rejeitada comete um adultério.
+33. Ouvistes ainda o que foi dito aos antigos: Não jurarás falso, mas cumprirás para com o Senhor os teus juramentos.
+34. Eu, porém, vos digo: não jureis de modo algum, nem pelo céu, porque é o trono de Deus;
+35. nem pela terra, porque é o escabelo de seus pés; nem por Jerusalém, porque é a cidade do grande Rei.
+36. Nem jurarás pela tua cabeça, porque não podes fazer um cabelo tornar-se branco ou negro.
+37. Dizei somente: Sim, se é sim; não, se é não. Tudo o que passa além disto vem do Maligno.
+38. Tendes ouvido o que foi dito: Olho por olho, dente por dente.
+39. Eu, porém, vos digo: não resistais ao mau. Se alguém te ferir a face direita, oferece-lhe também a outra.
+40. Se alguém te citar em justiça para tirar-te a túnica, cede-lhe também a capa.
+41. Se alguém vem obrigar-te a andar mil passos com ele, anda dois mil.
+42. Dá a quem te pede e não te desvies daquele que te quer pedir emprestado.
+43. Tendes ouvido o que foi dito: Amarás o teu próximo e poderás odiar teu inimigo.
+44. Eu, porém, vos digo: amai vossos inimigos, fazei bem aos que vos odeiam, orai pelos que vos [maltratam e] perseguem.
+45. Deste modo sereis os filhos de vosso Pai do céu, pois ele faz nascer o sol tanto sobre os maus como sobre os bons, e faz chover sobre os justos e sobre os injustos.
+46. Se amais somente os que vos amam, que recompensa tereis? Não fazem assim os próprios publicanos?
+47. Se saudais apenas vossos irmãos, que fazeis de extraordinário? Não fazem isto também os pagãos?
+48. Portanto, sede perfeitos, assim como vosso Pai celeste é perfeito.São Mateus, 6
+1. Guardai-vos de fazer vossas boas obras diante dos homens, para serdes vistos por eles. Do contrário, não tereis recompensa junto de vosso Pai que está no céu.
+2. Quando, pois, dás esmola, não toques a trombeta diante de ti, como fazem os hipócritas nas sinagogas e nas ruas, para serem louvados pelos homens. Em verdade eu vos digo: já receberam sua recompensa.
+3. Quando deres esmola, que tua mão esquerda não saiba o que fez a direita.
+4. Assim, a tua esmola se fará em segredo; e teu Pai, que vê o escondido, recompensar-te-á.
+5. Quando orardes, não façais como os hipócritas, que gostam de orar de pé nas sinagogas e nas esquinas das ruas, para serem vistos pelos homens. Em verdade eu vos digo: já receberam sua recompensa.
+6. Quando orares, entra no teu quarto, fecha a porta e ora ao teu Pai em segredo; e teu Pai, que vê num lugar oculto, recompensar-te-á.
+7. Nas vossas orações, não multipliqueis as palavras, como fazem os pagãos que julgam que serão ouvidos à força de palavras.
+8. Não os imiteis, porque vosso Pai sabe o que vos é necessário, antes que vós lho peçais.
+9. Eis como deveis rezar: PAI NOSSO, que estais no céu, santificado seja o vosso nome;
+10. venha a nós o vosso Reino; seja feita a vossa vontade, assim na terra como no céu.
+11. O pão nosso de cada dia nos dai hoje;
+12. perdoai-nos as nossas ofensas, assim como nós perdoamos aos que nos ofenderam;
+13. e não nos deixeis cair em tentação, mas livrai-nos do mal.
+14. Porque, se perdoardes aos homens as suas ofensas, vosso Pai celeste também vos perdoará.
+15. Mas se não perdoardes aos homens, tampouco vosso Pai vos perdoará.
+16. Quando jejuardes, não tomeis um ar triste como os hipócritas, que mostram um semblante abatido para manifestar aos homens que jejuam. Em verdade eu vos digo: já receberam sua recompensa.
+17. Quando jejuares, perfuma a tua cabeça e lava o teu rosto.
+18. Assim, não parecerá aos homens que jejuas, mas somente a teu Pai que está presente ao oculto; e teu Pai, que vê num lugar oculto, recompensar-te-á.
+19. Não ajunteis para vós tesouros na terra, onde a ferrugem e as traças corroem, onde os ladrões furtam e roubam.
+20. Ajuntai para vós tesouros no céu, onde não os consomem nem as traças nem a ferrugem, e os ladrões não furtam nem roubam.
+21. Porque onde está o teu tesouro, lá também está teu coração.
+22. O olho é a luz do corpo. Se teu olho é são, todo o teu corpo será iluminado.
+23. Se teu olho estiver em mau estado, todo o teu corpo estará nas trevas. Se a luz que está em ti são trevas, quão espessas deverão ser as trevas!
+24. Ninguém pode servir a dois senhores, porque ou odiará a um e amará o outro, ou dedicar-se-á a um e desprezará o outro. Não podeis servir a Deus e à riqueza.
+25. Portanto, eis que vos digo: não vos preocupeis por vossa vida, pelo que comereis, nem por vosso corpo, pelo que vestireis. A vida não é mais do que o alimento e o corpo não é mais que as vestes?
+26. Olhai as aves do céu: não semeiam nem ceifam, nem recolhem nos celeiros e vosso Pai celeste as alimenta. Não valeis vós muito mais que elas?
+27. Qual de vós, por mais que se esforce, pode acrescentar um só côvado à duração de sua vida?
+28. E por que vos inquietais com as vestes? Considerai como crescem os lírios do campo; não trabalham nem fiam.
+29. Entretanto, eu vos digo que o próprio Salomão no auge de sua glória não se vestiu como um deles.
+30. Se Deus veste assim a erva dos campos, que hoje cresce e amanhã será lançada ao fogo, quanto mais a vós, homens de pouca fé?
+31. Não vos aflijais, nem digais: Que comeremos? Que beberemos? Com que nos vestiremos?
+32. São os pagãos que se preocupam com tudo isso. Ora, vosso Pai celeste sabe que necessitais de tudo isso.
+33. Buscai em primeiro lugar o Reino de Deus e a sua justiça e todas estas coisas vos serão dadas em acréscimo.
+34. Não vos preocupeis, pois, com o dia de amanhã: o dia de amanhã terá as suas preocupações próprias. A cada dia basta o seu cuidado.São Mateus, 7
+1. Não julgueis, e não sereis julgados.
+2. Porque do mesmo modo que julgardes, sereis também vós julgados e, com a medida com que tiverdes medido, também vós sereis medidos.
+3. Por que olhas a palha que está no olho do teu irmão e não vês a trave que está no teu?
+4. Como ousas dizer a teu irmão: Deixa-me tirar a palha do teu olho, quando tens uma trave no teu?
+5. Hipócrita! Tira primeiro a trave de teu olho e assim verás para tirar a palha do olho do teu irmão.
+6. Não lanceis aos cães as coisas santas, não atireis aos porcos as vossas pérolas, para que não as calquem com os seus pés, e, voltando-se contra vós, vos despedacem.
+7. Pedi e se vos dará. Buscai e achareis. Batei e vos será aberto.
+8. Porque todo aquele que pede, recebe. Quem busca, acha. A quem bate, abrir-se-á.
+9. Quem dentre vós dará uma pedra a seu filho, se este lhe pedir pão?
+10. E, se lhe pedir um peixe, dar-lhe-á uma serpente?
+11. Se vós, pois, que sois maus, sabeis dar boas coisas a vossos filhos, quanto mais vosso Pai celeste dará boas coisas aos que lhe pedirem.
+12. Tudo o que quereis que os homens vos façam, fazei-o vós a eles. Esta é a lei e os profetas.
+13. Entrai pela porta estreita, porque larga é a porta e espaçoso o caminho que conduzem à perdição e numerosos são os que por aí entram.
+14. Estreita, porém, é a porta e apertado o caminho da vida e raros são os que o encontram.
+15. Guardai-vos dos falsos profetas. Eles vêm a vós disfarçados de ovelhas, mas por dentro são lobos arrebatadores.
+16. Pelos seus frutos os conhecereis. Colhem-se, porventura, uvas dos espinhos e figos dos abrolhos?
+17. Toda árvore boa dá bons frutos; toda árvore má dá maus frutos.
+18. Uma árvore boa não pode dar maus frutos; nem uma árvore má, bons frutos.
+19. Toda árvore que não der bons frutos será cortada e lançada ao fogo.
+20. Pelos seus frutos os conhecereis.
+21. Nem todo aquele que me diz: Senhor, Senhor, entrará no Reino dos céus, mas sim aquele que faz a vontade de meu Pai que está nos céus.
+22. Muitos me dirão naquele dia: Senhor, Senhor, não pregamos nós em vosso nome, e não foi em vosso nome que expulsamos os demônios e fizemos muitos milagres?
+23. E, no entanto, eu lhes direi: Nunca vos conheci. Retirai-vos de mim, operários maus!
+24. Aquele, pois, que ouve estas minhas palavras e as põe em prática é semelhante a um homem prudente, que edificou sua casa sobre a rocha.
+25. Caiu a chuva, vieram as enchentes, sopraram os ventos e investiram contra aquela casa; ela, porém, não caiu, porque estava edificada na rocha.
+26. Mas aquele que ouve as minhas palavras e não as põe em prática é semelhante a um homem insensato, que construiu sua casa na areia.
+27. Caiu a chuva, vieram as enchentes, sopraram os ventos e investiram contra aquela casa; ela caiu e grande foi a sua ruína.
+28. Quando Jesus terminou o discurso, a multidão ficou impressionada com a sua doutrina.
+29. Com efeito, ele a ensinava como quem tinha autoridade e não como os seus escribas.São Mateus, 8
+1. Tendo Jesus descido da montanha, uma grande multidão o seguiu.
+2. Eis que um leproso aproximou-se e prostrou-se diante dele, dizendo: Senhor, se queres, podes curar-me.
+3. Jesus estendeu a mão, tocou-o e disse: Eu quero, sê curado. No mesmo instante, a lepra desapareceu.
+4. Jesus então lhe disse: Vê que não o digas a ninguém. Vai, porém, mostrar-te ao sacerdote e oferece o dom prescrito por Moisés em testemunho de tua cura.
+5. Entrou Jesus em Cafarnaum. Um centurião veio a ele e lhe fez esta súplica:
+6. Senhor, meu servo está em casa, de cama, paralítico, e sofre muito.
+7. Disse-lhe Jesus: Eu irei e o curarei.
+8. Respondeu o centurião: Senhor, eu não sou digno de que entreis em minha casa. Dizei uma só palavra e meu servo será curado.
+9. Pois eu também sou um subordinado e tenho soldados às minhas ordens. Eu digo a um: Vai, e ele vai; a outro: Vem, e ele vem; e a meu servo: Faze isto, e ele o faz...
+10. Ouvindo isto, cheio de admiração, disse Jesus aos presentes: Em verdade vos digo: não encontrei semelhante fé em ninguém de Israel.
+11. Por isso, eu vos declaro que multidões virão do Oriente e do Ocidente e se assentarão no Reino dos céus com Abraão, Isaac e Jacó,
+12. enquanto os filhos do Reino serão lançados nas trevas exteriores, onde haverá choro e ranger de dentes.
+13. Depois, dirigindo-se ao centurião, disse: Vai, seja-te feito conforme a tua fé. Na mesma hora o servo ficou curado.
+14. Foi então Jesus à casa de Pedro, cuja sogra estava de cama, com febre.
+15. Tomou-lhe a mão, e a febre a deixou. Ela levantou-se e pôs-se a servi-los.
+16. Pela tarde, apresentaram-lhe muitos possessos de demônios. Com uma palavra expulsou ele os espíritos e curou todos os enfermos.
+17. Assim se cumpriu a predição do profeta Isaías: Tomou as nossas enfermidades e sobrecarregou-se dos nossos males (Is 53,4).
+18. Certo dia, vendo-se no meio de grande multidão, ordenou Jesus que o levassem para a outra margem do lago.
+19. Nisto aproximou-se dele um escriba e lhe disse: Mestre, seguir-te-ei para onde quer que fores.
+20. Respondeu Jesus: As raposas têm suas tocas e as aves do céu, seus ninhos, mas o Filho do Homem não tem onde repousar a cabeça.
+21. Outra vez um dos seus discípulos lhe disse: Senhor, deixa-me ir primeiro enterrar meu pai.
+22. Jesus, porém, lhe respondeu: Segue-me e deixa que os mortos enterrem seus mortos.
+23. Subiu ele a uma barca com seus discípulos.
+24. De repente, desencadeou-se sobre o mar uma tempestade tão grande, que as ondas cobriam a barca. Ele, no entanto, dormia.
+25. Os discípulos achegaram-se a ele e o acordaram, dizendo: Senhor, salva-nos, nós perecemos!
+26. E Jesus perguntou: Por que este medo, gente de pouca fé? Então, levantando-se, deu ordens aos ventos e ao mar, e fez-se uma grande calmaria.
+27. Admirados, diziam: Quem é este homem a quem até os ventos e o mar obedecem?
+28. No outro lado do lago, na terra dos gadarenos, dois possessos de demônios saíram de um cemitério e vieram-lhe ao encontro. Eram tão furiosos que pessoa alguma ousava passar por ali.
+29. Eis que se puseram a gritar: Que tens a ver conosco, Filho de Deus? Vieste aqui para nos atormentar antes do tempo?
+30. Havia, não longe dali, uma grande manada de porcos que pastava.
+31. Os demônios imploraram a Jesus: Se nos expulsas, envia-nos para aquela manada de porcos.
+32. Ide, disse-lhes. Eles saíram e entraram nos porcos. Nesse instante toda a manada se precipitou pelo declive escarpado para o lago, e morreu nas águas.
+33. Os guardas fugiram e foram contar na cidade o que se tinha passado e o sucedido com os endemoninhados.
+34. Então a população saiu ao encontro de Jesus. Quando o viu, suplicou-lhe que deixasse aquela região.São Mateus, 9
+1. Jesus tomou de novo a barca, passou o lago e veio para a sua cidade.
+2. Eis que lhe apresentaram um paralítico estendido numa padiola. Jesus, vendo a fé daquela gente, disse ao paralítico: "Meu filho, coragem! Teus pecados te são perdoados."
+3. Ouvindo isto, alguns escribas murmuraram entre si: "Este homem blasfema."
+4. Jesus, penetrando-lhes os pensamentos, perguntou-lhes: "Por que pensais mal em vossos corações?
+5. Que é mais fácil dizer: Teus pecados te são perdoados, ou: Levanta-te e anda?
+6. Ora, para que saibais que o Filho do Homem tem na terra o poder de perdoar os pecados: Levanta-te - disse ele ao paralítico -, toma a tua maca e volta para tua casa."
+7. Levantou-se aquele homem e foi para sua casa.
+8. Vendo isto, a multidão encheu-se de medo e glorificou a Deus por ter dado tal poder aos homens.
+9. Partindo dali, Jesus viu um homem chamado Mateus, que estava sentado no posto do pagamento das taxas. Disse-lhe: Segue-me. O homem levantou-se e o seguiu.
+10. Como Jesus estivesse à mesa na casa desse homem, numerosos publicanos e pecadores vieram e sentaram-se com ele e seus discípulos.
+11. Vendo isto, os fariseus disseram aos discípulos: "Por que come vosso mestre com os publicanos e com os pecadores?"
+12. Jesus, ouvindo isto, respondeu-lhes: "Não são os que estão bem que precisam de médico, mas sim os doentes.
+13. Ide e aprendei o que significam estas palavras: Eu quero a misericórdia e não o sacrifício (Os 6,6). Eu não vim chamar os justos, mas os pecadores."
+14. Então os discípulos de João, dirigindo-se a ele, perguntaram: "Por que jejuamos nós e os fariseus, e os teus discípulos não?"
+15. Jesus respondeu: Podem os amigos do esposo afligir-se enquanto o esposo está com eles? Dias virão em que lhes será tirado o esposo. Então eles jejuarão.
+16. Ninguém põe um remendo de pano novo numa veste velha, porque arrancaria uma parte da veste e o rasgão ficaria pior.
+17. Não se coloca tampouco vinho novo em odres velhos; do contrário, os odres se rompem, o vinho se derrama e os odres se perdem. Coloca-se, porém, o vinho novo em odres novos, e assim tanto um como outro se conservam.
+18. Falava ele ainda, quando se apresentou um chefe da sinagoga. Prostrou-se diante dele e lhe disse: Senhor, minha filha acaba de morrer. Mas vem, impõe-lhe as mãos e ela viverá.
+19. Jesus levantou-se e o foi seguindo com seus discípulos.
+20. Ora, uma mulher atormentada por um fluxo de sangue, havia doze anos, aproximou-se dele por trás e tocou-lhe a orla do manto.
+21. Dizia consigo: Se eu somente tocar na sua vestimenta, serei curada.
+22. Jesus virou-se, viu-a e disse-lhe: Tem confiança, minha filha, tua fé te salvou. E a mulher ficou curada instantaneamente.
+23. Chegando à casa do chefe da sinagoga, viu Jesus os tocadores de flauta e uma multidão alvoroçada. Disse-lhes:
+24. Retirai-vos, porque a menina não está morta; ela dorme. Eles, porém, zombavam dele.
+25. Tendo saído a multidão, ele entrou, tomou a menina pela mão e ela levantou-se.
+26. Esta notícia espalhou-se por toda a região.
+27. Partindo Jesus dali, dois cegos o seguiram, gritando: Filho de Davi, tem piedade de nós!
+28. Jesus entrou numa casa e os cegos aproximaram-se dele. Disse-lhes: Credes que eu posso fazer isso? Sim, Senhor, responderam eles.
+29. Então ele tocou-lhes nos olhos, dizendo: Seja-vos feito segundo vossa fé.
+30. No mesmo instante, os seus olhos se abriram. Recomendou-lhes Jesus em tom severo: Vede que ninguém o saiba.
+31. Mas apenas haviam saído, espalharam a sua fama por toda a região.
+32. Logo que se foram, apresentaram-lhe um mudo, possuído do demônio.
+33. O demônio foi expulso, o mudo falou e a multidão exclamava com admiração: Jamais se viu algo semelhante em Israel.
+34. Os fariseus, porém, diziam: É pelo príncipe dos demônios que ele expulsa os demônios.
+35. Jesus percorria todas as cidades e aldeias. Ensinava nas sinagogas, pregando o Evangelho do Reino e curando todo mal e toda enfermidade.
+37. Disse, então, aos seus discípulos: A messe é grande, mas os operários são poucos.
+38. Pedi, pois, ao Senhor da messe que envie operários para sua messe.São Mateus, 10
+1. Jesus reuniu seus doze discípulos. Conferiu-lhes o poder de expulsar os espíritos imundos e de curar todo mal e toda enfermidade.
+2. Eis os nomes dos doze apóstolos: o primeiro, Simão, chamado Pedro; depois André, seu irmão. Tiago, filho de Zebedeu, e João, seu irmão.
+3. Filipe e Bartolomeu. Tomé e Mateus, o publicano. Tiago, filho de Alfeu, e Tadeu.
+4. Simão, o cananeu, e Judas Iscariotes, que foi o traidor.
+5. Estes são os Doze que Jesus enviou em missão, após lhes ter dado as seguintes instruções: Não ireis ao meio dos gentios nem entrareis em Samaria;
+6. ide antes às ovelhas que se perderam da casa de Israel.
+7. Por onde andardes, anunciai que o Reino dos céus está próximo.
+8. Curai os doentes, ressuscitai os mortos, purificai os leprosos, expulsai os demônios. Recebestes de graça, de graça dai!
+9. Não leveis nem ouro, nem prata, nem dinheiro em vossos cintos,
+10. nem mochila para a viagem, nem duas túnicas, nem calçados, nem bastão; pois o operário merece o seu sustento.
+11. Nas cidades ou aldeias onde entrardes, informai-vos se há alguém ali digno de vos receber; ficai ali até a vossa partida.
+12. Entrando numa casa, saudai-a: Paz a esta casa.
+13. Se aquela casa for digna, descerá sobre ela vossa paz; se, porém, não o for, vosso voto de paz retornará a vós.
+14. Se não vos receberem e não ouvirem vossas palavras, quando sairdes daquela casa ou daquela cidade, sacudi até mesmo o pó de vossos pés.
+15. Em verdade vos digo: no dia do juízo haverá mais indulgência com Sodoma e Gomorra que com aquela cidade.
+16. Eu vos envio como ovelhas no meio de lobos. Sede, pois, prudentes como as serpentes, mas simples como as pombas.
+17. Cuidai-vos dos homens. Eles vos levarão aos seus tribunais e açoitar-vos-ão com varas nas suas sinagogas.
+18. Sereis por minha causa levados diante dos governadores e dos reis: servireis assim de testemunho para eles e para os pagãos.
+19. Quando fordes presos, não vos preocupeis nem pela maneira com que haveis de falar, nem pelo que haveis de dizer: naquele momento ser-vos-á inspirado o que haveis de dizer.
+20. Porque não sereis vós que falareis, mas é o Espírito de vosso Pai que falará em vós.
+21. O irmão entregará seu irmão à morte. O pai, seu filho. Os filhos levantar-se-ão contra seus pais e os matarão.
+22. Sereis odiados de todos por causa de meu nome, mas aquele que perseverar até o fim será salvo.
+23. Se vos perseguirem numa cidade, fugi para uma outra. Em verdade vos digo: não acabareis de percorrer as cidades de Israel antes que volte o Filho do Homem.
+24. O discípulo não é mais que o mestre, o servidor não é mais que o patrão.
+25. Basta ao discípulo ser tratado como seu mestre, e ao servidor como seu patrão. Se chamaram de Beelzebul ao pai de família, quanto mais o farão às pessoas de sua casa!
+26. Não os temais, pois; porque nada há de escondido que não venha à luz, nada de secreto que não se venha a saber.
+27. O que vos digo na escuridão, dizei-o às claras. O que vos é dito ao ouvido, publicai-o de cima dos telhados.
+28. Não temais aqueles que matam o corpo, mas não podem matar a alma; temei antes aquele que pode precipitar a alma e o corpo na geena.
+29. Não se vendem dois passarinhos por um asse? No entanto, nenhum cai por terra sem a vontade de vosso Pai.
+30. Até os cabelos de vossa cabeça estão todos contados.
+31. Não temais, pois! Bem mais que os pássaros valeis vós.
+32. Portanto, quem der testemunho de mim diante dos homens, também eu darei testemunho dele diante de meu Pai que está nos céus.
+33. Aquele, porém, que me negar diante dos homens, também eu o negarei diante de meu Pai que está nos céus.
+34. Não julgueis que vim trazer a paz à terra. Vim trazer não a paz, mas a espada.
+35. Eu vim trazer a divisão entre o filho e o pai, entre a filha e a mãe, entre a nora e a sogra,
+36. e os inimigos do homem serão as pessoas de sua própria casa.
+37. Quem ama seu pai ou sua mãe mais que a mim, não é digno de mim. Quem ama seu filho mais que a mim, não é digno de mim.
+38. Quem não toma a sua cruz e não me segue, não é digno de mim.
+39. Aquele que tentar salvar a sua vida, perdê-la-á. Aquele que a perder, por minha causa, reencontrá-la-á.
+40. Quem vos recebe, a mim recebe. E quem me recebe, recebe aquele que me enviou.
+41. Aquele que recebe um profeta, na qualidade de profeta, receberá uma recompensa de profeta. Aquele que recebe um justo, na qualidade de justo, receberá uma recompensa de justo.
+42. Todo aquele que der ainda que seja somente um copo de água fresca a um destes pequeninos, porque é meu discípulo, em verdade eu vos digo: não perderá sua recompensa.São Mateus, 11
+1. Após ter dado instruções aos seus doze discípulos, Jesus partiu para ensinar e pregar nas cidades daquela região.
+2. Tendo João, em sua prisão, ouvido falar das obras de Cristo, mandou-lhe dizer pelos seus discípulos:
+3. Sois vós aquele que deve vir, ou devemos esperar por outro?
+4. Respondeu-lhes Jesus: Ide e contai a João o que ouvistes e o que vistes:
+5. os cegos vêem, os coxos andam, os leprosos são limpos, os surdos ouvem, os mortos ressuscitam, o Evangelho é anunciado aos pobres...
+6. Bem-aventurado aquele para quem eu não for ocasião de queda!
+7. Tendo eles partido, disse Jesus à multidão a respeito de João: Que fostes ver no deserto? Um caniço agitado pelo vento?
+8. Que fostes ver, então? Um homem vestido com roupas luxuosas? Mas os que estão revestidos de tais roupas vivem nos palácios dos reis.
+9. Então por que fostes para lá? Para ver um profeta? Sim, digo-vos eu, mais que um profeta.
+10. É dele que está escrito: Eis que eu envio meu mensageiro diante de ti para te preparar o caminho (Ml 3,1).
+11. Em verdade vos digo: entre os filhos das mulheres, não surgiu outro maior que João Batista. No entanto, o menor no Reino dos céus é maior do que ele.
+12. Desde a época de João Batista até o presente, o Reino dos céus é arrebatado à força e são os violentos que o conquistam.
+13. Porque os profetas e a lei tiveram a palavra até João.
+14. E, se quereis compreender, é ele o Elias que devia voltar.
+15. Quem tem ouvidos, ouça.
+16. A quem hei de comparar esta geração? É semelhante a meninos sentados nas praças que gritam aos seus companheiros:
+17. Tocamos a flauta e não dançais, cantamos uma lamentação e não chorais.
+18. João veio; ele não bebia e não comia, e disseram: Ele está possesso de um demônio.
+19. O Filho do Homem vem, come e bebe, e dizem: É um comilão e beberrão, amigo dos publicanos e dos devassos. Mas a sabedoria foi justificada por seus filhos.
+20. Depois Jesus começou a censurar as cidades, onde tinha feito grande número de seus milagres, por terem recusado arrepender-se:
+21. Ai de ti, Corozaim! Ai de ti, Betsaida! Porque se tivessem sido feitos em Tiro e em Sidônia os milagres que foram feitos em vosso meio, há muito tempo elas se teriam arrependido sob o cilício e a cinza.
+22. Por isso vos digo: no dia do juízo, haverá menor rigor para Tiro e para Sidônia que para vós!
+23. E tu, Cafarnaum, serás elevada até o céu? Não! Serás atirada até o inferno! Porque, se Sodoma tivesse visto os milagres que foram feitos dentro dos teus muros, subsistiria até este dia.
+24. Por isso te digo: no dia do juízo, haverá menor rigor para Sodoma do que para ti!
+25. Por aquele tempo, Jesus pronunciou estas palavras: Eu te bendigo, Pai, Senhor do céu e da terra, porque escondeste estas coisas aos sábios e entendidos e as revelaste aos pequenos.
+26. Sim, Pai, eu te bendigo, porque assim foi do teu agrado.
+27. Todas as coisas me foram dadas por meu Pai; ninguém conhece o Filho, senão o Pai, e ninguém conhece o Pai, senão o Filho e aquele a quem o Filho quiser revelá-lo.
+28. Vinde a mim, vós todos que estais aflitos sob o fardo, e eu vos aliviarei.
+29. Tomai meu jugo sobre vós e recebei minha doutrina, porque eu sou manso e humilde de coração e achareis o repouso para as vossas almas.
+30. Porque meu jugo é suave e meu peso é leve.São Mateus, 12
+1. Atravessava Jesus os campos de trigo num dia de sábado. Seus discípulos, tendo fome, começaram a arrancar as espigas para comê-las.
+2. Vendo isto, os fariseus disseram-lhe: Eis que teus discípulos fazem o que é proibido no dia de sábado.
+3. Jesus respondeu-lhes: Não lestes o que fez Davi num dia em que teve fome, ele e seus companheiros,
+4. como entrou na casa de Deus e comeu os pães da proposição? Ora, nem a ele nem àqueles que o acompanhavam era permitido comer esses pães reservados só aos sacerdotes.
+5. Não lestes na lei que, nos dias de sábado, os sacerdotes transgridem no templo o descanso do sábado e não se tornam culpados?
+6. Ora, eu vos declaro que aqui está quem é maior que o templo.
+7. Se compreendêsseis o sentido destas palavras: Quero a misericórdia e não o sacrifício... não condenaríeis os inocentes.
+8. Porque o Filho do Homem é senhor também do sábado.
+9. Partindo dali, Jesus entrou na sinagoga.
+10. Encontrava-se lá um homem que tinha a mão seca. Alguém perguntou a Jesus: É permitido curar no dia de sábado? Isto para poder acusá-lo.
+11. Jesus respondeu-lhe: Há alguém entre vós que, tendo uma única ovelha e se esta cair num poço no dia de sábado, não a irá procurar e retirar?
+12. Não vale o homem muito mais que uma ovelha? É permitido, pois, fazer o bem no dia de sábado.
+13. Disse, então, àquele homem: Estende a mão. Ele a estendeu e ela tornou-se sã como a outra.
+14. Os fariseus saíram dali e deliberaram sobre os meios de o matar.
+15. Jesus soube disso e afastou-se daquele lugar. Uma grande multidão o seguiu, e ele curou todos os seus doentes.
+16. Proibia-lhes formalmente falar disso,
+17. para que se cumprisse o anunciado pelo profeta Isaías:
+18. Eis o meu servo a quem escolhi, meu bem-amado em quem minha alma pôs toda sua a afeição. Farei repousar sobre ele o meu Espírito e ele anunciará a justiça aos pagãos.
+19. Ele não disputará, não elevará sua voz; ninguém ouvirá sua voz nas praças públicas.
+20. Não quebrará o caniço rachado, nem apagará a mecha que ainda fumega, até que faça triunfar a justiça.
+21. Em seu nome as nações pagãs porão sua esperança (Is 42,1-4).
+22. Apresentaram-lhe, depois, um possesso cego e mudo. Jesus o curou de tal modo, que este falava e via.
+23. A multidão, admirada, dizia: Não será este o filho de Davi?
+24. Mas, ouvindo isto, os fariseus responderam: É por Beelzebul, chefe dos demônios, que ele os expulsa.
+25. Jesus, porém, penetrando nos seus pensamentos, disse: Todo reino dividido contra si mesmo será destruído. Toda cidade, toda casa dividida contra si mesma não pode subsistir.
+26. Se Satanás expele Satanás, está dividido contra si mesmo. Como, pois, subsistirá o seu reino?
+27. E se eu expulso os demônios por Beelzebul, por quem é que vossos filhos os expulsam? Por isso, eles mesmos serão vossos juízes.
+28. Mas, se é pelo Espírito de Deus que expulso os demônios, então chegou para vós o Reino de Deus.
+29. Como pode alguém penetrar na casa de um homem forte e roubar-lhe os bens, sem ter primeiro amarrado este homem forte? Só então pode roubar sua casa.
+30. Quem não está comigo está contra mim; e quem não ajunta comigo, espalha.
+31. Por isso, eu vos digo: todo pecado e toda blasfêmia serão perdoados aos homens, mas a blasfêmia contra o Espírito não lhes será perdoada.
+32. Todo o que tiver falado contra o Filho do Homem será perdoado. Se, porém, falar contra o Espírito Santo, não alcançará perdão nem neste século nem no século vindouro.
+33. Ou dizeis que a árvore é boa e seu fruto bom, ou dizeis que é má e seu fruto, mau; porque é pelo fruto que se conhece a árvore.
+34. Raça de víboras, maus como sois, como podeis dizer coisas boas? Porque a boca fala do que lhe transborda do coração.
+35. O homem de bem tira boas coisas de seu bom tesouro. O mau, porém, tira coisas más de seu mau tesouro.
+36. Eu vos digo: no dia do juízo os homens prestarão contas de toda palavra vã que tiverem proferido.
+37. É por tuas palavras que serás justificado ou condenado.
+38. Então alguns escribas e fariseus tomaram a palavra: Mestre, quiséramos ver-te fazer um milagre.
+39. Respondeu-lhes Jesus: Esta geração adúltera e perversa pede um sinal, mas não lhe será dado outro sinal do que aquele do profeta Jonas:
+40. do mesmo modo que Jonas esteve três dias e três noites no ventre do peixe, assim o Filho do Homem ficará três dias e três noites no seio da terra.
+41. No dia do juízo, os ninivitas se levantarão com esta raça e a condenarão, porque fizeram penitência à voz de Jonas. Ora, aqui está quem é mais do que Jonas.
+42. No dia do juízo, a rainha do Sul se levantará com esta raça e a condenará, porque veio das extremidades da terra para ouvir a sabedoria de Salomão. Ora, aqui está quem é mais do que Salomão.
+43. Quando o espírito impuro sai de um homem, ei-lo errante por lugares áridos à procura de um repouso que não acha.
+44. Diz ele, então: Voltarei para a casa donde saí. E, voltando, encontra-a vazia, limpa e enfeitada.
+45. Vai, então, buscar sete outros espíritos piores que ele, e entram nessa casa e se estabelecem aí; e o último estado daquele homem torna-se pior que o primeiro. Tal será a sorte desta geração perversa.
+46. Jesus falava ainda à multidão, quando veio sua mãe e seus irmãos e esperavam do lado de fora a ocasião de lhe falar.
+47. Disse-lhe alguém: Tua mãe e teus irmãos estão aí fora, e querem falar-te.
+48. Jesus respondeu-lhe: Quem é minha mãe e quem são meus irmãos?
+49. E, apontando com a mão para os seus discípulos, acrescentou: Eis aqui minha mãe e meus irmãos.
+50. Todo aquele que faz a vontade de meu Pai que está nos céus, esse é meu irmão, minha irmã e minha mãe.São Mateus, 13
+1. Naquele dia, saiu Jesus e sentou-se à beira do lago.
+2. Acercou-se dele, porém, uma tal multidão, que precisou entrar numa barca. Nela se assentou, enquanto a multidão ficava à margem.
+3. E seus discursos foram uma série de parábolas.
+4. Disse ele: Um semeador saiu a semear. E, semeando, parte da semente caiu ao longo do caminho; os pássaros vieram e a comeram.
+5. Outra parte caiu em solo pedregoso, onde não havia muita terra, e nasceu logo, porque a terra era pouco profunda.
+6. Logo, porém, que o sol nasceu, queimou-se, por falta de raízes.
+7. Outras sementes caíram entre os espinhos: os espinhos cresceram e as sufocaram.
+8. Outras, enfim, caíram em terra boa: deram frutos, cem por um, sessenta por um, trinta por um.
+9. Aquele que tem ouvidos, ouça.
+10. Os discípulos aproximaram-se dele, então, para dizer-lhe: Por que lhes falas em parábolas?
+11. Respondeu Jesus: Porque a vós é dado compreender os mistérios do Reino dos céus, mas a eles não.
+12. Ao que tem, se lhe dará e terá em abundância, mas ao que não tem será tirado até mesmo o que tem.
+13. Eis por que lhes falo em parábolas: para que, vendo, não vejam e, ouvindo, não ouçam nem compreendam.
+14. Assim se cumpre para eles o que foi dito pelo profeta Isaías: Ouvireis com vossos ouvidos e não entendereis, olhareis com vossos olhos e não vereis,
+15. porque o coração deste povo se endureceu: taparam os seus ouvidos e fecharam os seus olhos, para que seus olhos não vejam e seus ouvidos não ouçam, nem seu coração compreenda; para que não se convertam e eu os sare (Is 6,9s).
+16. Mas, quanto a vós, bem-aventurados os vossos olhos, porque vêem! Ditosos os vossos ouvidos, porque ouvem!
+17. Eu vos declaro, em verdade: muitos profetas e justos desejaram ver o que vedes e não o viram, ouvir o que ouvis e não ouviram.
+18. Ouvi, pois, o sentido da parábola do semeador:
+19. quando um homem ouve a palavra do Reino e não a entende, o Maligno vem e arranca o que foi semeado no seu coração. Este é aquele que recebeu a semente à beira do caminho.
+20. O solo pedregoso em que ela caiu é aquele que acolhe com alegria a palavra ouvida,
+21. mas não tem raízes, é inconstante: sobrevindo uma tribulação ou uma perseguição por causa da palavra, logo encontra uma ocasião de queda.
+22. O terreno que recebeu a semente entre os espinhos representa aquele que ouviu bem a palavra, mas nele os cuidados do mundo e a sedução das riquezas a sufocam e a tornam infrutuosa.
+23. A terra boa semeada é aquele que ouve a palavra e a compreende, e produz fruto: cem por um, sessenta por um, trinta por um.
+24. Jesus propôs-lhes outra parábola: O Reino dos céus é semelhante a um homem que tinha semeado boa semente em seu campo.
+25. Na hora, porém, em que os homens repousavam, veio o seu inimigo, semeou joio no meio do trigo e partiu.
+26. O trigo cresceu e deu fruto, mas apareceu também o joio.
+27. Os servidores do pai de família vieram e disseram-lhe: - Senhor, não semeaste bom trigo em teu campo? Donde vem, pois, o joio?
+28. Disse-lhes ele: - Foi um inimigo que fez isto! Replicaram-lhe: - Queres que vamos e o arranquemos?
+29. - Não, disse ele; arrancando o joio, arriscais a tirar também o trigo.
+30. Deixai-os crescer juntos até a colheita. No tempo da colheita, direi aos ceifadores: arrancai primeiro o joio e atai-o em feixes para o queimar. Recolhei depois o trigo no meu celeiro.
+31. Em seguida, propôs-lhes outra parábola: O Reino dos céus é comparado a um grão de mostarda que um homem toma e semeia em seu campo.
+32. É esta a menor de todas as sementes, mas, quando cresce, torna-se um arbusto maior que todas as hortaliças, de sorte que os pássaros vêm aninhar-se em seus ramos.
+33. Disse-lhes, por fim, esta outra parábola. O Reino dos céus é comparado ao fermento que uma mulher toma e mistura em três medidas de farinha e que faz fermentar toda a massa.
+34. Tudo isto disse Jesus à multidão em forma de parábola. De outro modo não lhe falava,
+35. para que se cumprisse a profecia: Abrirei a boca para ensinar em parábolas; revelarei coisas ocultas desde a criação (Sl 77,2).
+36. Então despediu a multidão. Em seguida, entrou de novo na casa e seus discípulos agruparam-se ao redor dele para perguntar-lhe: Explica-nos a parábola do joio no campo.
+37. Jesus respondeu: O que semeia a boa semente é o Filho do Homem.
+38. O campo é o mundo. A boa semente são os filhos do Reino. O joio são os filhos do Maligno.
+39. O inimigo, que o semeia, é o demônio. A colheita é o fim do mundo. Os ceifadores são os anjos.
+40. E assim como se recolhe o joio para jogá-lo no fogo, assim será no fim do mundo.
+41. O Filho do Homem enviará seus anjos, que retirarão de seu Reino todos os escândalos e todos os que fazem o mal
+42. e os lançarão na fornalha ardente, onde haverá choro e ranger de dentes.
+43. Então, no Reino de seu Pai, os justos resplandecerão como o sol. Aquele que tem ouvidos, ouça.
+44. O Reino dos céus é também semelhante a um tesouro escondido num campo. Um homem o encontra, mas o esconde de novo. E, cheio de alegria, vai, vende tudo o que tem para comprar aquele campo.
+45. O Reino dos céus é ainda semelhante a um negociante que procura pérolas preciosas.
+46. Encontrando uma de grande valor, vai, vende tudo o que possui e a compra.
+47. O Reino dos céus é semelhante ainda a uma rede que, jogada ao mar, recolhe peixes de toda espécie.
+48. Quando está repleta, os pescadores puxam-na para a praia, sentam-se e separam nos cestos o que é bom e jogam fora o que não presta.
+49. Assim será no fim do mundo: os anjos virão separar os maus do meio dos justos
+50. e os arrojarão na fornalha, onde haverá choro e ranger de dentes.
+51. Compreendestes tudo isto? Sim, Senhor, responderam eles.
+52. Por isso, todo escriba instruído nas coisas do Reino dos céus é comparado a um pai de família que tira de seu tesouro coisas novas e velhas.
+53. Após ter exposto as parábolas, Jesus partiu.
+54. Foi para a sua cidade e ensinava na sinagoga, de modo que todos diziam admirados: Donde lhe vem esta sabedoria e esta força miraculosa?
+55. Não é este o filho do carpinteiro? Não é Maria sua mãe? Não são seus irmãos Tiago, José, Simão e Judas?
+56. E suas irmãs, não vivem todas entre nós? Donde lhe vem, pois, tudo isso?
+57. E não sabiam o que dizer dele. Disse-lhes, porém, Jesus: É só em sua pátria e em sua família que um profeta é menosprezado.
+58. E, por causa da falta de confiança deles, operou ali poucos milagres.São Mateus, 14
+1. Por aquela mesma época, o tetrarca Herodes ouviu falar de Jesus.
+2. E disse aos seus cortesãos: É João Batista que ressuscitou. É por isso que ele faz tantos milagres.
+3. Com efeito, Herodes havia mandado prender e acorrentar João, e o tinha mandado meter na prisão por causa de Herodíades, esposa de seu irmão Filipe.
+4. João lhe tinha dito: Não te é permitido tomá-la por mulher!
+5. De boa mente o mandaria matar; temia, porém, o povo que considerava João um profeta.
+6. Mas, na festa de aniversário de nascimento de Herodes, a filha de Herodíades dançou no meio dos convidados e agradou a Herodes.
+7. Por isso, ele prometeu com juramento dar-lhe tudo o que lhe pedisse.
+8. Por instigação de sua mãe, ela respondeu: Dá-me aqui, neste prato, a cabeça de João Batista.
+9. O rei entristeceu-se, mas como havia jurado diante dos convidados, ordenou que lha dessem;
+10. e mandou decapitar João na sua prisão.
+11. A cabeça foi trazida num prato e dada à moça, que a entregou à sua mãe.
+12. Vieram, então, os discípulos de João transladar seu corpo, e o enterraram. Depois foram dar a notícia a Jesus.
+13. A essa notícia, Jesus partiu dali numa barca para se retirar a um lugar deserto, mas o povo soube e a multidão das cidades o seguiu a pé.
+14. Quando desembarcou, vendo Jesus essa numerosa multidão, moveu-se de compaixão para ela e curou seus doentes.
+15. Caía a tarde. Agrupados em volta dele, os discípulos disseram-lhe: Este lugar é deserto e a hora é avançada. Despede esta gente para que vá comprar víveres na aldeia.
+16. Jesus, porém, respondeu: Não é necessário: dai-lhe vós mesmos de comer.
+17. Mas, disseram eles, nós não temos aqui mais que cinco pães e dois peixes. _
+18. Trazei-mos, disse-lhes ele.
+19. Mandou, então, a multidão assentar-se na relva, tomou os cinco pães e os dois peixes e, elevando os olhos ao céu, abençoou-os. Partindo em seguida os pães, deu-os aos seus discípulos, que os distribuíram ao povo.
+20. Todos comeram e ficaram fartos, e, dos pedaços que sobraram, recolheram doze cestos cheios.
+21. Ora, os convivas foram aproximadamente cinco mil homens, sem contar as mulheres e crianças.
+22. Logo depois, Jesus obrigou seus discípulos a entrar na barca e a passar antes dele para a outra margem, enquanto ele despedia a multidão.
+23. Feito isso, subiu à montanha para orar na solidão. E, chegando a noite, estava lá sozinho.
+24. Entretanto, já a boa distância da margem, a barca era agitada pelas ondas, pois o vento era contrário.
+25. Pela quarta vigília da noite, Jesus veio a eles, caminhando sobre o mar.
+26. Quando os discípulos o perceberam caminhando sobre as águas, ficaram com medo: É um fantasma! disseram eles, soltando gritos de terror.
+27. Mas Jesus logo lhes disse: Tranqüilizai-vos, sou eu. Não tenhais medo!
+28. Pedro tomou a palavra e falou: Senhor, se és tu, manda-me ir sobre as águas até junto de ti!
+29. Ele disse-lhe: Vem! Pedro saiu da barca e caminhava sobre as águas ao encontro de Jesus.
+30. Mas, redobrando a violência do vento, teve medo e, começando a afundar, gritou: Senhor, salva-me!
+31. No mesmo instante, Jesus estendeu-lhe a mão, segurou-o e lhe disse: Homem de pouca fé, por que duvidaste?
+32. Apenas tinham subido para a barca, o vento cessou.
+33. Então aqueles que estavam na barca prostraram-se diante dele e disseram: Tu és verdadeiramente o Filho de Deus.
+34. E, tendo atravessado, chegaram a Genesaré.
+35. As pessoas do lugar o reconheceram e mandaram anunciar por todos os arredores. Apresentaram-lhe, então, todos os doentes,
+36. rogando-lhe que ao menos deixasse tocar na orla de sua veste. E, todos aqueles que nele tocaram, foram curados.São Mateus, 15
+1. Alguns fariseus e escribas de Jerusalém vieram um dia ter com Jesus e lhe disseram:
+2. Por que transgridem teus discípulos a tradição dos antigos? Nem mesmo lavam as mãos antes de comer.
+3. Jesus respondeu-lhes: E vós, por que violais os preceitos de Deus, por causa de vossa tradição?
+4. Deus disse: Honra teu pai e tua mãe; aquele que amaldiçoar seu pai ou sua mãe será castigado de morte (Ex 20,12; 21,17).
+5. Mas vós dizeis: Aquele que disser a seu pai ou a sua mãe: aquilo com que eu vos poderia assistir, já ofereci a Deus,
+6. esse já não é obrigado a socorrer de outro modo a seus pais. Assim, por causa de vossa tradição, anulais a palavra de Deus.
+7. Hipócritas! É bem de vós que fala o profeta Isaías:
+8. Este povo somente me honra com os lábios; seu coração, porém, está longe de mim.
+9. Vão é o culto que me prestam, porque ensinam preceitos que só vêm dos homens (Is 29,13).
+10. Depois, reuniu os assistentes e disse-lhes:
+11. Ouvi e compreendei. Não é aquilo que entra pela boca que mancha o homem, mas aquilo que sai dele. Eis o que mancha o homem.
+12. Então se aproximaram dele seus discípulos e disseram-lhe: Sabes que os fariseus se escandalizaram com as palavras que ouviram?
+13. Jesus respondeu: Toda planta que meu Pai celeste não plantou será arrancada pela raiz.
+14. Deixai-os. São cegos e guias de cegos. Ora, se um cego conduz a outro, tombarão ambos na mesma vala.
+15. Tomando então a palavra, Pedro disse: Explica-nos esta parábola.
+16. Jesus respondeu: Sois também vós de tão pouca compreensão?
+17. Não compreendeis que tudo o que entra pela boca vai ao ventre e depois é lançado num lugar secreto?
+18. Ao contrário, aquilo que sai da boca provém do coração, e é isso o que mancha o homem.
+19. Porque é do coração que provêm os maus pensamentos, os homicídios, os adultérios, as impurezas, os furtos, os falsos testemunhos, as calúnias.
+20. Eis o que mancha o homem. Comer, porém, sem ter lavado as mãos, isso não mancha o homem.
+21. Jesus partiu dali e retirou-se para os arredores de Tiro e Sidônia.
+22. E eis que uma cananéia, originária daquela terra, gritava: Senhor, filho de Davi, tem piedade de mim! Minha filha está cruelmente atormentada por um demônio.
+23. Jesus não lhe respondeu palavra alguma. Seus discípulos vieram a ele e lhe disseram com insistência: Despede-a, ela nos persegue com seus gritos.
+24. Jesus respondeu-lhes: Não fui enviado senão às ovelhas perdidas da casa de Israel.
+25. Mas aquela mulher veio prostrar-se diante dele, dizendo: Senhor, ajuda-me!
+26. Jesus respondeu-lhe: Não convém jogar aos cachorrinhos o pão dos filhos. _
+27. Certamente, Senhor, replicou-lhe ela; mas os cachorrinhos ao menos comem as migalhas que caem da mesa de seus donos...
+28. Disse-lhe, então, Jesus: Ó mulher, grande é tua fé! Seja-te feito como desejas. E na mesma hora sua filha ficou curada.
+29. Jesus saiu daquela região e voltou para perto do mar da Galiléia. Subiu a uma colina e sentou-se ali.
+30. Então numerosa multidão aproximou-se dele, trazendo consigo mudos, cegos, coxos, aleijados e muitos outros enfermos. Puseram-nos aos seus pés e ele os curou,
+31. de sorte que o povo estava admirado ante o espetáculo dos mudos que falavam, daqueles aleijados curados, de coxos que andavam, dos cegos que viam; e glorificavam ao Deus de Israel.
+32. Jesus, porém, reuniu os seus discípulos e disse-lhes: Tenho piedade esta multidão: eis que há três dias está perto de mim e não tem nada para comer. Não quero despedi-la em jejum, para que não desfaleça no caminho.
+33. Disseram-lhe os discípulos: De que maneira procuraremos neste lugar deserto pão bastante para saciar tal multidão?
+34. Pergunta-lhes Jesus: Quantos pães tendes? Sete, e alguns peixinhos, responderam eles.
+35. Mandou, então, a multidão assentar-se no chão,
+36. tomou os sete pães e os peixes e abençoou-os. Depois os partiu e os deu aos discípulos, que os distribuíram à multidão.
+37. Todos comeram e ficaram saciados, e, dos pedaços que restaram, encheram sete cestos.
+38. Ora, os que se alimentaram foram quatro mil homens, sem contar as mulheres e as crianças.
+39. Jesus então despediu o povo, subiu para a barca e retornou à região de Magadã.São Mateus, 16
+1. Os fariseus e os saduceus achegaram-se a Jesus para submetê-lo à prova e pediram-lhe que lhes mostrasse um milagre do céu.
+2. Ele lhes respondeu: Quando vem a tarde, dizeis: Haverá bom tempo, porque o céu está avermelhado.
+3. E de manhã: Hoje haverá tormenta, porque o céu está de um vermelho sombrio.
+4. Hipócritas! Sabeis distinguir o aspecto do céu e não podeis discernir os sinais dos tempos? Essa raça perversa e adúltera pede um milagre! Mas não lhe será dado outro sinal senão o de Jonas! Depois, deixando-os, partiu.
+5. Ora, passando para a outra margem do lago, os discípulos haviam esquecido de levar pão.
+6. Jesus disse-lhes: Guardai-vos com cuidado do fermento dos fariseus e dos saduceus.
+7. Eles pensavam: É que não trouxemos pão...
+8. Jesus, penetrando nos seus pensamentos, disse-lhes: Homens de pouca fé! Por que julgais que vos falei por não terdes pão?
+9. Ainda não compreendeis? Nem vos lembrais dos cinco pães e dos cinco mil homens, e de quantos cestos recolhestes?
+10. Nem dos sete pães para os quatro mil homens e de quantos cestos enchestes?
+11. Por que não compreendeis que não é do pão que eu vos falava, quando vos disse: Guardai-vos do fermento dos fariseus e dos saduceus?
+12. Então entenderam que não dissera que se guardassem do fermento do pão, mas da doutrina dos fariseus e dos saduceus.
+13. Chegando ao território de Cesaréia de Filipe, Jesus perguntou a seus discípulos: No dizer do povo, quem é o Filho do Homem?
+14. Responderam: Uns dizem que é João Batista; outros, Elias; outros, Jeremias ou um dos profetas.
+15. Disse-lhes Jesus: E vós quem dizeis que eu sou?
+16. Simão Pedro respondeu: Tu és o Cristo, o Filho de Deus vivo!
+17. Jesus então lhe disse: Feliz és, Simão, filho de Jonas, porque não foi a carne nem o sangue que te revelou isto, mas meu Pai que está nos céus.
+18. E eu te declaro: tu és Pedro, e sobre esta pedra edificarei a minha Igreja; as portas do inferno não prevalecerão contra ela.
+19. Eu te darei as chaves do Reino dos céus: tudo o que ligares na terra será ligado nos céus, e tudo o que desligares na terra será desligado nos céus.
+20. Depois, ordenou aos seus discípulos que não dissessem a ninguém que ele era o Cristo.
+21. Desde então, Jesus começou a manifestar a seus discípulos que precisava ir a Jerusalém e sofrer muito da parte dos anciãos, dos príncipes dos sacerdotes e dos escribas; seria morto e ressuscitaria ao terceiro dia.
+22. Pedro então começou a interpelá-lo e protestar nestes termos: Que Deus não permita isto, Senhor! Isto não te acontecerá!
+23. Mas Jesus, voltando-se para ele, disse-lhe: Afasta-te, Satanás! Tu és para mim um escândalo; teus pensamentos não são de Deus, mas dos homens!
+24. Em seguida, Jesus disse a seus discípulos: Se alguém quiser vir comigo, renuncie-se a si mesmo, tome sua cruz e siga-me.
+25. Porque aquele que quiser salvar a sua vida, perdê-la-á; mas aquele que tiver sacrificado a sua vida por minha causa, recobrá-la-á.
+26. Que servirá a um homem ganhar o mundo inteiro, se vem a prejudicar a sua vida? Ou que dará um homem em troca de sua vida?...
+27. Porque o Filho do Homem há de vir na glória de seu Pai com seus anjos, e então recompensará a cada um segundo suas obras.
+28. Em verdade vos declaro: muitos destes que aqui estão não verão a morte, sem que tenham visto o Filho do Homem voltar na majestade de seu Reino.São Mateus, 17
+1. Seis dias depois, Jesus tomou consigo Pedro, Tiago e João, seu irmão, e conduziu-os à parte a uma alta montanha.
+2. Lá se transfigurou na presença deles: seu rosto brilhou como o sol, suas vestes tornaram-se resplandecentes de brancura.
+3. E eis que apareceram Moisés e Elias conversando com ele.
+4. Pedro tomou então a palavra e disse-lhe: Senhor, é bom estarmos aqui. Se queres, farei aqui três tendas: uma para ti, uma para Moisés e outra para Elias. Falava ele ainda, quando veio uma nuvem luminosa e os envolveu. E daquela nuvem fez-se ouvir uma voz que dizia: Eis o meu Filho muito amado, em quem pus toda minha afeição; ouvi-o.
+6. Ouvindo esta voz, os discípulos caíram com a face por terra e tiveram medo.
+7. Mas Jesus aproximou-se deles e tocou-os, dizendo: Levantai-vos e não temais.
+8. Eles levantaram os olhos e não viram mais ninguém, senão unicamente Jesus.
+9. E, quando desciam, Jesus lhes fez esta proibição: Não conteis a ninguém o que vistes, até que o Filho do Homem ressuscite dos mortos.
+10. Em seguida, os discípulos o interrogaram: Por que dizem os escribas que Elias deve voltar primeiro?
+11. Jesus respondeu-lhes: Elias, de fato, deve voltar e restabelecer todas as coisas.
+12. Mas eu vos digo que Elias já veio, mas não o conheceram; antes, fizeram com ele quanto quiseram. Do mesmo modo farão sofrer o Filho do Homem.
+13. Os discípulos compreenderam, então, que ele lhes falava de João Batista.
+14. E, quando eles se reuniram ao povo, um homem aproximou-se deles e prostrou-se diante de Jesus,
+15. dizendo: Senhor, tem piedade de meu filho, porque é lunático e sofre muito: ora cai no fogo, ora na água...
+16. Já o apresentei a teus discípulos, mas eles não o puderam curar.
+17. Respondeu Jesus: Raça incrédula e perversa, até quando estarei convosco? Até quando hei de aturar-vos? Trazei-mo.
+18. Jesus ameaçou o demônio e este saiu do menino, que ficou curado na mesma hora.
+19. Então os discípulos lhe perguntaram em particular: Por que não pudemos nós expulsar este demônio?
+20. Jesus respondeu-lhes: Por causa de vossa falta de fé. Em verdade vos digo: se tiverdes fé, como um grão de mostarda, direis a esta montanha: Transporta-te daqui para lá, e ela irá; e nada vos será impossível. Quanto a esta espécie de demônio, só se pode expulsar à força de oração e de jejum.
+21. Enquanto caminhava pela Galiléia, Jesus lhes disse: O Filho do Homem deve ser entregue nas mãos dos homens.
+22. Matá-lo-ão, mas ao terceiro dia ressuscitará. E eles ficaram profundamente aflitos.
+23. Logo que chegaram a Cafarnaum, aqueles que cobravam o imposto da didracma aproximaram-se de Pedro e lhe perguntaram: Teu mestre não paga a didracma?
+24. Paga sim, respondeu Pedro. Mas quando chegaram à casa, Jesus preveniu-o, dizendo: Que te parece, Simão? Os reis da terra, de quem recebem os tributos ou os impostos? De seus filhos ou dos estrangeiros?
+25. Pedro respondeu: Dos estrangeiros. Jesus replicou: Os filhos, então, estão isentos.
+26. Mas não convém escandalizá-los. Vai ao mar, lança o anzol, e ao primeiro peixe que pegares abrirás a boca e encontrarás um estatere. Toma-o e dá-o por mim e por ti.São Mateus, 18
+1. Neste momento os discípulos aproximaram-se de Jesus e perguntaram-lhe: Quem é o maior no Reino dos céus?
+2. Jesus chamou uma criancinha, colocou-a no meio deles e disse:
+3. Em verdade vos declaro: se não vos transformardes e vos tornardes como criancinhas, não entrareis no Reino dos céus.
+4. Aquele que se fizer humilde como esta criança será maior no Reino dos céus.
+5. E o que recebe em meu nome a um menino como este, é a mim que recebe.
+6. Mas, se alguém fizer cair em pecado um destes pequenos que crêem em mim, melhor fora que lhe atassem ao pescoço a mó de um moinho e o lançassem no fundo do mar.
+7. Ai do mundo por causa dos escândalos! Eles são inevitáveis, mas ai do homem que os causa!
+8. Por isso, se tua mão ou teu pé te fazem cair em pecado, corta-os e lança-os longe de ti: é melhor para ti entrares na vida coxo ou manco que, tendo dois pés e duas mãos, seres lançado no fogo eterno.
+9. Se teu olho te leva ao pecado, arranca-o e lança-o longe de ti: é melhor para ti entrares na vida cego de um olho que seres jogado com teus dois olhos no fogo da geena.
+10. Guardai-vos de menosprezar um só destes pequenos, porque eu vos digo que seus anjos no céu contemplam sem cessar a face de meu Pai que está nos céus.
+11. [Porque o Filho do Homem veio salvar o que estava perdido.]
+12. Que vos parece? Um homem possui cem ovelhas: uma delas se desgarra. Não deixa ele as noventa e nove na montanha, para ir buscar aquela que se desgarrou?
+13. E se a encontra, sente mais júbilo do que pelas noventa e nove que não se desgarraram.
+14. Assim é a vontade de vosso Pai celeste, que não se perca um só destes pequeninos.
+15. Se teu irmão tiver pecado contra ti, vai e repreende-o entre ti e ele somente; se te ouvir, terás ganho teu irmão.
+16. Se não te escutar, toma contigo uma ou duas pessoas, a fim de que toda a questão se resolva pela decisão de duas ou três testemunhas.
+17. Se recusa ouvi-los, dize-o à Igreja. E se recusar ouvir também a Igreja, seja ele para ti como um pagão e um publicano.
+18. Em verdade vos digo: tudo o que ligardes sobre a terra será ligado no céu, e tudo o que desligardes sobre a terra será também desligado no céu.
+19. Digo-vos ainda isto: se dois de vós se unirem sobre a terra para pedir, seja o que for, consegui-lo-ão de meu Pai que está nos céus.
+20. Porque onde dois ou três estão reunidos em meu nome, aí estou eu no meio deles.
+21. Então Pedro se aproximou dele e disse: Senhor, quantas vezes devo perdoar a meu irmão, quando ele pecar contra mim? Até sete vezes?
+22. Respondeu Jesus: Não te digo até sete vezes, mas até setenta vezes sete.
+23. Por isso, o Reino dos céus é comparado a um rei que quis ajustar contas com seus servos.
+24. Quando começou a ajustá-las, trouxeram-lhe um que lhe devia dez mil talentos.
+25. Como ele não tinha com que pagar, seu senhor ordenou que fosse vendido, ele, sua mulher, seus filhos e todos os seus bens para pagar a dívida.
+26. Este servo, então, prostrou-se por terra diante dele e suplicava-lhe: Dá-me um prazo, e eu te pagarei tudo!
+27. Cheio de compaixão, o senhor o deixou ir embora e perdoou-lhe a dívida.
+28. Apenas saiu dali, encontrou um de seus companheiros de serviço que lhe devia cem denários. Agarrou-o na garganta e quase o estrangulou, dizendo: Paga o que me deves!
+29. O outro caiu-lhe aos pés e pediu-lhe: Dá-me um prazo e eu te pagarei!
+30. Mas, sem nada querer ouvir, este homem o fez lançar na prisão, até que tivesse pago sua dívida.
+31. Vendo isto, os outros servos, profundamente tristes, vieram contar a seu senhor o que se tinha passado.
+32. Então o senhor o chamou e lhe disse: Servo mau, eu te perdoei toda a dívida porque me suplicaste.
+33. Não devias também tu compadecer-te de teu companheiro de serviço, como eu tive piedade de ti?
+34. E o senhor, encolerizado, entregou-o aos algozes, até que pagasse toda a sua dívida.
+35. Assim vos tratará meu Pai celeste, se cada um de vós não perdoar a seu irmão, de todo seu coração.São Mateus, 19
+1. Após esses discursos, Jesus deixou a Galiléia e veio para a Judéia, além do Jordão.
+2. Uma grande multidão o seguiu e ele curou seus doentes.
+3. Os fariseus vieram perguntar-lhe para pô-lo à prova: É permitido a um homem rejeitar sua mulher por um motivo qualquer?
+4. Respondeu-lhes Jesus: Não lestes que o Criador, no começo, fez o homem e a mulher e disse:
+5. Por isso, o homem deixará seu pai e sua mãe e se unirá à sua mulher; e os dois formarão uma só carne?
+6. Assim, já não são dois, mas uma só carne. Portanto, não separe o homem o que Deus uniu.
+7. Disseram-lhe eles: Por que, então, Moisés ordenou dar um documento de divórcio à mulher, ao rejeitá-la?
+8. Jesus respondeu-lhes: É por causa da dureza de vosso coração que Moisés havia tolerado o repúdio das mulheres; mas no começo não foi assim.
+9. Ora, eu vos declaro que todo aquele que rejeita sua mulher, exceto no caso de matrimônio falso, e desposa uma outra, comete adultério. E aquele que desposa uma mulher rejeitada, comete também adultério.
+10. Seus discípulos disseram-lhe: Se tal é a condição do homem a respeito da mulher, é melhor não se casar!
+11. Respondeu ele: Nem todos são capazes de compreender o sentido desta palavra, mas somente aqueles a quem foi dado.
+12. Porque há eunucos que o são desde o ventre de suas mães, há eunucos tornados tais pelas mãos dos homens e há eunucos que a si mesmos se fizeram eunucos por amor do Reino dos céus. Quem puder compreender, compreenda.
+13. Foram-lhe, então, apresentadas algumas criancinhas para que pusesse as mãos sobre elas e orasse por elas. Os discípulos, porém, as afastavam.
+14. Disse-lhes Jesus: Deixai vir a mim estas criancinhas e não as impeçais, porque o Reino dos céus é para aqueles que se lhes assemelham.
+15. E, depois de impor-lhes as mãos, continuou seu caminho.
+16. Um jovem aproximou-se de Jesus e lhe perguntou: Mestre, que devo fazer de bom para ter a vida eterna? Disse-lhe Jesus:
+17. Por que me perguntas a respeito do que se deve fazer de bom? Só Deus é bom. Se queres entrar na vida, observa os mandamentos.
+18. Quais?, perguntou ele. Jesus respondeu: Não matarás, não cometerás adultério, não furtarás, não dirás falso testemunho,
+19. honra teu pai e tua mãe, amarás teu próximo como a ti mesmo.
+20. Disse-lhe o jovem: Tenho observado tudo isto desde a minha infância. Que me falta ainda?
+21. Respondeu Jesus: Se queres ser perfeito, vai, vende teus bens, dá-os aos pobres e terás um tesouro no céu. Depois, vem e segue-me!
+22. Ouvindo estas palavras, o jovem foi embora muito triste, porque possuía muitos bens.
+23. Jesus disse então aos seus discípulos: Em verdade vos declaro: é difícil para um rico entrar no Reino dos céus!
+24. Eu vos repito: é mais fácil um camelo passar pelo fundo de uma agulha do que um rico entrar no Reino de Deus.
+25. A estas palavras seus discípulos, pasmados, perguntaram: Quem poderá então salvar-se?
+26. Jesus olhou para eles e disse: Aos homens isto é impossível, mas a Deus tudo é possível.
+27. Pedro então, tomando a palavra, disse-lhe: Eis que deixamos tudo para te seguir. Que haverá então para nós?
+28. Respondeu Jesus: Em verdade vos declaro: no dia da renovação do mundo, quando o Filho do Homem estiver sentado no trono da glória, vós, que me haveis seguido, estareis sentados em doze tronos para julgar as doze tribos de Israel.
+29. E todo aquele que por minha causa deixar irmãos, irmãs, pai, mãe, mulher, filhos, terras ou casa receberá o cêntuplo e possuirá a vida eterna.
+30. Muitos dos primeiros serão os últimos e muitos dos últimos serão os primeiros.São Mateus, 20
+1. Com efeito, o Reino dos céus é semelhante a um pai de família que saiu ao romper da manhã, a fim de contratar operários para sua vinha.
+2. Ajustou com eles um denário por dia e enviou-os para sua vinha.
+3. Cerca da terceira hora, saiu ainda e viu alguns que estavam na praça sem fazer nada.
+4. Disse-lhes ele: - Ide também vós para minha vinha e vos darei o justo salário.
+5. Eles foram. À sexta hora saiu de novo e igualmente pela nona hora, e fez o mesmo.
+6. Finalmente, pela undécima hora, encontrou ainda outros na praça e perguntou-lhes: - Por que estais todo o dia sem fazer nada?
+7. Eles responderam: - É porque ninguém nos contratou. Disse-lhes ele, então: - Ide vós também para minha vinha.
+8. Ao cair da tarde, o senhor da vinha disse a seu feitor: - Chama os operários e paga-lhes, começando pelos últimos até os primeiros.
+9. Vieram aqueles da undécima hora e receberam cada qual um denário.
+10. Chegando por sua vez os primeiros, julgavam que haviam de receber mais. Mas só receberam cada qual um denário.
+11. Ao receberem, murmuravam contra o pai de família, dizendo:
+12. - Os últimos só trabalharam uma hora... e deste-lhes tanto como a nós, que suportamos o peso do dia e do calor.
+13. O senhor, porém, observou a um deles: - Meu amigo, não te faço injustiça. Não contrataste comigo um denário?
+14. Toma o que é teu e vai-te. Eu quero dar a este último tanto quanto a ti.
+15. Ou não me é permitido fazer dos meus bens o que me apraz? Porventura vês com maus olhos que eu seja bom?
+16. Assim, pois, os últimos serão os primeiros e os primeiros serão os últimos. [ Muitos serão os chamados, mas poucos os escolhidos.]
+17. Subindo para Jerusalém, durante o caminho, Jesus tomou à parte os Doze e disse-lhes:
+18. Eis que subimos a Jerusalém, e o Filho do Homem será entregue aos príncipes dos sacerdotes e aos escribas. Eles o condenarão à morte.
+19. E o entregarão aos pagãos para ser exposto às suas zombarias, açoitado e crucificado; mas ao terceiro dia ressuscitará.
+20. Nisso aproximou-se a mãe dos filhos de Zebedeu com seus filhos e prostrou-se diante de Jesus para lhe fazer uma súplica.
+21. Perguntou-lhe ele: Que queres? Ela respondeu: Ordena que estes meus dois filhos se sentem no teu Reino, um à tua direita e outro à tua esquerda.
+22. Jesus disse: Não sabeis o que pedis. Podeis vós beber o cálice que eu devo beber? Sim, disseram-lhe.
+23. De fato, bebereis meu cálice. Quanto, porém, ao sentar-vos à minha direita ou à minha esquerda, isto não depende de mim vo-lo conceder. Esses lugares cabem àqueles aos quais meu Pai os reservou.
+24. Os dez outros, que haviam ouvido tudo, indignaram-se contra os dois irmãos.
+25. Jesus, porém, os chamou e lhes disse: Sabeis que os chefes das nações as subjugam, e que os grandes as governam com autoridade.
+26. Não seja assim entre vós. Todo aquele que quiser tornar-se grande entre vós, se faça vosso servo.
+27. E o que quiser tornar-se entre vós o primeiro, se faça vosso escravo.
+28. Assim como o Filho do Homem veio, não para ser servido, mas para servir e dar sua vida em resgate por uma multidão.
+29. Ao sair de Jericó, uma grande multidão o seguiu.
+30. Dois cegos, sentados à beira do caminho, ouvindo dizer que Jesus passava, começaram a gritar: Senhor, filho de Davi, tem piedade de nós!
+31. A multidão, porém, os repreendia para que se calassem. Mas eles gritavam ainda mais forte: Senhor, filho de Davi, tem piedade de nós!
+32. Jesus parou, chamou-os e perguntou-lhes: Que quereis que eu vos faça?
+33. Senhor, que nossos olhos se abram!
+34. Jesus, cheio de compaixão, tocou-lhes os olhos. Instantaneamente recobraram a vista e puseram-se a segui-lo.São Mateus, 21
+1. Aproximavam-se de Jerusalém. Quando chegaram a Betfagé, perto do monte das Oliveiras, Jesus enviou dois de seus discípulos,
+2. dizendo-lhes: Ide à aldeia que está defronte. Encontrareis logo uma jumenta amarrada e com ela seu jumentinho. Desamarrai-os e trazei-mos.
+3. Se alguém vos disser qualquer coisa, respondei-lhe que o Senhor necessita deles e que ele sem demora os devolverá.
+4. Assim, neste acontecimento, cumpria-se o oráculo do profeta:
+5. Dizei à filha de Sião: Eis que teu rei vem a ti, cheio de doçura, montado numa jumenta, num jumentinho, filho da que leva o jugo (Zc 9,9).
+6. Os discípulos foram e executaram a ordem de Jesus.
+7. Trouxeram a jumenta e o jumentinho, cobriram-nos com seus mantos e fizeram-no montar.
+8. Então a multidão estendia os mantos pelo caminho, cortava ramos de árvores e espalhava-os pela estrada.
+9. E toda aquela multidão, que o precedia e que o seguia, clamava: Hosana ao filho de Davi! Bendito seja aquele que vem em nome do Senhor! Hosana no mais alto dos céus!
+10. Quando ele entrou em Jerusalém, alvoroçou-se toda a cidade, perguntando: Quem é este?
+11. A multidão respondia: É Jesus, o profeta de Nazaré da Galiléia.
+12. Jesus entrou no templo e expulsou dali todos aqueles que se entregavam ao comércio. Derrubou as mesas dos cambistas e os bancos dos negociantes de pombas,
+13. e disse-lhes: Está escrito: Minha casa é uma casa de oração (Is 56,7), mas vós fizestes dela um covil de ladrões (Jr 7,11)!
+14. Os cegos e os coxos vieram a ele no templo e ele os curou,
+15. com grande indignação dos príncipes dos sacerdotes e dos escribas que assistiam a seus milagres e ouviam os meninos gritar no templo: Hosana ao filho de Davi!
+16. Disseram-lhe eles: Ouves o que dizem eles? Perfeitamente, respondeu-lhes Jesus. Nunca lestes estas palavras: Da boca dos meninos e das crianças de peito tirastes o vosso louvor (Sl 8,3)?
+17. Depois os deixou e saiu da cidade para hospedar-se em Betânia.
+18. De manhã, voltando à cidade, teve fome.
+19. Vendo uma figueira à beira do caminho, aproximou-se dela, mas só achou nela folhas; e disse-lhe: Jamais nasça fruto de ti!
+20. E imediatamente a figueira secou. À vista disto, os discípulos ficaram estupefatos e disseram: Como ficou seca num instante a figueira?!
+21. Respondeu-lhes Jesus: Em verdade vos declaro que, se tiverdes fé e não hesitardes, não só fareis o que foi feito a esta figueira, mas ainda se disserdes a esta montanha: Levanta-te daí e atira-te ao mar, isso se fará...
+22. Tudo o que pedirdes com fé na oração, vós o alcançareis.
+23. Dirigiu-se Jesus ao templo. E, enquanto ensinava, os príncipes dos sacerdotes e os anciãos do povo aproximaram-se e perguntaram-lhe: Com que direito fazes isso? Quem te deu esta autoridade?
+24. Respondeu-lhes Jesus: Eu vos proporei também uma questão. Se responderdes, eu vos direi com que direito o faço.
+25. Donde procedia o batismo de João: do céu ou dos homens? Ora, eles raciocinavam entre si: Se respondermos: Do céu, ele nos dirá: Por que não crestes nele?
+26. E se dissermos: Dos homens, é de temer-se a multidão, porque todo o mundo considera João como profeta.
+27. Responderam a Jesus: Não sabemos. Pois eu tampouco vos digo, retorquiu Jesus, com que direito faço estas coisas.
+28. Que vos parece? Um homem tinha dois filhos. Dirigindo-se ao primeiro, disse-lhe: - Meu filho, vai trabalhar hoje na vinha.
+29. Respondeu ele: - Não quero. Mas, em seguida, tocado de arrependimento, foi.
+30. Dirigindo-se depois ao outro, disse-lhe a mesma coisa. O filho respondeu: - Sim, pai! Mas não foi.
+31. Qual dos dois fez a vontade do pai? O primeiro, responderam-lhe. E Jesus disse-lhes: Em verdade vos digo: os publicanos e as meretrizes vos precedem no Reino de Deus!
+32. João veio a vós no caminho da justiça e não crestes nele. Os publicanos, porém, e as prostitutas creram nele. E vós, vendo isto, nem fostes tocados de arrependimento para crerdes nele.
+33. Ouvi outra parábola: havia um pai de família que plantou uma vinha. Cercou-a com uma sebe, cavou um lagar e edificou uma torre. E, tendo-a arrendado a lavradores, deixou o país.
+34. Vindo o tempo da colheita, enviou seus servos aos lavradores para recolher o produto de sua vinha.
+35. Mas os lavradores agarraram os servos, feriram um, mataram outro e apedrejaram o terceiro.
+36. Enviou outros servos em maior número que os primeiros, e fizeram-lhes o mesmo.
+37. Enfim, enviou seu próprio filho, dizendo: Hão de respeitar meu filho.
+38. Os lavradores, porém, vendo o filho, disseram uns aos outros: Eis o herdeiro! Matemo-lo e teremos a sua herança!
+39. Lançaram-lhe as mãos, conduziram-no para fora da vinha e o assassinaram.
+40. Pois bem: quando voltar o senhor da vinha, que fará ele àqueles lavradores?
+41. Responderam-lhe: Mandará matar sem piedade aqueles miseráveis e arrendará sua vinha a outros lavradores que lhe pagarão o produto em seu tempo.
+42. Jesus acrescentou: Nunca lestes nas Escrituras: A pedra rejeitada pelos construtores tornou-se a pedra angular; isto é obra do Senhor, e é admirável aos nossos olhos (Sl 117,22)?
+43. Por isso vos digo: ser-vos-á tirado o Reino de Deus, e será dado a um povo que produzirá os frutos dele.
+44. [Aquele que tropeçar nesta pedra, far-se-á em pedaços; e aquele sobre quem ela cair será esmagado.]
+45. Ouvindo isto, os príncipes dos sacerdotes e os fariseus compreenderam que era deles que Jesus falava.
+46. E procuravam prendê-lo; mas temeram o povo, que o tinha por um profeta.São Mateus, 22
+1. Jesus tornou a falar-lhes por meio de parábolas:
+2. O Reino dos céus é comparado a um rei que celebrava as bodas do seu filho.
+3. Enviou seus servos para chamar os convidados, mas eles não quiseram vir.
+4. Enviou outros ainda, dizendo-lhes: Dizei aos convidados que já está preparado o meu banquete; meus bois e meus animais cevados estão mortos, tudo está preparado. Vinde às bodas!
+5. Mas, sem se importarem com aquele convite, foram-se, um a seu campo e outro para seu negócio.
+6. Outros lançaram mãos de seus servos, insultaram-nos e os mataram.
+7. O rei soube e indignou-se em extremo. Enviou suas tropas, matou aqueles assassinos e incendiou-lhes a cidade.
+8. Disse depois a seus servos: O festim está pronto, mas os convidados não foram dignos.
+9. Ide às encruzilhadas e convidai para as bodas todos quantos achardes.
+10. Espalharam-se eles pelos caminhos e reuniram todos quantos acharam, maus e bons, de modo que a sala do banquete ficou repleta de convidados.
+11. O rei entrou para vê-los e viu ali um homem que não trazia a veste nupcial.
+12. Perguntou-lhe: Meu amigo, como entraste aqui, sem a veste nupcial? O homem não proferiu palavra alguma.
+13. Disse então o rei aos servos: Amarrai-lhe os pés e as mãos e lançai-o nas trevas exteriores. Ali haverá choro e ranger de dentes.
+14. Porque muitos são os chamados, e poucos os escolhidos.
+15. Reuniram-se então os fariseus para deliberar entre si sobre a maneira de surpreender Jesus nas suas próprias palavras.
+16. Enviaram seus discípulos com os herodianos, que lhe disseram: Mestre, sabemos que és verdadeiro e ensinas o caminho de Deus em toda a verdade, sem te preocupares com ninguém, porque não olhas para a aparência dos homens.
+17. Dize-nos, pois, o que te parece: É permitido ou não pagar o imposto a César?
+18. Jesus, percebendo a sua malícia, respondeu: Por que me tentais, hipócritas?
+19. Mostrai-me a moeda com que se paga o imposto! Apresentaram-lhe um denário.
+20. Perguntou Jesus: De quem é esta imagem e esta inscrição?
+21. De César, responderam-lhe. Disse-lhes então Jesus: Dai, pois, a César o que é de César e a Deus o que é de Deus.
+22. Esta resposta encheu-os de admiração e, deixando-o, retiraram-se.
+23. Naquele mesmo dia, os saduceus, que negavam a ressurreição, interrogaram-no:
+24. Mestre, Moisés disse: Se um homem morrer sem filhos, seu irmão case-se com a sua viúva e dê-lhe assim uma posteridade (Dt 25,5).
+25. Ora, havia entre nós sete irmãos. O primeiro casou-se e morreu. Como não tinha filhos, deixou sua mulher ao seu irmão.
+26. O mesmo sucedeu ao segundo, depois ao terceiro, até o sétimo.
+27. Por sua vez, depois deles todos, morreu também a mulher.
+28. Na ressurreição, de qual dos sete será a mulher, uma vez que todos a tiveram?
+29. Respondeu-lhes Jesus: Errais, não compreendendo as Escrituras nem o poder de Deus.
+30. Na ressurreição, os homens não terão mulheres nem as mulheres, maridos; mas serão como os anjos de Deus no céu.
+31. Quanto à ressurreição dos mortos, não lestes o que Deus vos disse:
+32. Eu sou o Deus de Abraão, o Deus de Isaac e o Deus de Jacó (Ex 3,6)? Ora, ele não é Deus dos mortos, mas Deus dos vivos.
+33. E, ouvindo esta doutrina, as turbas se enchiam de grande admiração.
+34. Sabendo os fariseus que Jesus reduzira ao silêncio os saduceus, reuniram-se
+35. e um deles, doutor da lei, fez-lhe esta pergunta para pô-lo à prova:
+36. Mestre, qual é o maior mandamento da lei?
+37. Respondeu Jesus: Amarás o Senhor teu Deus de todo teu coração, de toda tua alma e de todo teu espírito (Dt 6,5).
+38. Este é o maior e o primeiro mandamento.
+39. E o segundo, semelhante a este, é: Amarás teu próximo como a ti mesmo (Lv 19,18).
+40. Nesses dois mandamentos se resumem toda a lei e os profetas.
+41. Como os fariseus se agrupassem, Jesus interrogou-os:
+42. Que pensais vós de Cristo? De quem é filho? Responderam: De Davi!
+43. Como então, prosseguiu Jesus, Davi, falando sob inspiração do Espírito, chama-o Senhor, dizendo:
+44. O Senhor disse a meu Senhor: Senta-te à minha direita, até que eu ponha teus inimigos por escabelo dos teus pés (Sl 109,1)?
+45. Se, pois, Davi o chama Senhor, como é ele seu filho?
+46. Ninguém pôde responder-lhe nada. E, depois daquele dia, ninguém mais ousou interrogá-lo.São Mateus, 23
+1. Dirigindo-se, então, Jesus à multidão e aos seus discípulos,disse:
+2. Os escribas e os fariseus sentaram-se na cadeira de Moisés.
+3. Observai e fazei tudo o que eles dizem, mas não façais como eles, pois dizem e não fazem.
+4. Atam fardos pesados e esmagadores e com eles sobrecarregam os ombros dos homens, mas não querem movê-los sequer com o dedo.
+5. Fazem todas as suas ações para serem vistos pelos homens, por isso trazem largas faixas e longas franjas nos seus mantos.
+6. Gostam dos primeiros lugares nos banquetes e das primeiras cadeiras nas sinagogas.
+7. Gostam de ser saudados nas praças públicas e de ser chamados rabi pelos homens.
+8. Mas vós não vos façais chamar rabi, porque um só é o vosso preceptor, e vós sois todos irmãos.
+9. E a ninguém chameis de pai sobre a terra, porque um só é vosso Pai, aquele que está nos céus.
+10. Nem vos façais chamar de mestres, porque só tendes um Mestre, o Cristo.
+11. O maior dentre vós será vosso servo.
+12. Aquele que se exaltar será humilhado, e aquele que se humilhar será exaltado.
+13. Ai de vós, escribas e fariseus hipócritas! Vós fechais aos homens o Reino dos céus. Vós mesmos não entrais e nem deixais que entrem os que querem entrar.
+14. [Ai de vós, escribas e fariseus hipócritas! Devorais as casas das viúvas, fingindo fazer longas orações. Por isso, sereis castigados com muito maior rigor.]
+15. Ai de vós, escribas e fariseus hipócritas! Percorreis mares e terras para fazer um prosélito e, quando o conseguis, fazeis dele um filho do inferno duas vezes pior que vós mesmos.
+16. Ai de vós, guias cegos! Vós dizeis: Se alguém jura pelo templo, isto não é nada; mas se jura pelo tesouro do templo, é obrigado pelo seu juramento.
+17. Insensatos, cegos! Qual é o maior: o ouro ou o templo que santifica o ouro?
+18. E dizeis ainda: Se alguém jura pelo altar, não é nada; mas se jura pela oferta que está sobre ele, é obrigado.
+19. Cegos! Qual é o maior: a oferta ou o altar que santifica a oferta?
+20. Aquele que jura pelo altar, jura ao mesmo tempo por tudo o que está sobre ele.
+21. Aquele que jura pelo templo, jura ao mesmo tempo por aquele que nele habita.
+22. E aquele que jura pelo céu, jura ao mesmo tempo pelo trono de Deus, e por aquele que nele está sentado.
+23. Ai de vós, escribas e fariseus hipócritas! Pagais o dízimo da hortelã, do endro e do cominho e desprezais os preceitos mais importantes da lei: a justiça, a misericórdia, a fidelidade. Eis o que era preciso praticar em primeiro lugar, sem contudo deixar o restante.
+24. Guias cegos! Filtrais um mosquito e engolis um camelo.
+25. Ai de vós, escribas e fariseus hipócritas! Limpais por fora o copo e o prato e por dentro estais cheios de roubo e de intemperança.
+26. Fariseu cego! Limpa primeiro o interior do copo e do prato, para que também o que está fora fique limpo.
+27. Ai de vós, escribas e fariseus hipócritas! Sois semelhantes aos sepulcros caiados: por fora parecem formosos, mas por dentro estão cheios de ossos, de cadáveres e de toda espécie de podridão.
+28. Assim também vós: por fora pareceis justos aos olhos dos homens, mas por dentro estais cheios de hipocrisia e de iniqüidade.
+29. Ai de vós, escribas e fariseus hipócritas! Edificais sepulcros aos profetas, adornais os monumentos dos justos
+30. e dizeis: Se tivéssemos vivido no tempo de nossos pais, não teríamos manchado nossas mãos como eles no sangue dos profetas...
+31. Testemunhais assim contra vós mesmos que sois de fato os filhos dos assassinos dos profetas.
+32. Acabai, pois, de encher a medida de vossos pais!
+33. Serpentes! Raça de víboras! Como escapareis ao castigo do inferno?
+34. Vede, eu vos envio profetas, sábios, doutores. Matareis e crucificareis uns e açoitareis outros nas vossas sinagogas. Persegui-los-eis de cidade em cidade,
+35. para que caia sobre vós todos o sangue inocente derramado sobre a terra, desde o sangue de Abel, o justo, até o sangue de Zacarias, filho de Baraquias, a quem matastes entre o templo e o altar.
+36. Em verdade vos digo: todos esses crimes pesam sobre esta raça.
+37. Jerusalém, Jerusalém, que matas os profetas e apedrejas aqueles que te são enviados! Quantas vezes eu quis reunir teus filhos, como a galinha reúne seus pintinhos debaixo de suas asas... e tu não quiseste!
+38. Pois bem, a vossa casa vos é deixada deserta.
+39. Porque eu vos digo: já não me vereis de hoje em diante, até que digais: Bendito seja aquele que vem em nome do Senhor.São Mateus, 24
+1. Ao sair do templo, os discípulos aproximaram-se de Jesus e fizeram-no apreciar as construções.
+2. Jesus, porém, respondeu-lhes: Vedes todos estes edifícios? Em verdade vos declaro: não ficará aqui pedra sobre pedra; tudo será destruído.
+3. Indo ele assentar-se no monte das Oliveiras, achegaram-se os discípulos e, estando a sós com ele, perguntaram-lhe: Quando acontecerá isto? E qual será o sinal de tua volta e do fim do mundo?
+4. Respondeu-lhes Jesus: Cuidai que ninguém vos seduza.
+5. Muitos virão em meu nome, dizendo: Sou eu o Cristo. E seduzirão a muitos.
+6. Ouvireis falar de guerras e de rumores de guerra. Atenção: que isso não vos perturbe, porque é preciso que isso aconteça. Mas ainda não será o fim.
+7. Levantar-se-á nação contra nação, reino contra reino, e haverá fome, peste e grandes desgraças em diversos lugares.
+8. Tudo isto será apenas o início das dores.
+9. Então sereis entregues aos tormentos, matar-vos-ão e sereis por minha causa objeto de ódio para todas as nações.
+10. Muitos sucumbirão, trair-se-ão mutuamente e mutuamente se odiarão.
+11. Levantar-se-ão muitos falsos profetas e seduzirão a muitos.
+12. E, ante o progresso crescente da iniqüidade, a caridade de muitos esfriará.
+13. Entretanto, aquele que perseverar até o fim será salvo.
+14. Este Evangelho do Reino será pregado pelo mundo inteiro para servir de testemunho a todas as nações, e então chegará o fim.
+15. Quando virdes estabelecida no lugar santo a abominação da desolação que foi predita pelo profeta Daniel (9,27) - o leitor entenda bem -
+16. então os habitantes da Judéia fujam para as montanhas.
+17. Aquele que está no terraço da casa não desça para tomar o que está em sua casa.
+18. E aquele que está no campo não volte para buscar suas vestimentas.
+19. Ai das mulheres que estiverem grávidas ou amamentarem naqueles dias!
+20. Rogai para que vossa fuga não seja no inverno, nem em dia de sábado;
+21. porque então a tribulação será tão grande como nunca foi vista, desde o começo do mundo até o presente, nem jamais será.
+22. Se aqueles dias não fossem abreviados, criatura alguma escaparia; mas por causa dos escolhidos, aqueles dias serão abreviados.
+23. Então se alguém vos disser: Eis, aqui está o Cristo! Ou: Ei-lo acolá!, não creiais.
+24. Porque se levantarão falsos cristos e falsos profetas, que farão milagres a ponto de seduzir, se isto fosse possível, até mesmo os escolhidos.
+25. Eis que estais prevenidos.
+26. Se, pois, vos disserem: Vinde, ele está no deserto, não saiais. Ou: Lá está ele em casa, não o creiais.
+27. Porque, como o relâmpago parte do oriente e ilumina até o ocidente, assim será a volta do Filho do Homem.
+28. Onde houver um cadáver, aí se ajuntarão os abutres.
+29. Logo após estes dias de tribulação, o sol escurecerá, a lua não terá claridade, cairão do céu as estrelas e as potências dos céus serão abaladas.
+30. Então aparecerá no céu o sinal do Filho do Homem. Todas as tribos da terra baterão no peito e verão o Filho do Homem vir sobre as nuvens do céu cercado de glória e de majestade.
+31. Ele enviará seus anjos com estridentes trombetas, e juntarão seus escolhidos dos quatro ventos, duma extremidade do céu à outra.
+32. Compreendei isto pela comparação da figueira: quando seus ramos estão tenros e crescem as folhas, pressentis que o verão está próximo.
+33. Do mesmo modo, quando virdes tudo isto, sabei que o Filho do Homem está próximo, à porta.
+34. Em verdade vos declaro: não passará esta geração antes que tudo isto aconteça.
+35. O céu e a terra passarão, mas as minhas palavras não passarão.
+36. Quanto àquele dia e àquela hora, ninguém o sabe, nem mesmo os anjos do céu, mas somente o Pai.
+37. Assim como foi nos tempos de Noé, assim acontecerá na vinda do Filho do Homem.
+38. Nos dias que precederam o dilúvio, comiam, bebiam, casavam-se e davam-se em casamento, até o dia em que Noé entrou na arca.
+39. E os homens de nada sabiam, até o momento em que veio o dilúvio e os levou a todos. Assim será também na volta do Filho do Homem.
+40. Dois homens estarão no campo: um será tomado, o outro será deixado.
+41. Duas mulheres estarão moendo no mesmo moinho: uma será tomada a outra será deixada.
+42. Vigiai, pois, porque não sabeis a hora em que virá o Senhor.
+43. Sabei que se o pai de família soubesse em que hora da noite viria o ladrão, vigiaria e não deixaria arrombar a sua casa.
+44. Por isso, estai também vós preparados porque o Filho do Homem virá numa hora em que menos pensardes.
+45. Quem é, pois, o servo fiel e prudente que o Senhor constituiu sobre os de sua família, para dar-lhes o alimento no momento oportuno?
+46. Bem-aventurado aquele servo a quem seu senhor, na sua volta, encontrar procedendo assim!
+47. Em verdade vos digo: ele o estabelecerá sobre todos os seus bens.
+48. Mas, se é um mau servo que imagina consigo:
+49. - Meu senhor tarda a vir, e se põe a bater em seus companheiros e a comer e a beber com os ébrios,
+50. o senhor desse servo virá no dia em que ele não o espera e na hora em que ele não sabe,
+51. e o despedirá e o mandará ao destino dos hipócritas; ali haverá choro e ranger de dentes.São Mateus, 25
+1. Então o Reino dos céus será semelhante a dez virgens, que saíram com suas lâmpadas ao encontro do esposo.
+2. Cinco dentre elas eram tolas e cinco, prudentes.
+3. Tomando suas lâmpadas, as tolas não levaram óleo consigo.
+4. As prudentes, todavia, levaram de reserva vasos de óleo junto com as lâmpadas.
+5. Tardando o esposo, cochilaram todas e adormeceram.
+6. No meio da noite, porém, ouviu-se um clamor: Eis o esposo, ide-lhe ao encontro.
+7. E as virgens levantaram-se todas e prepararam suas lâmpadas.
+8. As tolas disseram às prudentes: Dai-nos de vosso óleo, porque nossas lâmpadas se estão apagando.
+9. As prudentes responderam: Não temos o suficiente para nós e para vós; é preferível irdes aos vendedores, a fim de o comprardes para vós.
+10. Ora, enquanto foram comprar, veio o esposo. As que estavam preparadas entraram com ele para a sala das bodas e foi fechada a porta.
+11. Mais tarde, chegaram também as outras e diziam: Senhor, senhor, abre-nos!
+12. Mas ele respondeu: Em verdade vos digo: não vos conheço!
+13. Vigiai, pois, porque não sabeis nem o dia nem a hora.
+14. Será também como um homem que, tendo de viajar, reuniu seus servos e lhes confiou seus bens.
+15. A um deu cinco talentos; a outro, dois; e a outro, um, segundo a capacidade de cada um. Depois partiu.
+16. Logo em seguida, o que recebeu cinco talentos negociou com eles; fê-los produzir, e ganhou outros cinco.
+17. Do mesmo modo, o que recebeu dois, ganhou outros dois.
+18. Mas, o que recebeu apenas um, foi cavar a terra e escondeu o dinheiro de seu senhor.
+19. Muito tempo depois, o senhor daqueles servos voltou e pediu-lhes contas.
+20. O que recebeu cinco talentos, aproximou-se e apresentou outros cinco: - Senhor, disse-lhe, confiaste-me cinco talentos; eis aqui outros cinco que ganhei.'
+21. Disse-lhe seu senhor: - Muito bem, servo bom e fiel; já que foste fiel no pouco, eu te confiarei muito. Vem regozijar-te com teu senhor.
+22. O que recebeu dois talentos, adiantou-se também e disse: - Senhor, confiaste-me dois talentos; eis aqui os dois outros que lucrei.
+23. Disse-lhe seu senhor: - Muito bem, servo bom e fiel; já que foste fiel no pouco, eu te confiarei muito. Vem regozijar-te com teu senhor.
+24. Veio, por fim, o que recebeu só um talento: - Senhor, disse-lhe, sabia que és um homem duro, que colhes onde não semeaste e recolhes onde não espalhaste.
+25. Por isso, tive medo e fui esconder teu talento na terra. Eis aqui, toma o que te pertence.
+26. Respondeu-lhe seu senhor: - Servo mau e preguiçoso! Sabias que colho onde não semeei e que recolho onde não espalhei.
+27. Devias, pois, levar meu dinheiro ao banco e, à minha volta, eu receberia com os juros o que é meu.
+28. Tirai-lhe este talento e dai-o ao que tem dez.
+29. Dar-se-á ao que tem e terá em abundância. Mas ao que não tem, tirar-se-á mesmo aquilo que julga ter.
+30. E a esse servo inútil, jogai-o nas trevas exteriores; ali haverá choro e ranger de dentes.
+31. Quando o Filho do Homem voltar na sua glória e todos os anjos com ele, sentar-se-á no seu trono glorioso.
+32. Todas as nações se reunirão diante dele e ele separará uns dos outros, como o pastor separa as ovelhas dos cabritos.
+33. Colocará as ovelhas à sua direita e os cabritos à sua esquerda.
+34. Então o Rei dirá aos que estão à direita: - Vinde, benditos de meu Pai, tomai posse do Reino que vos está preparado desde a criação do mundo,
+35. porque tive fome e me destes de comer; tive sede e me destes de beber; era peregrino e me acolhestes;
+36. nu e me vestistes; enfermo e me visitastes; estava na prisão e viestes a mim.
+37. Perguntar-lhe-ão os justos: - Senhor, quando foi que te vimos com fome e te demos de comer, com sede e te demos de beber?
+38. Quando foi que te vimos peregrino e te acolhemos, nu e te vestimos?
+39. Quando foi que te vimos enfermo ou na prisão e te fomos visitar?
+40. Responderá o Rei: - Em verdade eu vos declaro: todas as vezes que fizestes isto a um destes meus irmãos mais pequeninos, foi a mim mesmo que o fizestes.
+41. Voltar-se-á em seguida para os da sua esquerda e lhes dirá: - Retirai-vos de mim, malditos! Ide para o fogo eterno destinado ao demônio e aos seus anjos.
+42. Porque tive fome e não me destes de comer; tive sede e não me destes de beber;
+43. era peregrino e não me acolhestes; nu e não me vestistes; enfermo e na prisão e não me visitastes.
+44. Também estes lhe perguntarão: - Senhor, quando foi que te vimos com fome, com sede, peregrino, nu, enfermo, ou na prisão e não te socorremos?
+45. E ele responderá: - Em verdade eu vos declaro: todas as vezes que deixastes de fazer isso a um destes pequeninos, foi a mim que o deixastes de fazer.
+46. E estes irão para o castigo eterno, e os justos, para a vida eterna.São Mateus, 26
+1. Quando Jesus acabou todos esses discursos, disse a seus discípulos:
+2. Sabeis que daqui a dois dias será a Páscoa, e o Filho do Homem será traído para ser crucificado.
+3. Então os príncipes dos sacerdotes e os anciãos do povo reuniram-se no pátio do sumo sacerdote, chamado Caifás,
+4. e deliberaram sobre os meios de prender Jesus por astúcia e de o matar.
+5. E diziam: Sobretudo, não seja durante a festa. Poderá haver um tumulto entre o povo.
+6. Encontrava-se Jesus em Betânia, na casa de Simão, o leproso.
+7. Estando à mesa, aproximou-se dele uma mulher com um vaso de alabastro, cheio de perfume muito caro, e derramou-o na sua cabeça.
+8. Vendo isto, os discípulos disseram indignados: Para que este desperdício?
+9. Poder-se-ia vender este perfume por um bom preço e dar o dinheiro aos pobres.
+10. Jesus ouviu-os e disse-lhes: Por que molestais esta mulher? É uma ação boa o que ela me fez.
+11. Pobres vós tereis sempre convosco. A mim, porém, nem sempre me tereis.
+12. Derramando esse perfume em meu corpo, ela o fez em vista da minha sepultura.
+13. Em verdade eu vos digo: em toda parte onde for pregado este Evangelho pelo mundo inteiro, será contado em sua memória o que ela fez.
+14. Então um dos Doze, chamado Judas Iscariotes, foi ter com os príncipes dos sacerdotes e perguntou-lhes:
+15. Que quereis dar-me e eu vo-lo entregarei. Ajustaram com ele trinta moedas de prata.
+16. E desde aquele instante, procurava uma ocasião favorável para entregar Jesus.
+17. No primeiro dia dos Ázimos, os discípulos aproximaram-se de Jesus e perguntaram-lhe: Onde queres que preparemos a ceia pascal?
+18. Respondeu-lhes Jesus: Ide à cidade, à casa de um tal, e dizei-lhe: O Mestre manda dizer-te: Meu tempo está próximo. É em tua casa que celebrarei a Páscoa com meus discípulos.
+19. Os discípulos fizeram o que Jesus tinha ordenado e prepararam a Páscoa.
+20. Ao declinar da tarde, pôs-se Jesus à mesa com os doze discípulos.
+21. Durante a ceia, disse: Em verdade vos digo: um de vós me há de trair.
+22. Com profunda aflição, cada um começou a perguntar: Sou eu, Senhor?
+23. Respondeu ele: Aquele que pôs comigo a mão no prato, esse me trairá.
+24. O Filho do Homem vai, como dele está escrito. Mas ai daquele homem por quem o Filho do Homem é traído! Seria melhor para esse homem que jamais tivesse nascido!
+25. Judas, o traidor, tomou a palavra e perguntou: Mestre, serei eu? Sim, disse Jesus.
+26. Durante a refeição, Jesus tomou o pão, benzeu-o, partiu-o e o deu aos discípulos, dizendo: Tomai e comei, isto é meu corpo.
+27. Tomou depois o cálice, rendeu graças e deu-lho, dizendo: Bebei dele todos,
+28. porque isto é meu sangue, o sangue da Nova Aliança, derramado por muitos homens em remissão dos pecados.
+29. Digo-vos: doravante não beberei mais desse fruto da vinha até o dia em que o beberei de novo convosco no Reino de meu Pai.
+30. Depois do canto dos Salmos, dirigiram-se eles para o monte das Oliveiras.
+31. Disse-lhes então Jesus: Esta noite serei para todos vós uma ocasião de queda; porque está escrito: Ferirei o pastor, e as ovelhas do rebanho serão dispersadas (Zc 13,7).
+32. Mas, depois da minha Ressurreição, eu vos precederei na Galiléia.
+33. Pedro interveio: Mesmo que sejas para todos uma ocasião de queda, para mim jamais o serás.
+34. Disse-lhe Jesus: Em verdade te digo: nesta noite mesma, antes que o galo cante, três vezes me negarás.
+35. Respondeu-lhe Pedro: Mesmo que seja necessário morrer contigo, jamais te negarei! E todos os outros discípulos diziam-lhe o mesmo.
+36. Retirou-se Jesus com eles para um lugar chamado Getsêmani e disse-lhes: Assentai-vos aqui, enquanto eu vou ali orar.
+37. E, tomando consigo Pedro e os dois filhos de Zebedeu, começou a entristecer-se e a angustiar-se.
+38. Disse-lhes, então: Minha alma está triste até a morte. Ficai aqui e vigiai comigo.
+39. Adiantou-se um pouco e, prostrando-se com a face por terra, assim rezou: Meu Pai, se é possível, afasta de mim este cálice! Todavia não se faça o que eu quero, mas sim o que tu queres.
+40. Foi ter então com os discípulos e os encontrou dormindo. E disse a Pedro: Então não pudestes vigiar uma hora comigo...
+41. Vigiai e orai para que não entreis em tentação. O espírito está pronto, mas a carne é fraca.
+42. Afastou-se pela segunda vez e orou, dizendo: Meu Pai, se não é possível que este cálice passe sem que eu o beba, faça-se a tua vontade!
+43. Voltou ainda e os encontrou novamente dormindo, porque seus olhos estavam pesados.
+44. Deixou-os e foi orar pela terceira vez, dizendo as mesmas palavras.
+45. Voltou então para os seus discípulos e disse-lhes: Dormi agora e repousai! Chegou a hora: o Filho do Homem vai ser entregue nas mãos dos pecadores...
+46. Levantai-vos, vamos! Aquele que me trai está perto daqui.
+47. Jesus ainda falava, quando veio Judas, um dos Doze, e com ele uma multidão de gente armada de espadas e cacetes, enviada pelos príncipes dos sacerdotes e pelos anciãos do povo.
+48. O traidor combinara com eles este sinal: Aquele que eu beijar, é ele. Prendei-o!
+49. Aproximou-se imediatamente de Jesus e disse: Salve, Mestre. E beijou-o.
+50. Disse-lhe Jesus: É, então, para isso que vens aqui? Em seguida, adiantaram-se eles e lançaram mão em Jesus para prendê-lo.
+51. Mas um dos companheiros de Jesus desembainhou a espada e feriu um servo do sumo sacerdote, decepando-lhe a orelha.
+52. Jesus, no entanto, lhe disse: Embainha tua espada, porque todos aqueles que usarem da espada, pela espada morrerão.
+53. Crês tu que não posso invocar meu Pai e ele não me enviaria imediatamente mais de doze legiões de anjos?
+54. Mas como se cumpririam então as Escrituras, segundo as quais é preciso que seja assim?
+55. Depois, voltando-se para a turba, falou: Saístes armados de espadas e porretes para prender-me, como se eu fosse um malfeitor. Entretanto, todos os dias estava eu sentado entre vós ensinando no templo e não me prendestes.
+56. Mas tudo isto aconteceu porque era necessário que se cumprissem os oráculos dos profetas. Então os discípulos o abandonaram e fugiram.
+57. Os que haviam prendido Jesus levaram-no à casa do sumo sacerdote Caifás, onde estavam reunidos os escribas e os anciãos do povo.
+58. Pedro seguia-o de longe, até o pátio do sumo sacerdote. Entrou e sentou-se junto aos criados para ver como terminaria aquilo.
+59. Enquanto isso, os príncipes dos sacerdotes e todo o conselho procuravam um falso testemunho contra Jesus, a fim de o levarem à morte.
+60. Mas não o conseguiram, embora se apresentassem muitas falsas testemunhas.
+61. Por fim, apresentaram-se duas testemunhas, que disseram: Este homem disse: Posso destruir o templo de Deus e reedificá-lo em três dias.
+62. Levantou-se o sumo sacerdote e lhe perguntou: Nada tens a responder ao que essa gente depõe contra ti?
+63. Jesus, no entanto, permanecia calado. Disse-lhe o sumo sacerdote: Por Deus vivo, conjuro-te que nos digas se és o Cristo, o Filho de Deus?
+64. Jesus respondeu: Sim. Além disso, eu vos declaro que vereis doravante o Filho do Homem sentar-se à direita do Todo-poderoso, e voltar sobre as nuvens do céu.
+65. A estas palavras, o sumo sacerdote rasgou suas vestes, exclamando: Que necessidade temos ainda de testemunhas? Acabastes de ouvir a blasfêmia!
+66. Qual o vosso parecer? Eles responderam: Merece a morte!
+67. Cuspiram-lhe então na face, bateram-lhe com os punhos e deram-lhe tapas,
+68. dizendo: Adivinha, ó Cristo: quem te bateu?
+69. Enquanto isso, Pedro estava sentado no pátio. Aproximou-se dele uma das servas, dizendo: Também tu estavas com Jesus, o Galileu.
+70. Mas ele negou publicamente, nestes termos: Não sei o que dizes.
+71. Dirigia-se ele para a porta, a fim de sair, quando outra criada o viu e disse aos que lá estavam: Este homem também estava com Jesus de Nazaré.
+72. Pedro, pela segunda vez, negou com juramento: Eu nem conheço tal homem.
+73. Pouco depois, os que ali estavam aproximaram-se de Pedro e disseram: Sim, tu és daqueles; teu modo de falar te dá a conhecer.
+74. Pedro então começou a fazer imprecações, jurando que nem sequer conhecia tal homem. E, neste momento, cantou o galo.
+75. Pedro recordou-se do que Jesus lhe dissera: Antes que o galo cante, negar-me-ás três vezes. E saindo, chorou amargamente.São Mateus, 27
+1. Chegando a manhã, todos os príncipes dos sacerdotes e os anciãos do povo reuniram-se em conselho para entregar Jesus à morte.
+2. Ligaram-no e o levaram ao governador Pilatos.
+3. Judas, o traidor, vendo-o então condenado, tomado de remorsos, foi devolver aos príncipes dos sacerdotes e aos anciãos as trinta moedas de prata,
+4. dizendo-lhes: Pequei, entregando o sangue de um justo. Responderam-lhe: Que nos importa? Isto é lá contigo!
+5. Ele jogou então no templo as moedas de prata, saiu e foi enforcar-se.
+6. Os príncipes dos sacerdotes tomaram o dinheiro e disseram: Não é permitido lançá-lo no tesouro sagrado, porque se trata de preço de sangue.
+7. Depois de haverem deliberado, compraram com aquela soma o campo do Oleiro, para que ali se fizesse um cemitério de estrangeiros.
+8. Esta é a razão por que aquele terreno é chamado, ainda hoje, Campo de Sangue.
+9. Assim se cumpriu a profecia do profeta Jeremias: Eles receberam trinta moedas de prata, preço daquele cujo valor foi estimado pelos filhos de Israel;
+10. e deram-no pelo campo do Oleiro, como o Senhor me havia prescrito.
+11. Jesus compareceu diante do governador, que o interrogou: És o rei dos judeus? Sim, respondeu-lhe Jesus.
+12. Ele, porém, nada respondia às acusações dos príncipes dos sacerdotes e dos anciãos.
+13. Perguntou-lhe Pilatos: Não ouves todos os testemunhos que levantam contra ti?
+14. Mas, para grande admiração do governador, não quis responder a nenhuma acusação.
+15. Era costume que o governador soltasse um preso a pedido do povo em cada festa de Páscoa.
+16. Ora, havia naquela ocasião um prisioneiro famoso, chamado Barrabás.
+17. Pilatos dirigiu-se ao povo reunido: Qual quereis que eu vos solte: Barrabás ou Jesus, que se chama Cristo?
+18. (Ele sabia que tinham entregue Jesus por inveja.)
+19. Enquanto estava sentado no tribunal, sua mulher lhe mandou dizer: Nada faças a esse justo. Fui hoje atormentada por um sonho que lhe diz respeito.
+20. Mas os príncipes dos sacerdotes e os anciãos persuadiram o povo que pedisse a libertação de Barrabás e fizesse morrer Jesus.
+21. O governador tomou então a palavra: Qual dos dois quereis que eu vos solte? Responderam: Barrabás!
+22. Pilatos perguntou: Que farei então de Jesus, que é chamado o Cristo? Todos responderam: Seja crucificado!
+23. O governador tornou a perguntar: Mas que mal fez ele? E gritavam ainda mais forte: Seja crucificado!
+24. Pilatos viu que nada adiantava, mas que, ao contrário, o tumulto crescia. Fez com que lhe trouxessem água, lavou as mãos diante do povo e disse: Sou inocente do sangue deste homem. Isto é lá convosco!
+25. E todo o povo respondeu: Caia sobre nós o seu sangue e sobre nossos filhos!
+26. Libertou então Barrabás, mandou açoitar Jesus e lho entregou para ser crucificado.
+27. Os soldados do governador conduziram Jesus para o pretório e rodearam-no com todo o pelotão.
+28. Arrancaram-lhe as vestes e colocaram-lhe um manto escarlate.
+29. Depois, trançaram uma coroa de espinhos, meteram-lha na cabeça e puseram-lhe na mão uma vara. Dobrando os joelhos diante dele, diziam com escárnio: Salve, rei dos judeus!
+30. Cuspiam-lhe no rosto e, tomando da vara, davam-lhe golpes na cabeça.
+31. Depois de escarnecerem dele, tiraram-lhe o manto e entregaram-lhe as vestes. Em seguida, levaram-no para o crucificar.
+32. Saindo, encontraram um homem de Cirene, chamado Simão, a quem obrigaram a levar a cruz de Jesus.
+33. Chegaram ao lugar chamado Gólgota, isto é, lugar do crânio.
+34. Deram-lhe de beber vinho misturado com fel. Ele provou, mas se recusou a beber.
+35. Depois de o haverem crucificado, dividiram suas vestes entre si, tirando a sorte. Cumpriu-se assim a profecia do profeta: Repartiram entre si minhas vestes e sobre meu manto lançaram a sorte (Sl 21,19).
+36. Sentaram-se e montaram guarda.
+37. Por cima de sua cabeça penduraram um escrito trazendo o motivo de sua crucificação: Este é Jesus, o rei dos judeus.
+38. Ao mesmo tempo foram crucificados com ele dois ladrões, um à sua direita e outro à sua esquerda.
+39. Os que passavam o injuriavam, sacudiam a cabeça e diziam:
+40. Tu, que destróis o templo e o reconstróis em três dias, salva-te a ti mesmo! Se és o Filho de Deus, desce da cruz!
+41. Os príncipes dos sacerdotes, os escribas e os anciãos também zombavam dele:
+42. Ele salvou a outros e não pode salvar-se a si mesmo! Se é rei de Israel, desça agora da cruz e nós creremos nele!
+43. Confiou em Deus, Deus o livre agora, se o ama, porque ele disse: Eu sou o Filho de Deus!
+44. E os ladrões, crucificados com ele, também o ultrajavam.
+45. Desde a hora sexta até a nona, cobriu-se toda a terra de trevas.
+46. Próximo da hora nona, Jesus exclamou em voz forte: Eli, Eli, lammá sabactáni? - o que quer dizer: Meu Deus, meu Deus, por que me abandonaste?
+47. A estas palavras, alguns dos que lá estavam diziam: Ele chama por Elias.
+48. Imediatamente um deles tomou uma esponja, embebeu-a em vinagre e apresentou-lha na ponta de uma vara para que bebesse.
+49. Os outros diziam: Deixa! Vejamos se Elias virá socorrê-lo.
+50. Jesus de novo lançou um grande brado, e entregou a alma.
+51. E eis que o véu do templo se rasgou em duas partes de alto a baixo, a terra tremeu, fenderam-se as rochas.
+52. Os sepulcros se abriram e os corpos de muitos justos ressuscitaram.
+53. Saindo de suas sepulturas, entraram na Cidade Santa depois da ressurreição de Jesus e apareceram a muitas pessoas.
+54. O centurião e seus homens que montavam guarda a Jesus, diante do estremecimento da terra e de tudo o que se passava, disseram entre si, possuídos de grande temor: Verdadeiramente, este homem era Filho de Deus!
+55. Havia ali também algumas mulheres que de longe olhavam; tinham seguido Jesus desde a Galiléia para o servir.
+56. Entre elas se achavam Maria Madalena e Maria, mãe de Tiago e de José, e a mãe dos filhos de Zebedeu.
+57. À tardinha, um homem rico de Arimatéia, chamado José, que era também discípulo de Jesus,
+58. foi procurar Pilatos e pediu-lhe o corpo de Jesus. Pilatos cedeu-o.
+59. José tomou o corpo, envolveu-o num lençol branco
+60. e o depositou num sepulcro novo, que tinha mandado talhar para si na rocha. Depois rolou uma grande pedra à entrada do sepulcro e foi-se embora.
+61. Maria Madalena e a outra Maria ficaram lá, sentadas defronte do túmulo.
+62. No dia seguinte - isto é, o dia seguinte ao da Preparação -, os príncipes dos sacerdotes e os fariseus dirigiram-se todos juntos à casa de Pilatos.
+63. E disseram-lhe: Senhor, nós nos lembramos de que aquele impostor disse, enquanto vivia: Depois de três dias ressuscitarei.
+64. Ordena, pois, que seu sepulcro seja guardado até o terceiro dia. Os seus discípulos poderiam vir roubar o corpo e dizer ao povo: Ressuscitou dos mortos. E esta última impostura seria pior que a primeira.
+65. Respondeu Pilatos: Tendes uma guarda. Ide e guardai-o como o entendeis.
+66. Foram, pois, e asseguraram o sepulcro, selando a pedra e colocando guardas.São Mateus, 28
+1. Depois do sábado, quando amanhecia o primeiro dia da semana, Maria Madalena e a outra Maria foram ver o túmulo.
+2. E eis que houve um violento tremor de terra: um anjo do Senhor desceu do céu, rolou a pedra e sentou-se sobre ela.
+3. Resplandecia como relâmpago e suas vestes eram brancas como a neve.
+4. Vendo isto, os guardas pensaram que morreriam de pavor.
+5. Mas o anjo disse às mulheres: Não temais! Sei que procurais Jesus, que foi crucificado.
+6. Não está aqui: ressuscitou como disse. Vinde e vede o lugar em que ele repousou.
+7. Ide depressa e dizei aos discípulos que ele ressuscitou dos mortos. Ele vos precede na Galiléia. Lá o haveis de rever, eu vo-lo disse.
+8. Elas se afastaram prontamente do túmulo com certo receio, mas ao mesmo tempo com alegria, e correram a dar a boa nova aos discípulos.
+9. Nesse momento, Jesus apresentou-se diante delas e disse-lhes: Salve! Aproximaram-se elas e, prostradas diante dele, beijaram-lhe os pés.
+10. Disse-lhes Jesus: Não temais! Ide dizer aos meus irmãos que se dirijam à Galiléia, pois é lá que eles me verão.
+11. Enquanto elas voltavam, alguns homens da guarda já estavam na cidade para anunciar o acontecimento aos príncipes dos sacerdotes.
+12. Reuniram-se estes em conselho com os anciãos. Deram aos soldados uma importante soma de dinheiro, ordenando-lhes:
+13. Vós direis que seus discípulos vieram retirá-lo à noite, enquanto dormíeis.
+14. Se o governador vier a sabê-lo, nós o acalmaremos e vos tiraremos de dificuldades.
+15. Os soldados receberam o dinheiro e seguiram suas instruções. E esta versão é ainda hoje espalhada entre os judeus.
+16. Os onze discípulos foram para a Galiléia, para a montanha que Jesus lhes tinha designado.
+17. Quando o viram, adoraram-no; entretanto, alguns hesitavam ainda.
+18. Mas Jesus, aproximando-se, lhes disse: Toda autoridade me foi dada no céu e na terra.
+19. Ide, pois, e ensinai a todas as nações; batizai-as em nome do Pai, do Filho e do Espírito Santo.
+20. Ensinai-as a observar tudo o que vos prescrevi. Eis que estou convosco todos os dias, até o fim do mundo.São Marcos, 1
+1. Princípio da boa nova de Jesus Cristo, Filho de Deus. Conforme está escrito no profeta Isaías:
+2. Eis que envio o meu anjo diante de ti: ele preparará o teu caminho.
+3. Uma voz clama no deserto: Traçai o caminho do Senhor, aplanai as suas veredas (Mal 3,1; Is 40,3).
+4. João Batista apareceu no deserto e pregava um batismo de conversão para a remissão dos pecados.
+5. E saíam para ir ter com ele toda a Judéia, toda Jerusalém, e eram batizados por ele no rio Jordão, confessando os seus pecados.
+6. João andava vestido de pêlo de camelo e trazia um cinto de couro em volta dos rins, e alimentava-se de gafanhotos e mel silvestre.
+7. Ele pôs-se a proclamar: "Depois de mim vem outro mais poderoso do que eu, ante o qual não sou digno de me prostrar para desatar-lhe a correia do calçado.
+8. Eu vos batizei com água; ele, porém, vos batizará no Espírito Santo."
+9. Ora, naqueles dias veio Jesus de Nazaré, da Galiléia, e foi batizado por João no Jordão.
+10. No momento em que Jesus saía da água, João viu os céus abertos e descer o Espírito em forma de pomba sobre ele.
+11. E ouviu-se dos céus uma voz: "Tu és o meu Filho muito amado; em ti ponho minha afeição."
+12. E logo o Espírito o impeliu para o deserto.
+13. Aí esteve quarenta dias. Foi tentado pelo demônio e esteve em companhia dos animais selvagens. E os anjos o serviam.
+14. Depois que João foi preso, Jesus dirigiu-se para a Galiléia. Pregava o Evangelho de Deus, e dizia:
+15. "Completou-se o tempo e o Reino de Deus está próximo; fazei penitência e crede no Evangelho."
+16. Passando ao longo do mar da Galiléia, viu Simão e André, seu irmão, que lançavam as redes ao mar, pois eram pescadores.
+17. Jesus disse-lhes: "Vinde após mim; eu vos farei pescadores de homens."
+18. Eles, no mesmo instante, deixaram as redes e seguiram-no.
+19. Uns poucos passos mais adiante, viu Tiago, filho de Zebedeu, e João, seu irmão, que estavam numa barca, consertando as redes. E chamou-os logo.
+20. Eles deixaram na barca seu pai Zebedeu com os empregados e o seguiram.
+21. Dirigiram-se para Cafarnaum. E já no dia de sábado, Jesus entrou na sinagoga e pôs-se a ensinar.
+22. Maravilhavam-se da sua doutrina, porque os ensinava como quem tem autoridade e não como os escribas.
+23. Ora, na sinagoga deles achava-se um homem possesso de um espírito imundo, que gritou:
+24. "Que tens tu conosco, Jesus de Nazaré? Vieste perder-nos? Sei quem és: o Santo de Deus!
+25. Mas Jesus intimou-o, dizendo: "Cala-te, sai deste homem!"
+26. O espírito imundo agitou-o violentamente e, dando um grande grito, saiu.
+27. Ficaram todos tão admirados, que perguntavam uns aos outros: "Que é isto? Eis um ensinamento novo, e feito com autoridade; além disso, ele manda até nos espíritos imundos e lhe obedecem!"
+28. A sua fama divulgou-se logo por todos os arredores da Galiléia.
+29. Assim que saíram da sinagoga, dirigiram-se com Tiago e João à casa de Simão e André.
+30. A sogra de Simão estava de cama, com febre; e sem tardar, falaram-lhe a respeito dela.
+31. Aproximando-se ele, tomou-a pela mão e levantou-a; imediatamente a febre a deixou e ela pôs-se a servi-los.
+32. À tarde, depois do pôr-do-sol, levaram-lhe todos os enfermos e possessos do demônio.
+33. Toda a cidade estava reunida diante da porta.
+34. Ele curou muitos que estavam oprimidos de diversas doenças, e expulsou muitos demônios. Não lhes permitia falar, porque o conheciam.
+35. De manhã, tendo-se levantado muito antes do amanhecer, ele saiu e foi para um lugar deserto, e ali se pôs em oração.
+36. Simão e os seus companheiros saíram a procurá-lo.
+37. Encontraram-no e disseram-lhe: "Todos te procuram."
+38. E ele respondeu-lhes: "Vamos às aldeias vizinhas, para que eu pregue também lá, pois, para isso é que vim."
+39. Ele retirou-se dali, pregando em todas as sinagogas e por toda a Galiléia, e expulsando os demônios.
+40. Aproximou-se dele um leproso, suplicando-lhe de joelhos: "Se queres, podes limpar-me."
+41. Jesus compadeceu-se dele, estendeu a mão, tocou-o e lhe disse: "Eu quero, sê curado."
+42. E imediatamente desapareceu dele a lepra e foi purificado.
+43. Jesus o despediu imediatamente com esta severa admoestação:
+44. "Vê que não o digas a ninguém; mas vai, mostra-te ao sacerdote e apresenta, pela tua purificação, a oferenda prescrita por Moisés para lhe servir de testemunho."
+45. Este homem, porém, logo que se foi, começou a propagar e divulgar o acontecido, de modo que Jesus não podia entrar publicamente numa cidade. Conservava-se fora, nos lugares despovoados; e de toda parte vinham ter com ele.São Marcos, 2
+1. Alguns dias depois, Jesus entrou novamente em Cafarnaum e souberam que ele estava em casa.
+2. Reuniu-se uma tal multidão, que não podiam encontrar lugar nem mesmo junto à porta. E ele os instruía.
+3. Trouxeram-lhe um paralítico, carregado por quatro homens.
+4. Como não pudessem apresentar-lho por causa da multidão, descobriram o teto por cima do lugar onde Jesus se achava e, por uma abertura, desceram o leito em que jazia o paralítico.
+5. Jesus, vendo-lhes a fé, disse ao paralítico: "Filho, perdoados te são os pecados."
+6. Ora, estavam ali sentados alguns escribas, que diziam uns aos outros:
+7. "Como pode este homem falar assim? Ele blasfema. Quem pode perdoar pecados senão Deus?"
+8. Mas Jesus, penetrando logo com seu espírito tios seus íntimos pensamentos, disse-lhes: "Por que pensais isto nos vossos corações?
+9. Que é mais fácil dizer ao paralítico: Os pecados te são perdoados, ou dizer: Levanta-te, toma o teu leito e anda?
+10. Ora, para que conheçais o poder concedido ao Filho dó homem sobre a terra (disse ao paralítico),
+11. eu te ordeno: levanta-te, toma o teu leito e vai para casa."
+12. No mesmo instante, ele se levantou e, tomando o. leito, foi-se embora à vista de todos. A, multidão inteira encheu-se de profunda admiração e puseram-se a louvar a Deus, dizendo: "Nunca vimos coisa semelhante."
+13. Jesus saiu de novo para perto do mar e toda a multidão foi ter com ele, e ele os ensinava.
+14. Quando ia passando, viu Levi, filho de Alfeu, sentado no posto da arrecadação e disse-lhe: "Segue-me." E Levi, levantando-se, seguiu-o.
+15. Em seguida, pôs-se à mesa na sua casa e muitos cobradores de impostos e pecadores tomaram lugar com ele e seus discípulos; com efeito, eram numerosos os que o seguiam.
+16. Os escribas, do partido dos fariseus,. vendo-o comer com as pessoas de má vida e publicamos, diziam aos seus discípulos: "Ele come com os publicamos e com gente de má vida? "
+17. Ouvindo-os, Jesus replicou: "Os sãos não precisam de médico, mas os enfermos; não vim chamar os justos, mas os pecadores."
+18. Ora, os discípulos de João e os fariseus jejuavam. Por isso, foram-lhe perguntar: "Por que jejuam os discípulos de João e os dos fariseus, mas os teus discípulos não jejuam?"
+19. Jesus respondeu-lhes: "Podem porventura jejuar os convidados das núpcias, enquanto está com eles o esposo? Enquanto têm consigo o esposo, não lhes é -possível jejuar.
+20. Dias virão, porém, em que o esposo lhes será tirado, e então jejuarão.
+21. "Ninguém prega retalho de pano novo em roupa velha; do contrário, o remendo arranca novo pedaço da veste usada e torna-se pior o rasgão.
+22. E ninguém põe vinho novo em odres velhos; se o fizer, o vinho os arrebentará e perder-se-á juntamente com os odres mas para vinho novo, odres novos."
+23. Num dia de sábado, o Senhor caminhava pelos campos e seus discípulos, andando, começaram a colher espigas.
+24. Os fariseus observaram-lhe: "Vede! Por que fazem eles no sábado o que não é permitido?" Jesus respondeu-lhes:
+25. "Nunca lestes o que fez Davi, quando se achou em necessidade e teve fome, ele e os seus companheiros?
+26. Ele entrou na casa de Deus, sendo Abiatar príncipe dos sacerdotes, e comeu os pães da proposição, dos quais só aos sacerdotes era permitido comer, e os deu aos seus companheiros."
+27. E dizia-lhes: "O sábado foi feito para o homem, e não o homem para o sábado;
+28. e, para dizer tudo, o Filho do homem é senhor também do sábado."São Marcos, 3
+1. Noutra vez, entrou ele na sinagoga e achava-se ali um homem que tinha a mão seca.
+2. Ora, estavam-no observando se o curaria no dia de sábado, para o acusarem.
+3. Ele diz ao homem da mão seca: "Vem para o meio."
+4. Então lhes pergunta: "É permitido fazer o bem ou o mal no sábado? Salvar uma vida ou matar?" Mas eles se calavam.
+5. Então, relanceando um olhar indignado sobre eles, e contristado com a dureza de seus corações, diz ao homem: "Estende tua mão!" Ele estendeu-a e a mão foi curada.
+6. Saindo os fariseus dali, deliberaram logo com os herodianos como o haviam de perder.
+7. Jesus retirou-se com os seus discípulos para o mar, e seguia-o uma grande multidão, vinda da Galiléia.
+8. E da Judéia, de Jerusalém, da Iduméia, do além-Jordão e dos arredores de Tiro e de Sidônia veio a ele uma grande multidão, ao ouvir o que ele fazia.
+9. Ele ordenou a seus discípulos que lhe aprontassem uma barca, para que a multidão não o comprimisse.
+10. Curou a muitos, de modo que todos os que padeciam de algum mal se arrojavam a ele para o tocar.
+11. Quando os espíritos imundos o viam, prostravam-se diante dele e gritavam: Tu és o Filho de Deus!
+12. Ele os proibia severamente que o dessem a conhecer.
+13. Depois, subiu ao monte e chamou os que ele quis. E foram a ele.
+14. Designou doze dentre eles para ficar em sua companhia.
+15. Ele os enviaria a pregar, com o poder de expulsar os demônios.
+16. Escolheu estes doze: Simão, a quem pôs o nome de Pedro;
+17. Tiago, filho de Zebedeu, e João, seu irmão, aos quais pôs o nome de Boanerges, que quer dizer Filhos do Trovão.
+18. Ele escolheu também André, Filipe, Bartolomeu, Mateus, Tomé, Tiago, filho de Alfeu; Tadeu, Simão, o Zelador;
+19. e Judas Iscariotes, que o entregou.
+20. Dirigiram-se em seguida a uma casa. Aí afluiu de novo tanta gente, que nem podiam tomar alimento.
+21. Quando os seus o souberam, saíram para o reter; pois diziam: "Ele está fora de si."
+22. Também os escribas, que haviam descido de Jerusalém, diziam: "Ele está possuído de Beelzebul: é pelo príncipe dos demônios que ele expele os demônios."
+23. Mas, havendo-os convocado, dizia-lhes em parábolas: "Como pode Satanás expulsar a Satanás?
+24. Pois, se um reino estiver dividido contra si mesmo, não pode durar.
+25. E se uma casa está dividida contra si mesma, tal casa não pode permanecer.
+26. E se Satanás se levanta contra si mesmo, está dividido e não poderá continuar, mas desaparecerá.
+27. Ninguém pode entrar na casa do homem forte e roubar-lhe os bens, se antes não o prender; e então saqueará sua casa.
+28. "Em verdade vos digo: todos os pecados serão perdoados aos filhos dos homens, mesmo as suas blasfêmias;
+29. mas todo o que tiver blasfemado contra o Espírito Santo jamais terá perdão, mas será culpado de um pecado eterno."
+30. Jesus falava assim porque tinham dito: "Ele tem um espírito imundo."
+31. Chegaram sua mãe e seus irmãos e, estando do lado de fora, mandaram chamá-lo.
+32. Ora, a multidão estava sentada ao redor dele; e disseram-lhe: "Tua mãe e teus irmãos estão aí fora e te procuram."
+33. Ele respondeu-lhes: "Quem é minha mãe e quem são meus irmãos?"
+34. E, correndo o olhar sobre a multidão, que estava sentada ao redor dele, disse: "Eis aqui minha mãe e meus irmãos.
+35. Aquele que faz a vontade de Deus, esse é meu irmão, minha irmã e minha mãe."São Marcos, 4
+1. Jesus pôs-se novamente a ensinar, à beira do mar, e aglomerou-se junto dele tão grande multidão, que ele teve de entrar numa barca, no mar, e toda a multidão ficou em terra na praia.
+2. E ensinava-lhes muitas coisas em parábolas. Dizia-lhes na sua doutrina:
+3. Ouvi: Saiu o semeador a semear.
+4. Enquanto lançava a semente, uma parte caiu à beira do caminho, e vieram as aves e a comeram.
+5. Outra parte caiu no pedregulho, onde não havia muita terra; o grão germinou logo, porque a terra não era profunda;
+6. mas, assim que o sol despontou, queimou-se e, como não tivesse raiz, secou.
+7. Outra parte caiu entre os espinhos; estes cresceram, sufocaram-na e o grão não deu fruto.
+8. Outra caiu em terra boa e deu fruto, cresceu e desenvolveu-se; um grão rendeu trinta, outro sessenta e outro cem.
+9. E dizia: Quem tem ouvidos para ouvir, ouça!
+10. Quando se acharam a sós, os que o cercavam e os Doze indagaram dele o sentido da parábola.
+11. Ele disse-lhes: A vós é revelado o mistério do Reino de Deus, mas aos que são de fora tudo se lhes propõe em parábolas.
+12. Desse modo, eles olham sem ver, escutam sem compreender, sem que se convertam e lhes seja perdoado.
+13. E acrescentou: Não entendeis essa parábola? Como entendereis então todas as outras?
+14. O semeador semeia a palavra.
+15. Alguns se encontram à beira do caminho, onde ela é semeada; apenas a ouvem, vem Satanás tirar a palavra neles semeada.
+16. Outros recebem a semente em lugares pedregosos; quando a ouvem, recebem-na com alegria;
+17. mas não têm raiz em si, são inconstantes, e assim que se levanta uma tribulação ou uma perseguição por causa da palavra, eles tropeçam.
+18. Outros ainda recebem a semente entre os espinhos; ouvem a palavra,
+19. mas as preocupações mundanas, a ilusão das riquezas, as múltiplas cobiças sufocam-na e a tornam infrutífera.
+20. Aqueles que recebem a semente em terra boa escutam a palavra, acolhem-na e dão fruto, trinta, sessenta e cem por um.
+21. Dizia-lhes ainda: Traz-se porventura a candeia para ser colocada debaixo do alqueire ou debaixo da cama? Não é para ser posta no candeeiro?
+22. Porque nada há oculto que não deva ser descoberto, nada secreto que não deva ser publicado.
+23. Se alguém tem ouvidos para ouvir, que ouça.
+24. Ele prosseguiu: Atendei ao que ouvis: com a medida com que medirdes, vos medirão a vós, e ainda se vos acrescentará.
+25. Pois, ao que tem, se lhe dará; e ao que não tem, se lhe tirará até o que tem.
+26. Dizia também: O Reino de Deus é como um homem que lança a semente à terra.
+27. Dorme, levanta-se, de noite e de dia, e a semente brota e cresce, sem ele o perceber.
+28. Pois a terra por si mesma produz, primeiro a planta, depois a espiga e, por último, o grão abundante na espiga.
+29. Quando o fruto amadurece, ele mete-lhe a foice, porque é chegada a colheita.
+30. Dizia ele: A quem compararemos o Reino de Deus? Ou com que parábola o representaremos?
+31. É como o grão de mostarda que, quando é semeado, é a menor de todas as sementes.
+32. Mas, depois de semeado, cresce, torna-se maior que todas as hortaliças e estende de tal modo os seus ramos, que as aves do céu podem abrigar-se à sua sombra.
+33. Era por meio de numerosas parábolas desse gênero que ele lhes anunciava a palavra, conforme eram capazes de compreender.
+34. E não lhes falava, a não ser em parábolas; a sós, porém, explicava tudo a seus discípulos.
+35. À tarde daquele dia, disse-lhes: Passemos para o outro lado.
+36. Deixando o povo, levaram-no consigo na barca, assim como ele estava. Outras embarcações o escoltavam.
+37. Nisto surgiu uma grande tormenta e lançava as ondas dentro da barca, de modo que ela já se enchia de água.
+38. Jesus achava-se na popa, dormindo sobre um travesseiro. Eles acordaram-no e disseram-lhe: Mestre, não te importa que pereçamos?
+39. E ele, despertando, repreendeu o vento e disse ao mar: Silêncio! Cala-te! E cessou o vento e seguiu-se grande bonança.
+40. Ele disse-lhes: Como sois medrosos! Ainda não tendes fé?
+41. Eles ficaram penetrados de grande temor e cochichavam entre si: Quem é este, a quem até o vento e o mar obedecem?São Marcos, 5
+1. Passaram à outra margem do lago, ao território dos gerasenos.
+2. Assim que saíram da barca, um homem possesso do espírito imundo saiu do cemitério
+3. onde tinha seu refúgio e veio-lhe ao encontro. Não podiam atá-lo nem com cadeia, mesmo nos sepulcros,
+4. pois tinha sido ligado muitas vezes com grilhões e cadeias, mas os despedaçara e ninguém o podia subjugar.
+5. Sempre, dia e noite, andava pelos sepulcros e nos montes, gritando e ferindo-se com pedras.
+6. Vendo Jesus de longe, correu e prostrou-se diante dele, gritando em alta voz:
+7. Que queres de mim, Jesus, Filho do Deus Altíssimo? Conjuro-te por Deus, que não me atormentes.
+8. É que Jesus lhe dizia: Espírito imundo, sai deste homem!
+9. Perguntou-lhe Jesus: Qual é o teu nome? Respondeu-lhe: Legião é o meu nome, porque somos muitos.
+10. E pediam-lhe com instância que não os lançasse fora daquela região.
+11. Ora, uma grande manada de porcos andava pastando ali junto do monte.
+12. E os espíritos suplicavam-lhe: Manda-nos para os porcos, para entrarmos neles.
+13. Jesus lhos permitiu. Então os espíritos imundos, tendo saído, entraram nos porcos; e a manada, de uns dois mil, precipitou-se no mar, afogando-se.
+14. Fugiram os pastores e narraram o fato na cidade e pelos arredores. Então saíram a ver o que tinha acontecido.
+15. Aproximaram-se de Jesus e viram o possesso assentado, coberto com seu manto e calmo, ele que tinha sido possuído pela Legião. E o pânico apoderou-se deles.
+16. As testemunhas do fato contaram-lhes como havia acontecido isso ao endemoninhado, e o caso dos porcos.
+17. Começaram então a rogar-lhe que se retirasse da sua região.
+18. Quando ele subia para a barca, veio o que tinha sido possesso e pediu-lhe permissão de acompanhá-lo.
+19. Jesus não o admitiu, mas disse-lhe: Vai para casa, para junto dos teus e anuncia-lhes tudo o que o Senhor fez por ti, e como se compadeceu de ti.
+20. Foi-se ele e começou a publicar, na Decápole, tudo o que Jesus lhe havia feito. E todos se admiravam.
+21. Tendo Jesus navegado outra vez para a margem oposta, de novo afluiu a ele uma grande multidão. Ele se achava à beira do mar, quando
+22. um dos chefes da sinagoga, chamado Jairo, se apresentou e, à sua vista, lançou-se-lhe aos pés,
+23. rogando-lhe com insistência: Minha filhinha está nas últimas. Vem, impõe-lhe as mãos para que se salve e viva.
+24. Jesus foi com ele e grande multidão o seguia, comprimindo-o.
+25. Ora, havia ali uma mulher que já por doze anos padecia de um fluxo de sangue.
+26. Sofrera muito nas mãos de vários médicos, gastando tudo o que possuía, sem achar nenhum alívio; pelo contrário, piorava cada vez mais.
+27. Tendo ela ouvido falar de Jesus, veio por detrás, entre a multidão, e tocou-lhe no manto.
+28. Dizia ela consigo: Se tocar, ainda que seja na orla do seu manto, estarei curada.
+29. Ora, no mesmo instante se lhe estancou a fonte de sangue, e ela teve a sensação de estar curada.
+30. Jesus percebeu imediatamente que saíra dele uma força e, voltando-se para o povo, perguntou: Quem tocou minhas vestes?
+31. Responderam-lhe os seus discípulos: Vês que a multidão te comprime e perguntas: Quem me tocou?
+32. E ele olhava em derredor para ver quem o fizera.
+33. Ora, a mulher, atemorizada e trêmula, sabendo o que nela se tinha passado, veio lançar-se-lhe aos pés e contou-lhe toda a verdade.
+34. Mas ele lhe disse: Filha, a tua fé te salvou. Vai em paz e sê curada do teu mal.
+35. Enquanto ainda falava, chegou alguém da casa do chefe da sinagoga, anunciando: Tua filha morreu. Para que ainda incomodas o Mestre?
+36. Ouvindo Jesus a notícia que era transmitida, dirigiu-se ao chefe da sinagoga: Não temas; crê somente.
+37. E não permitiu que ninguém o acompanhasse, senão Pedro, Tiago e João, irmão de Tiago.
+38. Ao chegar à casa do chefe da sinagoga, viu o alvoroço e os que estavam chorando e fazendo grandes lamentações.
+39. Ele entrou e disse-lhes: Por que todo esse barulho e esses choros? A menina não morreu. Ela está dormindo.
+40. Mas riam-se dele. Contudo, tendo mandado sair todos, tomou o pai e a mãe da menina e os que levava consigo, e entrou onde a menina estava deitada.
+41. Segurou a mão da menina e disse-lhe: Talita cumi, que quer dizer: Menina, ordeno-te, levanta-te!
+42. E imediatamente a menina se levantou e se pôs a caminhar (pois contava doze anos). Eles ficaram assombrados.
+43. Ordenou-lhes severamente que ninguém o soubesse, e mandou que lhe dessem de comer.São Marcos, 6
+1. Depois, ele partiu dali e foi para a sua pátria, seguido de seus discípulos.
+2. Quando chegou o dia de sábado, começou a ensinar na sinagoga. Muitos o ouviam e, tomados de admiração, diziam: Donde lhe vem isso? Que sabedoria é essa que lhe foi dada, e como se operam por suas mãos tão grandes milagres?
+3. Não é ele o carpinteiro, o filho de Maria, o irmão de Tiago, de José, de Judas e de Simão? Não vivem aqui entre nós também suas irmãs? E ficaram perplexos a seu respeito.
+4. Mas Jesus disse-lhes: Um profeta só é desprezado na sua pátria, entre os seus parentes e na sua própria casa.
+5. Não pôde fazer ali milagre algum. Curou apenas alguns poucos enfermos, impondo-lhes as mãos.
+6. Admirava-se ele da desconfiança deles. E ensinando, percorria as aldeias circunvizinhas.
+7. Então chamou os Doze e começou a enviá-los, dois a dois; e deu-lhes poder sobre os espíritos imundos.
+8. Ordenou-lhes que não levassem coisa alguma para o caminho, senão somente um bordão; nem pão, nem mochila, nem dinheiro no cinto;
+9. como calçado, unicamente sandálias, e que se não revestissem de duas túnicas.
+10. E disse-lhes: Em qualquer casa em que entrardes, ficai nela, até vos retirardes dali.
+11. Se em algum lugar não vos receberem nem vos escutarem, saí dali e sacudi o pó dos vossos pés em testemunho contra ele.
+12. Eles partiram e pregaram a penitência.
+13. Expeliam numerosos demônios, ungiam com óleo a muitos enfermos e os curavam.
+14. O rei Herodes ouviu falar de Jesus, cujo nome se tornara célebre. Dizia-se: João Batista ressurgiu dos mortos e por isso o poder de fazer milagres opera nele.
+15. Uns afirmavam: É Elias! Diziam outros: É um profeta como qualquer outro.
+16. Ouvindo isto, Herodes repetia: É João, a quem mandei decapitar. Ele ressuscitou!
+17. Pois o próprio Herodes mandara prender João e acorrentá-lo no cárcere, por causa de Herodíades, mulher de seu irmão Filipe, com a qual ele se tinha casado.
+18. João tinha dito a Herodes: Não te é permitido ter a mulher de teu irmão.
+19. Por isso Herodíades o odiava e queria matá-lo, não o conseguindo, porém.
+20. Pois Herodes respeitava João, sabendo que era um homem justo e santo; protegia-o e, quando o ouvia, sentia-se embaraçado. Mas, mesmo assim, de boa mente o ouvia.
+21. Chegou, porém, um dia favorável em que Herodes, por ocasião do seu natalício, deu um banquete aos grandes de sua corte, aos seus oficiais e aos principais da Galiléia.
+22. A filha de Herodíades apresentou-se e pôs-se a dançar, com grande satisfação de Herodes e dos seus convivas. Disse o rei à moça: Pede-me o que quiseres, e eu to darei.
+23. E jurou-lhe: Tudo o que me pedires te darei, ainda que seja a metade do meu reino.
+24. Ela saiu e perguntou à sua mãe: Que hei de pedir? E a mãe respondeu: A cabeça de João Batista.
+25. Tornando logo a entrar apressadamente à presença do rei, exprimiu-lhe seu desejo: Quero que sem demora me dês a cabeça de João Batista.
+26. O rei entristeceu-se; todavia, por causa da sua promessa e dos convivas, não quis recusar.
+27. Sem tardar, enviou um carrasco com a ordem de trazer a cabeça de João. Ele foi, decapitou João no cárcere,
+28. trouxe a sua cabeça num prato e a deu à moça, e esta a entregou à sua mãe.
+29. Ouvindo isto, os seus discípulos foram tomar o seu corpo e o depositaram num sepulcro.
+30. Os apóstolos voltaram para junto de Jesus e contaram-lhe tudo o que haviam feito e ensinado.
+31. Ele disse-lhes: Vinde à parte, para algum lugar deserto, e descansai um pouco. Porque eram muitos os que iam e vinham e nem tinham tempo para comer.
+32. Partiram na barca para um lugar solitário, à parte.
+33. Mas viram-nos partir. Por isso, muitos deles perceberam para onde iam, e de todas as cidades acorreram a pé para o lugar aonde se dirigiam, e chegaram primeiro que eles.
+34. Ao desembarcar, Jesus viu uma grande multidão e compadeceu-se dela, porque era como ovelhas que não têm pastor. E começou a ensinar-lhes muitas coisas.
+35. A hora já estava bem avançada quando se achegaram a ele os seus discípulos e disseram: Este lugar é deserto, e já é tarde.
+36. Despede-os, para irem aos sítios e aldeias vizinhas a comprar algum alimento.
+37. Mas ele respondeu-lhes: Dai-lhes vós mesmos de comer. Replicaram-lhe: Iremos comprar duzentos denários de pão para dar-lhes de comer?
+38. Ele perguntou-lhes: Quantos pães tendes? Ide ver. Depois de se terem informado, disseram: Cinco, e dois peixes.
+39. Ordenou-lhes que mandassem todos sentar-se, em grupos, na relva verde.
+40. E assentaram-se em grupos de cem e de cinqüenta.
+41. Então tomou os cinco pães e os dois peixes e, erguendo os olhos ao céu, abençoou-os, partiu-os e os deu a seus discípulos, para que lhos distribuíssem, e repartiu entre todos os dois peixes.
+42. Todos comeram e ficaram fartos.
+43. Recolheram do que sobrou doze cestos cheios de pedaços, e os restos dos peixes.
+44. Foram cinco mil os homens que haviam comido daqueles pães.
+45. Imediatamente ele obrigou os seus discípulos a subirem para a barca, para que chegassem antes dele à outra margem, em frente de Betsaida, enquanto ele mesmo despedia o povo.
+46. E despedido que foi o povo, retirou-se ao monte para orar.
+47. À noite, achava-se a barca no meio do lago e ele, a sós, em terra.
+48. Vendo-os se fatigarem em remar, sendo-lhes o vento contrário, foi ter com eles pela quarta vigília da noite, andando por cima do mar, e fez como se fosse passar ao lado deles.
+49. À vista de Jesus, caminhando sobre o mar, pensaram que fosse um fantasma e gritaram;
+50. pois todos o viram e se assustaram. Mas ele logo lhes falou: Tranqüilizai-vos, sou eu; não vos assusteis!
+51. E subiu para a barca, junto deles, e o vento cessou. Todos se achavam tomados de um extremo pavor,
+52. pois ainda não tinham compreendido o caso dos pães; os seus corações estavam insensíveis.
+53. Navegaram para o outro lado e chegaram à região de Genesaré, onde aportaram.
+54. Assim que saíram da barca, o povo o reconheceu.
+55. Percorrendo toda aquela região, começaram a levar, em leitos, os que padeciam de algum mal, para o lugar onde ouviam dizer que ele se encontrava.
+56. Onde quer que ele entrasse, fosse nas aldeias ou nos povoados, ou nas cidades, punham os enfermos nas ruas e pediam-lhe que os deixassem tocar ao menos na orla de suas vestes. E todos os que tocavam em Jesus ficavam sãos.São Marcos, 7
+1. Os fariseus e alguns dos escribas vindos de Jerusalém tinham sereunido em torno dele.
+2. E perceberam que alguns dos seus discípulos comiam o pão com as mãos impuras, isto é, sem as lavar.
+3. (Com efeito, os fariseus e todos os judeus, apegando-se à tradição dos antigos, não comem sem lavar cuidadosamente as mãos;
+4. e, quando voltam do mercado, não comem sem ter feito abluções. E há muitos outros costumes que observam por tradição, como lavar os copos, os jarros e os pratos de metal.)
+5. Os fariseus e os escribas perguntaram-lhe: Por que não andam os teus discípulos conforme a tradição dos antigos, mas comem o pão com as mãos impuras?
+6. Jesus disse-lhes: Isaías com muita razão profetizou de vós, hipócritas, quando escreveu: Este povo honra-me com os lábios, mas o seu coração está longe de mim.
+7. Em vão, pois, me cultuam, porque ensinam doutrinas e preceitos humanos (29,13).
+8. Deixando o mandamento de Deus, vos apegais à tradição dos homens.
+9. E Jesus acrescentou: Na realidade, invalidais o mandamento de Deus para estabelecer a vossa tradição.
+10. Pois Moisés disse: Honra teu pai e tua mãe; e: Todo aquele que amaldiçoar pai ou mãe seja morto.
+11. Vós, porém, dizeis: Se alguém disser ao pai ou à mãe: Qualquer coisa que de minha parte te pudesse ser útil é corban, isto é, oferta,
+12. e já não lhe deixais fazer coisa alguma a favor de seu pai ou de sua mãe,
+13. anulando a palavra de Deus por vossa tradição que vós vos transmitistes. E fazeis ainda muitas coisas semelhantes.
+14. Tendo chamado de novo a turba, dizia-lhes: Ouvi-me todos, e entendei.
+15. Nada há fora do homem que, entrando nele, o possa manchar; mas o que sai do homem, isso é que mancha o homem.
+16. [bom entendedor meia palavra basta.]
+17. Quando deixou o povo e entrou em casa, os seus discípulos perguntaram-lhe acerca da parábola.
+18. Respondeu-lhes: Sois também vós assim ignorantes? Não compreendeis que tudo o que de fora entra no homem não o pode tornar impuro,
+19. porque não lhe entra no coração, mas vai ao ventre e dali segue sua lei natural? Assim ele declarava puros todos os alimentos. E acrescentava:
+20. Ora, o que sai do homem, isso é que mancha o homem.
+21. Porque é do interior do coração dos homens que procedem os maus pensamentos: devassidões, roubos, assassinatos,
+22. adultérios, cobiças, perversidades, fraudes, desonestidade, inveja, difamação, orgulho e insensatez.
+23. Todos estes vícios procedem de dentro e tornam impuro o homem.
+24. Em seguida, deixando aquele lugar, foi para a terra de Tiro e de Sidônia. E tendo entrado numa casa, não quis que ninguém o soubesse. Mas não pôde ficar oculto,
+25. pois uma mulher, cuja filha possuía um espírito imundo, logo que soube que ele estava ali, entrou e caiu a seus pés.
+26. (Essa mulher era pagã, de origem siro-fenícia.) Ora, ela suplicava-lhe que expelisse de sua filha o demônio.
+27. Disse-lhe Jesus: Deixa primeiro que se fartem os filhos, porque não fica bem tomar o pão dos filhos e lançá-lo aos cães.
+28. Mas ela respondeu: É verdade, Senhor; mas também os cachorrinhos debaixo da mesa comem das migalhas dos filhos.
+29. Jesus respondeu-lhe: Por causa desta palavra, vai-te, que saiu o demônio de tua filha.
+30. Voltou ela para casa e achou a menina deitada na cama. O demônio havia saído.
+31. Ele deixou de novo as fronteiras de Tiro e foi por Sidônia ao mar da Galiléia, no meio do território da Decápole.
+32. Ora, apresentaram-lhe um surdo-mudo, rogando-lhe que lhe impusesse a mão.
+33. Jesus tomou-o à parte dentre o povo, pôs-lhe os dedos nos ouvidos e tocou-lhe a língua com saliva.
+34. E levantou os olhos ao céu, deu um suspiro e disse-lhe: Éfeta!, que quer dizer abre-te!
+35. No mesmo instante os ouvidos se lhe abriram, a prisão da língua se lhe desfez e ele falava perfeitamente.
+36. Proibiu-lhes que o dissessem a alguém. Mas quanto mais lhes proibia, tanto mais o publicavam.
+37. E tanto mais se admiravam, dizendo: Ele fez bem todas as coisas. Fez ouvir os surdos e falar os mudos!São Marcos, 8
+1. Naqueles dias, como fosse novamente numerosa a multidão, enão tivessem o que comer, Jesus convocou os discípulos e lhes disse:
+2. Tenho compaixão deste povo. Já há três dias perseveram comigo e não têm o que comer.
+3. Se os despedir em jejum para suas casas, desfalecerão no caminho; e alguns deles vieram de longe!
+4. Seus discípulos responderam-lhe: Como poderá alguém fartá-los de pão aqui no deserto?
+5. Mas ele perguntou-lhes: Quantos pães tendes? Sete, responderam.
+6. Mandou então que o povo se assentasse no chão. Tomando os sete pães, deu graças, partiu-os e entregou-os a seus discípulos, para que os distribuíssem e eles os distribuíram ao povo.
+7. Tinham também alguns peixinhos. Ele os abençoou e mandou também distribuí-los.
+8. Comeram e ficaram fartos, e dos pedaços que sobraram levantaram sete cestos.
+9. Ora, os que comeram eram cerca de quatro mil pessoas. Em seguida, Jesus os despediu.
+10. E embarcando depois com seus discípulos, foi para o território de Dalmanuta.
+11. Vieram os fariseus e puseram-se a disputar com ele e pediram-lhe um sinal do céu, para pô-lo à prova.
+12. Jesus, porém, suspirando no seu coração, disse: Por que pede esta geração um sinal? Em verdade vos digo: jamais lhe será dado um sinal.
+13. Deixou-os e seguiu de barca para a outra margem.
+14. Aconteceu que eles haviam esquecido de levar pães consigo. Na barca havia um único pão.
+15. Jesus advertiu-os: Abri os olhos e acautelai-vos do fermento dos fariseus e do fermento de Herodes!
+16. E eles comentavam entre si que era por não terem pão.
+17. Jesus percebeu-o e disse-lhes: Por que discutis por não terdes pão? Ainda não tendes refletido nem compreendido? Tendes, pois, o coração insensível?
+18. Tendo olhos, não vedes? E tendo ouvidos, não ouvis? Não vos lembrais mais?
+19. Ao partir eu os cinco pães entre os cinco mil, quantos cestos recolhestes cheios de pedaços? Responderam-lhe: Doze.
+20. E quando eu parti os sete pães entre os quatro mil homens, quantos cestos de pedaços levantastes? Sete, responderam-lhe.
+21. Jesus disse-lhes: Como é que ainda não entendeis?...
+22. Chegando eles a Betsaida, trouxeram-lhe um cego e suplicaram-lhe que o tocasse.
+23. Jesus tomou o cego pela mão e levou-o para fora da aldeia. Pôs-lhe saliva nos olhos e, impondo-lhe as mãos, perguntou-lhe: Vês alguma coisa?
+24. O cego levantou os olhos e respondeu: Vejo os homens como árvores que andam.
+25. Em seguida, Jesus lhe impôs as mãos nos olhos e ele começou a ver e ficou curado, de modo que via distintamente de longe.
+26. E mandou-o para casa, dizendo-lhe: Não entres nem mesmo na aldeia.
+27. Jesus saiu com os seus discípulos para as aldeias de Cesaréia de Filipe, e pelo caminho perguntou-lhes: Quem dizem os homens que eu sou?
+28. Responderam-lhe os discípulos: João Batista; outros, Elias; outros, um dos profetas.
+29. Então perguntou-lhes Jesus: E vós, quem dizeis que eu sou? Respondeu Pedro: Tu és o Cristo.
+30. E ordenou-lhes severamente que a ninguém dissessem nada a respeito dele.
+31. E começou a ensinar-lhes que era necessário que o Filho do homem padecesse muito, fosse rejeitado pelos anciãos, pelos sumos sacerdotes e pelos escribas, e fosse morto, mas ressuscitasse depois de três dias.
+32. E falava-lhes abertamente dessas coisas. Pedro, tomando-o à parte, começou a repreendê-lo.
+33. Mas, voltando-se ele, olhou para os seus discípulos e repreendeu a Pedro: Afasta-te de mim, Satanás, porque teus sentimentos não são os de Deus, mas os dos homens.
+34. Em seguida, convocando a multidão juntamente com os seus discípulos, disse-lhes: Se alguém me quer seguir, renuncie-se a si mesmo, tome a sua cruz e siga-me.
+35. Porque o que quiser salvar a sua vida, perdê-la-á; mas o que perder a sua vida por amor de mim e do Evangelho, salvá-la-á.
+36. Pois que aproveitará ao homem ganhar o mundo inteiro, se vier a perder a sua vida?
+37. Ou que dará o homem em troca da sua vida?
+38. Porque, se nesta geração adúltera e pecadora alguém se envergonhar de mim e das minhas palavras, também o Filho do homem se envergonhará dele, quando vier na glória de seu Pai com os seus santos anjos.São Marcos, 9
+1. E dizia-lhes: Em verdade vos digo: dos que aqui se acham, alguns há que não experimentarão a morte, enquanto não virem chegar o Reino de Deus com poder.
+2. Seis dias depois, Jesus tomou consigo a Pedro, Tiago e João, e conduziu-os a sós a um alto monte. E
+3. transfigurou-se diante deles. Suas vestes tornaram-se resplandecentes e de uma brancura tal, que nenhum lavadeiro sobre a terra as pode fazer assim tão brancas.
+4. Apareceram-lhes Elias e Moisés, e falavam com Jesus.
+5. Pedro tomou a palavra: Mestre, é bom para nós estarmos aqui; faremos três tendas: uma para ti, outra para Moisés e outra para Elias.
+6. Com efeito, não sabia o que falava, porque estavam sobremaneira atemorizados.
+7. Formou-se então uma nuvem que os encobriu com a sua sombra; e da nuvem veio uma voz: Este é o meu Filho muito amado; ouvi-o.
+8. E olhando eles logo em derredor, já não viram ninguém, senão só a Jesus com eles.
+9. Ao descerem do monte, proibiu-lhes Jesus que contassem a quem quer que fosse o que tinham visto, até que o Filho do homem houvesse ressurgido dos mortos.
+10. E guardaram esta recomendação consigo, perguntando entre si o que significaria: Ser ressuscitado dentre os mortos.
+11. Depois lhe perguntaram: Por que dizem os fariseus e os escribas que primeiro deve voltar Elias?
+12. Respondeu-lhes: Elias deve voltar primeiro e restabelecer tudo em ordem. Como então está escrito acerca do Filho do homem que deve padecer muito e ser desprezado?
+13. Mas digo-vos que também Elias já voltou e fizeram-lhe sofrer tudo quanto quiseram, como está escrito dele.
+14. Depois, aproximando-se dos discípulos, viu ao redor deles grande multidão, e os escribas a discutir com eles.
+15. Todo aquele povo, vendo de surpresa Jesus, acorreu a ele para saudá-lo.
+16. Ele lhes perguntou: Que estais discutindo com eles?
+17. Respondeu um homem dentre a multidão: Mestre, eu te trouxe meu filho, que tem um espírito mudo.
+18. Este, onde quer que o apanhe, lança-o por terra e ele espuma, range os dentes e fica endurecido. Roguei a teus discípulos que o expelissem, mas não o puderam.
+19. Respondeu-lhes Jesus: Ó geração incrédula, até quando estarei convosco? Até quando vos hei de aturar? Trazei-mo cá!
+20. Eles lho trouxeram. Assim que o menino avistou Jesus, o espírito o agitou fortemente. Caiu por terra e revolvia-se espumando.
+21. Jesus perguntou ao pai: Há quanto tempo lhe acontece isto? Desde a infância, respondeu-lhe.
+22. E o tem lançado muitas vezes ao fogo e à água, para o matar. Se tu, porém, podes alguma coisa, ajuda-nos, compadece-te de nós!
+23. Disse-lhe Jesus: Se podes alguma coisa!... Tudo é possível ao que crê.
+24. Imediatamente exclamou o pai do menino: Creio! Vem em socorro à minha falta de fé!
+25. Vendo Jesus que o povo afluía, intimou o espírito imundo e disse-lhe: Espírito mudo e surdo, eu te ordeno: sai deste menino e não tornes a entrar nele.
+26. E, gritando e maltratando-o extremamente, saiu. O menino ficou como morto, de modo que muitos diziam: Morreu...
+27. Jesus, porém, tomando-o pela mão, ergueu-o e ele levantou-se.
+28. Depois de entrar em casa, os seus discípulos perguntaram-lhe em particular: Por que não pudemos nós expeli-lo?
+29. Ele disse-lhes: Esta espécie de demônios não se pode expulsar senão pela oração.
+30. Tendo partido dali, atravessaram a Galiléia. Não queria, porém, que ninguém o soubesse.
+31. E ensinava os seus discípulos: O Filho do homem será entregue nas mãos dos homens, e matá-lo-ão; e ressuscitará três dias depois de sua morte.
+32. Mas não entendiam estas palavras; e tinham medo de lho perguntar.
+33. Em seguida, voltaram para Cafarnaum. Quando já estava em casa, Jesus perguntou-lhes: De que faláveis pelo caminho?
+34. Mas eles calaram-se, porque pelo caminho haviam discutido entre si qual deles seria o maior.
+35. Sentando-se, chamou os Doze e disse-lhes: Se alguém quer ser o primeiro, seja o último de todos e o servo de todos.
+36. E tomando um menino, colocou-o no meio deles; abraçou-o e disse-lhes:
+37. Todo o que recebe um destes meninos em meu nome, a mim é que recebe; e todo o que recebe a mim, não me recebe, mas aquele que me enviou.
+38. João disse-lhe: Mestre, vimos alguém, que não nos segue, expulsar demônios em teu nome, e lho proibimos.
+39. Jesus, porém, disse-lhe: Não lho proibais, porque não há ninguém que faça um prodígio em meu nome e em seguida possa falar mal de mim.
+40. Pois quem não é contra nós, é a nosso favor.
+41. E quem vos der de beber um copo de água porque sois de Cristo, digo-vos em verdade: não perderá a sua recompensa.
+42. Mas todo o que fizer cair no pecado a um destes pequeninos que crêem em mim, melhor lhe fora que uma pedra de moinho lhe fosse posta ao pescoço e o lançassem ao mar!
+43. Se a tua mão for para ti ocasião de queda, corta-a; melhor te é entrares na vida aleijado do que, tendo duas mãos, ires para a geena, para o fogo inextinguível
+44. [onde o seu verme não morre e o fogo não se apaga].
+45. Se o teu pé for para ti ocasião de queda, corta-o fora; melhor te é entrares coxo na vida eterna do que, tendo dois pés, seres lançado à geena do fogo inextinguível
+46. [onde o seu verme não morre e o fogo não se apaga].
+47. Se o teu olho for para ti ocasião de queda, arranca-o; melhor te é entrares com um olho de menos no Reino de Deus do que, tendo dois olhos, seres lançado à geena do fogo,
+48. onde o seu verme não morre e o fogo não se apaga.
+49. Porque todo homem será salgado pelo fogo.
+50. O sal é uma boa coisa; mas se ele se tornar insípido, com que lhe restituireis o sabor? Tende sal em vós e vivei em paz uns com os outros.São Marcos, 10
+1. Saindo dali, ele foi para a região da Judéia, além do Jordão. As multidões voltaram a segui-lo pelo caminho e de novo ele pôs-se a ensiná-las, como era seu costume.
+2. Chegaram os fariseus e perguntaram-lhe, para o pôr à prova, se era permitido ao homem repudiar sua mulher.
+3. Ele respondeu-lhes: "Que vos ordenou Moisés?"
+4. Eles responderam: "Moisés permitiu escrever carta de divórcio e despedir a mulher."
+5. Continuou Jesus: "Foi devido à dureza do vosso coração que ele vos deu essa lei;
+6. mas, no princípio da criação, Deus os fez homem e mulher.
+7. Por isso, deixará o homem pai e mãe e se unirá à sua mulher;
+8. e os dois não serão senão uma só carne. Assim, já não são dois, mas uma só carne.
+9. Não separe, pois, o homem o que Deus uniu."
+10. Em casa, os discípulos fizeram-lhe perguntas sobre o mesmo assunto.
+11. E ele disse-lhes: "Quem repudia sua mulher e se casa com outra, comete adultério contra a primeira.
+12. E se a mulher repudia o marido e se casa com outro, comete adultério."
+13. Apresentaram-lhe então crianças para que as tocasse; mas os discípulos repreendiam os que as apresentavam.
+14. Vendo-o, Jesus indignou-se e disse-lhes: "Deixai vir a mim os pequequinos e não os impeçais, porque o Reino de Deus é daqueles que se lhes assemelham.
+15. Em verdade vos digo: todo o que não receber o Reino de Deus com a mentalidade de uma criança, nele não entrará."
+16. Em seguida, ele as abraçou e as abençoou, impondo-lhes as mãos.
+17. Tendo ele saído para se pôr a caminho, veio alguém correndo e, dobrando os joelhos diante dele, suplicou-lhe: "Bom Mestre, que farei para alcançara vida eterna?"
+18. Jesus disse-lhe: "Por que me chamas bom? Só Deus é bom.
+19. Conheces os mandamentos: não mates; não cometas adultério; não furtes; não digas falso testemunho; não cometas fraudes; honra pai e mãe."
+20. Ele respondeu-lhe: "Mestre, tudo isto tenho observado desde a minha mocidade."
+21. Jesus fixou nele o olhar, amou-o e disse-lhe: "Uma só coisa te falta; vai, vende tudo o que tens e dá-o aos pobres e terás um tesouro no céu. Depois, vem e segue-me.
+22. Ele entristeceu-se com estas palavras e foi-se todo abatido, porque possuía muitos bens.
+23. E, olhando Jesus em derredor, disse a seus discípulos: "Quão dificilmente entrarão no Reino de Deus os ricos!"
+24. Os discípulos ficaram assombrados com suas palavras. Mas Jesus replicou: "Filhinhos, quão difícil é entrarem no Reino de Deus os que põem a sua confiança nas riquezas!
+25. É mais fácil passar o camelo pelo fundo de uma agulha do que entrar o rico no Reino de Deus."
+26. Eles ainda mais se admiravam, dizendo a si próprios: "Quem pode então salvar-se?"
+27. Olhando Jesus para eles, disse: "Aos homens isto é impossível, mas não a Deus; pois a Deus tudo é possível.
+28. Pedro começou a dizer-lhe: "Eis que deixamos tudo e te seguimos."
+29. Respondeu-lhe Jesus. "Em verdade vos digo: ninguém há que tenha deixado casa ou irmãos, ou irmãs, ou pai, ou mãe, ou filhos, ou terras por causa de mim e por causa do Evangelho
+30. que não receba, já neste século, cem vezes mais casas, irmãos, irmãs, mães, filhos e terras, com perseguições e no século vindouro a vida eterna.
+31. Muitos dos primeiros serão os últimos, e dos últimos serão os primeiros."
+32. Estavam a caminho de Jerusalém e Jesus ia adiante deles. Estavam perturbados e o seguiam com medo. E tomando novamente a si os Doze, começou a predizer-lhes as coisas que lhe haviam de acontecer:
+33. "Eis que subimos a Jerusalém e o Filho do homem será entregue aos príncipes dos sacerdotes e aos escribas; condená-lo-ão à morte e entregá-lo-ão aos gentios.
+34. Escarnecerão dele, cuspirão nele, açoitá-lo-ão, e hão de matá-lo; mas ao terceiro dia ele ressurgirá.
+35. Aproximaram-se de; Jesus Tiago e João, filhos de Zebedeu, e disseram-lhe: "Mestre, queremos que nos concedas tudo o que te pedirmos."
+36. "Que quereis que vos faça?"
+37. "Concede-nos que nos sentemos na tua glória, um à tua direita e outro à tua esquerda."
+38. "Não sabeis o que pedis, retorquiu Jesus. Podeis vós beber o cálice que eu vou beber, ou ser batizados no batismo em que eu vou ser batizado?"
+39. "Podemos", asseguraram eles. Jesus prosseguiu: "Vós bebereis o cálice que eu devo beber e sereis batizados no batismo em que eu devo ser batizado.
+40. Mas, quanto ao assentardes à minha direita ou à minha esquerda, isto não depende de mim: o lugar compete àqueles a quem está destinado."
+41. Ouvindo isto, os outros dez começaram a indignar-se contra Tiago e João.
+42. Jesus chamou-os e deu-lhes esta lição: "Sabeis que os que são considerados chefes das nações dominam sobre elas e os seus intendentes exercem poder sobre elas.
+43. Entre vós, porém, não será assim: todo o que quiser tornar-se grande entre vós, seja o vosso servo;
+44. e todo o que entre vós quiser ser o primeiro, seja escravo de todos.
+45. Porque o Filho do homem não veio para ser servido, mas para servir e dar a sua vida em redenção por muitos."
+46. Chegaram a Jericó. Ao sair dali Jesus, seus discípulos e numerosa multidão, estava sentado à beira do caminho, mendigando, Bartimeu, que era cego, filho de Timeu.
+47. Sabendo que era Jesus de Nazaré, começou a gritar: "Jesus, filho de Davi, em compaixão de mim!"
+48. Muitos o repreendiam, para que se calasse, mas ele gritava ainda mais alto: "Filho de Davi, tem compaixão de mim!"
+49. Jesus parou e disse: "Chamai-o" Chamaram o cego, dizendo-lhe: "Coragem! Levanta-te, ele te chama."
+50. Lançando fora a capa, o cego ergueu-se dum salto e foi ter com ele.
+51. Jesus, tomando a palavra, perguntou-lhe: "Que queres que te faça? Rabôni, respondeu-lhe o cego, que eu veja!
+52. Jesus disse-lhe: Vai, a tua fé te salvou." No mesmo instante, ele recuperou a vista e foi seguindo Jesus pelo caminho.São Marcos, 11
+1. Jesus e seus discípulos aproximavam-se de Jerusalém e chegaram aos arredores de Betfagé e de Betânia, perto do monte das Oliveiras. Desse lugar Jesus enviou dois dos seus discípulos,
+2. dizendo-lhes: "Ide à aldeia que está defronte de vós e, logo ao entrardes nela, achareis preso um jumentinho, em que não montou ainda homem algum; desprendei-o e trazei-mo.
+3. E se alguém vos perguntar: Que fazeis?, dizei: O Senhor precisa dele, mas daqui a pouco o devolverá."
+4. Indo eles, acharam o jumentinho atado fora, diante duma porta, na curva do caminho. Iam-no desprendendo,
+5. quando alguns dos que ali estavam perguntaram: "Ei, que estais fazendo? Por que soltais o jumentinho?"
+6. Responderam como Jesus lhes havia ordenado; e deixaram-no levar.
+7. Conduziram a Jesus o jumentinho, cobriram-no com seus mantos, e Jesus montou nele.
+8. Muitos estendiam seus mantos no caminho; outros cortavam ramos das árvores e espalhavam-nos, pelo chão.
+9. Tanto os que precediam como os que iam atrás clamavam: "Hosana! Bendito o que vem em nome do Senhor!
+10. O Bendito o Rei?.que vai começar, o reino de Davi, nosso pai! Hosana no mais alto dos céus!"
+11. Jesus entrou em Jerusalém e dirigiu-se ao templo. Aí lançou-os olhos para tudo o que o cercava. Depois, como já fosse tarde, voltou para Betânia com os Doze.
+12. No outro dia, ao saírem de Betãnia, Jesus teve fome.
+13. Avistou de longe uma figueira coberta de folhas e foi ver se encontrava nela algum fruto. Aproximou-se da árvore, mas só encontrou folhas pois não era tempo de figos.
+14. E disse à figueira: "Jamais alguém coma fruto de ti!" E os discípulos ouviram esta maldição.
+15. Chegaram a Jerusalém e Jesus entrou no templo. E começou a expulsar os que no templo vendiam e compravam; derrubou as mesas dos trocadores de moedas e as cadeiras dos que vendiam pombas.
+16. Não consentia que ninguém transportasse algum objeto pelo templo.
+17. E ensinava-lhes nestes termos: "`Não está porventura escrito: A minha casa chamar-se-á casa de oração para todas as nações (Is 56,7)? Mas vós fizestes dela um covil de ladrões (Jr 7,11).
+18. Os príncipes dos sacerdotes e os escribas ouviram-no e procuravam um modo de o matar. Temiam-no, porque todo o povo se admirava da sua doutrina.
+19. Quando já era tarde, saíram da cidade.
+20. No dia seguinte pela manhã, ao passarem junto da figueira, viram que ela secara até a raiz.
+21. Pedro lembrou-se do que se tinha passado na véspera e disse a Jesus: "`Olha, Mestre, como secou a figueira que amaldiçoaste!"
+22. Respondeu-lhes Jesus: "Tende fé em Deus.
+23. Em verdade vos declaro: todo o que disser a este monte: Levanta-te e lança-te ao mar, se não duvidar no seu coração, mas acreditar que sucederá tudo o que disser, obterá esse milagre.
+24. Por isso vos digo: tudo o que pedirdes na oração, crede que o tendes recebido, e ser-vos-á dado.
+25. E quando vos puserdes de pé para orar, perdoai, se tiverdes algum ressentimento contra alguém, para que também vosso Pai, que está nos céus, vos perdoe os vossos pecados. [
+26. Mas se não perdoardes, tampouco vosso Pai que está nos céus vos perdoará os vossos pecados.]"
+27. Jesus e seus discípulos voltaram outra vez a Jerusalém. E andando Jesus pelo templo, acercaram-se dele os príncipes dos sacerdotes, os escribas e os anciãos,
+28. e perguntaram-lhe: "Com que direito fazes isto? Quem te deu autoridade para fazer essas coisas?"
+29. Jesus respondeu-lhes: "Também eu vos farei uma pergunta; respondei-ma, e dir-vos-ei com que direito faço essas coisas.
+30. O batismo de João vinha do céu ou dos homens? Respondei-me."
+31. E discorriam lá consigo: "Se dissermos: Do céu, ele dirá: Por que razão, pois, não crestes nele?
+32. Se, ao contrário, dissermos: Dos homens, tememos o povo." Com efeito, tinham medo do povo, porque todos julgavam ser João deveras um profeta.
+33. Responderam a Jesus: "Não o sabemos." "E eu tampouco vos direi, disse Jesus, com que direito faço estas coisas."São Marcos, 12
+1. E começou a falar-lhes em parábolas. Um homem plantou uma vinha, cercou-a com uma sebe, cavou nela um lagar, edificou uma torre, arrendou-a a vinhateiros e ausentou-se daquela terra.
+2. A seu tempo enviou aos vinhateiros um servo, para receber deles uma parte do produto da vinha.
+3. Ora, eles prenderam-no, feriram-no e reenviaram-no de mãos vazias.
+4. Enviou-lhes de novo outro servo; também este feriram na cabeça e o cobriram de afrontas.
+5. O senhor enviou-lhes ainda um terceiro, mas o mataram. E enviou outros mais, dos quais feriram uns e mataram outros.
+6. Restava-lhe ainda seu filho único, a quem muito amava. Enviou-o também por último a ir ter com eles, dizendo: Terão respeito a meu filho!...
+7. Os vinhateiros, porém, disseram uns aos outros: Este é o herdeiro! Vinde, matemo-lo e será nossa a herança!
+8. Agarrando-o, mataram-no e lançaram-no fora da vinha.
+9. Que fará, pois, o senhor da vinha? Virá e exterminará os vinhateiros e dará a vinha a outro.
+10. Nunca lestes estas palavras da Escritura: A pedra que os construtores rejeitaram veio a tornar-se pedra angular.
+11. Isto é obra do Senhor, e ela é admirável aos nossos olhos (Sal 117,22s)?
+12. Procuravam prendê-lo, mas temiam o povo; porque tinham entendido que a respeito deles dissera esta parábola. E deixando-o, retiraram-se.
+13. Enviaram-lhe alguns fariseus e herodianos, para que o apanhassem em alguma palavra.
+14. Aproximaram-se dele e disseram-lhe: Mestre, sabemos que és sincero e que não lisonjeias a ninguém; porque não olhas para as aparências dos homens, mas ensinas o caminho de Deus segundo a verdade. É permitido que se pague o imposto a César ou não? Devemos ou não pagá-lo?
+15. Conhecendo-lhes a hipocrisia, respondeu-lhes Jesus: Por que me quereis armar um laço? Mostrai-me um denário.
+16. Apresentaram-lho. E ele perguntou-lhes: De quem é esta imagem e a inscrição? De César, responderam-lhe.
+17. Jesus então lhes replicou. Dai, pois, a César o que é de César e a Deus o que é de Deus. E admiravam-se dele.
+18. Ora, vieram ter com ele os saduceus, que afirmam não haver ressurreição, e perguntaram-lhe:
+19. Mestre, Moisés prescreveu-nos: Se morrer o irmão de alguém, e deixar mulher sem filhos, seu irmão despo-se a viúva e suscite posteridade a seu irmão.
+20. Ora, havia sete irmãos; o primeiro casou e morreu sem deixar descendência.
+21. Então o segundo desposou a viúva, e morreu sem deixar posteridade. Do mesmo modo o terceiro.
+22. E assim tomaram-na os sete, e não deixaram filhos. Por último, morreu também a mulher.
+23. Na ressurreição, a quem destes pertencerá a mulher? Pois os sete a tiveram por mulher.
+24. Jesus respondeu-lhes: Errais, não compreendendo as Escrituras nem o poder de Deus.
+25. Na ressurreição dos mortos, os homens não tomarão mulheres, nem as mulheres, maridos, mas serão como os anjos nos céus.
+26. Mas quanto à ressurreição dos mortos, não lestes no livro de Moisés como Deus lhe falou da sarça, dizendo: Eu sou o Deus de Abraão, o Deus de Isaac e o Deus de Jacó (Êx 3, 6)?
+27. Ele não é Deus de mortos, senão de vivos. Portanto, estais muito errados.
+28. Achegou-se dele um dos escribas que os ouvira discutir e, vendo que lhes respondera bem, indagou dele: Qual é o primeiro de todos os mandamentos?
+29. Jesus respondeu-lhe: O primeiro de todos os mandamentos é este: Ouve, Israel, o Senhor nosso Deus é o único Senhor;
+30. amarás ao Senhor teu Deus de todo o teu coração, de toda a tua alma, de todo o teu espírito e de todas as tuas forças.
+31. Eis aqui o segundo: Amarás o teu próximo como a ti mesmo. Outro mandamento maior do que estes não existe.
+32. Disse-lhe o escriba: Perfeitamente, Mestre, disseste bem que Deus é um só e que não há outro além dele.
+33. E amá-lo de todo o coração, de todo o pensamento, de toda a alma e de todas as forças, e amar o próximo como a si mesmo, excede a todos os holocaustos e sacrifícios.
+34. Vendo Jesus que ele falara sabiamente, disse-lhe: Não estás longe do Reino de Deus. E já ninguém ousava fazer-lhe perguntas.
+35. Continuava Jesus a ensinar no templo e propôs esta questão: Como dizem os escribas que Cristo é o filho de Davi?
+36. Pois o mesmo Davi diz, inspirado pelo Espírito Santo: Disse o Senhor a meu Senhor: senta-te à minha direita, até que eu ponha os teus inimigos sob os teus pés (Sal 109,1).
+37. Ora, se o próprio Davi o chama Senhor, como então é ele seu filho? E a grande multidão ouvia-o com satisfação.
+38. Ele lhes dizia em sua doutrina: Guardai-vos dos escribas que gostam de andar com roupas compridas, de ser cumprimentados nas praças públicas
+39. e de sentar-se nas primeiras cadeiras nas sinagogas e nos primeiros lugares nos banquetes.
+40. Eles devoram os bens das viúvas e dão aparência de longas orações. Estes terão um juízo mais rigoroso.
+41. Jesus sentou-se defronte do cofre de esmola e observava como o povo deitava dinheiro nele; muitos ricos depositavam grandes quantias.
+42. Chegando uma pobre viúva, lançou duas pequenas moedas, no valor de apenas um quadrante.
+43. E ele chamou os seus discípulos e disse-lhes: Em verdade vos digo: esta pobre viúva deitou mais do que todos os que lançaram no cofre,
+44. porque todos deitaram do que tinham em abundância; esta, porém, pôs, da sua indigência, tudo o que tinha para o seu sustento.São Marcos, 13
+1. Saindo Jesus do templo, disse-lhe um dos seus discípulos:Mestre, olha que pedras e que construções!
+2. Jesus replicou-lhe: Vês este grande edifício? Não se deixará pedra sobre pedra que não seja demolida.
+3. E estando sentado no monte das Oliveiras, defronte do templo, perguntaram-lhe à parte Pedro, Tiago, João e André:
+4. Dize-nos, quando hão de suceder essas coisas? E por que sinal se saberá que tudo isso se vai realizar?
+5. Jesus pôs-se então a dizer-lhes: Cuidai que ninguém vos engane.
+6. Muitos virão em meu nome, dizendo: Sou eu. E seduzirão a muitos.
+7. Quando ouvirdes falar de guerras e de rumores de guerra, não temais; porque é necessário que estas coisas aconteçam, mas não será ainda o fim.
+8. Levantar-se-ão nação contra nação e reino contra reino; e haverá terremotos em diversos lugares, e fome. Isto será o princípio das dores.
+9. Cuidai de vós mesmos; sereis arrastados diante dos tribunais e açoitados nas sinagogas, e comparecereis diante dos governadores e reis por minha causa, para dar testemunho de mim diante deles.
+10. Mas primeiro é necessário que o Evangelho seja pregado a todas as nações.
+11. Quando vos levarem para vos entregar, não premediteis no que haveis de dizer, mas dizei o que vos for inspirado naquela hora; porque não sois vós que falais, mas sim o Espírito Santo.
+12. O irmão entregará à morte o irmão, e o pai, o filho; e os filhos insurgir-se-ão contra os pais e dar-lhes-ão a morte.
+13. E sereis odiados de todos por causa de meu nome. Mas o que perseverar até o fim será salvo.
+14. Quando virdes a abominação da desolação no lugar onde não deve estar o leitor entenda , então os que estiverem na Judéia fujam para os montes;
+15. o que estiver sobre o terraço não desça nem entre em casa para dela levar alguma coisa;
+16. e o que se achar no campo não volte a buscar o seu manto.
+17. Ai das mulheres que naqueles dias estiverem grávidas e amamentando!
+18. Rogai para que isto não aconteça no inverno!
+19. Porque naqueles dias haverá tribulações tais, como não as houve desde o princípio do mundo que Deus criou até agora, nem haverá jamais.
+20. Se o Senhor não abreviasse aqueles dias, ninguém se salvaria; mas ele os abreviou em atenção aos eleitos que escolheu.
+21. E se então alguém vos disser: Eis, aqui está o Cristo; ou: Ei-lo acolá, não creiais.
+22. Porque se levantarão falsos cristos e falsos profetas, que farão sinais e portentos para seduzir, se possível for, até os escolhidos.
+23. Ficai de sobreaviso. Eis que vos preveni de tudo.
+24. Naqueles dias, depois dessa tribulação, o sol se escurecerá, a lua não dará o seu resplendor;
+25. cairão os astros do céu e as forças que estão no céu serão abaladas.
+26. Então verão o Filho do homem voltar sobre as nuvens com grande poder e glória.
+27. Ele enviará os anjos, e reunirá os seus escolhidos dos quatro ventos, desde a extremidade da terra até a extremidade do céu.
+28. Compreendei por uma comparação tirada da figueira. Quando os seus ramos vão ficando tenros e brotam as folhas, sabeis que está perto o verão.
+29. Assim também quando virdes acontecer estas coisas, sabei que o Filho do homem está próximo, às portas.
+30. Em verdade vos digo: não passará esta geração sem que tudo isto aconteça.
+31. Passarão o céu e a terra, mas as minhas palavras não passarão.
+32. A respeito, porém, daquele dia ou daquela hora, ninguém o sabe, nem os anjos do céu nem mesmo o Filho, mas somente o Pai.
+33. Ficai de sobreaviso, vigiai; porque não sabeis quando será o tempo.
+34. Será como um homem que, partindo em viagem, deixa a sua casa e delega sua autoridade aos seus servos, indicando o trabalho de cada um, e manda ao porteiro que vigie.
+35. Vigiai, pois, visto que não sabeis quando o senhor da casa voltará, se à tarde, se à meia-noite, se ao cantar do galo, se pela manhã,
+36. para que, vindo de repente, não vos encontre dormindo.
+37. O que vos digo, digo a todos: vigiai!São Marcos, 14
+1. Ora, dali a dois dias seria a festa da Páscoa e dos (pães) Ázimos; e os sumos sacerdotes e os escribas buscavam algum meio de prender Jesus à traição para matá-lo.
+2. Mas não durante a festa, diziam eles, para não haver talvez algum tumulto entre o povo.
+3. Jesus se achava em Betânia, em casa de Simão, o leproso. Quando ele se pôs à mesa, entrou uma mulher trazendo um vaso de alabastro cheio de um perfume de nardo puro, de grande preço, e, quebrando o vaso, derramou-lho sobre a cabeça.
+4. Alguns, porém, ficaram indignados e disseram entre si: Por que este desperdício de bálsamo?
+5. Poder-se-ia tê-lo vendido por mais de trezentos denários, e os dar aos pobres. E irritavam-se contra ela.
+6. Mas Jesus disse-lhes: Deixai-a. Por que a molestais? Ela me fez uma boa obra.
+7. Vós sempre tendes convosco os pobres e, quando quiserdes, podeis fazer-lhes bem; mas a mim não me tendes sempre.
+8. Ela fez o que pode: embalsamou-me antecipadamente o corpo para a sepultura.
+9. Em verdade vos digo: onde quer que for pregado em todo o mundo o Evangelho, será contado para sua memória o que ela fez.
+10. Judas Iscariotes, um dos Doze, foi avistar-se com os sumos sacerdotes para lhes entregar Jesus.
+11. A esta notícia, eles alegraram-se e prometeram dar-lhe dinheiro. E ele buscava ocasião oportuna para o entregar.
+12. No primeiro dia dos Ázimos, em que se imolava a Páscoa, perguntaram-lhe os discípulos: Onde queres que preparemos a refeição da Páscoa?
+13. Ele enviou dois dos seus discípulos, dizendo: Ide à cidade, e sair-vos-á ao encontro um homem, carregando um cântaro de água.
+14. Segui-o e, onde ele entrar, dizei ao dono da casa: O Mestre pergunta: Onde está a sala em que devo comer a Páscoa com os meus discípulos?
+15. E ele vos mostrará uma grande sala no andar superior, mobiliada e pronta. Fazei ali os preparativos.
+16. Partiram os discípulos para a cidade e acharam tudo como Jesus lhes havia dito, e prepararam a Páscoa.
+17. Chegando a tarde, dirigiu-se ele para lá com os Doze.
+18. E enquanto estavam sentados à mesa e comiam, Jesus disse: Em verdade vos digo: um de vós que come comigo me há de entregar.
+19. Começaram a entristecer-se e a perguntar-lhe, um após outro: Porventura sou eu?
+20. Respondeu-lhes ele: É um dos Doze, que se serve comigo do mesmo prato.
+21. O Filho do homem vai, segundo o que dele está escrito, mas ai daquele homem por quem o Filho do homem for traído! Melhor lhe seria que nunca tivesse nascido...
+22. Durante a refeição, Jesus tomou o pão e, depois de o benzer, partiu-o e deu-lho, dizendo: Tomai, isto é o meu corpo.
+23. Em seguida, tomou o cálice, deu graças e apresentou-lho, e todos dele beberam.
+24. E disse-lhes: Isto é o meu sangue, o sangue da aliança, que é derramado por muitos.
+25. Em verdade vos digo: já não beberei do fruto da videira, até aquele dia em que o beberei de novo no Reino de Deus.
+26. Terminado o canto dos Salmos, saíram para o monte das Oliveiras.
+27. E Jesus disse-lhes: Vós todos vos escandalizareis, pois está escrito: Ferirei o pastor, e as ovelhas serão dispersas (Zac 13,7).
+28. Mas depois que eu ressurgir, eu vos precederei na Galiléia.
+29. Entretanto, Pedro lhe respondeu: Ainda que todos se escandalizem de ti, eu, porém, nunca!
+30. Jesus disse-lhe: Em verdade te digo: hoje, nesta mesma noite, antes que o galo cante duas vezes, três vezes me terás negado.
+31. Mas Pedro repetia com maior ardor: Ainda que seja preciso morrer contigo, não te renegarei.E todos disseram o mesmo.
+32. Foram em seguida para o lugar chamado Getsêmani, e Jesus disse a seus discípulos: Sentai-vos aqui, enquanto vou orar.
+33. Levou consigo Pedro, Tiago e João; e começou a ter pavor e a angustiar-se.
+34. Disse-lhes: A minha alma está numa tristeza mortal; ficai aqui e vigiai.
+35. Adiantando-se alguns passos, prostrou-se com a face por terra e orava que, se fosse possível, passasse dele aquela hora.
+36. Aba! (Pai!), suplicava ele. Tudo te é possível; afasta de mim este cálice! Contudo, não se faça o que eu quero, senão o que tu queres.
+37. Em seguida, foi ter com seus discípulos e achou-os dormindo. Disse a Pedro: Simão, dormes? Não pudeste vigiar uma hora!
+38. Vigiai e orai, para que não entreis em tentação. Pois o espírito está pronto, mas a carne é fraca.
+39. Afastou-se outra vez e orou, dizendo as mesmas palavras.
+40. Voltando, achou-os de novo dormindo, porque seus olhos estavam pesados; e não sabiam o que lhe responder.
+41. Voltando pela terceira vez, disse-lhes: Dormi e descansai. Basta! Veio a hora! O Filho do homem vai ser entregue nas mãos dos pecadores.
+42. Levantai-vos e vamos! Aproxima-se o que me há de entregar.
+43. Ainda falava, quando chegou Judas Iscariotes, um dos Doze, e com ele um bando armado de espadas e cacetes, enviado pelos sumos sacerdotes, escribas e anciãos.
+44. Ora, o traidor tinha-lhes dado o seguinte sinal: Aquele a quem eu beijar é ele. Prendei-o e levai-o com cuidado.
+45. Assim que ele se aproximou de Jesus, disse: Rabi!, e o beijou.
+46. Lançaram-lhe as mãos e o prenderam.
+47. Um dos circunstantes tirou da espada, feriu o servo do sumo sacerdote e decepou-lhe a orelha.
+48. Mas Jesus tomou a palavra e disse-lhes: Como a um bandido, saístes com espadas e cacetes para prender-me!
+49. Entretanto, todos os dias estava convosco, ensinando no templo, e não me prendestes. Mas isso acontece para que se cumpram as Escrituras.
+50. Então todos o abandonaram e fugiram.
+51. Seguia-o um jovem coberto somente de um pano de linho; e prenderam-no.
+52. Mas, lançando ele de si o pano de linho, escapou-lhes despido.
+53. Conduziram Jesus à casa do sumo sacerdote, onde se reuniram todos os sacerdotes, escribas e anciãos.
+54. Pedro o foi seguindo de longe até dentro do pátio. Sentou-se junto do fogo com os servos e aquecia-se.
+55. Os sumos sacerdotes e todo o conselho buscavam algum testemunho contra Jesus, para o condenar à morte, mas não o achavam.
+56. Muitos diziam falsos testemunhos contra ele, mas seus depoimentos não concordavam.
+57. Levantaram-se, então, alguns e deram esse falso testemunho contra ele:
+58. Ouvimo-lo dizer: Eu destruirei este templo, feito por mãos de homens, e em três dias edificarei outro, que não será feito por mãos de homens.
+59. Mas nem neste ponto eram coerentes os seus testemunhos.
+60. O sumo sacerdote levantou-se no meio da assembléia e perguntou a Jesus: Não respondes nada? O que é isto que dizem contra ti?
+61. Mas Jesus se calava e nada respondia. O sumo sacerdote tornou a perguntar-lhe: És tu o Cristo, o Filho de Deus bendito?
+62. Jesus respondeu: Eu o sou. E vereis o Filho do Homem sentado à direita do poder de Deus, vindo sobre as nuvens do céu.
+63. O sumo sacerdote rasgou então as suas vestes. Para que desejamos ainda testemunhas?!, exclamou ele.
+64. Ouvistes a blasfêmia! Que vos parece? E unanimemente o julgaram merecedor da morte.
+65. Alguns começaram a cuspir nele, a tapar-lhe o rosto, a dar-lhe socos e a dizer-lhe: Adivinha! Os servos igualmente davam-lhe bofetadas.
+66. Estando Pedro embaixo, no pátio, veio uma das criadas do sumo sacerdote.
+67. Ela fixou os olhos em Pedro, que se aquecia, e disse: Também tu estavas com Jesus de Nazaré.
+68. Ele negou: Não sei, nem compreendo o que dizes. E saiu para a entrada do pátio; e o galo cantou.
+69. A criada, que o vira, começou a dizer aos circunstantes: Este faz parte do grupo deles.
+70. Mas Pedro negou outra vez. Pouco depois, os que ali estavam diziam de novo a Pedro: Certamente tu és daqueles, pois és galileu.
+71. Então ele começou a praguejar e a jurar: Não conheço esse homem de quem falais.
+72. E imediatamente cantou o galo pela segunda vez. Pedro lembrou-se da palavra que Jesus lhe havia dito: Antes que o galo cante duas vezes, três vezes me negarás. E, lembrando-se disso, rompeu em soluços.São Marcos, 15
+1. Logo pela manhã se reuniram os sumos sacerdotes com os anciãos, os escribas e com todo o conselho. E tendo amarrado Jesus, levaram-no e entregaram-no a Pilatos.
+2. Este lhe perguntou: És tu o rei dos judeus? Ele lhe respondeu: Sim.
+3. Os sumos sacerdotes acusavam-no de muitas coisas.
+4. Pilatos perguntou-lhe outra vez: Nada respondes? Vê de quantos delitos te acusam!
+5. Mas Jesus nada mais respondeu, de modo que Pilatos ficou admirado.
+6. Ora, costumava ele soltar-lhes em cada festa qualquer dos presos que pedissem.
+7. Havia na prisão um, chamado Barrabás, que fora preso com seus cúmplices, o qual na sedição perpetrara um homicídio.
+8. O povo que tinha subido começou a pedir-lhe aquilo que sempre lhes costumava conceder.
+9. Pilatos respondeu-lhes: Quereis que vos solte o rei dos judeus?
+10. (Porque sabia que os sumos sacerdotes o haviam entregue por inveja.)
+11. Mas os pontífices instigaram o povo para que pedissem de preferência que lhes soltasse Barrabás.
+12. Pilatos falou-lhes outra vez: E que quereis que eu faça daquele a quem chamais o rei dos judeus?
+13. Eles tornaram a gritar: Crucifica-o!
+14. Pilatos replicou: Mas que mal fez ele? Eles clamavam mais ainda: Crucifica-o!
+15. Querendo Pilatos satisfazer o povo, soltou-lhes Barrabás e entregou Jesus, depois de açoitado, para que fosse crucificado.
+16. Os soldados conduziram-no ao interior do pátio, isto é, ao pretório, onde convocaram toda a coorte.
+17. Vestiram Jesus de púrpura, teceram uma coroa de espinhos e a colocaram na sua cabeça.
+18. E começaram a saudá-lo: Salve, rei dos judeus!
+19. Davam-lhe na cabeça com uma vara, cuspiam nele e punham-se de joelhos como para homenageá-lo.
+20. Depois de terem escarnecido dele, tiraram-lhe a púrpura, deram-lhe de novo as vestes e conduziram-no fora para o crucificar.
+21. Passava por ali certo homem de Cirene, chamado Simão, que vinha do campo, pai de Alexandre e de Rufo, e obrigaram-no a que lhe levasse a cruz.
+22. Conduziram Jesus ao lugar chamado Gólgota, que quer dizer lugar do crânio.
+23. Deram-lhe de beber vinho misturado com mirra, mas ele não o aceitou.
+24. Depois de o terem crucificado, repartiram as suas vestes, tirando a sorte sobre elas, para ver o que tocaria a cada um.
+25. Era a hora terceira quando o crucificaram.
+26. A inscrição que motivava a sua condenação dizia: O rei dos judeus.
+27. Crucificaram com ele dois bandidos: um à sua direita e outro à esquerda.
+28. [Cumpriu-se assim a passagem da Escritura que diz: Ele foi contado entre os malfeitores (Is 53,12).]
+29. Os que iam passando injuriavam-no e abanavam a cabeça, dizendo: Olá! Tu que destróis o templo e o reedificas em três dias,
+30. salva-te a ti mesmo! Desce da cruz!
+31. Desta maneira, escarneciam dele também os sumos sacerdotes e os escribas, dizendo uns para os outros: Salvou a outros e a si mesmo não pode salvar!
+32. Que o Cristo, rei de Israel, desça agora da cruz, para que vejamos e creiamos! Também os que haviam sido crucificados com ele o insultavam.
+33. Desde a hora sexta até a hora nona, houve trevas por toda a terra.
+34. E à hora nona Jesus bradou em alta voz: Elói, Elói, lammá sabactáni?, que quer dizer: Meu Deus, meu Deus, por que me abandonaste?
+35. Ouvindo isto, alguns dos circunstantes diziam: Ele chama por Elias!
+36. Um deles correu e ensopou uma esponja em vinagre e, pondo-a na ponta de uma vara, deu-lho para beber, dizendo: Deixai, vejamos se Elias vem tirá-lo.
+37. Jesus deu um grande brado e expirou.
+38. O véu do templo rasgou-se então de alto a baixo em duas partes.
+39. O centurião que estava diante de Jesus, ao ver que ele tinha expirado assim, disse: Este homem era realmente o Filho de Deus.
+40. Achavam-se ali também umas mulheres, observando de longe, entre as quais Maria Madalena, Maria, mãe de Tiago, o Menor, e de José, e Salomé,
+41. que o tinham seguido e o haviam assistido, quando ele estava na Galiléia; e muitas outras que haviam subido juntamente com ele a Jerusalém.
+42. Quando já era tarde - era a Preparação, isto é‚ é a véspera do sábado -,
+43. veio José de Arimatéia, ilustre membro do conselho, que também esperava o Reino de Deus; ele foi resoluto à presença de Pilatos e pediu o corpo de Jesus.
+44. Pilatos admirou-se de que ele tivesse morrido tão depressa. E, chamando o centurião, perguntou se já havia muito tempo que Jesus tinha morrido.
+45. Obtida a resposta afirmativa do centurião, mandou dar-lhe o corpo.
+46. Depois de ter comprado um pano de linho, José tirou-o da cruz, envolveu-o no pano e depositou-o num sepulcro escavado na rocha, rolando uma pedra para fechar a entrada.
+47. Maria Madalena e Maria, mãe de José, observavam onde o depositavam.São Marcos, 16
+1. Passado o sábado, Maria Madalena, Maria, mãe de Tiago, e Salomé compraram aromas para ungir Jesus.
+2. E no primeiro dia da semana, foram muito cedo ao sepulcro, mal o sol havia despontado.
+3. E diziam entre si: Quem nos há de remover a pedra da entrada do sepulcro?
+4. Levantando os olhos, elas viram removida a pedra, que era muito grande.
+5. Entrando no sepulcro, viram, sentado do lado direito, um jovem, vestido de roupas brancas, e assustaram-se.
+6. Ele lhes falou: Não tenhais medo. Buscais Jesus de Nazaré, que foi crucificado. Ele ressuscitou, já não está aqui. Eis o lugar onde o depositaram.
+7. Mas ide, dizei a seus discípulos e a Pedro que ele vos precede na Galiléia. Lá o vereis como vos disse.
+8. Elas saíram do sepulcro e fugiram trêmulas e amedrontadas. E a ninguém disseram coisa alguma por causa do medo.
+9. Tendo Jesus ressuscitado de manhã, no primeiro dia da semana apareceu primeiramente a Maria de Magdala, de quem tinha expulsado sete demônios.
+10. Foi ela noticiá-lo aos que estiveram com ele, os quais estavam aflitos e chorosos.
+11. Quando souberam que Jesus vivia e que ela o tinha visto, não quiseram acreditar.
+12. Mais tarde, ele apareceu sob outra forma a dois entre eles que iam para o campo.
+13. Eles foram anunciá-lo aos demais. Mas estes tampouco acreditaram.
+14. Por fim apareceu aos Onze, quando estavam sentados à mesa, e censurou-lhes a incredulidade e dureza de coração, por não acreditarem nos que o tinham visto ressuscitado.
+15. E disse-lhes: Ide por todo o mundo e pregai o Evangelho a toda criatura.
+16. Quem crer e for batizado será salvo, mas quem não crer será condenado.
+17. Estes milagres acompanharão os que crerem: expulsarão os demônios em meu nome, falarão novas línguas,
+18. manusearão serpentes e, se beberem algum veneno mortal, não lhes fará mal; imporão as mãos aos enfermos e eles ficarão curados.
+19. Depois que o Senhor Jesus lhes falou, foi levado ao céu e está sentado à direita de Deus.
+20. Os discípulos partiram e pregaram por toda parte. O Senhor cooperava com eles e confirmava a sua palavra com os milagres que a acompanhavam.São Lucas, 1
+1. Muitos empreenderam compor uma história dos acontecimentos que se realizaram entre nós,
+2. como no-los transmitiram aqueles que foram desde o princípio testemunhas oculares e que se tornaram ministros da palavra.
+3. Também a mim me pareceu bem, depois de haver diligentemente investigado tudo desde o princípio, escrevê-los para ti segundo a ordem, excelentíssimo Teófilo,
+4. para que conheças a solidez daqueles ensinamentos que tens recebido.
+5. Nos tempos de Herodes, rei da Judéia, houve um sacerdote por nome Zacarias, da classe de Abias; sua mulher, descendente de Aarão, chamava-se Isabel.
+6. Ambos eram justos diante de Deus e observavam irrepreensivelmente todos os mandamentos e preceitos do Senhor.
+7. Mas não tinham filho, porque Isabel era estéril e ambos de idade avançada.
+8. Ora, exercendo Zacarias diante de Deus as funções de sacerdote, na ordem da sua classe,
+9. coube-lhe por sorte, segundo o costume em uso entre os sacerdotes, entrar no santuário do Senhor e aí oferecer o perfume.
+10. Todo o povo estava de fora, à hora da oferenda do perfume.
+11. Apareceu-lhe então um anjo do Senhor, em pé, à direita do altar do perfume.
+12. Vendo-o, Zacarias ficou perturbado, e o temor assaltou-o.
+13. Mas o anjo disse-lhe: Não temas, Zacarias, porque foi ouvida a tua oração: Isabel, tua mulher, dar-te-á um filho, e chamá-lo-ás João.
+14. Ele será para ti motivo de gozo e alegria, e muitos se alegrarão com o seu nascimento;
+15. porque será grande diante do Senhor e não beberá vinho nem cerveja, e desde o ventre de sua mãe será cheio do Espírito Santo;
+16. ele converterá muitos dos filhos de Israel ao Senhor, seu Deus,
+17. e irá adiante de Deus com o espírito e poder de Elias para reconduzir os corações dos pais aos filhos e os rebeldes à sabedoria dos justos, para preparar ao Senhor um povo bem disposto.
+18. Zacarias perguntou ao anjo: Donde terei certeza disto? Pois sou velho e minha mulher é de idade avançada.
+19. O anjo respondeu-lhe: Eu sou Gabriel, que assisto diante de Deus, e fui enviado para te falar e te trazer esta feliz nova.
+20. Eis que ficarás mudo e não poderás falar até o dia em que estas coisas acontecerem, visto que não deste crédito às minhas palavras, que se hão de cumprir a seu tempo.
+21. No entanto, o povo estava esperando Zacarias; e admirava-se de ele se demorar tanto tempo no santuário.
+22. Ao sair, não lhes podia falar, e compreenderam que tivera no santuário uma visão. Ele lhes explicava isto por acenos; e permaneceu mudo.
+23. Decorridos os dias do seu ministério, retirou-se para sua casa.
+24. Algum tempo depois Isabel, sua mulher, concebeu; e por cinco meses se ocultava, dizendo:
+25. Eis a graça que o Senhor me fez, quando lançou os olhos sobre mim para tirar o meu opróbrio dentre os homens.
+26. No sexto mês, o anjo Gabriel foi enviado por Deus a uma cidade da Galiléia, chamada Nazaré,
+27. a uma virgem desposada com um homem que se chamava José, da casa de Davi e o nome da virgem era Maria.
+28. Entrando, o anjo disse-lhe: Ave, cheia de graça, o Senhor é contigo.
+29. Perturbou-se ela com estas palavras e pôs-se a pensar no que significaria semelhante saudação.
+30. O anjo disse-lhe: Não temas, Maria, pois encontraste graça diante de Deus.
+31. Eis que conceberás e darás à luz um filho, e lhe porás o nome de Jesus.
+32. Ele será grande e chamar-se-á Filho do Altíssimo, e o Senhor Deus lhe dará o trono de seu pai Davi; e reinará eternamente na casa de Jacó,
+33. e o seu reino não terá fim.
+34. Maria perguntou ao anjo: Como se fará isso, pois não conheço homem?
+35. Respondeu-lhe o anjo: O Espírito Santo descerá sobre ti, e a força do Altíssimo te envolverá com a sua sombra. Por isso o ente santo que nascer de ti será chamado Filho de Deus.
+36. Também Isabel, tua parenta, até ela concebeu um filho na sua velhice; e já está no sexto mês aquela que é tida por estéril,
+37. porque a Deus nenhuma coisa é impossível.
+38. Então disse Maria: Eis aqui a serva do Senhor. Faça-se em mim segundo a tua palavra. E o anjo afastou-se dela.
+39. Naqueles dias, Maria se levantou e foi às pressas às montanhas, a uma cidade de Judá.
+40. Entrou em casa de Zacarias e saudou Isabel.
+41. Ora, apenas Isabel ouviu a saudação de Maria, a criança estremeceu no seu seio; e Isabel ficou cheia do Espírito Santo.
+42. E exclamou em alta voz: Bendita és tu entre as mulheres e bendito é o fruto do teu ventre.
+43. Donde me vem esta honra de vir a mim a mãe de meu Senhor?
+44. Pois assim que a voz de tua saudação chegou aos meus ouvidos, a criança estremeceu de alegria no meu seio.
+45. Bem-aventurada és tu que creste, pois se hão de cumprir as coisas que da parte do Senhor te foram ditas!
+46. E Maria disse: Minha alma glorifica ao Senhor,
+47. meu espírito exulta de alegria em Deus, meu Salvador,
+48. porque olhou para sua pobre serva. Por isto, desde agora, me proclamarão bem-aventurada todas as gerações,
+49. porque realizou em mim maravilhas aquele que é poderoso e cujo nome é Santo.
+50. Sua misericórdia se estende, de geração em geração, sobre os que o temem.
+51. Manifestou o poder do seu braço: desconcertou os corações dos soberbos.
+52. Derrubou do trono os poderosos e exaltou os humildes.
+53. Saciou de bens os indigentes e despediu de mãos vazias os ricos.
+54. Acolheu a Israel, seu servo, lembrado da sua misericórdia,
+55. conforme prometera a nossos pais, em favor de Abraão e sua posteridade, para sempre.
+56. Maria ficou com Isabel cerca de três meses. Depois voltou para casa.
+57. Completando-se para Isabel o tempo de dar à luz, teve um filho.
+58. Os seus vizinhos e parentes souberam que o Senhor lhe manifestara a sua misericórdia, e congratulavam-se com ela.
+59. No oitavo dia, foram circuncidar o menino e o queriam chamar pelo nome de seu pai, Zacarias.
+60. Mas sua mãe interveio: Não, disse ela, ele se chamará João.
+61. Replicaram-lhe: Não há ninguém na tua família que se chame por este nome.
+62. E perguntavam por acenos ao seu pai como queria que se chamasse.
+63. Ele, pedindo uma tabuinha, escreveu nela as palavras: João é o seu nome. Todos ficaram pasmados.
+64. E logo se lhe abriu a boca e soltou-se-lhe a língua e ele falou, bendizendo a Deus.
+65. O temor apoderou-se de todos os seus vizinhos; o fato divulgou-se por todas as montanhas da Judéia.
+66. Todos os que o ouviam conservavam-no no coração, dizendo: Que será este menino? Porque a mão do Senhor estava com ele.
+67. Zacarias, seu pai, ficou cheio do Espírito Santo e profetizou, nestes termos:
+68. Bendito seja o Senhor, Deus de Israel, porque visitou e resgatou o seu povo,
+69. e suscitou-nos um poderoso Salvador, na casa de Davi, seu servo
+70. (como havia anunciado, desde os primeiros tempos, mediante os seus santos profetas),
+71. para nos livrar dos nossos inimigos e das mãos de todos os que nos odeiam.
+72. Assim exerce a sua misericórdia com nossos pais, e se recorda de sua santa aliança,
+73. segundo o juramento que fez a nosso pai Abraão: de nos conceder que, sem temor,
+74. libertados de mãos inimigas, possamos servi-lo
+75. em santidade e justiça, em sua presença, todos os dias da nossa vida.
+76. E tu, menino, serás chamado profeta do Altíssimo, porque precederás o Senhor e lhe prepararás o caminho,
+77. para dar ao seu povo conhecer a salvação, pelo perdão dos pecados.
+78. Graças à ternura e misericórdia de nosso Deus, que nos vai trazer do alto a visita do Sol nascente,
+79. que há de iluminar os que jazem nas trevas e na sombra da morte e dirigir os nossos passos no caminho da paz.
+80. O menino foi crescendo e fortificava-se em espírito, e viveu nos desertos até o dia em que se apresentou diante de Israel.São Lucas, 2
+1. Naqueles tempos apareceu um decreto de César Augusto, ordenando o recenseamento de toda a terra.
+2. Este recenseamento foi feito antes do governo de Quirino, na Síria.
+3. Todos iam alistar-se, cada um na sua cidade.
+4. Também José subiu da Galiléia, da cidade de Nazaré, à Judéia, à Cidade de Davi, chamada Belém, porque era da casa e família de Davi,
+5. para se alistar com a sua esposa Maria, que estava grávida.
+6. Estando eles ali, completaram-se os dias dela.
+7. E deu à luz seu filho primogênito, e, envolvendo-o em faixas, reclinou-o num presépio; porque não havia lugar para eles na hospedaria.
+8. Havia nos arredores uns pastores, que vigiavam e guardavam seu rebanho nos campos durante as vigílias da noite.
+9. Um anjo do Senhor apareceu-lhes e a glória do Senhor refulgiu ao redor deles, e tiveram grande temor.
+10. O anjo disse-lhes: Não temais, eis que vos anuncio uma boa nova que será alegria para todo o povo:
+11. hoje vos nasceu na Cidade de Davi um Salvador, que é o Cristo Senhor.
+12. Isto vos servirá de sinal: achareis um recém-nascido envolto em faixas e posto numa manjedoura.
+13. E subitamente ao anjo se juntou uma multidão do exército celeste, que louvava a Deus e dizia:
+14. Glória a Deus no mais alto dos céus e na terra paz aos homens, objetos da benevolência (divina).
+15. Depois que os anjos os deixaram e voltaram para o céu, falaram os pastores uns com os outros: Vamos até Belém e vejamos o que se realizou e o que o Senhor nos manifestou.
+16. Foram com grande pressa e acharam Maria e José, e o menino deitado na manjedoura.
+17. Vendo-o, contaram o que se lhes havia dito a respeito deste menino.
+18. Todos os que os ouviam admiravam-se das coisas que lhes contavam os pastores.
+19. Maria conservava todas estas palavras, meditando-as no seu coração.
+20. Voltaram os pastores, glorificando e louvando a Deus por tudo o que tinham ouvido e visto, e que estava de acordo com o que lhes fora dito.
+21. Completados que foram os oito dias para ser circuncidado o menino, foi-lhe posto o nome de Jesus, como lhe tinha chamado o anjo, antes de ser concebido no seio materno.
+22. Concluídos os dias da sua purificação segundo a Lei de Moisés, levaram-no a Jerusalém para o apresentar ao Senhor,
+23. conforme o que está escrito na lei do Senhor: Todo primogênito do sexo masculino será consagrado ao Senhor (Ex 13,2);
+24. e para oferecerem o sacrifício prescrito pela lei do Senhor, um par de rolas ou dois pombinhos.
+25. Ora, havia em Jerusalém um homem chamado Simeão. Este homem, justo e piedoso, esperava a consolação de Israel, e o Espírito Santo estava nele.
+26. Fora-lhe revelado pelo Espírito Santo que não morreria sem primeiro ver o Cristo do Senhor.
+27. Impelido pelo Espírito Santo, foi ao templo. E tendo os pais apresentado o menino Jesus, para cumprirem a respeito dele os preceitos da lei,
+28. tomou-o em seus braços e louvou a Deus nestes termos:
+29. Agora, Senhor, deixai o vosso servo ir em paz, segundo a vossa palavra.
+30. Porque os meus olhos viram a vossa salvação
+31. que preparastes diante de todos os povos,
+32. como luz para iluminar as nações, e para a glória de vosso povo de Israel.
+33. Seu pai e sua mãe estavam admirados das coisas que dele se diziam.
+34. Simeão abençoou-os e disse a Maria, sua mãe: Eis que este menino está destinado a ser uma causa de queda e de soerguimento para muitos homens em Israel, e a ser um sinal que provocará contradições,
+35. a fim de serem revelados os pensamentos de muitos corações. E uma espada transpassará a tua alma.
+36. Havia também uma profetisa chamada Ana, filha de Fanuel, da tribo de Aser; era de idade avançada.
+37. Depois de ter vivido sete anos com seu marido desde a sua virgindade, ficara viúva, e agora com oitenta e quatro anos não se apartava do templo, servindo a Deus noite e dia em jejuns e orações.
+38. Chegando ela à mesma hora, louvava a Deus e falava de Jesus a todos aqueles que em Jerusalém esperavam a libertação.
+39. Após terem observado tudo segundo a lei do Senhor, voltaram para a Galiléia, à sua cidade de Nazaré.
+40. O menino ia crescendo e se fortificava: estava cheio de sabedoria, e a graça de Deus repousava nele.
+41. Seus pais iam todos os anos a Jerusalém para a festa da Páscoa.
+42. Tendo ele atingido doze anos, subiram a Jerusalém, segundo o costume da festa.
+43. Acabados os dias da festa, quando voltavam, ficou o menino Jesus em Jerusalém, sem que os seus pais o percebessem.
+44. Pensando que ele estivesse com os seus companheiros de comitiva, andaram caminho de um dia e o buscaram entre os parentes e conhecidos.
+45. Mas não o encontrando, voltaram a Jerusalém, à procura dele.
+46. Três dias depois o acharam no templo, sentado no meio dos doutores, ouvindo-os e interrogando-os.
+47. Todos os que o ouviam estavam maravilhados da sabedoria de suas respostas.
+48. Quando eles o viram, ficaram admirados. E sua mãe disse-lhe: Meu filho, que nos fizeste?! Eis que teu pai e eu andávamos à tua procura, cheios de aflição.
+49. Respondeu-lhes ele: Por que me procuráveis? Não sabíeis que devo ocupar-me das coisas de meu Pai?
+50. Eles, porém, não compreenderam o que ele lhes dissera.
+51. Em seguida, desceu com eles a Nazaré e lhes era submisso. Sua mãe guardava todas estas coisas no seu coração.
+52. E Jesus crescia em estatura, em sabedoria e graça, diante de Deus e dos homens.São Lucas, 3
+1. No ano décimo quinto do reinado do imperador Tibério, sendo Pôncio Pilatos governador da Judéia, Herodes tetrarca da Galiléia, seu irmão Filipe tetrarca da Ituréia e da província de Traconites, e Lisânias tetrarca da Abilina,
+2. sendo sumos sacerdotes Anás e Caifás, veio a palavra do Senhor no deserto a João, filho de Zacarias.
+3. Ele percorria toda a região do Jordão, pregando o batismo de arrependimento para remissão dos pecados,
+4. como está escrito no livro das palavras do profeta Isaías (40,3ss.): Uma voz clama no deserto: Preparai o caminho do Senhor, endireitai as suas veredas.
+5. Todo vale será aterrado, e todo monte e outeiro serão arrasados; tornar-se-á direito o que estiver torto, e os caminhos escabrosos serão aplainados.
+6. Todo homem verá a salvação de Deus.
+7. Dizia, pois, ao povo que vinha para ser batizado por ele: Raça de víboras! Quem vos ensinou a fugir da ira iminente?
+8. Fazei, pois, uma conversão realmente frutuosa e não comeceis a dizer: Temos Abraão por pai. Pois vos digo: Deus tem poder para destas pedras suscitar filhos a Abraão.
+9. O machado já está posto à raiz das árvores. E toda árvore que não der fruto bom será cortada e lançada ao fogo.
+10. Perguntava-lhe a multidão: Que devemos fazer?
+11. Ele respondia: Quem tem duas túnicas dê uma ao que não tem; e quem tem o que comer, faça o mesmo.
+12. Também publicanos vieram para ser batizados, e perguntaram-lhe: Mestre, que devemos fazer?
+13. Ele lhes respondeu: Não exijais mais do que vos foi ordenado.
+14. Do mesmo modo, os soldados lhe perguntavam: E nós, que devemos fazer? Respondeu-lhes: Não pratiqueis violência nem defraudeis a ninguém, e contentai-vos com o vosso soldo.
+15. Ora, como o povo estivesse na expectativa, e como todos perguntassem em seus corações se talvez João fosse o Cristo,
+16. ele tomou a palavra, dizendo a todos: Eu vos batizo na água, mas eis que vem outro mais poderoso do que eu, a quem não sou digno de lhe desatar a correia das sandálias; ele vos batizará no Espírito Santo e no fogo.
+17. Ele tem a pá na mão e limpará a sua eira, e recolherá o trigo ao seu celeiro, mas queimará as palhas num fogo inextinguível.
+18. É assim que ele anunciava ao povo a boa nova, e dirigia-lhe ainda muitas outras exortações.
+19. Mas Herodes, o tetrarca, repreendido por ele por causa de Herodíades, mulher de seu irmão, e por causa de todos os crimes que praticara,
+20. acrescentou a todos eles também este: encerrou João no cárcere.
+21. Quando todo o povo ia sendo batizado, também Jesus o foi. E estando ele a orar, o céu se abriu
+22. e o Espírito Santo desceu sobre ele em forma corpórea, como uma pomba; e veio do céu uma voz: Tu és o meu Filho bem-amado; em ti ponho minha afeição.
+23. Quando Jesus começou o seu ministério, tinha cerca de trinta anos, e era tido por filho de José, filho de Heli, filho de Matat,
+24. filho de Levi, filho de Melqui, filho de Jané, filho de José,
+25. filho de Matatias, filho de Amós, filho de Naum, filho de Hesli, filho de Nagé,
+26. filho de Maat, filho de Matatias, filho de Semei, filho de José, filho de Judá,
+27. filho de Joanã, filho de Resa, filho de Zorobabel, filho de Salatiel, filho de Neri,
+28. filho de Melqui, filho de Adi, filho de Cosã, filho de Elmadão, filho de Her,
+29. filho de Jesus, filho de Eliezer, filho de Jorim, filho de Matat, filho de Levi,
+30. filho de Simeão, filho de Judá, filho de José, filho de Jonão, filho de Eliacim,
+31. filho de Meléia, filho de Mena, filho de Matata, filho de Natã, filho de Davi,
+32. filho de Jessé, filho de Obed, filho de Booz, filho de Salmon, filho de Naason,
+33. filho de Aminadab, filho de Arão, filho de Esron, filho de Farés, filho de Judá,
+34. filho de Jacó, filho de Isaac, filho de Abraão, filho de Taré, filho de Nacor,
+35. filho de Sarug, filho de Ragau, filho de Faleg, filho de Eber, filho de Salé,
+36. filho de Cainã, filho de Arfaxad, filho de Sem, filho de Noé, filho de Lamec,
+37. filho de Matusalém, filho de Henoc, filho de Jared, filho de Malaleel, filho de Cainã,
+38. filho de Henós, filho de Set, filho de Adão, filho de Deus.São Lucas, 4
+1. Cheio do Espírito Santo, voltou Jesus do Jordão e foi levado pelo Espírito ao deserto,
+2. onde foi tentado pelo demônio durante quarenta dias. Durante este tempo ele nada comeu e, terminados estes dias, teve fome.
+3. Disse-lhe então o demônio: Se és o Filho de Deus, ordena a esta pedra que se torne pão.
+4. Jesus respondeu: Está escrito: Não só de pão vive o homem, mas de toda a palavra de Deus (Dt 8,3).
+5. O demônio levou-o em seguida a um alto monte e mostrou-lhe num só momento todos os reinos da terra,
+6. e disse-lhe: Dar-te-ei todo este poder e a glória desses reinos, porque me foram dados, e dou-os a quem quero.
+7. Portanto, se te prostrares diante de mim, tudo será teu.
+8. Jesus disse-lhe: Está escrito: Adorarás o Senhor teu Deus, e a ele só servirás (Dt 6,13).
+9. O demônio levou-o ainda a Jerusalém, ao ponto mais alto do templo, e disse-lhe: Se és o Filho de Deus, lança-te daqui abaixo;
+10. porque está escrito: Ordenou aos seus anjos a teu respeito que te guardassem.
+11. E que te sustivessem em suas mãos, para não ferires o teu pé nalguma pedra (Sl 90,11s.).
+12. Jesus disse: Foi dito: Não tentarás o Senhor teu Deus (Dt 6,16).
+13. Depois de tê-lo assim tentado de todos os modos, o demônio apartou-se dele até outra ocasião.
+14. Jesus então, cheio da força do Espírito, voltou para a Galiléia. E a sua fama divulgou-se por toda a região.
+15. Ele ensinava nas sinagogas e era aclamado por todos.
+16. Dirigiu-se a Nazaré, onde se havia criado. Entrou na sinagoga em dia de sábado, segundo o seu costume, e levantou-se para ler.
+17. Foi-lhe dado o livro do profeta Isaías. Desenrolando o livro, escolheu a passagem onde está escrito (61,1s.):
+18. O Espírito do Senhor está sobre mim, porque me ungiu; e enviou-me para anunciar a boa nova aos pobres, para sarar os contritos de coração,
+19. para anunciar aos cativos a redenção, aos cegos a restauração da vista, para pôr em liberdade os cativos, para publicar o ano da graça do Senhor.
+20. E enrolando o livro, deu-o ao ministro e sentou-se; todos quantos estavam na sinagoga tinham os olhos fixos nele.
+21. Ele começou a dizer-lhes: Hoje se cumpriu este oráculo que vós acabais de ouvir.
+22. Todos lhe davam testemunho e se admiravam das palavras de graça, que procediam da sua boca, e diziam: Não é este o filho de José?
+23. Então lhes disse: Sem dúvida me citareis este provérbio: Médico, cura-te a ti mesmo; todas as maravilhas que fizeste em Cafarnaum, segundo ouvimos dizer, faze-o também aqui na tua pátria.
+24. E acrescentou: Em verdade vos digo: nenhum profeta é bem aceito na sua pátria.
+25. Em verdade vos digo: muitas viúvas havia em Israel, no tempo de Elias, quando se fechou o céu por três anos e meio e houve grande fome por toda a terra;
+26. mas a nenhuma delas foi mandado Elias, senão a uma viúva em Sarepta, na Sidônia.
+27. Igualmente havia muitos leprosos em Israel, no tempo do profeta Eliseu; mas nenhum deles foi limpo, senão o sírio Naamã.
+28. A estas palavras, encheram-se todos de cólera na sinagoga.
+29. Levantaram-se e lançaram-no fora da cidade; e conduziram-no até o alto do monte sobre o qual estava construída a sua cidade, e queriam precipitá-lo dali abaixo.
+30. Ele, porém, passou por entre eles e retirou-se.
+31. Desceu a Cafarnaum, cidade da Galiléia, e ali ensinava-os aos sábados.
+32. Maravilharam-se da sua doutrina, porque ele ensinava com autoridade.
+33. Estava na sinagoga um homem que tinha um demônio imundo, e exclamou em alta voz:
+34. Deixa-nos! Que temos nós contigo, Jesus de Nazaré? Vieste para nos perder? Sei quem és: o Santo de Deus!
+35. Mas Jesus replicou severamente: Cala-te e sai deste homem. O demônio lançou-o por terra no meio de todos e saiu dele, sem lhe fazer mal algum.
+36. Todos ficaram cheios de pavor e falavam uns com os outros: Que significa isso? Manda com poder e autoridade aos espíritos imundos, e eles saem?
+37. E corria a sua fama por todos os lugares da circunvizinhança.
+38. Saindo Jesus da sinagoga, entrou na casa de Simão. A sogra de Simão estava com febre alta; e pediram-lhe por ela.
+39. Inclinando-se sobre ela, ordenou ele à febre, e a febre deixou-a. Ela levantou-se imediatamente e pôs-se a servi-los.
+40. Depois do pôr-do-sol, todos os que tinham enfermos de diversas moléstias lhos traziam. Impondo-lhes a mão, os sarava.
+41. De muitos saíam os demônios, aos gritos, dizendo: Tu és o Filho de Deus. Mas ele repreendia-os severamente, não lhes permitindo falar, porque sabiam que ele era o Cristo.
+42. Ao amanhecer, ele saiu e retirou-se para um lugar afastado. As multidões o procuravam e foram até onde ele estava e queriam detê-lo, para que não as deixasse.
+43. Mas ele disse-lhes: É necessário que eu anuncie a boa nova do Reino de Deus também às outras cidades, pois essa é a minha missão.
+44. E andava pregando nas sinagogas da Galiléia.São Lucas, 5
+1. Estando Jesus um dia à margem do lago de Genesaré, o povo se comprimia em redor dele para ouvir a palavra de Deus.
+2. Vendo duas barcas estacionadas à beira do lago, - pois os pescadores haviam descido delas para consertar as redes -,
+3. subiu a uma das barcas que era de Simão e pediu-lhe que a afastasse um pouco da terra; e sentado, ensinava da barca o povo.
+4. Quando acabou de falar, disse a Simão: Faze-te ao largo, e lançai as vossas redes para pescar.
+5. Simão respondeu-lhe: Mestre, trabalhamos a noite inteira e nada apanhamos; mas por causa de tua palavra, lançarei a rede.
+6. Feito isto, apanharam peixes em tanta quantidade, que a rede se lhes rompia.
+7. Acenaram aos companheiros, que estavam na outra barca, para que viessem ajudar. Eles vieram e encheram ambas as barcas, de modo que quase iam ao fundo.
+8. Vendo isso, Simão Pedro caiu aos pés de Jesus e exclamou: Retira-te de mim, Senhor, porque sou um homem pecador.
+9. É que tanto ele como seus companheiros estavam assombrados por causa da pesca que haviam feito.
+10. O mesmo acontecera a Tiago e João, filhos de Zebedeu, que eram seus companheiros. Então Jesus disse a Simão: Não temas; doravante serás pescador de homens.
+11. E atracando as barcas à terra, deixaram tudo e o seguiram.
+12. Estando ele numa cidade, apareceu um homem cheio de lepra. Vendo Jesus, lançou-se com o rosto por terra e lhe suplicou: Senhor, se queres, podes limpar-me.
+13. Jesus estendeu a mão, tocou-o e disse: Eu quero; sê purificado! No mesmo instante desapareceu dele a lepra.
+14. Ordenou-lhe Jesus que o não contasse a ninguém, dizendo-lhe, porém: Vai e mostra-te ao sacerdote, e oferece pela tua purificação o que Moisés prescreveu, para lhes servir de testemunho.
+15. Entretanto, espalhava-se mais e mais a sua fama e concorriam grandes multidões para o ouvir e ser curadas das suas enfermidades.
+16. Mas ele costumava retirar-se a lugares solitários para orar.
+17. Um dia estava ele ensinando. Ao seu derredor estavam sentados fariseus e doutores da lei, vindos de todas as localidades da Galiléia, da Judéia e de Jerusalém. E o poder do Senhor fazia-o realizar várias curas.
+18. Apareceram algumas pessoas trazendo num leito um homem paralítico; e procuravam introduzi-lo na casa e pô-lo diante dele.
+19. Mas não achando por onde o introduzir, por causa da multidão, subiram ao telhado e por entre as telhas o arriaram com o leito ao meio da assembléia, diante de Jesus.
+20. Vendo a fé que tinham, disse Jesus: Meu amigo, os teus pecados te são perdoados.
+21. Então os escribas e os fariseus começaram a pensar e a dizer consigo mesmos: Quem é este homem que profere blasfêmias? Quem pode perdoar pecados senão unicamente Deus?
+22. Jesus, porém, penetrando nos seus pensamentos, replicou-lhes: Que pensais nos vossos corações?
+23. Que é mais fácil dizer: Perdoados te são os pecados; ou dizer: Levanta-te e anda?
+24. Ora, para que saibais que o Filho do Homem tem na terra poder de perdoar pecados (disse ele ao paralítico), eu te ordeno: levanta-te, toma o teu leito e vai para tua casa.
+25. No mesmo instante, levantou-se ele à vista deles, tomou o leito e partiu para casa, glorificando a Deus.
+26. Todos ficaram transportados de entusiasmo e glorificavam a Deus; e tomados de temor, diziam: Hoje vimos coisas maravilhosas.
+27. Depois disso, ele saiu e viu sentado ao balcão um coletor de impostos, por nome Levi, e disse-lhe: Segue-me.
+28. Deixando ele tudo, levantou-se e o seguiu.
+29. Levi deu-lhe um grande banquete em sua casa; vários desses fiscais e outras pessoas estavam sentados à mesa com eles.
+30. Os fariseus e os seus escribas puseram-se a criticar e a perguntar aos discípulos: Por que comeis e bebeis com os publicanos e pessoas de má vida?
+31. Respondeu-lhes Jesus: Não são os homens de boa saúde que necessitam de médico, mas sim os enfermos.
+32. Não vim chamar à conversão os justos, mas sim os pecadores.
+33. Eles então lhe disseram: Os discípulos de João e os discípulos dos fariseus jejuam com freqüência e fazem longas orações, mas os teus comem e bebem...
+34. Jesus respondeu-lhes: Porventura podeis vós obrigar a jejuar os amigos do esposo, enquanto o esposo está com eles?
+35. Virão dias em que o esposo lhes será tirado; então jejuarão.
+36. Propôs-lhes também esta comparação: Ninguém rasga um pedaço de roupa nova para remendar uma roupa velha, porque assim estragaria uma roupa nova. Além disso, o remendo novo não assentaria bem na roupa velha.
+37. Também ninguém põe vinho novo em odres velhos; do contrário, o vinho novo arrebentará os odres e entornar-se-á, e perder-se-ão os odres;
+38. mas o vinho novo deve-se pôr em odres novos, e assim ambos se conservam.
+39. Demais, ninguém que bebeu do vinho velho quer já do novo, porque diz: O vinho velho é melhor.São Lucas, 6
+1. Em dia de sábado, Jesus atravessava umas plantações; seus discípulos iam colhendo espigas (de trigo), as debulhavam na mão e comiam.
+2. Alguns dos fariseus lhes diziam: Por que fazeis o que não é permitido no sábado?
+3. Jesus respondeu: Acaso não tendes lido o que fez Davi, quando teve fome, ele e os seus companheiros;
+4. como entrou na casa de Deus e tomou os pães da proposição e deles comeu e deu de comer aos seus companheiros, se bem que só aos sacerdotes era permitido comê-los?
+5. E ajuntou: O Filho do Homem é senhor também do sábado.
+6. Em outro dia de sábado, Jesus entrou na sinagoga e ensinava. Achava-se ali um homem que tinha a mão direita seca.
+7. Ora, os escribas e os fariseus observavam Jesus para ver se ele curaria no dia de sábado. Eles teriam então pretexto para acusá-lo.
+8. Mas Jesus conhecia os pensamentos deles e disse ao homem que tinha a mão seca: Levanta-te e põe-te em pé, aqui no meio. Ele se levantou e ficou em pé.
+9. Disse-lhes Jesus: Pergunto-vos se no sábado é permitido fazer o bem ou o mal; salvar a vida, ou deixá-la perecer.
+10. E relanceando os olhos sobre todos, disse ao homem: Estende tua mão. Ele a estendeu, e foi-lhe restabelecida a mão.
+11. Mas eles encheram-se de furor e indagavam uns aos outros o que fariam a Jesus.
+12. Naqueles dias, Jesus retirou-se a uma montanha para rezar, e passou aí toda a noite orando a Deus.
+13. Ao amanhecer, chamou os seus discípulos e escolheu doze dentre eles que chamou de apóstolos:
+14. Simão, a quem deu o sobrenome de Pedro; André, seu irmão; Tiago, João, Filipe, Bartolomeu,
+15. Mateus, Tomé, Tiago, filho de Alfeu; Simão, chamado Zelador;
+16. Judas, irmão de Tiago; e Judas Iscariotes, aquele que foi o traidor.
+17. Descendo com eles, parou numa planície. Aí se achava um grande número de seus discípulos e uma grande multidão de pessoas vindas da Judéia, de Jerusalém, da região marítima, de Tiro e Sidônia, que tinham vindo para ouvi-lo e ser curadas das suas enfermidades.
+18. E os que eram atormentados dos espíritos imundos ficavam livres.
+19. Todo o povo procurava tocá-lo, pois saía dele uma força que os curava a todos.
+20. Então ele ergueu os olhos para os seus discípulos e disse: Bem-aventurados vós que sois pobres, porque vosso é o Reino de Deus!
+21. Bem-aventurados vós que agora tendes fome, porque sereis fartos! Bem-aventurados vós que agora chorais, porque vos alegrareis!
+22. Bem-aventurados sereis quando os homens vos odiarem, vos expulsarem, vos ultrajarem, e quando repelirem o vosso nome como infame por causa do Filho do Homem!
+23. Alegrai-vos naquele dia e exultai, porque grande é o vosso galardão no céu. Era assim que os pais deles tratavam os profetas.
+24. Mas ai de vós, ricos, porque tendes a vossa consolação!
+25. Ai de vós, que estais fartos, porque vireis a ter fome! Ai de vós, que agora rides, porque gemereis e chorareis!
+26. Ai de vós, quando vos louvarem os homens, porque assim faziam os pais deles aos falsos profetas!
+27. Digo-vos a vós que me ouvis: amai os vossos inimigos, fazei bem aos que vos odeiam,
+28. abençoai os que vos maldizem e orai pelos que vos injuriam.
+29. Ao que te ferir numa face, oferece-lhe também a outra. E ao que te tirar a capa, não impeças de levar também a túnica.
+30. Dá a todo o que te pedir; e ao que tomar o que é teu, não lho reclames.
+31. O que quereis que os homens vos façam, fazei-o também a eles.
+32. Se amais os que vos amam, que recompensa mereceis? Também os pecadores amam aqueles que os amam.
+33. E se fazeis bem aos que vos fazem bem, que recompensa mereceis? Pois o mesmo fazem também os pecadores.
+34. Se emprestais àqueles de quem esperais receber, que recompensa mereceis? Também os pecadores emprestam aos pecadores, para receberem outro tanto.
+35. Pelo contrário, amai os vossos inimigos, fazei bem e emprestai, sem daí esperar nada. E grande será a vossa recompensa e sereis filhos do Altíssimo, porque ele é bom para com os ingratos e maus.
+36. Sede misericordiosos, como também vosso Pai é misericordioso.
+37. Não julgueis, e não sereis julgados; não condeneis, e não sereis condenados; perdoai, e sereis perdoados;
+38. dai, e dar-se-vos-á. Colocar-vos-ão no regaço medida boa, cheia, recalcada e transbordante, porque, com a mesma medida com que medirdes, sereis medidos vós também.
+39. Propôs-lhes também esta comparação: Pode acaso um cego guiar outro cego? Não cairão ambos na cova?
+40. O discípulo não é superior ao mestre; mas todo discípulo perfeito será como o seu mestre.
+41. Por que vês tu o argueiro no olho de teu irmão e não reparas na trave que está no teu olho?
+42. Ou como podes dizer a teu irmão: Deixa-me, irmão, tirar de teu olho o argueiro, quando tu não vês a trave no teu olho? Hipócrita, tira primeiro a trave do teu olho e depois enxergarás para tirar o argueiro do olho de teu irmão.
+43. Uma árvore boa não dá frutos maus, uma árvore má não dá bom fruto.
+44. Porquanto cada árvore se conhece pelo seu fruto. Não se colhem figos dos espinheiros, nem se apanham uvas dos abrolhos.
+45. O homem bom tira coisas boas do bom tesouro do seu coração, e o homem mau tira coisas más do seu mau tesouro, porque a boca fala daquilo de que o coração está cheio.
+46. Por que me chamais: Senhor, Senhor... e não fazeis o que digo?
+47. Todo aquele que vem a mim ouve as minhas palavras e as pratica, eu vos mostrarei a quem é semelhante.
+48. É semelhante ao homem que, edificando uma casa, cavou bem fundo e pôs os alicerces sobre a rocha. As águas transbordaram, precipitaram-se as torrentes contra aquela casa e não a puderam abalar, porque ela estava bem construída.
+49. Mas aquele que as ouve e não as observa é semelhante ao homem que construiu a sua casa sobre a terra movediça, sem alicerces. A torrente investiu contra ela, e ela logo ruiu; e grande foi a ruína daquela casa.São Lucas, 7
+1. Tendo Jesus concluído todos os seus discursos ao povo que o escutava, entrou em Cafarnaum.
+2. Havia lá um centurião que tinha um servo a quem muito estimava e que estava à morte.
+3. Tendo ouvido falar de Jesus, enviou-lhe alguns anciãos dos judeus, rogando-lhe que o viesse curar.
+4. Aproximando-se eles de Jesus, rogavam-lhe encarecidamente: Ele bem merece que lhe faças este favor,
+5. pois é amigo da nossa nação e foi ele mesmo quem nos edificou uma sinagoga.
+6. Jesus então foi com eles. E já não estava longe da casa, quando o centurião lhe mandou dizer por amigos seus: Senhor, não te incomodes tanto assim, porque não sou digno de que entres em minha casa;
+7. por isso nem me achei digno de chegar-me a ti, mas dize somente uma palavra e o meu servo será curado.
+8. Pois também eu, simples subalterno, tenho soldados às minhas ordens; e digo a um: Vai ali! E ele vai; e a outro: Vem cá! E ele vem; e ao meu servo: Faze isto! E ele o faz.
+9. Ouvindo estas palavras, Jesus ficou admirado. E, voltando-se para o povo que o ia seguindo, disse: Em verdade vos digo: nem mesmo em Israel encontrei tamanha fé.
+10. Voltando para a casa do centurião os que haviam sido enviados, encontraram o servo curado.
+11. No dia seguinte dirigiu-se Jesus a uma cidade chamada Naim. Iam com ele diversos discípulos e muito povo.
+12. Ao chegar perto da porta da cidade, eis que levavam um defunto a ser sepultado, filho único de uma viúva; acompanhava-a muita gente da cidade.
+13. Vendo-a o Senhor, movido de compaixão para com ela, disse-lhe: Não chores!
+14. E aproximando-se, tocou no esquife, e os que o levavam pararam. Disse Jesus: Moço, eu te ordeno, levanta-te.
+15. Sentou-se o que estivera morto e começou a falar, e Jesus entregou-o à sua mãe.
+16. Apoderou-se de todos o temor, e glorificavam a Deus, dizendo: Um grande profeta surgiu entre nós: Deus voltou os olhos para o seu povo.
+17. A notícia deste fato correu por toda a Judéia e por toda a circunvizinhança.
+18. Os discípulos de João referiram-lhe todas estas coisas.
+19. E João chamou dois dos seus discípulos e enviou-os a Jesus, perguntando: És tu o que há de vir ou devemos esperar por outro?
+20. Chegando estes homens a ele, disseram: João Batista enviou-nos a ti, perguntando: És tu o que há de vir ou devemos esperar por outro?
+21. Ora, naquele momento Jesus havia curado muitas pessoas de enfermidades, de doenças e de espíritos malignos, e dado a vista a muitos cegos.
+22. Respondeu-lhes ele: Ide anunciar a João o que tendes visto e ouvido: os cegos vêem, os coxos andam, os leprosos ficam limpos, os surdos ouvem, os mortos ressuscitam, aos pobres é anunciado o Evangelho;
+23. e bem-aventurado é aquele para quem eu não for ocasião de queda!
+24. Depois que se retiraram os mensageiros de João, ele começou a falar de João ao povo: Que fostes ver no deserto? Um caniço agitado pelo vento?
+25. Mas que fostes ver? Um homem vestido de roupas finas? Mas os que vestem roupas preciosas e vivem no luxo estão nos palácios dos reis.
+26. Mas, enfim, que fostes ver? Um profeta? Sim, digo-vos, e mais do que profeta.
+27. Este é aquele de quem está escrito: Eis que envio o meu mensageiro ante a tua face; ele preparará o teu caminho diante de ti (Ml 3,1).
+28. Pois vos digo: entre os nascidos de mulher não há maior que João. Entretanto, o menor no Reino de Deus é maior do que ele.
+29. Ouvindo-o todo o povo, e mesmo os publicanos, deram razão a Deus, fazendo-se batizar com o batismo de João.
+30. Os fariseus, porém, e os doutores da lei, recusando o seu batismo, frustraram o desígnio de Deus a seu respeito.
+31. A quem compararei os homens desta geração? Com quem se assemelham?
+32. São semelhantes a meninos que, sentados na praça, falam uns com os outros, dizendo: Tocamos a flauta e não dançastes; entoamos lamentações e não chorastes.
+33. Pois veio João Batista, que nem comia pão nem bebia vinho, e dizeis: Ele está possuído do demônio.
+34. Veio o Filho do Homem, que come e bebe, e dizeis: Eis um comilão e beberrão, amigo dos publicanos e libertinos.
+35. Mas a sabedoria foi justificada por todos os seus filhos.
+36. Um fariseu convidou Jesus a ir comer com ele. Jesus entrou na casa dele e pôs-se à mesa.
+37. Uma mulher pecadora da cidade, quando soube que estava à mesa em casa do fariseu, trouxe um vaso de alabastro cheio de perfume;
+38. e, estando a seus pés, por detrás dele, começou a chorar. Pouco depois suas lágrimas banhavam os pés do Senhor e ela os enxugava com os cabelos, beijava-os e os ungia com o perfume.
+39. Ao presenciar isto, o fariseu, que o tinha convidado, dizia consigo mesmo: Se este homem fosse profeta, bem saberia quem e qual é a mulher que o toca, pois é pecadora.
+40. Então Jesus lhe disse: Simão, tenho uma coisa a dizer-te. Fala, Mestre, disse ele.
+41. Um credor tinha dois devedores: um lhe devia quinhentos denários e o outro, cinqüenta.
+42. Não tendo eles com que pagar, perdoou a ambos a sua dívida. Qual deles o amará mais?
+43. Simão respondeu: A meu ver, aquele a quem ele mais perdoou. Jesus replicou-lhe: Julgaste bem.
+44. E voltando-se para a mulher, disse a Simão: Vês esta mulher? Entrei em tua casa e não me deste água para lavar os pés; mas esta, com as suas lágrimas, regou-me os pés e enxugou-os com os seus cabelos.
+45. Não me deste o ósculo; mas esta, desde que entrou, não cessou de beijar-me os pés.
+46. Não me ungiste a cabeça com óleo; mas esta, com perfume, ungiu-me os pés.
+47. Por isso te digo: seus numerosos pecados lhe foram perdoados, porque ela tem demonstrado muito amor. Mas ao que pouco se perdoa, pouco ama.
+48. E disse a ela: Perdoados te são os pecados.
+49. Os que estavam com ele à mesa começaram a dizer, então: Quem é este homem que até perdoa pecados?
+50. Mas Jesus, dirigindo-se à mulher, disse-lhe: Tua fé te salvou; vai em paz.São Lucas, 8
+1. Depois disso, Jesus andava pelas cidades e aldeias anunciando a boa nova do Reino de Deus.
+2. Os Doze estavam com ele, como também algumas mulheres que tinham sido livradas de espíritos malignos e curadas de enfermidades: Maria, chamada Madalena, da qual tinham saído sete demônios;
+3. Joana, mulher de Cuza, procurador de Herodes; Susana e muitas outras, que o assistiram com as suas posses.
+4. Havia se reunido uma grande multidão: eram pessoas vindas de várias cidades para junto dele. Ele lhes disse esta parábola:
+5. Saiu o semeador a semear a sua semente. E ao semear, parte da semente caiu à beira do caminho; foi pisada, e as aves do céu a comeram.
+6. Outra caiu no pedregulho; e, tendo nascido, secou, por falta de umidade.
+7. Outra caiu entre os espinhos; cresceram com ela os espinhos, e sufocaram-na.
+8. Outra, porém, caiu em terra boa; tendo crescido, produziu fruto cem por um. Dito isto, Jesus acrescentou alteando a voz: Quem tem ouvidos para ouvir, ouça!
+9. Os seus discípulos perguntaram-lhe a significação desta parábola.
+10. Ele respondeu: A vós é concedido conhecer os mistérios do Reino de Deus, mas aos outros se lhes fala por parábolas; de forma que vendo não vejam, e ouvindo não entendam.
+11. Eis o que significa esta parábola: a semente é a palavra de Deus.
+12. Os que estão à beira do caminho são aqueles que ouvem; mas depois vem o demônio e lhes tira a palavra do coração, para que não creiam nem se salvem.
+13. Aqueles que a recebem em solo pedregoso são os ouvintes da palavra de Deus que a acolhem com alegria; mas não têm raiz, porque crêem até certo tempo, e na hora da provação a abandonam.
+14. A que caiu entre os espinhos, estes são os que ouvem a palavra, mas prosseguindo o caminho, são sufocados pelos cuidados, riquezas e prazeres da vida, e assim os seus frutos não amadurecem.
+15. A que caiu na terra boa são os que ouvem a palavra com coração reto e bom, retêm-na e dão fruto pela perseverança.
+16. Ninguém acende uma lâmpada e a cobre com um vaso ou a põe debaixo da cama; mas a põe sobre um castiçal, para iluminar os que entram.
+17. Porque não há coisa oculta que não acabe por se manifestar, nem secreta que não venha a ser descoberta.
+18. Vede, pois, como é que ouvis. Porque ao que tiver, lhe será dado; e ao que não tiver, até aquilo que julga ter lhe será tirado.
+19. A mãe e os irmãos de Jesus foram procurá-lo, mas não podiam chegar-se a ele por causa da multidão.
+20. Foi-lhe avisado: Tua mãe e teus irmãos estão lá fora e desejam ver-te.
+21. Ele lhes disse: Minha mãe e meus irmãos são estes, que ouvem a palavra de Deus e a observam.
+22. Num daqueles dias ele subiu com os seus discípulos a uma barca. Disse ele: Passemos à outra margem do lago. E eles partiram.
+23. Durante a travessia, Jesus adormeceu. Desabou então uma tempestade de vento sobre o lago. A barca enchia-se de água, e eles se achavam em perigo.
+24. Aproximaram-se dele então e o despertaram com este grito: Mestre, Mestre! Nós estamos perecendo! Levantou-se ele e ordenou aos ventos e à fúria da água que se acalmassem; e se acalmaram e logo veio a bonança. 25 Perguntou-lhes, então: Onde está a vossa fé? Eles, cheios de respeito e de profunda admiração, diziam uns aos outros: Quem é este, a quem os ventos e o mar obedecem?
+26. Navegaram para a região dos gerasenos, que está defronte da Galiléia.
+27. Mal saltou em terra, veio-lhe ao encontro um homem dessa região, possuído de muitos demônios; há muito tempo não se vestia nem parava em casa, mas habitava no cemitério.
+28. Ao ver Jesus, prostrou-se diante dele e gritou em alta voz: Por que te ocupas de mim, Jesus, Filho do Deus Altíssimo? Rogo-te, não me atormentes!
+29. Porque Jesus ordenara ao espírito imundo que saísse do homem. Pois há muito tempo que se apoderara dele, e guardavam-no preso em cadeias e com grilhões nos pés, mas ele rompia as cadeias e era impelido pelo demônio para os desertos.
+30. Jesus perguntou-lhe: Qual é o teu nome? Ele respondeu: Legião! (Porque eram muitos os demônios que nele se ocultavam.)
+31. E pediam-lhe que não os mandasse ir para o abismo.
+32. Ora, andava ali pastando no monte uma grande manada de porcos; rogaram-lhe os demônios que lhes permitisse entrar neles. Ele permitiu.
+33. Saíram, pois, os demônios do homem e entraram nos porcos; e a manada de porcos precipitou-se, pelo despenhadeiro, impetuosamente no lago e afogou-se.
+34. Quando aqueles que os guardavam viram o acontecido, fugiram e foram contá-lo na cidade e pelo campo.
+35. Saíram eles, pois, a ver o que havia ocorrido. Chegaram a Jesus e acharam a seus pés, sentado, vestido e calmo, o homem de quem haviam sido expulsos os demônios; e tomados de medo,
+36. ouviram das testemunhas a narração desse exorcismo.
+37. Então todo o povo da região dos gerasenos rogou a Jesus que se retirasse deles, pois estavam possuídos de grande temor. Jesus subiu à barca, para regressar.
+38. Nesse momento, pedia-lhe o homem, de quem tinham saído os demônios, para ficar com ele. Mas Jesus despediu-o, dizendo:
+39. Volta para casa, e conta quanto Deus te fez. E ele se foi, publicando por toda a cidade essas grandes coisas...
+40. À sua volta, Jesus foi recebido por uma multidão que o esperava.
+41. O chefe da sinagoga, chamado Jairo, foi ao seu encontro. Lançou-se a seus pés e rogou-lhe que fosse à sua casa,
+42. porque tinha uma filha única, de uns doze anos, que estava para morrer. Jesus dirigiu-se para lá, comprimido pelo povo.
+43. Ora, uma mulher que padecia dum fluxo de sangue havia doze anos, e tinha gasto com médicos todos os seus bens, sem que nenhum a pudesse curar,
+44. aproximou-se dele por detrás e tocou-lhe a orla do manto; e no mesmo instante lhe parou o fluxo de sangue.
+45. Jesus perguntou: Quem foi que me tocou? Como todos negassem, Pedro e os que com ele estavam disseram: Mestre, a multidão te aperta de todos os lados...
+46. Jesus replicou: Alguém me tocou, porque percebi sair de mim uma força.
+47. A mulher viu-se descoberta e foi tremendo e prostrou-se aos seus pés; e declarou diante de todo o povo o motivo por que o havia tocado, e como logo ficara curada.
+48. Jesus disse-lhe: Minha filha, tua fé te salvou; vai em paz.
+49. Enquanto ainda falava, veio alguém e disse ao chefe da sinagoga: Tua filha acaba de morrer; não incomodes mais o Mestre.
+50. Mas Jesus o ouviu e disse a Jairo: Não temas; crê somente e ela será salva.
+51. Quando Jesus chegou à casa, não deixou ninguém entrar com ele, senão Pedro, Tiago, João com o pai e a mãe da menina.
+52. Todos, entretanto, choravam e se lamentavam. Mas Jesus disse: Não choreis; a menina não morreu, mas dorme.
+53. Zombavam dele, pois sabiam bem que estava morta.
+54. Mas segurando ele a mão dela, disse em alta voz: Menina, levanta-te!
+55. Voltou-lhe a vida e ela levantou-se imediatamente. Jesus mandou que lhe dessem de comer.
+56. Seus pais ficaram tomados de pasmo; Jesus ordenou-lhes que não contassem a pessoa alguma o que se tinha passado.São Lucas, 9
+1. Reunindo Jesus os doze apóstolos, deu-lhes poder e autoridade sobre todos os demônios, e para curar enfermidades.
+2. Enviou-os a pregar o Reino de Deus e a curar os enfermos.
+3. Disse-lhes: Não leveis coisa alguma para o caminho, nem bordão, nem mochila, nem pão, nem dinheiro, nem tenhais duas túnicas.
+4. Em qualquer casa em que entrardes, ficai ali até que deixeis aquela localidade.
+5. Onde ninguém vos receber, deixai aquela cidade e em testemunho contra eles sacudi a poeira dos vossos pés.
+6. Partiram, pois, e percorriam as aldeias, pregando o Evangelho e fazendo curas por toda parte.
+7. O tetrarca Herodes ouviu falar de tudo o que Jesus fazia e ficou perplexo. Uns diziam: É João que ressurgiu dos mortos; outros: É Elias que apareceu;
+8. e ainda outros: É um dos antigos profetas que ressuscitou.
+9. Mas Herodes dizia: Eu degolei João. Quem é, pois, este, de quem ouço tais coisas? E procurava ocasião de vê-lo.
+10. Os apóstolos, ao voltarem, contaram a Jesus tudo o que haviam feito. Tomando-os ele consigo à parte, dirigiu-se a um lugar deserto para o lado de Betsaida.
+11. Logo que a multidão o soube, o foi seguindo; Jesus recebeu-os e falava-lhes do Reino de Deus. Restabelecia também a saúde dos doentes.
+12. Ora, o dia começava a declinar e os Doze foram dizer-lhe: Despede as turbas, para que vão pelas aldeias e sítios da vizinhança e procurem alimento e hospedagem, porque aqui estamos num lugar deserto.
+13. Jesus replicou-lhes: Dai-lhes vós mesmos de comer. Retrucaram eles: Não temos mais do que cinco pães e dois peixes, a menos que nós mesmos vamos e compremos mantimentos para todo este povo.
+14. (Pois eram quase cinco mil homens.) Jesus disse aos discípulos: Mandai-os sentar, divididos em grupos de cinqüenta.
+15. Assim o fizeram e todos se assentaram.
+16. Então Jesus tomou os cinco pães e os dois peixes, levantou os olhos ao céu, abençoou-os, partiu-os e deu-os a seus discípulos, para que os servissem ao povo.
+17. E todos comeram e ficaram fartos. Do que sobrou recolheram ainda doze cestos de pedaços.
+18. Num dia em que ele estava a orar a sós com os discípulos, perguntou-lhes: Quem dizem que eu sou?
+19. Responderam-lhe: Uns dizem que és João Batista; outros, Elias; outros pensam que ressuscitou algum dos antigos profetas.
+20. Perguntou-lhes, então: E vós, quem dizeis que eu sou? Pedro respondeu: O Cristo de Deus.
+21. Ordenou-lhes energicamente que não o dissessem a ninguém.
+22. Ele acrescentou: É necessário que o Filho do Homem padeça muitas coisas, seja rejeitado pelos anciãos, pelos príncipes dos sacerdotes e pelos escribas. É necessário que seja levado à morte e que ressuscite ao terceiro dia.
+23. Em seguida, dirigiu-se a todos: Se alguém quer vir após mim, renegue-se a si mesmo, tome cada dia a sua cruz e siga-me.
+24. Porque, quem quiser salvar a sua vida, perdê-la-á; mas quem sacrificar a sua vida por amor de mim, salvá-la-á.
+25. Pois que aproveita ao homem ganhar o mundo inteiro, se vem a perder-se a si mesmo e se causa a sua própria ruína?
+26. Se alguém se envergonhar de mim e das minhas palavras, também o Filho do Homem se envergonhará dele, quando vier na sua glória, na glória de seu Pai e dos santos anjos.
+27. Em verdade vos digo: dos que aqui se acham, alguns há que não morrerão, até que vejam o Reino de Deus.
+28. Passados uns oitos dias, Jesus tomou consigo Pedro, Tiago e João, e subiu ao monte para orar.
+29. Enquanto orava, transformou-se o seu rosto e as suas vestes tornaram-se resplandecentes de brancura.
+30. E eis que falavam com ele dois personagens: eram Moisés e Elias,
+31. que apareceram envoltos em glória, e falavam da morte dele, que se havia de cumprir em Jerusalém.
+32. Entretanto, Pedro e seus companheiros tinham-se deixado vencer pelo sono; ao despertarem, viram a glória de Jesus e os dois personagens em sua companhia.
+33. Quando estes se apartaram de Jesus, Pedro disse: Mestre, é bom estarmos aqui. Podemos levantar três tendas: uma para ti, outra para Moisés e outra para Elias!... Ele não sabia o que dizia.
+34. Enquanto ainda assim falava, veio uma nuvem e encobriu-os com a sua sombra; e os discípulos, vendo-os desaparecer na nuvem, tiveram um grande pavor.
+35. Então da nuvem saiu uma voz: Este é o meu Filho muito amado; ouvi-o!
+36. E, enquanto ainda ressoava esta voz, achou-se Jesus sozinho. Os discípulos calaram-se e a ninguém disseram naqueles dias coisa alguma do que tinham visto.
+37. No dia seguinte, descendo eles do monte, veio ao encontro de Jesus uma grande multidão.
+38. Eis que um homem exclamou do meio da multidão: Mestre, rogo-te que olhes para meu filho, pois é o único que tenho.
+39. Um espírito se apodera dele e subitamente dá gritos, lança-o por terra, agita-o com violência, fá-lo espumar e só o larga depois de o deixar todo ofegante.
+40. Pedi a teus discípulos que o expelissem, mas não o puderam fazer.
+41. Respondeu Jesus: Ó geração incrédula e perversa, até quando estarei convosco e vos aturarei? Traze cá teu filho.
+42. E quando ele ia chegando, o demônio lançou-o por terra e agitou-o violentamente. Mas Jesus intimou o espírito imundo, curou o menino e o restituiu a seu pai.
+43. Todos ficaram pasmados ante a grandeza de Deus. Como todos se admirassem de tudo o que Jesus fazia, disse ele a seus discípulos:
+44. Gravai nos vossos corações estas palavras: O Filho do Homem há de ser entregue às mãos dos homens!
+45. Eles, porém, não entendiam esta palavra e era-lhes obscura, de modo que não alcançaram o seu sentido; e tinham medo de lhe perguntar a este respeito.
+46. Veio-lhes então o pensamento de qual deles seria o maior.
+47. Penetrando Jesus nos pensamentos de seus corações, tomou um menino, colocou-o junto de si e disse-lhes:
+48. Todo o que recebe este menino em meu nome, a mim é que recebe; e quem recebe a mim, recebe aquele que me enviou; pois quem dentre vós for o menor, esse será grande.
+49. João tomou a palavra e disse: Mestre, vimos um homem que expelia demônios em teu nome, e nós lho proibimos, porque não é dos nossos.
+50. Mas Jesus lhe disse: Não lho proibais; porque, o que não é contra vós, é a vosso favor.
+51. Aproximando-se o tempo em que Jesus devia ser arrebatado deste mundo, ele resolveu dirigir-se a Jerusalém.
+52. Enviou diante de si mensageiros que, tendo partido, entraram em uma povoação dos samaritanos para lhe arranjar pousada.
+53. Mas não o receberam, por ele dar mostras de que ia para Jerusalém.
+54. Vendo isto, Tiago e João disseram: Senhor, queres que mandemos que desça fogo do céu e os consuma?
+55. Jesus voltou-se e repreendeu-os severamente. [Não sabeis de que espírito sois animados.
+56. O Filho do Homem não veio para perder as vidas dos homens, mas para salvá-las.] Foram então para outra povoação.
+57. Enquanto caminhavam, um homem lhe disse: Senhor, seguir-te-ei para onde quer que vás.
+58. Jesus replicou-lhe: As raposas têm covas e as aves do céu, ninhos, mas o Filho do Homem não tem onde reclinar a cabeça.
+59. A outro disse: Segue-me. Mas ele pediu: Senhor, permite-me ir primeiro enterrar meu pai.
+60. Mas Jesus disse-lhe: Deixa que os mortos enterrem seus mortos; tu, porém, vai e anuncia o Reino de Deus.
+61. Um outro ainda lhe falou: Senhor, seguir-te-ei, mas permite primeiro que me despeça dos que estão em casa.
+62. Mas Jesus disse-lhe: Aquele que põe a mão no arado e olha para trás, não é apto para o Reino de Deus.São Lucas, 10
+1. Depois disso, designou o Senhor ainda setenta e dois outros discípulos e mandou-os, dois a dois, adiante de si, por todas as cidades e lugares para onde ele tinha de ir.
+2. Disse-lhes: Grande é a messe, mas poucos são os operários. Rogai ao Senhor da messe que mande operários para a sua messe.
+3. Ide; eis que vos envio como cordeiros entre lobos.
+4. Não leveis bolsa nem mochila, nem calçado e a ninguém saudeis pelo caminho.
+5. Em toda casa em que entrardes, dizei primeiro: Paz a esta casa!
+6. Se ali houver algum homem pacífico, repousará sobre ele a vossa paz; mas, se não houver, ela tornará para vós.
+7. Permanecei na mesma casa, comei e bebei do que eles tiverem, pois o operário é digno do seu salário. Não andeis de casa em casa.
+8. Em qualquer cidade em que entrardes e vos receberem, comei o que se vos servir.
+9. Curai os enfermos que nela houver e dizei-lhes: O Reino de Deus está próximo.
+10. Mas se entrardes nalguma cidade e não vos receberem, saindo pelas suas praças, dizei:
+11. Até o pó que se nos pegou da vossa cidade, sacudimos contra vós; sabei, contudo, que o Reino de Deus está próximo.
+12. Digo-vos: naqueles dias haverá um tratamento menos rigoroso para Sodoma.
+13. Ai de ti, Corozaim! Ai de ti, Betsaida! Porque, se em Tiro e Sidônia tivessem sido feitos os prodígios que foram realizados em vosso meio, há muito tempo teriam feito penitência, cobrindo-se de saco e cinza.
+14. Por isso haverá no dia do juízo menos rigor para Tiro e Sidônia do que para vós.
+15. E tu, Cafarnaum, que te elevas até o céu, serás precipitada até aos infernos.
+16. Quem vos ouve, a mim ouve; e quem vos rejeita, a mim rejeita; e quem me rejeita, rejeita aquele que me enviou.
+17. Voltaram alegres os setenta e dois, dizendo: Senhor, até os demônios se nos submetem em teu nome!
+18. Jesus disse-lhes: Vi Satanás cair do céu como um raio.
+19. Eis que vos dei poder para pisar serpentes, escorpiões e todo o poder do inimigo.
+20. Contudo, não vos alegreis porque os espíritos vos estão sujeitos, mas alegrai-vos de que os vossos nomes estejam escritos nos céus.
+21. Naquele mesma hora, Jesus exultou de alegria no Espírito Santo e disse: Pai, Senhor do céu e da terra, eu te dou graças porque escondeste estas coisas aos sábios e inteligentes e as revelaste aos pequeninos. Sim, Pai, bendigo-te porque assim foi do teu agrado.
+22. Todas as coisas me foram entregues por meu Pai. Ninguém conhece quem é o Filho senão o Pai, nem quem é o Pai senão o Filho, e aquele a quem o Filho o quiser revelar.
+23. E voltou-se para os seus discípulos, e disse: Ditosos os olhos que vêem o que vós vedes,
+24. pois vos digo que muitos profetas e reis desejaram ver o que vós vedes, e não o viram; e ouvir o que vós ouvis, e não o ouviram.
+25. Levantou-se um doutor da lei e, para pô-lo à prova, perguntou: Mestre, que devo fazer para possuir a vida eterna?
+26. Disse-lhe Jesus: Que está escrito na lei? Como é que lês?
+27. Respondeu ele: Amarás o Senhor teu Deus de todo o teu coração, de toda a tua alma, de todas as tuas forças e de todo o teu pensamento (Dt 6,5); e a teu próximo como a ti mesmo (Lv 19,18).
+28. Falou-lhe Jesus: Respondeste bem; faze isto e viverás.
+29. Mas ele, querendo justificar-se, perguntou a Jesus: E quem é o meu próximo?
+30. Jesus então contou: Um homem descia de Jerusalém a Jericó, e caiu nas mãos de ladrões, que o despojaram; e depois de o terem maltratado com muitos ferimentos, retiraram-se, deixando-o meio morto.
+31. Por acaso desceu pelo mesmo caminho um sacerdote, viu-o e passou adiante.
+32. Igualmente um levita, chegando àquele lugar, viu-o e passou também adiante.
+33. Mas um samaritano que viajava, chegando àquele lugar, viu-o e moveu-se de compaixão.
+34. Aproximando-se, atou-lhe as feridas, deitando nelas azeite e vinho; colocou-o sobre a sua própria montaria e levou-o a uma hospedaria e tratou dele.
+35. No dia seguinte, tirou dois denários e deu-os ao hospedeiro, dizendo-lhe: Trata dele e, quanto gastares a mais, na volta to pagarei.
+36. Qual destes três parece ter sido o próximo daquele que caiu nas mãos dos ladrões?
+37. Respondeu o doutor: Aquele que usou de misericórdia para com ele. Então Jesus lhe disse: Vai, e faze tu o mesmo.
+38. Estando Jesus em viagem, entrou numa aldeia, onde uma mulher, chamada Marta, o recebeu em sua casa.
+39. Tinha ela uma irmã por nome Maria, que se assentou aos pés do Senhor para ouvi-lo falar.
+40. Marta, toda preocupada na lida da casa, veio a Jesus e disse: Senhor, não te importas que minha irmã me deixe só a servir? Dize-lhe que me ajude.
+41. Respondeu-lhe o Senhor: Marta, Marta, andas muito inquieta e te preocupas com muitas coisas;
+42. no entanto, uma só coisa é necessária; Maria escolheu a boa parte, que lhe não será tirada.São Lucas, 11
+1. Um dia, num certo lugar, estava Jesus a rezar. Terminando a oração, disse-lhe um de seus discípulos: Senhor, ensina-nos a rezar, como também João ensinou a seus discípulos.
+2. Disse-lhes ele, então: Quando orardes, dizei: Pai, santificado seja o vosso nome; venha o vosso Reino;
+3. dai-nos hoje o pão necessário ao nosso sustento;
+4. perdoai-nos os nossos pecados, pois também nós perdoamos àqueles que nos ofenderam; e não nos deixeis cair em tentação.
+5. Em seguida, ele continuou: Se alguém de vós tiver um amigo e for procurá-lo à meia-noite, e lhe disser: Amigo, empresta-me três pães,
+6. pois um amigo meu acaba de chegar à minha casa, de uma viagem, e não tenho nada para lhe oferecer;
+7. e se ele responder lá de dentro: Não me incomodes; a porta já está fechada, meus filhos e eu estamos deitados; não posso levantar-me para te dar os pães;
+8. eu vos digo: no caso de não se levantar para lhe dar os pães por ser seu amigo, certamente por causa da sua importunação se levantará e lhe dará quantos pães necessitar.
+9. E eu vos digo: pedi, e dar-se-vos-á; buscai, e achareis; batei, e abrir-se-vos-á.
+10. Pois todo aquele que pede, recebe; aquele que procura, acha; e ao que bater, se lhe abrirá.
+11. Se um filho pedir um pão, qual o pai entre vós que lhe dará uma pedra? Se ele pedir um peixe, acaso lhe dará uma serpente?
+12. Ou se lhe pedir um ovo, dar-lhe-á porventura um escorpião?
+13. Se vós, pois, sendo maus, sabeis dar boas coisas a vossos filhos, quanto mais vosso Pai celestial dará o Espírito Santo aos que lho pedirem.
+14. Jesus expelia um demônio que era mudo. Tendo o demônio saído, o mudo pôs-se a falar e a multidão ficou admirada.
+15. Mas alguns deles disseram: Ele expele os demônios por Beelzebul, príncipe dos demônios.
+16. E para pô-lo à prova, outros lhe pediam um sinal do céu.
+17. Penetrando nos seus pensamentos, disse-lhes Jesus: Todo o reino dividido contra si mesmo será destruído e seus edifícios cairão uns sobre os outros.
+18. Se, pois, Satanás está dividido contra si mesmo, como subsistirá o seu reino? Pois dizeis que expulso os demônios por Beelzebul.
+19. Ora, se é por Beelzebul que expulso os demônios, por quem o expulsam vossos filhos? Por isso, eles mesmos serão os vossos juízes!
+20. Mas se expulso os demônios pelo dedo de Deus, certamente é chegado a vós o Reino de Deus.
+21. Quando um homem forte guarda armado a sua casa, estão em segurança os bens que possui.
+22. Mas se sobrevier outro mais forte do que ele e o vencer, este lhe tirará todas as armas em que confiava, e repartirá os seus despojos.
+23. Quem não está comigo, está contra mim; quem não recolhe comigo, espalha.
+24. Quando um espírito imundo sai do homem, anda por lugares áridos, buscando repouso; não o achando, diz: Voltarei à minha casa, donde saí.
+25. Chegando, acha-a varrida e adornada.
+26. Vai então e toma consigo outros sete espíritos piores do que ele e entram e estabelecem-se ali. E a última condição desse homem vem a ser pior do que a primeira.
+27. Enquanto ele assim falava, uma mulher levantou a voz do meio do povo e lhe disse: Bem-aventurado o ventre que te trouxe, e os peitos que te amamentaram!
+28. Mas Jesus replicou: Antes bem-aventurados aqueles que ouvem a palavra de Deus e a observam!
+29. Afluía o povo e ele continuou: Esta geração é uma geração perversa; pede um sinal, mas não se lhe dará outro sinal senão o sinal do profeta Jonas.
+30. Pois, como Jonas foi um sinal para os ninivitas, assim o Filho do Homem o será para esta geração.
+31. A rainha do meio-dia levantar-se-á no dia do juízo para condenar os homens desta geração, porque ela veio dos confins da terra ouvir a sabedoria de Salomão! Ora, aqui está quem é mais que Salomão.
+32. Os ninivitas levantar-se-ão no dia do juízo para condenar os homens desta geração, porque fizeram penitência com a pregação de Jonas. Ora, aqui está quem é mais do que Jonas.
+33. Ninguém acende uma lâmpada e a põe em lugar oculto ou debaixo da amassadeira, mas sobre um candeeiro, para alumiar os que entram.
+34. O olho é a lâmpada do corpo. Se teu olho é são, todo o corpo será bem iluminado; se, porém, estiver em mau estado, o teu corpo estará em trevas.
+35. Vê, pois, que a luz que está em ti não sejam trevas.
+36. Se, pois, todo o teu corpo estiver na luz, sem mistura de trevas, ele será inteiramente iluminado, como sob a brilhante luz de uma lâmpada.
+37. Enquanto Jesus falava, pediu-lhe um fariseu que fosse jantar em sua companhia. Ele entrou e pôs-se à mesa.
+38. Admirou-se o fariseu de que ele não se tivesse lavado antes de comer.
+39. Disse-lhe o Senhor: Vós, fariseus, limpais o que está por fora do vaso e do prato, mas o vosso interior está cheio de roubo e maldade!
+40. Insensatos! Quem fez o exterior não fez também o conteúdo?
+41. Dai antes em esmola o que possuís, e todas as coisas vos serão limpas.
+42. Ai de vós, fariseus, que pagais o dízimo da hortelã, da arruda e de diversas ervas e desprezais a justiça e o amor de Deus. No entanto, era necessário praticar estas coisas, sem contudo deixar de fazer aquelas outras coisas.
+43. Ai de vós, fariseus, que gostais das primeiras cadeiras nas sinagogas e das saudações nas praças públicas!
+44. Ai de vós, que sois como os sepulcros que não aparecem, e sobre os quais os homens caminham sem o saber.
+45. Um dos doutores da lei lhe disse: Mestre, falando assim também a nós outros nos afrontas.
+46. Ele respondeu: Ai também de vós, doutores da lei, que carregais os homens com pesos que não podem levar, mas vós mesmos nem sequer com um dedo vosso tocais os fardos.
+47. Ai de vós, que edificais sepulcros para os profetas que vossos pais mataram.
+48. Vós servis assim de testemunhas das obras de vossos pais e as aprovais, porque em verdade eles os mataram, mas vós lhes edificais os sepulcros.
+49. Por isso, também disse a sabedoria de Deus: Enviar-lhes-ei profetas e apóstolos, mas eles darão a morte a uns e perseguirão a outros.
+50. E assim se pedirá conta a esta geração do sangue de todos os profetas derramado desde a criação do mundo,
+51. desde o sangue de Abel até o sangue de Zacarias, que foi assassinado entre o altar e o templo. Sim, declaro-vos que se pedirá conta disso a esta geração!
+52. Ai de vós, doutores da lei, que tomastes a chave da ciência, e vós mesmos não entrastes e impedistes aos que vinham para entrar.
+53. Depois que Jesus saiu dali, os escribas e fariseus começaram a importuná-lo fortemente e a persegui-lo com muitas perguntas,
+54. armando-lhe desta maneira ciladas, e procurando surpreendê-lo nalguma palavra de sua boca.São Lucas, 12
+1. Enquanto isso, os homens se tinham reunido aos milhares em torno de Jesus, de modo que se atropelavam uns aos outros. Jesus começou a dizer a seus discípulos: Guardai-vos do fermento dos fariseus, que é a hipocrisia.
+2. Porque não há nada oculto que não venha a descobrir-se, e nada há escondido que não venha a ser conhecido.
+3. Pois o que dissestes às escuras será dito à luz; e o que falastes ao ouvido, nos quartos, será publicado de cima dos telhados.
+4. Digo-vos a vós, meus amigos: não tenhais medo daqueles que matam o corpo e depois disto nada mais podem fazer.
+5. Mostrar-vos-ei a quem deveis temer: temei àquele que, depois de matar, tem poder de lançar no inferno; sim, eu vo-lo digo: temei a este.
+6. Não se vendem cinco pardais por dois asses? E, entretanto, nem um só deles passa despercebido diante de Deus.
+7. Até os cabelos da vossa cabeça estão todos contados. Não temais, pois. Mais valor tendes vós do que numerosos pardais.
+8. Digo-vos: todo o que me reconhecer diante dos homens, também o Filho do Homem o reconhecerá diante dos anjos de Deus;
+9. mas quem me negar diante dos homens será negado diante dos anjos de Deus.
+10. Todo aquele que tiver falado contra o Filho do Homem obterá perdão, mas aquele que tiver blasfemado contra o Espírito Santo não alcançará perdão.
+11. Quando, porém, vos levarem às sinagogas, perante os magistrados e as autoridades, não vos preocupeis com o que haveis de falar em vossa defesa,
+12. porque o Espírito Santo vos inspirará naquela hora o que deveis dizer.
+13. Disse-lhe então alguém do meio do povo: Mestre, dize a meu irmão que reparta comigo a herança.
+14. Jesus respondeu-lhe: Meu amigo, quem me constituiu juiz ou árbitro entre vós?
+15. E disse então ao povo: Guardai-vos escrupulosamente de toda a avareza, porque a vida de um homem, ainda que ele esteja na abundância, não depende de suas riquezas.
+16. E propôs-lhe esta parábola: Havia um homem rico cujos campos produziam muito.
+17. E ele refletia consigo: Que farei? Porque não tenho onde recolher a minha colheita.
+18. Disse então ele: Farei o seguinte: derrubarei os meus celeiros e construirei maiores; neles recolherei toda a minha colheita e os meus bens.
+19. E direi à minha alma: ó minha alma, tens muitos bens em depósito para muitíssimos anos; descansa, come, bebe e regala-te.
+20. Deus, porém, lhe disse: Insensato! Nesta noite ainda exigirão de ti a tua alma. E as coisas, que ajuntaste, de quem serão?
+21. Assim acontece ao homem que entesoura para si mesmo e não é rico para Deus.
+22. Jesus voltou-se então para seus discípulos: Portanto vos digo: não andeis preocupados com a vossa vida, pelo que haveis de comer; nem com o vosso corpo, pelo que haveis de vestir.
+23. A vida vale mais do que o sustento e o corpo mais do que as vestes.
+24. Considerai os corvos: eles não semeiam, nem ceifam, nem têm despensa, nem celeiro; entretanto, Deus os sustenta. Quanto mais valeis vós do que eles?
+25. Mas qual de vós, por mais que se preocupe, pode acrescentar um só côvado à duração de sua vida?
+26. Se vós, pois, não podeis fazer nem as mínimas coisas, por que estais preocupados com as outras?
+27. Considerai os lírios, como crescem; não fiam, nem tecem. Contudo, digo-vos: nem Salomão em toda a sua glória jamais se vestiu como um deles.
+28. Se Deus, portanto, veste assim a erva que hoje está no campo e amanhã se lança ao fogo, quanto mais a vós, homens de fé pequenina!
+29. Não vos inquieteis com o que haveis de comer ou beber; e não andeis com vãs preocupações.
+30. Porque os homens do mundo é que se preocupam com todas estas coisas. Mas vosso Pai bem sabe que precisais de tudo isso.
+31. Buscai antes o Reino de Deus e a sua justiça e todas estas coisas vos serão dadas por acréscimo.
+32. Não temais, pequeno rebanho, porque foi do agrado de vosso Pai dar-vos o Reino.
+33. Vendei o que possuís e dai esmolas; fazei para vós bolsas que não se gastam, um tesouro inesgotável nos céus, aonde não chega o ladrão e a traça não o destrói.
+34. Pois onde estiver o vosso tesouro, ali estará também o vosso coração.
+35. Estejam cingidos os vossos rins e acesas as vossas lâmpadas.
+36. Sede semelhantes a homens que esperam o seu senhor, ao voltar de uma festa, para que, quando vier e bater à porta, logo lha abram.
+37. Bem-aventurados os servos a quem o senhor achar vigiando, quando vier! Em verdade vos digo: cingir-se-á, fá-los-á sentar à mesa e servi-los-á.
+38. Se vier na segunda ou se vier na terceira vigília e os achar vigilantes, felizes daqueles servos!
+39. Sabei, porém, isto: se o senhor soubesse a que hora viria o ladrão, vigiaria sem dúvida e não deixaria forçar a sua casa.
+40. Estai, pois, preparados, porque, à hora em que não pensais, virá o Filho do Homem.
+41. Disse-lhe Pedro: Senhor, propões esta parábola só a nós ou também a todos?
+42. O Senhor replicou: Qual é o administrador sábio e fiel que o senhor estabelecerá sobre os seus operários para lhes dar a seu tempo a sua medida de trigo?
+43. Feliz daquele servo que o senhor achar procedendo assim, quando vier!
+44. Em verdade vos digo: confiar-lhe-á todos os seus bens.
+45. Mas, se o tal administrador imaginar consigo: Meu senhor tardará a vir, e começar a espancar os servos e as servas, a comer, a beber e a embriagar-se,
+46. o senhor daquele servo virá no dia em que não o esperar e na hora em que ele não pensar, e o despedirá e o mandará ao destino dos infiéis.
+47. O servo que, apesar de conhecer a vontade de seu senhor, nada preparou e lhe desobedeceu será açoitado com numerosos golpes.
+48. Mas aquele que, ignorando a vontade de seu senhor, fizer coisas repreensíveis será açoitado com poucos golpes. Porque, a quem muito se deu, muito se exigirá. Quanto mais se confiar a alguém, dele mais se há de exigir.
+49. Eu vim lançar fogo à terra, e que tenho eu a desejar se ele já está aceso?
+50. Mas devo ser batizado num batismo; e quanto anseio até que ele se cumpra!
+51. Julgais que vim trazer paz à terra? Não, digo-vos, mas separação.
+52. Pois de ora em diante haverá numa mesma casa cinco pessoas divididas, três contra duas, e duas contra três;
+53. estarão divididos: o pai contra o filho, e o filho contra o pai; a mãe contra a filha, e a filha contra a mãe; a sogra contra a nora, e a nora contra a sogra.
+54. Dizia ainda ao povo: Quando vedes levantar-se uma nuvem no poente, logo dizeis: Aí vem chuva. E assim sucede.
+55. Quando vedes soprar o vento do sul, dizeis: Haverá calor. E assim acontece.
+56. Hipócritas! Sabeis distinguir os aspectos do céu e da terra; como, pois, não sabeis reconhecer o tempo presente?
+57. Por que também não julgais por vós mesmos o que é justo?
+58. Ora, quando fores com o teu adversário ao magistrado, faze o possível para entrar em acordo com ele pelo caminho, a fim de que ele te não arraste ao juiz, e o juiz te entregue ao executor, e o executor te ponha na prisão.
+59. Digo-te: não sairás dali, até pagares o último centavo.São Lucas, 13
+1. Neste mesmo tempo contavam alguns o que tinha acontecido a certos galileus, cujo sangue Pilatos misturara com os seus sacrifícios.
+2. Jesus toma a palavra e lhes pergunta: Pensais vós que estes galileus foram maiores pecadores do que todos os outros galileus, por terem sido tratados desse modo?
+3. Não, digo-vos. Mas se não vos arrependerdes, perecereis todos do mesmo modo.
+4. Ou cuidais que aqueles dezoito homens, sobre os quais caiu a torre de Siloé e os matou, foram mais culpados do que todos os demais habitantes de Jerusalém?
+5. Não, digo-vos. Mas se não vos arrependerdes, perecereis todos do mesmo modo.
+6. Disse-lhes também esta comparação: Um homem havia plantado uma figueira na sua vinha, e, indo buscar fruto, não o achou.
+7. Disse ao viticultor: - Eis que três anos há que venho procurando fruto nesta figueira e não o acho. Corta-a; para que ainda ocupa inutilmente o terreno?
+8. Mas o viticultor respondeu: - Senhor, deixa-a ainda este ano; eu lhe cavarei em redor e lhe deitarei adubo.
+9. Talvez depois disto dê frutos. Caso contrário, cortá-la-ás.
+10. Estava Jesus ensinando na sinagoga em um sábado.
+11. Havia ali uma mulher que, havia dezoito anos, era possessa de um espírito que a detinha doente: andava curvada e não podia absolutamente erguer-se.
+12. Ao vê-la, Jesus a chamou e disse-lhe: Estás livre da tua doença.
+13. Impôs-lhe as mãos e no mesmo instante ela se endireitou, glorificando a Deus.
+14. Mas o chefe da sinagoga, indignado de ver que Jesus curava no sábado, disse ao povo: São seis os dias em que se deve trabalhar; vinde, pois, nestes dias para vos curar, mas não em dia de sábado.
+15. Hipócritas!, disse-lhes o Senhor. Não desamarra cada um de vós no sábado o seu boi ou o seu jumento da manjedoura, para os levar a beber?
+16. Esta filha de Abraão, que Satanás paralisava há dezoito anos, não devia ser livre desta prisão, em dia de sábado?
+17. Ao proferir estas palavras, todos os seus adversários se encheram de confusão, ao passo que todo o povo, à vista de todos os milagres que ele realizava, se entusiasmava.
+18. Jesus dizia ainda: A que é semelhante o Reino de Deus, e a que o compararei?
+19. É semelhante ao grão de mostarda que um homem tomou e semeou na sua horta, e que cresceu até se fazer uma grande planta e as aves do céu vieram fazer ninhos nos seus ramos.
+20. Disse ainda: A que direi que é semelhante o Reino de Deus?
+21. É semelhante ao fermento que uma mulher tomou e misturou em três medidas de farinha e toda a massa ficou levedada.
+22. Sempre em caminho para Jerusalém, Jesus ia atravessando cidades e aldeias e nelas ensinava.
+23. Alguém lhe perguntou: Senhor, são poucos os homens que se salvam? Ele respondeu:
+24. Procurai entrar pela porta estreita; porque, digo-vos, muitos procurarão entrar e não o conseguirão.
+25. Quando o pai de família tiver entrado e fechado a porta, e vós, de fora, começardes a bater à porta, dizendo: Senhor, Senhor, abre-nos, ele responderá: Digo-vos que não sei de onde sois.
+26. Direis então: Comemos e bebemos contigo e tu ensinaste em nossas praças.
+27. Ele, porém, vos dirá: Não sei de onde sois; apartai-vos de mim todos vós que sois malfeitores.
+28. Ali haverá choro e ranger de dentes, quando virdes Abraão, Isaac, Jacó e todos os profetas no Reino de Deus, e vós serdes lançados para fora.
+29. Virão do oriente e do ocidente, do norte e do sul, e sentar-se-ão à mesa no Reino de Deus.
+30. Há últimos que serão os primeiros, e há primeiros que serão os últimos.
+31. No mesmo dia chegaram alguns dos fariseus, dizendo a Jesus: Sai e vai-te daqui, porque Herodes te quer matar.
+32. Disse-lhes ele: Ide dizer a essa raposa: eis que expulso demônios e faço curas hoje e amanhã; e ao terceiro dia terminarei a minha vida.
+33. É necessário, todavia, que eu caminhe hoje, amanhã e depois de amanhã, porque não é admissível que um profeta morra fora de Jerusalém.
+34. Jerusalém, Jerusalém, que matas os profetas e apedrejas os enviados de Deus, quantas vezes quis ajuntar os teus filhos, como a galinha abriga a sua ninhada debaixo das asas, mas não o quiseste!
+35. Eis que vos ficará deserta a vossa casa. Digo-vos, porém, que não me vereis até que venha o dia em que digais: Bendito o que vem em nome do Senhor!São Lucas, 14
+1. Jesus entrou num sábado em casa de um fariseu notável, para uma refeição; eles o observavam.
+2. Havia ali um homem hidrópico.
+3. Jesus dirigiu-se aos doutores da lei e aos fariseus: É permitido ou não fazer curas no dia de sábado?
+4. Eles nada disseram. Então Jesus, tomando o homem pela mão, curou-o e despediu-o.
+5. Depois, dirigindo-se a eles, disse: Qual de vós que, se lhe cair o jumento ou o boi num poço, não o tira imediatamente, mesmo em dia de sábado?
+6. A isto nada lhe podiam replicar.
+7. Observando também como os convivas escolhiam os primeiros lugares, propôs-lhes a seguinte parábola:
+8. Quando fores convidado às bodas, não te sentes no primeiro lugar, pois pode ser que seja convidada outra pessoa de mais consideração do que tu,
+9. e vindo o que te convidou, te diga: Cede o lugar a este. Terias então a confusão de dever ocupar o último lugar.
+10. Mas, quando fores convidado, vai tomar o último lugar, para que, quando vier o que te convidou, te diga: Amigo, passa mais para cima. Então serás honrado na presença de todos os convivas.
+11. Porque todo aquele que se exaltar será humilhado, e todo aquele que se humilhar será exaltado.
+12. Dizia igualmente ao que o tinha convidado: Quando deres alguma ceia, não convides os teus amigos, nem teus irmãos, nem os parentes, nem os vizinhos ricos. Porque, por sua vez, eles te convidarão e assim te retribuirão.
+13. Mas, quando deres uma ceia, convida os pobres, os aleijados, os coxos e os cegos.
+14. Serás feliz porque eles não têm com que te retribuir, mas ser-te-á retribuído na ressurreição dos justos.
+15. A estas palavras, disse a Jesus um dos convidados: Feliz daquele que se sentar à mesa no Reino de Deus!
+16. Respondeu-lhe Jesus: Um homem deu uma grande ceia e convidou muitas pessoas.
+17. E à hora da ceia, enviou seu servo para dizer aos convidados: Vinde, tudo já está preparado.
+18. Mas todos, um a um, começaram a escusar-se. Disse-lhe o primeiro: Comprei um terreno e preciso sair para vê-lo; rogo-te me dês por escusado.
+19. Disse outro: Comprei cinco juntas de bois e vou experimentá-las; rogo-te me dês por escusado.
+20. Disse também um outro: Casei-me e por isso não posso ir.
+21. Voltou o servo e referiu isto a seu senhor. Então, irado, o pai de família disse a seu servo: Sai, sem demora, pelas praças e pelas ruas da cidade e introduz aqui os pobres, os aleijados, os cegos e os coxos.
+22. Disse o servo: Senhor, está feito como ordenaste e ainda há lugar.
+23. O senhor ordenou: Sai pelos caminhos e atalhos e obriga todos a entrar, para que se encha a minha casa.
+24. Pois vos digo: nenhum daqueles homens, que foram convidados, provará a minha ceia.
+25. Muito povo acompanhava Jesus. Voltando-se, disse-lhes:
+26. Se alguém vem a mim e não odeia seu pai, sua mãe, sua mulher, seus filhos, seus irmãos, suas irmãs e até a sua própria vida, não pode ser meu discípulo.
+27. E quem não carrega a sua cruz e me segue, não pode ser meu discípulo.
+28. Quem de vós, querendo fazer uma construção, antes não se senta para calcular os gastos que são necessários, a fim de ver se tem com que acabá-la?
+29. Para que, depois que tiver lançado os alicerces e não puder acabá-la, todos os que o virem não comecem a zombar dele,
+30. dizendo: Este homem principiou a edificar, mas não pode terminar.
+31. Ou qual é o rei que, estando para guerrear com outro rei, não se senta primeiro para considerar se com dez mil homens poderá enfrentar o que vem contra ele com vinte mil?
+32. De outra maneira, quando o outro ainda está longe, envia-lhe embaixadores para tratar da paz.
+33. Assim, pois, qualquer um de vós que não renuncia a tudo o que possui não pode ser meu discípulo.
+34. O sal é uma coisa boa, mas se ele perder o seu sabor, com que o recuperará?
+35. Não servirá nem para a terra nem para adubo, mas lançar-se-á fora. O que tem ouvidos para ouvir, ouça!São Lucas, 15
+1. Aproximavam-se de Jesus os publicanos e os pecadores para ouvi-lo.
+2. Os fariseus e os escribas murmuravam: Este homem recebe e come com pessoas de má vida!
+3. Então lhes propôs a seguinte parábola:
+4. Quem de vós que, tendo cem ovelhas e perdendo uma delas, não deixa as noventa e nove no deserto e vai em busca da que se perdeu, até encontrá-la?
+5. E depois de encontrá-la, a põe nos ombros, cheio de júbilo,
+6. e, voltando para casa, reúne os amigos e vizinhos, dizendo-lhes: Regozijai-vos comigo, achei a minha ovelha que se havia perdido.
+7. Digo-vos que assim haverá maior júbilo no céu por um só pecador que fizer penitência do que por noventa e nove justos que não necessitam de arrependimento.
+8. Ou qual é a mulher que, tendo dez dracmas e perdendo uma delas, não acende a lâmpada, varre a casa e a busca diligentemente, até encontrá-la?
+9. E tendo-a encontrado, reúne as amigas e vizinhas, dizendo: Regozijai-vos comigo, achei a dracma que tinha perdido.
+10. Digo-vos que haverá júbilo entre os anjos de Deus por um só pecador que se arrependa.
+11. Disse também: Um homem tinha dois filhos.
+12. O mais moço disse a seu pai: Meu pai, dá-me a parte da herança que me toca. O pai então repartiu entre eles os haveres.
+13. Poucos dias depois, ajuntando tudo o que lhe pertencia, partiu o filho mais moço para um país muito distante, e lá dissipou a sua fortuna, vivendo dissolutamente.
+14. Depois de ter esbanjado tudo, sobreveio àquela região uma grande fome e ele começou a passar penúria.
+15. Foi pôr-se ao serviço de um dos habitantes daquela região, que o mandou para os seus campos guardar os porcos.
+16. Desejava ele fartar-se das vagens que os porcos comiam, mas ninguém lhas dava.
+17. Entrou então em si e refletiu: Quantos empregados há na casa de meu pai que têm pão em abundância... e eu, aqui, estou a morrer de fome!
+18. Levantar-me-ei e irei a meu pai, e dir-lhe-ei: Meu pai, pequei contra o céu e contra ti;
+19. já não sou digno de ser chamado teu filho. Trata-me como a um dos teus empregados.
+20. Levantou-se, pois, e foi ter com seu pai. Estava ainda longe, quando seu pai o viu e, movido de compaixão, correu-lhe ao encontro, lançou-se-lhe ao pescoço e o beijou.
+21. O filho lhe disse, então: Meu pai, pequei contra o céu e contra ti; já não sou digno de ser chamado teu filho.
+22. Mas o pai falou aos servos: Trazei-me depressa a melhor veste e vesti-lha, e ponde-lhe um anel no dedo e calçado nos pés.
+23. Trazei também um novilho gordo e matai-o; comamos e façamos uma festa.
+24. Este meu filho estava morto, e reviveu; tinha se perdido, e foi achado. E começaram a festa.
+25. O filho mais velho estava no campo. Ao voltar e aproximar-se da casa, ouviu a música e as danças.
+26. Chamou um servo e perguntou-lhe o que havia.
+27. Ele lhe explicou: Voltou teu irmão. E teu pai mandou matar um novilho gordo, porque o reencontrou são e salvo.
+28. Encolerizou-se ele e não queria entrar, mas seu pai saiu e insistiu com ele.
+29. Ele, então, respondeu ao pai: Há tantos anos que te sirvo, sem jamais transgredir ordem alguma tua, e nunca me deste um cabrito para festejar com os meus amigos.
+30. E agora, que voltou este teu filho, que gastou os teus bens com as meretrizes, logo lhe mandaste matar um novilho gordo!
+31. Explicou-lhe o pai: Filho, tu estás sempre comigo, e tudo o que é meu é teu.
+32. Convinha, porém, fazermos festa, pois este teu irmão estava morto, e reviveu; tinha se perdido, e foi achado.São Lucas, 16
+1. Jesus disse também a seus discípulos: Havia um homem rico que tinha um administrador. Este lhe foi denunciado de ter dissipado os seus bens.
+2. Ele chamou o administrador e lhe disse: Que é que ouço dizer de ti? Presta contas da tua administração, pois já não poderás administrar meus bens.
+3. O administrador refletiu então consigo: Que farei, visto que meu patrão me tira o emprego? Lavrar a terra? Não o posso. Mendigar? Tenho vergonha.
+4. Já sei o que fazer, para que haja quem me receba em sua casa, quando eu for despedido do emprego.
+5. Chamou, pois, separadamente a cada um dos devedores de seu patrão e perguntou ao primeiro: Quanto deves a meu patrão?
+6. Ele respondeu: Cem medidas de azeite. Disse-lhe: Toma a tua conta, senta-te depressa e escreve: cinqüenta.
+7. Depois perguntou ao outro: Tu, quanto deves? Respondeu: Cem medidas de trigo. Disse-lhe o administrador: Toma os teus papéis e escreve: oitenta.
+8. E o proprietário admirou a astúcia do administrador, porque os filhos deste mundo são mais prudentes do que os filhos da luz no trato com seus semelhantes.
+9. Eu vos digo: fazei-vos amigos com a riqueza injusta, para que, no dia em que ela vos faltar, eles vos recebam nos tabernáculos eternos.
+10. Aquele que é fiel nas coisas pequenas será também fiel nas coisas grandes. E quem é injusto nas coisas pequenas, sê-lo-á também nas grandes.
+11. Se, pois, não tiverdes sido fiéis nas riquezas injustas, quem vos confiará as verdadeiras?
+12. E se não fostes fiéis no alheio, quem vos dará o que é vosso?
+13. Nenhum servo pode servir a dois senhores: ou há de odiar a um e amar o outro, ou há de aderir a um e desprezar o outro. Não podeis servir a Deus e ao dinheiro.
+14. Ora, ouviam tudo isto os fariseus, que eram avarentos, e zombavam dele.
+15. Jesus disse-lhes: Vós procurais parecer justos aos olhos dos homens, mas Deus vos conhece os corações; pois o que é elevado aos olhos dos homens é abominável aos olhos de Deus.
+16. A lei e os profetas duraram até João. Desde então é anunciado o Reino de Deus, e cada um faz violência para aí entrar.
+17. Mais facilmente, porém, passará o céu e a terra do que se perderá uma só letra da lei.
+18. Todo o que abandonar sua mulher e casar com outra, comete adultério; e quem se casar com a mulher rejeitada, comete adultério também.
+19. Havia um homem rico que se vestia de púrpura e linho finíssimo, e que todos os dias se banqueteava e se regalava.
+20. Havia também um mendigo, por nome Lázaro, todo coberto de chagas, que estava deitado à porta do rico.
+21. Ele avidamente desejava matar a fome com as migalhas que caíam da mesa do rico... Até os cães iam lamber-lhe as chagas.
+22. Ora, aconteceu morrer o mendigo e ser levado pelos anjos ao seio de Abraão. Morreu também o rico e foi sepultado.
+23. E estando ele nos tormentos do inferno, levantou os olhos e viu, ao longe, Abraão e Lázaro no seu seio.
+24. Gritou, então: - Pai Abraão, compadece-te de mim e manda Lázaro que molhe em água a ponta de seu dedo, a fim de me refrescar a língua, pois sou cruelmente atormentado nestas chamas.
+25. Abraão, porém, replicou: - Filho, lembra-te de que recebeste teus bens em vida, mas Lázaro, males; por isso ele agora aqui é consolado, mas tu estás em tormento.
+26. Além de tudo, há entre nós e vós um grande abismo, de maneira que, os que querem passar daqui para vós, não o podem, nem os de lá passar para cá.
+27. O rico disse: - Rogo-te então, pai, que mandes Lázaro à casa de meu pai, pois tenho cinco irmãos,
+28. para lhes testemunhar, que não aconteça virem também eles parar neste lugar de tormentos.
+29. Abraão respondeu: - Eles lá têm Moisés e os profetas; ouçam-nos!
+30. O rico replicou: - Não, pai Abraão; mas se for a eles algum dos mortos, arrepender-se-ão.
+31. Abraão respondeu-lhe: - Se não ouvirem a Moisés e aos profetas, tampouco se deixarão convencer, ainda que ressuscite algum dos mortos.São Lucas, 17
+1. Jesus disse também a seus discípulos: É impossível que não haja escândalos, mas ai daquele por quem eles vêm!
+2. Melhor lhe seria que se lhe atasse em volta do pescoço uma pedra de moinho e que fosse lançado ao mar, do que levar para o mal a um só destes pequeninos. Tomai cuidado de vós mesmos.
+3. Se teu irmão pecar, repreende-o; se se arrepender, perdoa-lhe.
+4. Se pecar sete vezes no dia contra ti e sete vezes no dia vier procurar-te, dizendo: Estou arrependido, perdoar-lhe-ás.
+5. Os apóstolos disseram ao Senhor: Aumenta-nos a fé!
+6. Disse o Senhor: Se tiverdes fé como um grão de mostarda, direis a esta amoreira: Arranca-te e transplanta-te no mar, e ela vos obedecerá.
+7. Qual de vós, tendo um servo ocupado em lavrar ou em guardar o gado, quando voltar do campo lhe dirá: Vem depressa sentar-te à mesa?
+8. E não lhe dirá ao contrário: Prepara-me a ceia, cinge-te e serve-me, enquanto como e bebo, e depois disto comerás e beberás tu?
+9. E se o servo tiver feito tudo o que lhe ordenara, porventura fica-lhe o senhor devendo alguma obrigação?
+10. Assim também vós, depois de terdes feito tudo o que vos foi ordenado, dizei: Somos servos como quaisquer outros; fizemos o que devíamos fazer.
+11. Sempre em caminho para Jerusalém, Jesus passava pelos confins da Samaria e da Galiléia.
+12. Ao entrar numa aldeia, vieram-lhe ao encontro dez leprosos, que pararam ao longe e elevaram a voz, clamando:
+13. Jesus, Mestre, tem compaixão de nós!
+14. Jesus viu-os e disse-lhes: Ide, mostrai-vos ao sacerdote. E quando eles iam andando, ficaram curados.
+15. Um deles, vendo-se curado, voltou, glorificando a Deus em alta voz.
+16. Prostrou-se aos pés de Jesus e lhe agradecia. E era um samaritano.
+17. Jesus lhe disse: Não ficaram curados todos os dez? Onde estão os outros nove?
+18. Não se achou senão este estrangeiro que voltasse para agradecer a Deus?!
+19. E acrescentou: Levanta-te e vai, tua fé te salvou.
+20. Os fariseus perguntaram um dia a Jesus quando viria o Reino de Deus. Respondeu-lhes: O Reino de Deus não virá de um modo ostensivo.
+21. Nem se dirá: Ei-lo aqui; ou: Ei-lo ali. Pois o Reino de Deus já está no meio de vós.
+22. Mais tarde ele explicou aos discípulos: Virão dias em que desejareis ver um só dia o Filho do Homem, e não o vereis.
+23. Então vos dirão: Ei-lo aqui; e: Ei-lo ali. Não deveis sair nem os seguir.
+24. Pois como o relâmpago, reluzindo numa extremidade do céu, brilha até a outra, assim será com o Filho do Homem no seu dia.
+25. É necessário, porém, que primeiro ele sofra muito e seja rejeitado por esta geração.
+26. Como ocorreu nos dias de Noé, acontecerá do mesmo modo nos dias do Filho do Homem.
+27. Comiam e bebiam, casavam-se e davam-se em casamento, até o dia em que Noé entrou na arca. Veio o dilúvio e matou a todos.
+28. Também do mesmo modo como aconteceu nos dias de Lot. Os homens festejavam, compravam e vendiam, plantavam e edificavam.
+29. No dia em que Lot saiu de Sodoma, choveu fogo e enxofre do céu, que exterminou todos eles.
+30. Assim será no dia em que se manifestar o Filho do Homem.
+31. Naquele dia, quem estiver no terraço e tiver os seus bens em casa não desça para os tirar; da mesma forma, quem estiver no campo não torne atrás.
+32. Lembrai-vos da mulher de Lot.
+33. Todo o que procurar salvar a sua vida, perdê-la-á; mas todo o que a perder, encontrá-la-á.
+34. Digo-vos que naquela noite dois estarão numa cama: um será tomado e o outro será deixado;
+35. duas mulheres estarão moendo juntas: uma será tomada e a outra será deixada.
+36. Dois homens estarão no campo: um será tomado e o outro será deixado.
+37. Perguntaram-lhe os discípulos: Onde será isto, Senhor? Respondeu-lhes: Onde estiver o cadáver, ali se reunirão também as águias.São Lucas, 18
+1. Propôs-lhes Jesus uma parábola para mostrar que é necessário orar sempre sem jamais deixar de fazê-lo.
+2. Havia em certa cidade um juiz que não temia a Deus, nem respeitava pessoa alguma.
+3. Na mesma cidade vivia também uma viúva que vinha com freqüência à sua presença para dizer-lhe: Faze-me justiça contra o meu adversário.
+4. Ele, porém, por muito tempo não o quis. Por fim, refletiu consigo: Eu não temo a Deus nem respeito os homens;
+5. todavia, porque esta viúva me importuna, far-lhe-ei justiça, senão ela não cessará de me molestar.
+6. Prosseguiu o Senhor: Ouvis o que diz este juiz injusto?
+7. Por acaso não fará Deus justiça aos seus escolhidos, que estão clamando por ele dia e noite? Porventura tardará em socorrê-los?
+8. Digo-vos que em breve lhes fará justiça. Mas, quando vier o Filho do Homem, acaso achará fé sobre a terra?
+9. Jesus lhes disse ainda esta parábola a respeito de alguns que se vangloriavam como se fossem justos, e desprezavam os outros:
+10. Subiram dois homens ao templo para orar. Um era fariseu; o outro, publicano.
+11. O fariseu, em pé, orava no seu interior desta forma: Graças te dou, ó Deus, que não sou como os demais homens: ladrões, injustos e adúlteros; nem como o publicano que está ali.
+12. Jejuo duas vezes na semana e pago o dízimo de todos os meus lucros.
+13. O publicano, porém, mantendo-se à distância, não ousava sequer levantar os olhos ao céu, mas batia no peito, dizendo: Ó Deus, tem piedade de mim, que sou pecador!
+14. Digo-vos: este voltou para casa justificado, e não o outro. Pois todo o que se exaltar será humilhado, e quem se humilhar será exaltado.
+15. Trouxeram-lhe também criancinhas, para que ele as tocasse. Vendo isto, os discípulos as repreendiam.
+16. Jesus, porém, chamou-as e disse: Deixai vir a mim as criancinhas e não as impeçais, porque o Reino de Deus é daqueles que se parecem com elas.
+17. Em verdade vos declaro: quem não receber o Reino de Deus como uma criancinha, nele não entrará.
+18. Um homem de posição perguntou então a Jesus: Bom Mestre, que devo fazer para possuir a vida eterna?
+19. Jesus respondeu-lhe: Por que me chamas bom? Ninguém é bom senão só Deus.
+20. Conheces os mandamentos: não cometerás adultério; não matarás; não furtarás; não dirás falso testemunho; honrarás pai e mãe.
+21. Disse ele: Tudo isso tenho guardado desde a minha mocidade.
+22. A estas palavras, Jesus lhe falou: Ainda te falta uma coisa: vende tudo o que tens, dá-o aos pobres e terás um tesouro no céu; depois, vem e segue-me.
+23. Ouvindo isto, ele se entristeceu, pois era muito rico.
+24. Vendo-o entristecer-se, disse Jesus: Como é difícil aos ricos entrar no Reino de Deus!
+25. É mais fácil passar o camelo pelo fundo duma agulha do que um rico entrar no Reino de Deus.
+26. Perguntaram os ouvintes: Quem então poderá salvar-se?
+27. Respondeu Jesus: O que é impossível aos homens é possível a Deus.
+28. Pedro então disse: Vê, nós abandonamos tudo e te seguimos.
+29. Jesus respondeu: Em verdade vos declaro: ninguém há que tenha abandonado, por amor do Reino de Deus, sua casa, sua mulher, seus irmãos, seus pais ou seus filhos,
+30. que não receba muito mais neste mundo e no mundo vindouro a vida eterna.
+31. Em seguida, Jesus tomou à parte os Doze e disse-lhes: Eis que subimos a Jerusalém. Tudo o que foi escrito pelos profetas a respeito do Filho do Homem será cumprido.
+32. Ele será entregue aos pagãos. Hão de escarnecer dele, ultrajá-lo, desprezá-lo;
+33. bater-lhe-ão com varas e o farão morrer; e ao terceiro dia ressurgirá.
+34. Mas eles nada disto compreendiam, e estas palavras eram-lhes um enigma cujo sentido não podiam entender.
+35. Ao aproximar-se Jesus de Jericó, estava um cego sentado à beira do caminho, pedindo esmolas.
+36. Ouvindo o ruído da multidão que passava, perguntou o que havia.
+37. Responderam-lhe: É Jesus de Nazaré, que passa.
+38. Ele então exclamou: Jesus, filho de Davi, tem piedade de mim!
+39. Os que vinham na frente repreendiam-no rudemente para que se calasse. Mas ele gritava ainda mais forte: Filho de Davi, tem piedade de mim!
+40. Jesus parou e mandou que lho trouxessem. Chegando ele perto, perguntou-lhe:
+41. Que queres que te faça? Respondeu ele: Senhor, que eu veja.
+42. Jesus lhe disse: Vê! Tua fé te salvou.
+43. E imediatamente ficou vendo e seguia a Jesus, glorificando a Deus. Presenciando isto, todo o povo deu glória a Deus.São Lucas, 19
+1. Jesus entrou em Jericó e ia atravessando a cidade.
+2. Havia aí um homem muito rico chamado Zaqueu, chefe dos recebedores de impostos.
+3. Ele procurava ver quem era Jesus, mas não o conseguia por causa da multidão, porque era de baixa estatura.
+4. Ele correu adiande, subiu a um sicômoro para o ver, quando ele passasse por ali.
+5. Chegando Jesus àquele lugar e levantando os olhos, viu-o e disse-lhe: Zaqueu, desce depressa, porque é preciso que eu fique hoje em tua casa.
+6. Ele desceu a toda a pressa e recebeu-o alegremente.
+7. Vendo isto, todos murmuravam e diziam: Ele vai hospedar-se em casa de um pecador...
+8. Zaqueu, entretanto, de pé diante do Senhor, disse-lhe: Senhor, vou dar a metade dos meus bens aos pobres e, se tiver defraudado alguém, restituirei o quádruplo.
+9. Disse-lhe Jesus: Hoje entrou a salvação nesta casa, porquanto também este é filho de Abraão.
+10. Pois o Filho do Homem veio procurar e salvar o que estava perdido.
+11. Ouviam-no falar. E como estava perto de Jerusalém, alguns se persuadiam de que o Reino de Deus se havia de manifestar brevemente; ele acrescentou esta parábola:
+12. Um homem ilustre foi para um país distante, a fim de ser investido da realeza e depois regressar.
+13. Chamou dez dos seus servos e deu-lhes dez minas, dizendo-lhes: Negociai até eu voltar.
+14. Mas os homens daquela região odiavam-no e enviaram atrás dele embaixadores, para protestarem: Não queremos que ele reine sobre nós.
+15. Quando, investido da dignidade real, voltou, mandou chamar os servos a quem confiara o dinheiro, a fim de saber quanto cada um tinha lucrado.
+16. Veio o primeiro: Senhor, a tua mina rendeu dez outras minas.
+17. Ele lhe disse: Muito bem, servo bom; porque foste fiel nas coisas pequenas, receberás o governo de dez cidades.
+18. Veio o segundo: Senhor, a tua mina rendeu cinco outras minas.
+19. Disse a este: Sê também tu governador de cinco cidades.
+20. Veio também o outro: Senhor, aqui tens a tua mina, que guardei embrulhada num lenço;
+21. pois tive medo de ti, por seres homem rigoroso, que tiras o que não puseste e ceifas o que não semeaste.
+22. Replicou-lhe ele: Servo mau, pelas tuas palavras te julgo. Sabias que sou rigoroso, que tiro o que não depositei e ceifo o que não semeei...
+23. Por que, pois, não puseste o meu dinheiro num banco? Na minha volta, eu o teria retirado com juros.
+24. E disse aos que estavam presentes: Tirai-lhe a mina, e dai-a ao que tem dez minas.
+25. Replicaram-lhe: Senhor, este já tem dez minas!...
+26. Eu vos declaro: a todo aquele que tiver, dar-se-lhe-á; mas, ao que não tiver, ser-lhe-á tirado até o que tem.
+27. Quanto aos que me odeiam, e que não me quiseram por rei, trazei-os e massacrai-os na minha presença.
+28. Depois destas palavras, Jesus os foi precedendo no caminho que sobe a Jerusalém.
+29. Chegando perto de Betfagé e de Betânia, junto do monte chamado das Oliveiras, Jesus enviou dois dos seus discípulos e disse-lhes:
+30. Ide a essa aldeia que está defronte de vós. Entrando nela, achareis um jumentinho atado, em que nunca montou pessoa alguma; desprendei-o e trazei-mo.
+31. Se alguém vos perguntar por que o soltais, responder-lhe-eis assim: O Senhor precisa dele.
+32. Partiram os dois discípulos e acharam tudo como Jesus tinha dito.
+33. Quando desprendiam o jumentinho, perguntaram-lhes seus donos: Por que fazeis isto?
+34. Eles responderam: O Senhor precisa dele.
+35. E trouxeram a Jesus o jumentinho, sobre o qual deitaram seus mantos e fizeram Jesus montar.
+36. À sua passagem, muitas pessoas estendiam seus mantos no caminho.
+37. Quando já se ia aproximando da descida do monte das Oliveiras, toda a multidão dos discípulos, tomada de alegria, começou a louvar a Deus em altas vozes, por todas as maravilhas que tinha visto.
+38. E dizia: Bendito o rei que vem em nome do Senhor! Paz no céu e glória no mais alto dos céus!
+39. Neste momento, alguns fariseus interpelaram a Jesus no meio da multidão: Mestre, repreende os teus discípulos.
+40. Ele respondeu: Digo-vos: se estes se calarem, clamarão as pedras!
+41. Aproximando-se ainda mais, Jesus contemplou Jerusalém e chorou sobre ela, dizendo:
+42. Oh! Se também tu, ao menos neste dia que te é dado, conhecesses o que te pode trazer a paz!... Mas não, isso está oculto aos teus olhos.
+43. Virão sobre ti dias em que os teus inimigos te cercarão de trincheiras, te sitiarão e te apertarão de todos os lados;
+44. destruir-te-ão a ti e a teus filhos que estiverem dentro de ti, e não deixarão em ti pedra sobre pedra, porque não conheceste o tempo em que foste visitada.
+45. Em seguida, entrou no templo e começou a expulsar os mercadores.
+46. Disse ele: Está escrito: A minha casa é casa de oração! Mas vós a fizestes um covil de ladrões (Is 56,7; Jr 7,11).
+47. Todos os dias ensinava no templo. Os príncipes dos sacerdotes, porém, os escribas e os chefes do povo procuravam tirar-lhe a vida.
+48. Mas não sabiam como realizá-lo, porque todo o povo ficava suspenso de admiração, quando o ouvia falar.
+São Lucas, 20
+1. Num daqueles dias, Jesus ensinava no templo e anunciava ao povo a boa nova. Chegaram os príncipes dos sacerdotes e os escribas com os anciãos,
+2. e falaram-lhe: Dize-nos: com que direito fazes essas coisas, ou quem é que te deu essa autoridade?
+3. Jesus respondeu: Também eu vos farei uma pergunta.
+4. Respondei-me: o batismo de João era do céu ou dos homens?
+5. Eles começaram a raciocinar entre si, dizendo: Se dissermos: Do céu, ele dirá: Por que razão, pois, não crestes nele?
+6. Se, porém, dissermos: Dos homens, todo o povo nos apedrejará, porque está convencido de que João era profeta.
+7. Responderam por fim que não sabiam de onde era.
+8. Replicou-lhes também Jesus: Nem eu vos direi com que direito faço estas coisas.
+9. Então Jesus propôs-lhes esta parábola: Um homem plantou uma vinha, arrendou-a a vinhateiros e ausentou-se por muito tempo para uma terra estranha.
+10. No tempo da colheita, enviou um servo aos vinhateiros para que lhe dessem do produto da vinha. Estes o feriram e o reenviaram de mãos vazias.
+11. Tornou a enviar outro servo; eles feriram também a este, ultrajaram-no e despediram-no sem coisa alguma.
+12. Tornou a enviar um terceiro; feriram também este e expulsaram-no.
+13. Disse então o senhor da vinha: Que farei? Mandarei meu filho amado; talvez o respeitem.
+14. Vendo-o, porém, os vinhateiros discorriam entre si e diziam: Este é o herdeiro; matemo-lo, para que se torne nossa a herança.
+15. E lançaram-no fora da vinha e mataram-no. Que lhes fará, pois, o dono da vinha?
+16. Virá e exterminará estes vinhateiros e dará a vinha a outros. A estas palavras, disseram: Que Deus não o permita!
+17. Mas Jesus, fixando o olhar neles, disse-lhes: Que quer dizer então o que está escrito: A pedra que os edificadores rejeitaram tornou-se a pedra angular (Sl 117,22)?
+18. Todo o que cair sobre esta pedra ficará despedaçado; e sobre quem ela cair, este será esmagado!
+19. Naquela mesma hora os príncipes dos sacerdotes e os escribas procuraram prendê-lo, mas temeram o povo. Tinham compreendido que se referia a eles ao propor essa parábola.
+20. Puseram-se então a observá-lo e mandaram espiões que se disfarçassem em homens de bem, para armar-lhe ciladas e surpreendê-lo no que dizia, a fim de o entregarem à autoridade e ao poder do governador.
+21. Perguntaram-lhe eles: Mestre, sabemos que falas e ensinas com retidão e que, sem fazer acepção de pessoa alguma, ensinas o caminho de Deus segundo a verdade.
+22. É-nos permitido pagar o imposto ao imperador ou não?
+23. Jesus percebeu a astúcia e respondeu-lhes:
+24. Mostrai-me um denário. De quem leva a imagem e a inscrição? Responderam: De César.
+25. Então lhes disse: Dai, pois, a César o que é de César e a Deus o que é de Deus.
+26. Assim não puderam surpreendê-lo em nenhuma de suas palavras diante do povo. Pelo contrário, admirados da sua resposta, tiveram que calar-se.
+27. Alguns saduceus - que negam a ressurreição - aproximaram-se de Jesus e perguntaram-lhe:
+28. Mestre, Moisés prescreveu-nos: Se alguém morrer e deixar mulher, mas não deixar filhos, case-se com ela o irmão dele, e dê descendência a seu irmão.
+29. Ora, havia sete irmãos, o primeiro dos quais tomou uma mulher, mas morreu sem filhos.
+30. Casou-se com ela o segundo, mas também ele morreu sem filhos.
+31. Casou-se depois com ela o terceiro. E assim sucessivamente todos os sete, que morreram sem deixar filhos.
+32. Por fim, morreu também a mulher.
+33. Na ressurreição, de qual deles será a mulher? Porque os sete a tiveram por mulher.
+34. Jesus respondeu: Os filhos deste mundo casam-se e dão-se em casamento,
+35. mas os que serão julgados dignos do século futuro e da ressurreição dos mortos não terão mulher nem marido.
+36. Eles jamais poderão morrer, porque são iguais aos anjos e são filhos de Deus, porque são ressuscitados.
+37. Por outra parte, que os mortos hão de ressuscitar é o que Moisés revelou na passagem da sarça ardente (Ex 3,6), chamando ao Senhor: Deus de Abraão, Deus de Isaac, Deus de Jacó .
+38. Ora, Deus não é Deus dos mortos, mas dos vivos; porque todos vivem para ele.
+39. Alguns dos escribas disseram, então: Mestre, falaste bem.
+40. E já não se atreviam a fazer-lhe pergunta alguma.
+41. Jesus perguntou-lhes: Como se pode dizer que Cristo é filho de Davi?
+42. Pois o próprio Davi, no livro dos Salmos, diz: Disse o Senhor a meu Senhor: Senta-te à minha direita,
+43. até que eu ponha os teus inimigos por escabelo dos teus pés (Sl 109,1).
+44. Portanto, Davi o chama de Senhor! Como, pois, é ele seu filho?
+45. Enquanto todo o povo o ouvia, disse a seus discípulos:
+46. Guardai-vos dos escribas, que querem andar de roupas compridas e gostam das saudações nas praças públicas, das primeiras cadeiras nas sinagogas e dos primeiros lugares dos banquetes;
+47. que devoram as casas das viúvas, fingindo fazer longas orações. Eles receberão castigo mais rigoroso.São Lucas, 21
+1. Levantando os olhos, viu Jesus os ricos que deitavam as suas ofertas no cofre do templo.
+2. Viu também uma viúva pobrezinha deitar duas pequeninas moedas,
+3. e disse: Em verdade vos digo: esta pobre viúva pôs mais do que os outros.
+4. Pois todos aqueles lançaram nas ofertas de Deus o que lhes sobra; esta, porém, deu, da sua indigência, tudo o que lhe restava para o sustento.
+5. Como lhe chamassem a atenção para a construção do templo feito de belas pedras e recamado de ricos donativos, Jesus disse:
+6. Dias virão em que destas coisas que vedes não ficará pedra sobre pedra: tudo será destruído.
+7. Então o interrogaram: Mestre, quando acontecerá isso? E que sinal haverá para saber-se que isso se vai cumprir?
+8. Jesus respondeu: Vede que não sejais enganados. Muitos virão em meu nome, dizendo: Sou eu; e ainda: O tempo está próximo. Não sigais após eles.
+9. Quando ouvirdes falar de guerras e de tumultos, não vos assusteis; porque é necessário que isso aconteça primeiro, mas não virá logo o fim.
+10. Disse-lhes também: Levantar-se-ão nação contra nação e reino contra reino.
+11. Haverá grandes terremotos por várias partes, fomes e pestes, e aparecerão fenômenos espantosos no céu.
+12. Mas, antes de tudo isso, vos lançarão as mãos e vos perseguirão, entregando-vos às sinagogas e aos cárceres, levando-vos à presença dos reis e dos governadores, por causa de mim.
+13. Isto vos acontecerá para que vos sirva de testemunho.
+14. Gravai bem no vosso espírito de não preparar vossa defesa,
+15. porque eu vos darei uma palavra cheia de sabedoria, à qual não poderão resistir nem contradizer os vossos adversários.
+16. Sereis entregues até por vossos pais, vossos irmãos, vossos parentes e vossos amigos, e matarão muitos de vós.
+17. Sereis odiados por todos por causa do meu nome.
+18. Entretanto, não se perderá um só cabelo da vossa cabeça.
+19. É pela vossa constância que alcançareis a vossa salvação.
+20. Quando virdes que Jerusalém foi sitiada por exércitos, então sabereis que está próxima a sua ruína.
+21. Os que então se acharem na Judéia fujam para os montes; os que estiverem dentro da cidade retirem-se; os que estiverem nos campos não entrem na cidade.
+22. Porque estes serão dias de castigo, para que se cumpra tudo o que está escrito.
+23. Ai das mulheres que, naqueles dias, estiverem grávidas ou amamentando, pois haverá grande angústia na terra e grande ira contra o povo.
+24. Cairão ao fio de espada e serão levados cativos para todas as nações, e Jerusalém será pisada pelos pagãos, até se completarem os tempos das nações pagãs.
+25. Haverá sinais no sol, na lua e nas estrelas. Na terra a aflição e a angústia apoderar-se-ão das nações pelo bramido do mar e das ondas.
+26. Os homens definharão de medo, na expectativa dos males que devem sobrevir a toda a terra. As próprias forças dos céus serão abaladas.
+27. Então verão o Filho do Homem vir sobre uma nuvem com grande glória e majestade.
+28. Quando começarem a acontecer estas coisas, reanimai-vos e levantai as vossas cabeças; porque se aproxima a vossa libertação.
+29. Acrescentou ainda esta comparação: Olhai para a figueira e para as demais árvores.
+30. Quando elas lançam os brotos, vós julgais que está perto o verão.
+31. Assim também, quando virdes que vão sucedendo estas coisas, sabereis que está perto o Reino de Deus.
+32. Em verdade vos declaro: não passará esta geração sem que tudo isto se cumpra.
+33. Passarão o céu e a terra, mas as minhas palavras não passarão.
+34. Velai sobre vós mesmos, para que os vossos corações não se tornem pesados com o excesso do comer, com a embriaguez e com as preocupações da vida; para que aquele dia não vos apanhe de improviso.
+35. Como um laço cairá sobre aqueles que habitam a face de toda a terra.
+36. Vigiai, pois, em todo o tempo e orai, a fim de que vos torneis dignos de escapar a todos estes males que hão de acontecer, e de vos apresentar de pé diante do Filho do Homem.
+37. Durante o dia Jesus ensinava no templo e, à tarde, saía para passar a noite no monte chamado das Oliveiras.
+38. E todo o povo ia de manhã cedo ter com ele, no templo, para ouvi-lo.São Lucas, 22
+1. Aproximava-se a festa dos pães sem fermento, chamada Páscoa.
+2. Os príncipes dos sacerdotes e os escribas buscavam um meio de matar Jesus, mas temiam o povo.
+3. Entretanto, Satanás entrou em Judas, que tinha por sobrenome Iscariotes, um dos Doze.
+4. Judas foi procurar os príncipes dos sacerdotes e os oficiais para se entender com eles sobre o modo de lho entregar.
+5. Eles se alegraram com isso, e concordaram em lhe dar dinheiro.
+6. Também ele se obrigou. E buscava ocasião oportuna para o trair, sem que a multidão o soubesse.
+7. Raiou o dia dos pães sem fermento, em que se devia imolar a Páscoa.
+8. Jesus enviou Pedro e João, dizendo: Ide e preparai-nos a ceia da Páscoa.
+9. Perguntaram-lhe eles: Onde queres que a preparemos?
+10. Ele respondeu: Ao entrardes na cidade, encontrareis um homem carregando uma bilha de água; segui-o até a casa em que ele entrar,
+11. e direis ao dono da casa: O Mestre pergunta-te: Onde está a sala em que comerei a Páscoa com os meus discípulos?
+12. Ele vos mostrará no andar superior uma grande sala mobiliada, e ali fazei os preparativos.
+13. Foram, pois, e acharam tudo como Jesus lhes dissera; e prepararam a Páscoa.
+14. Chegada que foi a hora, Jesus pôs-se à mesa, e com ele os apóstolos.
+15. Disse-lhes: Tenho desejado ardentemente comer convosco esta Páscoa, antes de sofrer.
+16. Pois vos digo: não tornarei a comê-la, até que ela se cumpra no Reino de Deus.
+17. Pegando o cálice, deu graças e disse: Tomai este cálice e distribuí-o entre vós.
+18. Pois vos digo: já não tornarei a beber do fruto da videira, até que venha o Reino de Deus.
+19. Tomou em seguida o pão e depois de ter dado graças, partiu-o e deu-lho, dizendo: Isto é o meu corpo, que é dado por vós; fazei isto em memória de mim.
+20. Do mesmo modo tomou também o cálice, depois de cear, dizendo: Este cálice é a Nova Aliança em meu sangue, que é derramado por vós...
+21. Entretanto, eis que a mão de quem me trai está à mesa comigo.
+22. O Filho do Homem vai, segundo o que está determinado, mas ai daquele homem por quem ele é traído!
+23. Perguntavam então os discípulos entre si quem deles seria o que tal haveria de fazer.
+24. Surgiu também entre eles uma discussão: qual deles seria o maior.
+25. E Jesus disse-lhes: Os reis dos pagãos dominam como senhores, e os que exercem sobre eles autoridade chamam-se benfeitores.
+26. Que não seja assim entre vós; mas o que entre vós é o maior, torne-se como o último; e o que governa seja como o servo.
+27. Pois qual é o maior: o que está sentado à mesa ou o que serve? Não é aquele que está sentado à mesa? Todavia, eu estou no meio de vós, como aquele que serve.
+28. E vós tendes permanecido comigo nas minhas provações;
+29. eu, pois, disponho do Reino a vosso favor, assim como meu Pai o dispôs a meu favor,
+30. para que comais e bebais à minha mesa no meu Reino e vos senteis em tronos, para julgar as doze tribos de Israel.
+31. Simão, Simão, eis que Satanás vos reclamou para vos peneirar como o trigo;
+32. mas eu roguei por ti, para que a tua confiança não desfaleça; e tu, por tua vez, confirma os teus irmãos.
+33. Pedro disse-lhe: Senhor, estou pronto a ir contigo tanto para a prisão como para a morte.
+34. Jesus respondeu-lhe: Digo-te, Pedro, não cantará hoje o galo, até que três vezes hajas negado que me conheces.
+35. Depois ajuntou: Quando vos mandei sem bolsa, sem mochila e sem calçado, faltou-vos porventura alguma coisa? Eles responderam: Nada.
+36. Mas agora, disse-lhes ele, aquele que tem uma bolsa, tome-a; aquele que tem uma mochila, tome-a igualmente; e aquele que não tiver uma espada, venda sua capa para comprar uma.
+37. Pois vos digo: é necessário que se cumpra em mim ainda este oráculo: E foi contado entre os malfeitores (Is 53,12). Com efeito, aquilo que me diz respeito está próximo de se cumprir.
+38. Eles replicaram: Senhor, eis aqui duas espadas. Basta, respondeu ele.
+39. Conforme o seu costume, Jesus saiu dali e dirigiu-se para o monte das Oliveiras, seguido dos seus discípulos.
+40. Ao chegar àquele lugar, disse-lhes: Orai para que não caiais em tentação.
+41. Depois se afastou deles à distância de um tiro de pedra e, ajoelhando-se, orava:
+42. Pai, se é de teu agrado, afasta de mim este cálice! Não se faça, todavia, a minha vontade, mas sim a tua.
+43. Apareceu-lhe então um anjo do céu para confortá-lo.
+44. Ele entrou em agonia e orava ainda com mais instância, e seu suor tornou-se como gotas de sangue a escorrer pela terra.
+45. Depois de ter rezado, levantou-se, foi ter com os discípulos e achou-os adormecidos de tristeza.
+46. Disse-lhes: Por que dormis? Levantai-vos, orai, para não cairdes em tentação.
+47. Ele ainda falava, quando apareceu uma multidão de gente; e à testa deles vinha um dos Doze, que se chamava Judas. Achegou-se de Jesus para o beijar.
+48. Jesus perguntou-lhe: Judas, com um beijo trais o Filho do Homem!
+49. Os que estavam ao redor dele, vendo o que ia acontecer, perguntaram: Senhor, devemos atacá-los à espada?
+50. E um deles feriu o servo do príncipe dos sacerdotes, decepando-lhe a orelha direita.
+51. Mas Jesus interveio: Deixai, basta. E, tocando na orelha daquele homem, curou-o.
+52. Voltando-se para os príncipes dos sacerdotes, para os oficiais do templo e para os anciãos que tinham vindo contra ele, disse-lhes: Saístes armados de espadas e cacetes, como se viésseis contra um ladrão.
+53. Entretanto, eu estava todos os dias convosco no templo, e não estendestes as mãos contra mim; mas esta é a vossa hora e do poder das trevas.
+54. Prenderam-no então e conduziram-no à casa do príncipe dos sacerdotes. Pedro seguia-o de longe.
+55. Acenderam um fogo no meio do pátio, e sentaram-se em redor. Pedro veio sentar-se com eles.
+56. Uma criada percebeu-o sentado junto ao fogo, encarou-o de perto e disse: Também este homem estava com ele.
+57. Mas ele negou-o: Mulher, não o conheço.
+58. Pouco depois, viu-o outro e disse-lhe: Também tu és um deles. Pedro respondeu: Não, eu não o sou.
+59. Passada quase uma hora, afirmava um outro: Certamente também este homem estava com ele, pois também é galileu.
+60. Mas Pedro disse: Meu amigo, não sei o que queres dizer. E no mesmo instante, quando ainda falava, cantou o galo.
+61. Voltando-se o Senhor, olhou para Pedro. Então Pedro se lembrou da palavra do Senhor: Hoje, antes que o galo cante, negar-me-ás três vezes.
+62. Saiu dali e chorou amargamente.
+63. Entretanto, os homens que guardavam Jesus escarneciam dele e davam-lhe bofetadas.
+64. Cobriam-lhe o rosto e diziam: Adivinha quem te bateu!
+65. E injuriavam-no ainda de outros modos.
+66. Ao amanhecer, reuniram-se os anciãos do povo, os príncipes dos sacerdotes e os escribas, e mandaram trazer Jesus ao seu conselho.
+67. Perguntaram-lhe: Dize-nos se és o Cristo! Respondeu-lhes ele: Se eu vo-lo disser, não me acreditareis;
+68. e se vos fizer qualquer pergunta, não me respondereis.
+69. Mas, doravante, o Filho do Homem estará sentado à direita do poder de Deus.
+70. Então perguntaram todos: Logo, tu és o Filho de Deus? Respondeu: Sim, eu sou.
+71. Eles então exclamaram: Temos nós ainda necessidade de testemunho? Nós mesmos o ouvimos da sua boca.São Lucas, 23
+1. Levantou-se a sessão e conduziram Jesus diante de Pilatos,
+2. e puseram-se a acusá-lo: Temos encontrado este homem excitando o povo à revolta, proibindo pagar imposto ao imperador e dizendo-se Messias e rei.
+3. Pilatos perguntou-lhe: És tu o rei dos judeus? Jesus respondeu: Sim.
+4. Declarou Pilatos aos príncipes dos sacerdotes e ao povo: Eu não acho neste homem culpa alguma.
+5. Mas eles insistiam fortemente: Ele revoluciona o povo ensinando por toda a Judéia, a começar da Galiléia até aqui.
+6. A estas palavras, Pilatos perguntou se ele era galileu.
+7. E, quando soube que era da jurisdição de Herodes, enviou-o a Herodes, pois justamente naqueles dias se achava em Jerusalém.
+8. Herodes alegrou-se muito em ver Jesus, pois de longo tempo desejava vê-lo, por ter ouvido falar dele muitas coisas, e esperava presenciar algum milagre operado por ele.
+9. Dirigiu-lhe muitas perguntas, mas Jesus nada respondeu.
+10. Ali estavam os príncipes dos sacerdotes e os escribas, acusando-o com violência.
+11. Herodes, com a sua guarda, tratou-o com desprezo, escarneceu dele, mandou revesti-lo de uma túnica branca e reenviou-o a Pilatos.
+12. Naquele mesmo dia, Pilatos e Herodes fizeram as pazes, pois antes eram inimigos um do outro.
+13. Pilatos convocou então os príncipes dos sacerdotes, os magistrados e o povo, e disse-lhes:
+14. Apresentastes-me este homem como agitador do povo, mas, interrogando-o eu diante de vós, não o achei culpado de nenhum dos crimes de que o acusais.
+15. Nem tampouco Herodes, pois no-lo devolveu. Portanto, ele nada fez que mereça a morte.
+16. Por isso, soltá-lo-ei depois de o castigar.
+17. [Acontecia que em cada festa ele era obrigado a soltar-lhes um preso.]
+18. Todo o povo gritou a uma voz: À morte com este, e solta-nos Barrabás.
+19. (Este homem fora lançado ao cárcere devido a uma revolta levantada na cidade, por causa de um homicídio.)
+20. Pilatos, porém, querendo soltar Jesus, falou-lhes de novo,
+21. mas eles vociferavam: Crucifica-o! Crucifica-o!
+22. Pela terceira vez, Pilatos ainda interveio: Mas que mal fez ele, então? Não achei nele nada que mereça a morte; irei, portanto, castigá-lo e, depois, o soltarei.
+23. Mas eles instavam, reclamando em altas vozes que fosse crucificado, e os seus clamores recrudesciam.
+24. Pilatos pronunciou então a sentença que lhes satisfazia o desejo.
+25. Soltou-lhes aquele que eles reclamavam e que havia sido lançado ao cárcere por causa do homicídio e da revolta, e entregou Jesus à vontade deles.
+26. Enquanto o conduziam, detiveram um certo Simão de Cirene, que voltava do campo, e impuseram-lhe a cruz para que a carregasse atrás de Jesus.
+27. Seguia-o uma grande multidão de povo e de mulheres, que batiam no peito e o lamentavam.
+28. Voltando-se para elas, Jesus disse: Filhas de Jerusalém, não choreis sobre mim, mas chorai sobre vós mesmas e sobre vossos filhos.
+29. Porque virão dias em que se dirá: Felizes as estéreis, os ventres que não geraram e os peitos que não amamentaram!
+30. Então dirão aos montes: Caí sobre nós! E aos outeiros: Cobri-nos!
+31. Porque, se eles fazem isto ao lenho verde, que acontecerá ao seco?
+32. Eram conduzidos ao mesmo tempo dois malfeitores para serem mortos com Jesus.
+33. Chegados que foram ao lugar chamado Calvário, ali o crucificaram, como também os ladrões, um à direita e outro à esquerda.
+34. E Jesus dizia: Pai, perdoa-lhes; porque não sabem o que fazem. Eles dividiram as suas vestes e as sortearam.
+35. A multidão conservava-se lá e observava. Os príncipes dos sacerdotes escarneciam de Jesus, dizendo: Salvou a outros, que se salve a si próprio, se é o Cristo, o escolhido de Deus!
+36. Do mesmo modo zombavam dele os soldados. Aproximavam-se dele, ofereciam-lhe vinagre e diziam:
+37. Se és o rei dos judeus, salva-te a ti mesmo.
+38. Por cima de sua cabeça pendia esta inscrição: Este é o rei dos judeus.
+39. Um dos malfeitores, ali crucificados, blasfemava contra ele: Se és o Cristo, salva-te a ti mesmo e salva-nos a nós!
+40. Mas o outro o repreendeu: Nem sequer temes a Deus, tu que sofres no mesmo suplício?
+41. Para nós isto é justo: recebemos o que mereceram os nossos crimes, mas este não fez mal algum.
+42. E acrescentou: Jesus, lembra-te de mim, quando tiveres entrado no teu Reino!
+43. Jesus respondeu-lhe: Em verdade te digo: hoje estarás comigo no paraíso.
+44. Era quase à hora sexta e em toda a terra houve trevas até a hora nona.
+45. Escureceu-se o sol e o véu do templo rasgou-se pelo meio.
+46. Jesus deu então um grande brado e disse: Pai, nas tuas mãos entrego o meu espírito. E, dizendo isso, expirou.
+47. Vendo o centurião o que acontecia, deu glória a Deus e disse: Na verdade, este homem era um justo.
+48. E toda a multidão dos que assistiam a este espetáculo e viam o que se passava, voltou batendo no peito.
+49. Os amigos de Jesus, como também as mulheres que o tinham seguido desde a Galiléia, conservavam-se a certa distância, e observavam estas coisas.
+50. Havia um homem, por nome José, membro do conselho, homem reto e justo.
+51. Ele não havia concordado com a decisão dos outros nem com os atos deles. Originário de Arimatéia, cidade da Judéia, esperava ele o Reino de Deus.
+52. Foi ter com Pilatos e lhe pediu o corpo de Jesus.
+53. Ele o desceu da cruz, envolveu-o num pano de linho e colocou-o num sepulcro, escavado na rocha, onde ainda ninguém havia sido depositado.
+54. Era o dia da Preparação e já ia principiar o sábado.
+55. As mulheres, que tinham vindo com Jesus da Galiléia, acompanharam José. Elas viram o túmulo e o modo como o corpo de Jesus ali fora depositado.
+56. Elas voltaram e prepararam aromas e bálsamos. No dia de sábado, observaram o preceito do repouso.São Lucas, 24
+1. No primeiro dia da semana, muito cedo, dirigiram-se ao sepulcro com os aromas que haviam preparado.
+2. Acharam a pedra removida longe da abertura do sepulcro.
+3. Entraram, mas não encontraram o corpo do Senhor Jesus.
+4. Não sabiam elas o que pensar, quando apareceram em frente delas dois personagens com vestes resplandecentes.
+5. Como estivessem amedrontadas e voltassem o rosto para o chão, disseram-lhes eles: Por que buscais entre os mortos aquele que está vivo?
+6. Não está aqui, mas ressuscitou. Lembrai-vos de como ele vos disse, quando ainda estava na Galiléia:
+7. O Filho do Homem deve ser entregue nas mãos dos pecadores e crucificado, mas ressuscitará ao terceiro dia.
+8. Então elas se lembraram das palavras de Jesus.
+9. Voltando do sepulcro, contaram tudo isso aos Onze e a todos os demais.
+10. Eram elas Maria Madalena, Joana e Maria, mãe de Tiago; as outras suas amigas relataram aos apóstolos a mesma coisa.
+11. Mas essas notícias pareciam-lhes como um delírio, e não lhes deram crédito.
+12. Contudo, Pedro correu ao sepulcro; inclinando-se para olhar, viu só os panos de linho na terra. Depois, retirou-se para a sua casa, admirado do que acontecera.
+13. Nesse mesmo dia, dois discípulos caminhavam para uma aldeia chamada Emaús, distante de Jerusalém sessenta estádios.
+14. Iam falando um com o outro de tudo o que se tinha passado.
+15. Enquanto iam conversando e discorrendo entre si, o mesmo Jesus aproximou-se deles e caminhava com eles.
+16. Mas os olhos estavam-lhes como que vendados e não o reconheceram.
+17. Perguntou-lhes, então: De que estais falando pelo caminho, e por que estais tristes?
+18. Um deles, chamado Cléofas, respondeu-lhe: És tu acaso o único forasteiro em Jerusalém que não sabe o que nela aconteceu estes dias?
+19. Perguntou-lhes ele: Que foi? Disseram: A respeito de Jesus de Nazaré... Era um profeta poderoso em obras e palavras, diante de Deus e de todo o povo.
+20. Os nossos sumos sacerdotes e os nossos magistrados o entregaram para ser condenado à morte e o crucificaram.
+21. Nós esperávamos que fosse ele quem havia de restaurar Israel e agora, além de tudo isto, é hoje o terceiro dia que essas coisas sucederam.
+22. É verdade que algumas mulheres dentre nós nos alarmaram. Elas foram ao sepulcro, antes do nascer do sol;
+23. e não tendo achado o seu corpo, voltaram, dizendo que tiveram uma visão de anjos, os quais asseguravam que está vivo.
+24. Alguns dos nossos foram ao sepulcro e acharam assim como as mulheres tinham dito, mas a ele mesmo não viram.
+25. Jesus lhes disse: Ó gente sem inteligência! Como sois tardos de coração para crerdes em tudo o que anunciaram os profetas!
+26. Porventura não era necessário que Cristo sofresse essas coisas e assim entrasse na sua glória?
+27. E começando por Moisés, percorrendo todos os profetas, explicava-lhes o que dele se achava dito em todas as Escrituras.
+28. Aproximaram-se da aldeia para onde iam e ele fez como se quisesse passar adiante.
+29. Mas eles forçaram-no a parar: Fica conosco, já é tarde e já declina o dia. Entrou então com eles.
+30. Aconteceu que, estando sentado conjuntamente à mesa, ele tomou o pão, abençoou-o, partiu-o e serviu-lho.
+31. Então se lhes abriram os olhos e o reconheceram... mas ele desapareceu.
+32. Diziam então um para o outro: Não se nos abrasava o coração, quando ele nos falava pelo caminho e nos explicava as Escrituras?
+33. Levantaram-se na mesma hora e voltaram a Jerusalém. Aí acharam reunidos os Onze e os que com eles estavam.
+34. Todos diziam: O Senhor ressuscitou verdadeiramente e apareceu a Simão.
+35. Eles, por sua parte, contaram o que lhes havia acontecido no caminho e como o tinham reconhecido ao partir o pão.
+36. Enquanto ainda falavam dessas coisas, Jesus apresentou-se no meio deles e disse-lhes: A paz esteja convosco!
+37. Perturbados e espantados, pensaram estar vendo um espírito.
+38. Mas ele lhes disse: Por que estais perturbados, e por que essas dúvidas nos vossos corações?
+39. Vede minhas mãos e meus pés, sou eu mesmo; apalpai e vede: um espírito não tem carne nem ossos, como vedes que tenho.
+40. E, dizendo isso, mostrou-lhes as mãos e os pés.
+41. Mas, vacilando eles ainda e estando transportados de alegria, perguntou: Tendes aqui alguma coisa para comer?
+42. Então ofereceram-lhe um pedaço de peixe assado.
+43. Ele tomou e comeu à vista deles.
+44. Depois lhes disse: Isto é o que vos dizia quando ainda estava convosco: era necessário que se cumprisse tudo o que de mim está escrito na Lei de Moisés, nos profetas e nos Salmos.
+45. Abriu-lhes então o espírito, para que compreendessem as Escrituras, dizendo:
+46. Assim é que está escrito, e assim era necessário que Cristo padecesse, mas que ressurgisse dos mortos ao terceiro dia.
+47. E que em seu nome se pregasse a penitência e a remissão dos pecados a todas as nações, começando por Jerusalém.
+48. Vós sois as testemunhas de tudo isso.
+49. Eu vos mandarei o Prometido de meu Pai; entretanto, permanecei na cidade, até que sejais revestidos da força do alto.
+50. Depois os levou para Betânia e, levantando as mãos, os abençoou.
+51. Enquanto os abençoava, separou-se deles e foi arrebatado ao céu.
+52. Depois de o terem adorado, voltaram para Jerusalém com grande júbilo.
+53. E permaneciam no templo, louvando e bendizendo a Deus.São João, 1
+1. No princípio era o Verbo, e o Verbo estava junto de Deus e o Verbo era Deus.
+2. Ele estava no princípio junto de Deus.
+3. Tudo foi feito por ele, e sem ele nada foi feito.
+4. Nele havia a vida, e a vida era a luz dos homens.
+5. A luz resplandece nas trevas, e as trevas não a compreenderam.
+6. Houve um homem, enviado por Deus, que se chamava João.
+7. Este veio como testemunha, para dar testemunho da luz, a fim de que todos cressem por meio dele.
+8. Não era ele a luz, mas veio para dar testemunho da luz.
+9. [O Verbo] era a verdadeira luz que, vindo ao mundo, ilumina todo homem.
+10. Estava no mundo e o mundo foi feito por ele, e o mundo não o reconheceu.
+11. Veio para o que era seu, mas os seus não o receberam.
+12. Mas a todos aqueles que o receberam, aos que crêem no seu nome, deu-lhes o poder de se tornarem filhos de Deus,
+13. os quais não nasceram do sangue, nem da vontade da carne, nem da vontade do homem, mas sim de Deus.
+14. E o Verbo se fez carne e habitou entre nós, e vimos sua glória, a glória que o Filho único recebe do seu Pai, cheio de graça e de verdade.
+15. João dá testemunho dele, e exclama: Eis aquele de quem eu disse: O que vem depois de mim é maior do que eu, porque existia antes de mim.
+16. Todos nós recebemos da sua plenitude graça sobre graça.
+17. Pois a lei foi dada por Moisés, a graça e a verdade vieram por Jesus Cristo.
+18. Ninguém jamais viu Deus. O Filho único, que está no seio do Pai, foi quem o revelou.
+19. Este foi o testemunho de João, quando os judeus lhe enviaram de Jerusalém sacerdotes e levitas para perguntar-lhe: Quem és tu?
+20. Ele fez esta declaração que confirmou sem hesitar: Eu não sou o Cristo.
+21. Pois, então, quem és?, perguntaram-lhe eles. És tu Elias? Disse ele: Não o sou. És tu o profeta? Ele respondeu: Não.
+22. Perguntaram-lhe de novo: Dize-nos, afinal, quem és, para que possamos dar uma resposta aos que nos enviaram. Que dizes de ti mesmo?
+23. Ele respondeu: Eu sou a voz que clama no deserto: Endireitai o caminho do Senhor, como o disse o profeta Isaías (40,3).
+24. Alguns dos emissários eram fariseus.
+25. Continuaram a perguntar-lhe: Como, pois, batizas, se tu não és o Cristo, nem Elias, nem o profeta?
+26. João respondeu: Eu batizo com água, mas no meio de vós está quem vós não conheceis.
+27. Esse é quem vem depois de mim; e eu não sou digno de lhe desatar a correia do calçado.
+28. Este diálogo se passou em Betânia, além do Jordão, onde João estava batizando.
+29. No dia seguinte, João viu Jesus que vinha a ele e disse: Eis o Cordeiro de Deus, que tira o pecado do mundo.
+30. É este de quem eu disse: Depois de mim virá um homem, que me é superior, porque existe antes de mim.
+31. Eu não o conhecia, mas, se vim batizar em água, é para que ele se torne conhecido em Israel.
+32. (João havia declarado: Vi o Espírito descer do céu em forma de uma pomba e repousar sobre ele.)
+33. Eu não o conhecia, mas aquele que me mandou batizar em água disse-me: Sobre quem vires descer e repousar o Espírito, este é quem batiza no Espírito Santo.
+34. Eu o vi e dou testemunho de que ele é o Filho de Deus.
+35. No dia seguinte, estava lá João outra vez com dois dos seus discípulos.
+36. E, avistando Jesus que ia passando, disse: Eis o Cordeiro de Deus.
+37. Os dois discípulos ouviram-no falar e seguiram Jesus.
+38. Voltando-se Jesus e vendo que o seguiam, perguntou-lhes: Que procurais? Disseram-lhe: Rabi (que quer dizer Mestre), onde moras?
+39. Vinde e vede, respondeu-lhes ele. Foram aonde ele morava e ficaram com ele aquele dia. Era cerca da hora décima.
+40. André, irmão de Simão Pedro, era um dos dois que tinham ouvido João e que o tinham seguido.
+41. Foi ele então logo à procura de seu irmão e disse-lhe: Achamos o Messias (que quer dizer o Cristo).
+42. Levou-o a Jesus, e Jesus, fixando nele o olhar, disse: Tu és Simão, filho de João; serás chamado Cefas (que quer dizer pedra).
+43. No dia seguinte, tinha Jesus a intenção de dirigir-se à Galiléia. Encontra Filipe e diz-lhe: Segue-me.
+44. (Filipe era natural de Betsaida, cidade de André e Pedro.)
+45. Filipe encontra Natanael e diz-lhe: Achamos aquele de quem Moisés escreveu na lei e que os profetas anunciaram: é Jesus de Nazaré, filho de José.
+46. Respondeu-lhe Natanael: Pode, porventura, vir coisa boa de Nazaré? Filipe retrucou: Vem e vê.
+47. Jesus vê Natanael, que lhe vem ao encontro, e diz: Eis um verdadeiro israelita, no qual não há falsidade.
+48. Natanael pergunta-lhe: Donde me conheces? Respondeu Jesus: Antes que Filipe te chamasse, eu te vi quando estavas debaixo da figueira.
+49. Falou-lhe Natanael: Mestre, tu és o Filho de Deus, tu és o rei de Israel.
+50. Jesus replicou-lhe: Porque eu te disse que te vi debaixo da figueira, crês! Verás coisas maiores do que esta.
+51. E ajuntou: Em verdade, em verdade vos digo: vereis o céu aberto e os anjos de Deus subindo e descendo sobre o Filho do Homem.São João, 2
+1. Três dias depois, celebravam-se bodas em Caná da Galiléia, e achava-se ali a mãe de Jesus.
+2. Também foram convidados Jesus e os seus discípulos.
+3. Como viesse a faltar vinho, a mãe de Jesus disse-lhe: Eles já não têm vinho.
+4. Respondeu-lhe Jesus: Mulher, isso compete a nós? Minha hora ainda não chegou.
+5. Disse, então, sua mãe aos serventes: Fazei o que ele vos disser.
+6. Ora, achavam-se ali seis talhas de pedra para as purificações dos judeus, que continham cada qual duas ou três medidas.
+7. Jesus ordena-lhes: Enchei as talhas de água. Eles encheram-nas até em cima.
+8. Tirai agora , disse-lhes Jesus, e levai ao chefe dos serventes. E levaram.
+9. Logo que o chefe dos serventes provou da água tornada vinho, não sabendo de onde era (se bem que o soubessem os serventes, pois tinham tirado a água), chamou o noivo
+10. e disse-lhe: É costume servir primeiro o vinho bom e, depois, quando os convidados já estão quase embriagados, servir o menos bom. Mas tu guardaste o vinho melhor até agora.
+11. Este foi o primeiro milagre de Jesus; realizou-o em Caná da Galiléia. Manifestou a sua glória, e os seus discípulos creram nele.
+12. Depois disso, desceu para Cafarnaum, com sua mãe, seus irmãos e seus discípulos; e ali só demoraram poucos dias.
+13. Estava próxima a Páscoa dos judeus, e Jesus subiu a Jerusalém.
+14. Encontrou no templo os negociantes de bois, ovelhas e pombas, e mesas dos trocadores de moedas.
+15. Fez ele um chicote de cordas, expulsou todos do templo, como também as ovelhas e os bois, espalhou pelo chão o dinheiro dos trocadores e derrubou as mesas.
+16. Disse aos que vendiam as pombas: Tirai isto daqui e não façais da casa de meu Pai uma casa de negociantes.
+17. Lembraram-se então os seus discípulos do que está escrito: O zelo da tua casa me consome (Sl 68,10).
+18. Perguntaram-lhe os judeus: Que sinal nos apresentas tu, para procederes deste modo?
+19. Respondeu-lhes Jesus: Destruí vós este templo, e eu o reerguerei em três dias.
+20. Os judeus replicaram: Em quarenta e seis anos foi edificado este templo, e tu hás de levantá-lo em três dias?!
+21. Mas ele falava do templo do seu corpo.
+22. Depois que ressurgiu dos mortos, os seus discípulos lembraram-se destas palavras e creram na Escritura e na palavra de Jesus.
+23. Enquanto Jesus celebrava em Jerusalém a festa da Páscoa, muitos creram no seu nome, à vista dos milagres que fazia.
+24. Mas Jesus mesmo não se fiava neles, porque os conhecia a todos.
+25. Ele não necessitava que alguém desse testemunho de nenhum homem, pois ele bem sabia o que havia no homem.São João, 3
+1. Havia um homem entre os fariseus, chamado Nicodemos, príncipe dos judeus.
+2. Este foi ter com Jesus, de noite, e disse-lhe: Rabi, sabemos que és um Mestre vindo de Deus. Ninguém pode fazer esses milagres que fazes, se Deus não estiver com ele.
+3. Jesus replicou-lhe: Em verdade, em verdade te digo: quem não nascer de novo não poderá ver o Reino de Deus.
+4. Nicodemos perguntou-lhe: Como pode um homem renascer, sendo velho? Porventura pode tornar a entrar no seio de sua mãe e nascer pela segunda vez?
+5. Respondeu Jesus: Em verdade, em verdade te digo: quem não renascer da água e do Espírito não poderá entrar no Reino de Deus.
+6. O que nasceu da carne é carne, e o que nasceu do Espírito é espírito.
+7. Não te maravilhes de que eu te tenha dito: Necessário vos é nascer de novo.
+8. O vento sopra onde quer; ouves-lhe o ruído, mas não sabes de onde vem, nem para onde vai. Assim acontece com aquele que nasceu do Espírito.
+9. Replicou Nicodemos: Como se pode fazer isso?
+10. Disse Jesus: És doutor em Israel e ignoras estas coisas!...
+11. Em verdade, em verdade te digo: dizemos o que sabemos e damos testemunho do que vimos, mas não recebeis o nosso testemunho.
+12. Se vos tenho falado das coisas terrenas e não me credes, como crereis se vos falar das celestiais?
+13. Ninguém subiu ao céu senão aquele que desceu do céu, o Filho do Homem que está no céu.
+14. Como Moisés levantou a serpente no deserto, assim deve ser levantado o Filho do Homem,
+15. para que todo homem que nele crer tenha a vida eterna.
+16. Com efeito, de tal modo Deus amou o mundo, que lhe deu seu Filho único, para que todo o que nele crer não pereça, mas tenha a vida eterna.
+17. Pois Deus não enviou o Filho ao mundo para condená-lo, mas para que o mundo seja salvo por ele.
+18. Quem nele crê não é condenado, mas quem não crê já está condenado; por que não crê no nome do Filho único de Deus.
+19. Ora, este é o julgamento: a luz veio ao mundo, mas os homens amaram mais as trevas do que a luz, pois as suas obras eram más.
+20. Porquanto todo aquele que faz o mal odeia a luz e não vem para a luz, para que as suas obras não sejam reprovadas.
+21. Mas aquele que pratica a verdade, vem para a luz. Torna-se assim claro que as suas obras são feitas em Deus.
+22. Em seguida, foi Jesus com os seus discípulos para os campos da Judéia, e ali se deteve com eles, e batizava.
+23. Também João batizava em Enon, perto de Salim, porque havia ali muita água, e muitos vinham e eram batizados.
+24. Pois João ainda não tinha sido lançado no cárcere.
+25. Ora, surgiu uma discussão entre os discípulos de João e um judeu, a respeito da purificação.
+26. Foram e disseram-lhe: Mestre, aquele que estava contigo além do Jordão, de quem tu deste testemunho, ei-lo que está batizando e todos vão ter com ele...
+27. João replicou: Ninguém pode atribuir-se a si mesmo senão o que lhe foi dado do céu.
+28. Vós mesmos me sois testemunhas de que disse: Eu não sou o Cristo, mas fui enviado diante dele.
+29. Aquele que tem a esposa é o esposo. O amigo do esposo, porém, que está presente e o ouve, regozija-se sobremodo com a voz do esposo. Nisso consiste a minha alegria, que agora se completa.
+30. Importa que ele cresça e que eu diminua.
+31. Aquele que vem de cima é superior a todos. Aquele que vem da terra é terreno e fala de coisas terrenas. Aquele que vem do céu é superior a todos.
+32. Ele testemunha as coisas que viu e ouviu, mas ninguém recebe o seu testemunho.
+33. Aquele que recebe o seu testemunho confirma que Deus é verdadeiro.
+34. Com efeito, aquele que Deus enviou fala a linguagem de Deus, porque ele concede o Espírito sem medidas.
+35. O Pai ama o Filho e confiou-lhe todas as coisas.
+36. Aquele que crê no Filho tem a vida eterna; quem não crê no Filho não verá a vida, mas sobre ele pesa a ira de Deus.São João, 4
+1. O Senhor soube que os fariseus tinham ouvido dizer que ele recrutava e batizava mais discípulos que João
+2. (se bem que não era Jesus quem batizava, mas os seus discípulos).
+3. Deixou a Judéia e voltou para a Galiléia.
+4. Ora, devia passar por Samaria.
+5. Chegou, pois, a uma localidade da Samaria, chamada Sicar, junto das terras que Jacó dera a seu filho José.
+6. Ali havia o poço de Jacó. E Jesus, fatigado da viagem, sentou-se à beira do poço. Era por volta do meio-dia.
+7. Veio uma mulher da Samaria tirar água. Pediu-lhe Jesus: Dá-me de beber.
+8. (Pois os discípulos tinham ido à cidade comprar mantimentos.)
+9. Aquela samaritana lhe disse: Sendo tu judeu, como pedes de beber a mim, que sou samaritana!... (Pois os judeus não se comunicavam com os samaritanos.)
+10. Respondeu-lhe Jesus: Se conhecesses o dom de Deus, e quem é que te diz: Dá-me de beber, certamente lhe pedirias tu mesma e ele te daria uma água viva.
+11. A mulher lhe replicou: Senhor, não tens com que tirá-la, e o poço é fundo... donde tens, pois, essa água viva?
+12. És, porventura, maior do que o nosso pai Jacó, que nos deu este poço, do qual ele mesmo bebeu e também os seus filhos e os seus rebanhos?
+13. Respondeu-lhe Jesus: Todo aquele que beber desta água tornará a ter sede,
+14. mas o que beber da água que eu lhe der jamais terá sede. Mas a água que eu lhe der virá a ser nele fonte de água, que jorrará até a vida eterna.
+15. A mulher suplicou: Senhor, dá-me desta água, para eu já não ter sede nem vir aqui tirá-la!
+16. Disse-lhe Jesus: Vai, chama teu marido e volta cá.
+17. A mulher respondeu: Não tenho marido. Disse Jesus: Tens razão em dizer que não tens marido.
+18. Tiveste cinco maridos, e o que agora tens não é teu. Nisto disseste a verdade.
+19. Senhor, disse-lhe a mulher, vejo que és profeta!...
+20. Nossos pais adoraram neste monte, mas vós dizeis que é em Jerusalém que se deve adorar.
+21. Jesus respondeu: Mulher, acredita-me, vem a hora em que não adorareis o Pai, nem neste monte nem em Jerusalém.
+22. Vós adorais o que não conheceis, nós adoramos o que conhecemos, porque a salvação vem dos judeus.
+23. Mas vem a hora, e já chegou, em que os verdadeiros adoradores hão de adorar o Pai em espírito e verdade, e são esses adoradores que o Pai deseja.
+24. Deus é espírito, e os seus adoradores devem adorá-lo em espírito e verdade.
+25. Respondeu a mulher: Sei que deve vir o Messias (que se chama Cristo); quando, pois, vier, ele nos fará conhecer todas as coisas.
+26. Disse-lhe Jesus: Sou eu, quem fala contigo.
+27. Nisso seus discípulos chegaram e maravilharam-se de que estivesse falando com uma mulher. Ninguém, todavia, perguntou: Que perguntas? Ou: Que falas com ela?
+28. A mulher deixou o seu cântaro, foi à cidade e disse àqueles homens:
+29. Vinde e vede um homem que me contou tudo o que tenho feito. Não seria ele, porventura, o Cristo?
+30. Eles saíram da cidade e vieram ter com Jesus.
+31. Entretanto, os discípulos lhe pediam: Mestre, come.
+32. Mas ele lhes disse: Tenho um alimento para comer que vós não conheceis.
+33. Os discípulos perguntavam uns aos outros: Alguém lhe teria trazido de comer?
+34. Disse-lhes Jesus: Meu alimento é fazer a vontade daquele que me enviou e cumprir a sua obra.
+35. Não dizeis vós que ainda há quatro meses e vem a colheita? Eis que vos digo: levantai os vossos olhos e vede os campos, porque já estão brancos para a ceifa.
+36. O que ceifa recebe o salário e ajunta fruto para a vida eterna; assim o semeador e o ceifador juntamente se regozijarão.
+37. Porque eis que se pode dizer com toda verdade: Um é o que semeia outro é o que ceifa.
+38. Enviei-vos a ceifar onde não tendes trabalhado; outros trabalharam, e vós entrastes nos seus trabalhos.
+39. Muitos foram os samaritanos daquela cidade que creram nele por causa da palavra da mulher, que lhes declarara: Ele me disse tudo quanto tenho feito.
+40. Assim, quando os samaritanos foram ter com ele, pediram que ficasse com eles. Ele permaneceu ali dois dias.
+41. Ainda muitos outros creram nele por causa das suas palavras.
+42. E diziam à mulher: Já não é por causa da tua declaração que cremos, mas nós mesmos ouvimos e sabemos ser este verdadeiramente o Salvador do mundo.
+43. Passados os dois dias, Jesus partiu para a Galiléia.
+44. (Ele mesmo havia declarado que um profeta não é honrado na sua pátria.)
+45. Chegando à Galiléia, acolheram-no os galileus, porque tinham visto tudo o que fizera durante a festa em Jerusalém; pois também eles tinham ido à festa.
+46. Ele voltou, pois, a Caná da Galiléia, onde transformara água em vinho. Havia então em Cafarnaum um oficial do rei, cujo filho estava doente.
+47. Ao ouvir que Jesus vinha da Judéia para a Galiléia, foi a ele e rogou-lhe que descesse e curasse seu filho, que estava prestes a morrer.
+48. Disse-lhe Jesus: Se não virdes milagres e prodígios, não credes...
+49. Pediu-lhe o oficial: Senhor, desce antes que meu filho morra!
+50. Vai, disse-lhe Jesus, o teu filho está passando bem! O homem acreditou na palavra de Jesus e partiu.
+51. Enquanto ia descendo, os criados vieram-lhe ao encontro e lhe disseram: Teu filho está passando bem.
+52. Indagou então deles a hora em que se sentira melhor. Responderam-lhe: Ontem à sétima hora a febre o deixou.
+53. Reconheceu o pai ser a mesma hora em que Jesus dissera: Teu filho está passando bem. E creu tanto ele como toda a sua casa.
+54. Esse foi o segundo milagre que Jesus fez, depois de voltar da Judéia para a Galiléia.São João, 5
+1. Depois disso, houve uma festa dos judeus, e Jesus subiu a Jerusalém.
+2. Há em Jerusalém, junto à porta das Ovelhas, um tanque, chamado em hebraico Betesda, que tem cinco pórticos.
+3. Nestes pórticos jazia um grande número de enfermos, de cegos, de coxos e de paralíticos, que esperavam o movimento da água.
+4. [Pois de tempos em tempos um anjo do Senhor descia ao tanque e a água se punha em movimento. E o primeiro que entrasse no tanque, depois da agitação da água, ficava curado de qualquer doença que tivesse.]
+5. Estava ali um homem enfermo havia trinta e oito anos.
+6. Vendo-o deitado e sabendo que já havia muito tempo que estava enfermo, perguntou-lhe Jesus: Queres ficar curado?
+7. O enfermo respondeu-lhe: Senhor, não tenho ninguém que me ponha no tanque, quando a água é agitada; enquanto vou, já outro desceu antes de mim.
+8. Ordenou-lhe Jesus: Levanta-te, toma o teu leito e anda.
+9. No mesmo instante, aquele homem ficou curado, tomou o seu leito e foi andando. Ora, aquele dia era sábado.
+10. E os judeus diziam ao homem curado: E sábado, não te é permitido carregar o teu leito.
+11. Respondeu-lhes ele: Aquele que me curou disse: Toma o teu leito e anda.
+12. Perguntaram-lhe eles: Quem é o homem que te disse: Toma o teu leito e anda?
+13. O que havia sido curado, porém, não sabia quem era, porque Jesus se havia retirado da multidão que estava naquele lugar.
+14. Mais tarde, Jesus o achou no templo e lhe disse: Eis que ficaste são; já não peques, para não te acontecer coisa pior.
+15. Aquele homem foi então contar aos judeus que fora Jesus quem o havia curado.
+16. Por esse motivo, os judeus perseguiam Jesus, porque fazia esses milagres no dia de sábado.
+17. Mas ele lhes disse: Meu Pai continua agindo até agora, e eu ajo também.
+18. Por esta razão os judeus, com maior ardor, procuravam tirar-lhe a vida, porque não somente violava o repouso do sábado, mas afirmava ainda que Deus era seu Pai e se fazia igual a Deus.
+19. Jesus tomou a palavra e disse-lhes: Em verdade, em verdade vos digo: o Filho de si mesmo não pode fazer coisa alguma; ele só faz o que vê fazer o Pai; e tudo o que o Pai faz, o faz também semelhantemente o Filho.
+20. Pois o Pai ama o Filho e mostra-lhe tudo o que faz; e maiores obras do que esta lhe mostrará, para que fiqueis admirados.
+21. Com efeito, como o Pai ressuscita os mortos e lhes dá vida, assim também o Filho dá vida a quem ele quer.
+22. Assim também o Pai não julga ninguém, mas entregou todo o julgamento ao Filho.
+23. Desse modo, todos honrarão o Filho, bem como honram o Pai. Aquele que não honra o Filho, não honra o Pai, que o enviou.
+24. Em verdade, em verdade vos digo: quem ouve a minha palavra e crê naquele que me enviou tem a vida eterna e não incorre na condenação, mas passou da morte para a vida.
+25. Em verdade, em verdade vos digo: vem a hora, e já está aí, em que os mortos ouvirão a voz do Filho de Deus; e os que a ouvirem viverão.
+26. Pois como o Pai tem a vida em si mesmo, assim também deu ao Filho o ter a vida em si mesmo,
+27. e lhe conferiu o poder de julgar, porque é o Filho do Homem.
+28. Não vos maravilheis disso, porque vem a hora em que todos os que se acham nos sepulcros sairão deles ao som de sua voz:
+29. os que praticaram o bem irão para a ressurreição da vida, e aqueles que praticaram o mal ressuscitarão para serem condenados.
+30. De mim mesmo não posso fazer coisa alguma. Julgo como ouço; e o meu julgamento é justo, porque não busco a minha vontade, mas a vontade daquele que me enviou.
+31. Se eu der testemunho de mim mesmo, não é digno de fé o meu testemunho.
+32. Há outro que dá testemunho de mim, e sei que é digno de fé o testemunho que dá de mim.
+33. Vós enviastes mensageiros a João, e ele deu testemunho da verdade.
+34. Não invoco, porém, o testemunho de homem algum. Digo-vos essas coisas, a fim de que sejais salvos.
+35. João era uma lâmpada que arde e ilumina; vós, porém, só por uma hora quisestes alegrar-vos com a sua luz.
+36. Mas tenho maior testemunho do que o de João, porque as obras que meu Pai me deu para executar - essas mesmas obras que faço - testemunham a meu respeito que o Pai me enviou.
+37. E o Pai que me enviou, ele mesmo deu testemunho de mim. Vós nunca ouvistes a sua voz nem vistes a sua face...
+38. e não tendes a sua palavra permanente em vós, pois não credes naquele que ele enviou.
+39. Vós perscrutais as Escrituras, julgando encontrar nelas a vida eterna. Pois bem! São elas mesmas que dão testemunho de mim.
+40. E vós não quereis vir a mim para que tenhais a vida...
+41. Não espero a minha glória dos homens,
+42. mas sei que não tendes em vós o amor de Deus.
+43. Vim em nome de meu Pai, mas não me recebeis. Se vier outro em seu próprio nome, haveis de recebê-lo...
+44. Como podeis crer, vós que recebeis a glória uns dos outros, e não buscais a glória que é só de Deus?
+45. Não julgueis que vos hei de acusar diante do Pai; há quem vos acusa: Moisés, no qual colocais a vossa esperança.
+46. Pois se crêsseis em Moisés, certamente creríeis em mim, porque ele escreveu a meu respeito.
+47. Mas, se não acreditais nos seus escritos, como acreditareis nas minhas palavras?São João, 6
+1. Depois disso, atravessou Jesus o lago da Galiléia (que é o de Tiberíades.)
+2. Seguia-o uma grande multidão, porque via os milagres que fazia em beneficio dos enfermos.
+3. Jesus subiu a um monte e ali se sentou com seus discípulos.
+4. Aproximava-se a Páscoa, festa dos judeus.
+5. Jesus levantou os olhos sobre aquela grande multidão que vinha ter com ele e disse a Filipe: Onde compraremos pão para que todos estes tenham o que comer?
+6. Falava assim para o experimentar, pois bem sabia o que havia de fazer.
+7. Filipe respondeu-lhe: Duzentos denários de pão não lhes bastam, para que cada um receba um pedaço.
+8. Um dos seus discípulos, chamado André, irmão de Simão Pedro, disse-lhe:
+9. Está aqui um menino que tem cinco pães de cevada e dois peixes... mas que é isto para tanta gente?
+10. Disse Jesus: Fazei-os assentar. Ora, havia naquele lugar muita relva. Sentaram-se aqueles homens em número de uns cinco mil.
+11. Jesus tomou os pães e rendeu graças. Em seguida, distribuiu-os às pessoas que estavam sentadas, e igualmente dos peixes lhes deu quanto queriam.
+12. Estando eles saciados, disse aos discípulos: Recolhei os pedaços que sobraram, para que nada se perca.
+13. Eles os recolheram e, dos pedaços dos cinco pães de cevada que sobraram, encheram doze cestos.
+14. À vista desse milagre de Jesus, aquela gente dizia: Este é verdadeiramente o profeta que há de vir ao mundo.
+15. Jesus, percebendo que queriam arrebatá-lo e fazê-lo rei, tornou a retirar-se sozinho para o monte.
+16. Chegada a tarde, os seus discípulos desceram à margem do lago.
+17. Subindo a uma barca, atravessaram o lago rumo a Cafarnaum. Era já escuro, e Jesus ainda não se tinha reunido a eles.
+18. O mar, entretanto, se agitava, porque soprava um vento rijo.
+19. Tendo eles remado uns vinte e cinco ou trinta estádios, viram Jesus que se aproximava da barca, andando sobre as águas, e ficaram atemorizados.
+20. Mas ele lhes disse: Sou eu, não temais.
+21. Quiseram recebê-lo na barca, mas pouco depois a barca chegou ao seu destino.
+22. No dia seguinte, a multidão que tinha ficado do outro lado do mar percebeu que Jesus não tinha subido com seus discípulos na única barca que lá estava, mas que eles tinham partido sozinhos.
+23. Nesse meio tempo, outras barcas chegaram de Tiberíades, perto do lugar onde tinham comido o pão, depois de o Senhor ter dado graças.
+24. E, reparando a multidão que nem Jesus nem os seus discípulos estavam ali, entrou nas barcas e foi até Cafarnaum à sua procura.
+25. Encontrando-o na outra margem do lago, perguntaram-lhe: Mestre, quando chegaste aqui?
+26. Respondeu-lhes Jesus: Em verdade, em verdade vos digo: buscais-me, não porque vistes os milagres, mas porque comestes dos pães e ficastes fartos.
+27. Trabalhai, não pela comida que perece, mas pela que dura até a vida eterna, que o Filho do Homem vos dará. Pois nele Deus Pai imprimiu o seu sinal.
+28. Perguntaram-lhe: Que faremos para praticar as obras de Deus?
+29. Respondeu-lhes Jesus: A obra de Deus é esta: que creiais naquele que ele enviou.
+30. Perguntaram eles: Que milagre fazes tu, para que o vejamos e creiamos em ti? Qual é a tua obra?
+31. Nossos pais comeram o maná no deserto, segundo o que está escrito: Deu-lhes de comer o pão vindo do céu (Sl 77,24).
+32. Jesus respondeu-lhes: Em verdade, em verdade vos digo: Moisés não vos deu o pão do céu, mas o meu Pai é quem vos dá o verdadeiro pão do céu;
+33. porque o pão de Deus é o pão que desce do céu e dá vida ao mundo.
+34. Disseram-lhe: Senhor, dá-nos sempre deste pão!
+35. Jesus replicou: Eu sou o pão da vida: aquele que vem a mim não terá fome, e aquele que crê em mim jamais terá sede.
+36. Mas já vos disse: Vós me vedes e não credes...
+37. Todo aquele que o Pai me dá virá a mim, e o que vem a mim não o lançarei fora.
+38. Pois desci do céu não para fazer a minha vontade, mas a vontade daquele que me enviou.
+39. Ora, esta é a vontade daquele que me enviou: que eu não deixe perecer nenhum daqueles que me deu, mas que os ressuscite no último dia.
+40. Esta é a vontade de meu Pai: que todo aquele que vê o Filho e nele crê, tenha a vida eterna; e eu o ressuscitarei no último dia.
+41. Murmuravam então dele os judeus, porque dissera: Eu sou o pão que desceu do céu.
+42. E perguntavam: Porventura não é ele Jesus, o filho de José, cujo pai e mãe conhecemos? Como, pois, diz ele: Desci do céu?
+43. Respondeu-lhes Jesus: Não murmureis entre vós.
+44. Ninguém pode vir a mim se o Pai, que me enviou, não o atrair; e eu hei de ressuscitá-lo no último dia.
+45. Está escrito nos profetas: Todos serão ensinados por Deus (Is 54,13). Assim, todo aquele que ouviu o Pai e foi por ele instruído vem a mim.
+46. Não que alguém tenha visto o Pai, pois só aquele que vem de Deus, esse é que viu o Pai.
+47. Em verdade, em verdade vos digo: quem crê em mim tem a vida eterna.
+48. Eu sou o pão da vida.
+49. Vossos pais, no deserto, comeram o maná e morreram.
+50. Este é o pão que desceu do céu, para que não morra todo aquele que dele comer.
+51. Eu sou o pão vivo que desceu do céu. Quem comer deste pão viverá eternamente. E o pão, que eu hei de dar, é a minha carne para a salvação do mundo.
+52. A essas palavras, os judeus começaram a discutir, dizendo: Como pode este homem dar-nos de comer a sua carne?
+53. Então Jesus lhes disse: Em verdade, em verdade vos digo: se não comerdes a carne do Filho do Homem, e não beberdes o seu sangue, não tereis a vida em vós mesmos.
+54. Quem come a minha carne e bebe o meu sangue tem a vida eterna; e eu o ressuscitarei no último dia.
+55. Pois a minha carne é verdadeiramente uma comida e o meu sangue, verdadeiramente uma bebida.
+56. Quem come a minha carne e bebe o meu sangue permanece em mim e eu nele.
+57. Assim como o Pai que me enviou vive, e eu vivo pelo Pai, assim também aquele que comer a minha carne viverá por mim.
+58. Este é o pão que desceu do céu. Não como o maná que vossos pais comeram e morreram. Quem come deste pão viverá eternamente.
+59. Tal foi o ensinamento de Jesus na sinagoga de Cafarnaum.
+60. Muitos dos seus discípulos, ouvindo-o, disseram: Isto é muito duro! Quem o pode admitir?
+61. Sabendo Jesus que os discípulos murmuravam por isso, perguntou-lhes: Isso vos escandaliza?
+62. Que será, quando virdes subir o Filho do Homem para onde ele estava antes?...
+63. O espírito é que vivifica, a carne de nada serve. As palavras que vos tenho dito são espírito e vida.
+64. Mas há alguns entre vós que não crêem... Pois desde o princípio Jesus sabia quais eram os que não criam e quem o havia de trair.
+65. Ele prosseguiu: Por isso vos disse: Ninguém pode vir a mim, se por meu Pai não lho for concedido.
+66. Desde então, muitos dos seus discípulos se retiraram e já não andavam com ele.
+67. Então Jesus perguntou aos Doze: Quereis vós também retirar-vos?
+68. Respondeu-lhe Simão Pedro: Senhor, a quem iríamos nós? Tu tens as palavras da vida eterna.
+69. E nós cremos e sabemos que tu és o Santo de Deus!
+70. Jesus acrescentou: Não vos escolhi eu todos os doze? Contudo, um de vós é um demônio!...
+71. Ele se referia a Judas, filho de Simão Iscariotes, porque era quem o havia de entregar não obstante ser um dos Doze.São João, 7
+1. Depois disso, Jesus percorria a Galiléia. Ele não queria deter-se na Judéia, porque os judeus procuravam tirar-lhe a vida.
+2. Aproximava-se a festa dos judeus chamada dos Tabernáculos.
+3. Seus irmãos disseram-lhe: Parte daqui e vai para a Judéia, a fim de que também os teus discípulos vejam as obras que fazes.
+4. Pois quem deseja ser conhecido em público não faz coisa alguma ocultamente. Já que fazes essas obras, revela-te ao mundo.
+5. Com efeito, nem mesmo os seus irmãos acreditavam nele.
+6. Disse-lhes Jesus: O meu tempo ainda não chegou, mas para vós a hora é sempre favorável.
+7. O mundo não vos pode odiar, mas odeia-me, porque eu testemunho contra ele que as suas obras são más.
+8. Subi vós para a festa. Quanto a mim, eu não irei, porque ainda não chegou o meu tempo.
+9. Dito isto, permaneceu na Galiléia.
+10. Mas quando os seus irmãos tinham subido, então subiu também ele à festa, não em público, mas despercebidamente.
+11. Buscavam-no os judeus durante a festa e perguntavam: Onde está ele?
+12. E na multidão só se discutia a respeito dele. Uns diziam: É homem de bem. Outros, porém, diziam: Não é; ele seduz o povo.
+13. Ninguém, contudo, ousava falar dele livremente com medo dos judeus.
+14. Lá pelo meio da festa, Jesus subiu ao templo e pôs-se a ensinar.
+15. Os judeus se admiravam e diziam: Este homem não fez estudos. Donde lhe vem, pois, este conhecimento das Escrituras?
+16. Respondeu-lhes Jesus: A minha doutrina não é minha, mas daquele que me enviou.
+17. Se alguém quiser cumprir a vontade de Deus, distinguirá se a minha doutrina é de Deus ou se falo de mim mesmo.
+18. Quem fala por própria autoridade busca a própria glória, mas quem procura a glória de quem o enviou é digno de fé e nele não há impostura alguma.
+19. Acaso não foi Moisés quem vos deu a lei? No entanto, ninguém de vós cumpre a lei!...
+20. Por que procurais tirar-me a vida? Respondeu o povo: Tens um demônio! Quem procura tirar-te a vida?
+21. Replicou Jesus: Fiz uma só obra, e todos vós vos maravilhais!
+22. Moisés vos deu a circuncisão (se bem que ela não é de Moisés, mas dos patriarcas), e até no sábado circuncidais um homem!
+23. Se um homem recebe a circuncisão em dia de sábado, e isso sem violar a Lei de Moisés, por que vos indignais comigo, que tenho curado um homem em todo o seu corpo em dia de sábado?
+24. Não julgueis pela aparência, mas julgai conforme a justiça.
+25. Algumas das pessoas de Jerusalém diziam: Não é este aquele a quem procuram tirar a vida?
+26. Todavia, ei-lo que fala em público e não lhe dizem coisa alguma. Porventura reconheceram de fato as autoridades que ele é o Cristo?
+27. Mas este nós sabemos de onde vem. Do Cristo, porém, quando vier, ninguém saberá de onde seja.
+28. Enquanto ensinava no templo, Jesus exclamou: Ah! Vós me conheceis e sabeis de onde eu sou!... Entretanto, não vim de mim mesmo, mas é verdadeiro aquele que me enviou, e vós não o conheceis.
+29. Eu o conheço, porque venho dele e ele me enviou.
+30. Procuraram prendê-lo, mas ninguém lhe deitou as mãos, porque ainda não era chegada a sua hora.
+31. Muitos do povo, porém, creram nele e perguntavam: Quando vier o Cristo, fará mais milagres do que este faz?
+32. Os fariseus ouviram esse murmúrio que circulava entre o povo a respeito de Jesus. Então, de acordo com eles, os príncipes dos sacerdotes enviaram guardas para prendê-lo.
+33. Disse Jesus: Ainda por um pouco de tempo estou convosco e então vou para aquele que me enviou.
+34. Buscar-me-eis sem me achar, nem podereis ir para onde estou.
+35. Os judeus perguntavam entre si: Para onde irá ele, que o não possamos achar? Porventura irá para o meio dos judeus dispersos entre os gregos, para tornar-se o doutor dos estrangeiros?
+36. Que significam essas palavras que nos disse: Buscar-me-eis sem me achar, e onde estou para lá não podereis ir?
+37. No último dia, que é o principal dia de festa, estava Jesus de pé e clamava: Se alguém tiver sede, venha a mim e beba.
+38. Quem crê em mim, como diz a Escritura: Do seu interior manarão rios de água viva (Zc 14,8; Is 58,11).
+39. Dizia isso, referindo-se ao Espírito que haviam de receber os que cressem nele, pois ainda não fora dado o Espírito, visto que Jesus ainda não tinha sido glorificado.
+40. Ouvindo essas palavras, alguns daquela multidão diziam: Este é realmente o profeta.
+41. Outros diziam: Este é o Cristo. Mas outros protestavam: É acaso da Galiléia que há de vir o Cristo?
+42. Não diz a Escritura: O Cristo há de vir da família de Davi, e da aldeia de Belém, onde vivia Davi?
+43. Houve por isso divisão entre o povo por causa dele.
+44. Alguns deles queriam prendê-lo, mas ninguém lhe lançou as mãos.
+45. Voltaram os guardas para junto dos príncipes dos sacerdotes e fariseus, que lhes perguntaram: Por que não o trouxestes?
+46. Os guardas responderam: Jamais homem algum falou como este homem!...
+47. Replicaram os fariseus: Porventura também vós fostes seduzidos?
+48. Há, acaso, alguém dentre as autoridades ou fariseus que acreditou nele?
+49. Este poviléu que não conhece a lei é amaldiçoado!...
+50. Replicou-lhes Nicodemos, um deles, o mesmo que de noite o fora procurar:
+51. Condena acaso a nossa lei algum homem, antes de o ouvir e conhecer o que ele faz?
+52. Responderam-lhe: Porventura és também tu galileu? Informa-te bem e verás que da Galiléia não saiu profeta.
+53. E voltaram, cada um para sua casa.São João, 8
+1. Dirigiu-se Jesus para o monte das Oliveiras.
+2. Ao romper da manhã, voltou ao templo e todo o povo veio a ele. Assentou-se e começou a ensinar.
+3. Os escribas e os fariseus trouxeram-lhe uma mulher que fora apanhada em adultério.
+4. Puseram-na no meio da multidão e disseram a Jesus: Mestre, agora mesmo esta mulher foi apanhada em adultério.
+5. Moisés mandou-nos na lei que apedrejássemos tais mulheres. Que dizes tu a isso?
+6. Perguntavam-lhe isso, a fim de pô-lo à prova e poderem acusá-lo. Jesus, porém, se inclinou para a frente e escrevia com o dedo na terra.
+7. Como eles insistissem, ergueu-se e disse-lhes: Quem de vós estiver sem pecado, seja o primeiro a lhe atirar uma pedra.
+8. Inclinando-se novamente, escrevia na terra.
+9. A essas palavras, sentindo-se acusados pela sua própria consciência, eles se foram retirando um por um, até o último, a começar pelos mais idosos, de sorte que Jesus ficou sozinho, com a mulher diante dele.
+10. Então ele se ergueu e vendo ali apenas a mulher, perguntou-lhe: Mulher, onde estão os que te acusavam? Ninguém te condenou?
+11. Respondeu ela: Ninguém, Senhor. Disse-lhe então Jesus: Nem eu te condeno. Vai e não tornes a pecar.
+12. Falou-lhes outra vez Jesus: Eu sou a luz do mundo; aquele que me segue não andará em trevas, mas terá a luz da vida.
+13. A isso, os fariseus lhe disseram: Tu dás testemunho de ti mesmo; teu testemunho não é digno de fé.
+14. Respondeu-lhes Jesus: Embora eu dê testemunho de mim mesmo, o meu testemunho é digno de fé, porque sei de onde vim e para onde vou; mas vós não sabeis de onde venho nem para onde vou.
+15. Vós julgais segundo a aparência; eu não julgo ninguém.
+16. E, se julgo, o meu julgamento é conforme a verdade, porque não estou sozinho, mas comigo está o Pai que me enviou.
+17. Ora, na vossa lei está escrito: O testemunho de duas pessoas é digno de fé (Dt 19,15).
+18. Eu dou testemunho de mim mesmo; e meu Pai, que me enviou, o dá também.
+19. Perguntaram-lhe: Onde está teu Pai? Respondeu Jesus: Não conheceis nem a mim nem a meu Pai; se me conhecêsseis, certamente conheceríeis também a meu Pai.
+20. Estas palavras proferiu Jesus ensinando no templo, junto aos cofres de esmola. Mas ninguém o prendeu, porque ainda não era chegada a sua hora.
+21. Jesus disse-lhes: Eu me vou, e procurar-me-eis e morrereis no vosso pecado. Para onde eu vou, vós não podeis ir.
+22. Perguntavam os judeus: Será que ele se vai matar, pois diz: Para onde eu vou, vós não podeis ir?
+23. Ele lhes disse: Vós sois cá de baixo, eu sou lá de cima. Vós sois deste mundo, eu não sou deste mundo.
+24. Por isso vos disse: morrereis no vosso pecado; porque, se não crerdes o que eu sou, morrereis no vosso pecado.
+25. Quem és tu?, perguntaram-lhe eles então. Jesus respondeu: Exatamente o que eu vos declaro.
+26. Tenho muitas coisas a dizer e a julgar a vosso respeito, mas o que me enviou é verdadeiro e o que dele ouvi eu o digo ao mundo.
+27. Eles, porém, não compreenderam que ele lhes falava do Pai.
+28. Jesus então lhes disse: Quando tiverdes levantado o Filho do Homem, então conhecereis quem sou e que nada faço de mim mesmo, mas falo do modo como o Pai me ensinou.
+29. Aquele que me enviou está comigo; ele não me deixou sozinho, porque faço sempre o que é do seu agrado.
+30. Tendo proferido essas palavras, muitos creram nele.
+31. E Jesus dizia aos judeus que nele creram: Se permanecerdes na minha palavra, sereis meus verdadeiros discípulos;
+32. conhecereis a verdade e a verdade vos livrará.
+33. Replicaram-lhe: Somos descendentes de Abraão e jamais fomos escravos de alguém. Como dizes tu: Sereis livres?
+34. Respondeu Jesus: Em verdade, em verdade vos digo: todo homem que se entrega ao pecado é seu escravo.
+35. Ora, o escravo não fica na casa para sempre, mas o filho sim, fica para sempre.
+36. Se, portanto, o Filho vos libertar, sereis verdadeiramente livres.
+37. Bem sei que sois a raça de Abraão; mas quereis matar-me, porque a minha palavra não penetra em vós.
+38. Eu falo o que vi junto de meu Pai; e vós fazeis o que aprendestes de vosso pai.
+39. Nosso pai, replicaram eles, é Abraão. Disse-lhes Jesus: Se fôsseis filhos de Abraão, faríeis as obras de Abraão.
+40. Mas, agora, procurais tirar-me a vida, a mim que vos falei a verdade que ouvi de Deus! Isso Abraão não o fez.
+41. Vós fazeis as obras de vosso pai. Retrucaram-lhe eles: Nós não somos filhos da fornicação; temos um só pai: Deus.
+42. Jesus replicou: Se Deus fosse vosso pai, vós me amaríeis, porque eu saí de Deus. É dele que eu provenho, porque não vim de mim mesmo, mas foi ele quem me enviou.
+43. Por que não compreendeis a minha linguagem? É porque não podeis ouvir a minha palavra.
+44. Vós tendes como pai o demônio e quereis fazer os desejos de vosso pai. Ele era homicida desde o princípio e não permaneceu na verdade, porque a verdade não está nele. Quando diz a mentira, fala do que lhe é próprio, porque é mentiroso e pai da mentira.
+45. Mas eu, porque vos digo a verdade, não me credes.
+46. Quem de vós me acusará de pecado? Se vos falo a verdade, por que me não credes?
+47. Quem é de Deus ouve as palavras de Deus, e se vós não as ouvis é porque não sois de Deus.
+48. Responderam então os judeus: Não dizemos com razão que és samaritano, e que estás possesso de um demônio?
+49. Respondeu-lhes Jesus: Eu não estou possesso de demônio, mas honro a meu Pai. Vós, porém, me ultrajais!
+50. Não busco a minha glória. Há quem a busque e ele fará justiça.
+51. Em verdade, em verdade vos digo: se alguém guardar a minha palavra, não verá jamais a morte.
+52. Disseram-lhe os judeus: Agora vemos que és possuído de um demônio. Abraão morreu, e também os profetas. E tu dizes que, se alguém guardar a tua palavra, jamais provará a morte...
+53. És acaso maior do que nosso pai Abraão? E, entretanto, ele morreu... e os profetas também. Quem pretendes ser?
+54. Respondeu Jesus: Se me glorifico a mim mesmo, a minha glória não é nada; meu Pai é quem me glorifica, aquele que vós dizeis ser o vosso Deus
+55. e, contudo, não o conheceis. Eu, porém, o conheço e, se dissesse que não o conheço, seria mentiroso como vós. Mas conheço-o e guardo a sua palavra.
+56. Abraão, vosso pai, exultou com o pensamento de ver o meu dia. Viu-o e ficou cheio de alegria.
+57. Os judeus lhe disseram: Não tens ainda cinqüenta anos e viste Abraão!...
+58. Respondeu-lhes Jesus: Em verdade, em verdade vos digo: antes que Abraão fosse, eu sou.
+59. A essas palavras, pegaram então em pedras para lhas atirar. Jesus, porém, se ocultou e saiu do templo.São João, 9
+1. Caminhando, viu Jesus um cego de nascença.
+2. Os seus discípulos indagaram dele: Mestre, quem pecou, este homem ou seus pais, para que nascesse cego?
+3. Jesus respondeu: Nem este pecou nem seus pais, mas é necessário que nele se manifestem as obras de Deus.
+4. Enquanto for dia, cumpre-me terminar as obras daquele que me enviou. Virá a noite, na qual já ninguém pode trabalhar.
+5. Por isso, enquanto estou no mundo, sou a luz do mundo.
+6. Dito isso, cuspiu no chão, fez um pouco de lodo com a saliva e com o lodo ungiu os olhos do cego.
+7. Depois lhe disse: Vai, lava-te na piscina de Siloé (esta palavra significa emissário). O cego foi, lavou-se e voltou vendo.
+8. Então os vizinhos e aqueles que antes o tinham visto mendigar perguntavam: Não é este aquele que, sentado, mendigava?
+9. Respondiam alguns: É ele. Outros contestavam: De nenhum modo, é um parecido com ele. Ele, porém, dizia: Sou eu mesmo.
+10. Perguntaram-lhe, então: Como te foram abertos os olhos?
+11. Respondeu ele: Aquele homem que se chama Jesus fez lodo, ungiu-me os olhos e disse-me: Vai à piscina de Siloé e lava-te. Fui, lavei-me e vejo.
+12. Interrogaram-no: Onde está esse homem? Respondeu: Não o sei.
+13. Levaram então o que fora cego aos fariseus.
+14. Ora, era sábado quando Jesus fez o lodo e lhe abriu os olhos.
+15. Os fariseus indagaram dele novamente de que modo ficara vendo. Respondeu-lhes: Pôs-me lodo nos olhos, lavei-me e vejo.
+16. Diziam alguns dos fariseus: Este homem não é o enviado de Deus, pois não guarda sábado. Outros replicavam: Como pode um pecador fazer tais prodígios? E havia desacordo entre eles.
+17. Perguntaram ainda ao cego: Que dizes tu daquele que te abriu os olhos? É um profeta, respondeu ele.
+18. Mas os judeus não quiseram admitir que aquele homem tivesse sido cego e que tivesse recobrado a vista, até que chamaram seus pais.
+19. E os interrogaram: É este o vosso filho? Afirmais que ele nasceu cego? Pois como é que agora vê?
+20. Seus pais responderam: Sabemos que este é o nosso filho e que nasceu cego.
+21. Mas não sabemos como agora ficou vendo, nem quem lhe abriu os olhos. Perguntai-o a ele. Tem idade. Que ele mesmo explique.
+22. Seus pais disseram isso porque temiam os judeus, pois os judeus tinham ameaçado expulsar da sinagoga todo aquele que reconhecesse Jesus como o Cristo.
+23. Por isso é que seus pais responderam: Ele tem idade, perguntai-lho.
+24. Tornaram a chamar o homem que fora cego, dizendo-lhe: Dá glória a Deus! Nós sabemos que este homem é pecador.
+25. Disse-lhes ele: Se esse homem é pecador, não o sei... Sei apenas isto: sendo eu antes cego, agora vejo.
+26. Perguntaram-lhe ainda uma vez: Que foi que ele te fez? Como te abriu os olhos?
+27. Respondeu-lhes: Eu já vo-lo disse e não me destes ouvidos. Por que quereis tornar a ouvir? Quereis vós, porventura, tornar-vos também seus discípulos?...
+28. Então eles o cobriram de injúrias e lhe disseram: Tu que és discípulo dele! Nós somos discípulos de Moisés.
+29. Sabemos que Deus falou a Moisés, mas deste não sabemos de onde ele é.
+30. Respondeu aquele homem: O que é de admirar em tudo isso é que não saibais de onde ele é, e entretanto ele me abriu os olhos.
+31. Sabemos, porém, que Deus não ouve a pecadores, mas atende a quem lhe presta culto e faz a sua vontade.
+32. Jamais se ouviu dizer que alguém tenha aberto os olhos a um cego de nascença.
+33. Se esse homem não fosse de Deus, não poderia fazer nada.
+34. Responderam-lhe eles: Tu nasceste todo em pecado e nos ensinas?... E expulsaram-no.
+35. Jesus soube que o tinham expulsado e, havendo-o encontrado, perguntou-lhe: Crês no Filho do Homem?
+36. Respondeu ele: Quem é ele, Senhor, para que eu creia nele?
+37. Disse-lhe Jesus: Tu o vês, é o mesmo que fala contigo!
+38. Creio, Senhor, disse ele. E, prostrando-se, o adorou.
+39. Jesus então disse: Vim a este mundo para fazer uma discriminação: os que não vêem vejam, e os que vêem se tornem cegos.
+40. Alguns dos fariseus, que estavam com ele, ouviram-no e perguntaram-lhe: Também nós somos, acaso, cegos?...
+41. Respondeu-lhes Jesus: Se fôsseis cegos, não teríeis pecado, mas agora pretendeis ver, e o vosso pecado subsiste.São João, 10
+1. Em verdade, em verdade vos digo: quem não entra pela porta no aprisco das ovelhas, mas sobe por outra parte, é ladrão e salteador.
+2. Mas quem entra pela porta é o pastor das ovelhas.
+3. A este o porteiro abre, e as ovelhas ouvem a sua voz. Ele chama as ovelhas pelo nome e as conduz à pastagem.
+4. Depois de conduzir todas as suas ovelhas para fora, vai adiante delas; e as ovelhas seguem-no, pois lhe conhecem a voz.
+5. Mas não seguem o estranho; antes fogem dele, porque não conhecem a voz dos estranhos.
+6. Jesus disse-lhes essa parábola, mas não entendiam do que ele queria falar.
+7. Jesus tornou a dizer-lhes: Em verdade, em verdade vos digo: eu sou a porta das ovelhas.
+8. Todos quantos vieram antes de mim foram ladrões e salteadores, mas as ovelhas não os ouviram.
+9. Eu sou a porta. Se alguém entrar por mim será salvo; tanto entrará como sairá e encontrará pastagem.
+10. O ladrão não vem senão para furtar, matar e destruir. Eu vim para que as ovelhas tenham vida e para que a tenham em abundância.
+11. Eu sou o bom pastor. O bom pastor expõe a sua vida pelas ovelhas.
+12. O mercenário, porém, que não é pastor, a quem não pertencem as ovelhas, quando vê que o lobo vem vindo, abandona as ovelhas e foge; o lobo rouba e dispersa as ovelhas.
+13. O mercenário, porém, foge, porque é mercenário e não se importa com as ovelhas.
+14. Eu sou o bom pastor. Conheço as minhas ovelhas e as minhas ovelhas conhecem a mim,
+15. como meu Pai me conhece e eu conheço o Pai. Dou a minha vida pelas minhas ovelhas.
+16. Tenho ainda outras ovelhas que não são deste aprisco. Preciso conduzi-las também, e ouvirão a minha voz e haverá um só rebanho e um só pastor.
+17. O Pai me ama, porque dou a minha vida para a retomar.
+18. Ninguém a tira de mim, mas eu a dou de mim mesmo e tenho o poder de a dar, como tenho o poder de a reassumir. Tal é a ordem que recebi de meu Pai.
+19. A propósito dessas palavras, originou-se nova divisão entre os judeus.
+20. Muitos deles diziam: Ele está possuído do demônio. Ele delira. Por que o escutais vós?
+21. Outros diziam: Estas palavras não são de quem está endemoninhado. Acaso pode o demônio abrir os olhos a um cego?
+22. Celebrava-se em Jerusalém a festa da Dedicação. Era inverno.
+23. Jesus passeava no templo, no pórtico de Salomão.
+24. Os judeus rodearam-no e perguntaram-lhe: Até quando nos deixarás na incerteza? Se tu és o Cristo, dize-nos claramente.
+25. Jesus respondeu-lhes : Eu vo-lo digo, mas não credes. As obras que faço em nome de meu Pai, estas dão testemunho de mim.
+26. Entretanto, não credes, porque não sois das minhas ovelhas.
+27. As minhas ovelhas ouvem a minha voz, eu as conheço e elas me seguem.
+28. Eu llhes dou a vida eterna; elas jamais hão de perecer, e ninguém as roubará de minha mão.
+29. Meu Pai, que mas deu, é maior do que todos; e ninguém as pode arrebatar da mão de meu Pai.
+30. Eu e o Pai somos um.
+31. Os judeus pegaram pela segunda vez em pedras para o apedejar.
+32. Disse-lhes Jesus: Tenho-vos mostrado muitas obras boas da parte de meu Pai. Por qual dessas obras me apedrejais?
+33. Os judeus responderam-lhe: Não é por causa de alguma boa obra que te queremos apedrejar, mas por uma blasfêmia, porque, sendo homem, te fazes Deus.
+34. Replicou-lhes Jesus: Não está escrito na vossa lei: Eu disse: Vós sois deuses (Sl 81,6)?
+35. Se a lei chama deuses àqueles a quem a palavra de Deus foi dirigida (ora, a Escritura não pode ser desprezada),
+36. como acusais de blasfemo aquele a quem o Pai santificou e enviou ao mundo, porque eu disse: Sou o Filho de Deus?
+37. Se eu não faço as obras de meu Pai, não me creiais.
+38. Mas se as faço, e se não quiserdes crer em mim, crede nas minhas obras, para que saibais e reconheçais que o Pai está em mim e eu no Pai.
+39. Procuraram então prendê-lo, mas ele se esquivou das suas mãos.
+40. Ele se retirou novamente para além do Jordão, para o lugar onde João começara a batizar, e lá permaneceu.
+41. Muitos foram a ele e diziam: João não fez milagre algum,
+42. mas tudo o que João falou deste homem era verdade. E muitos acreditaram nele.São João, 11
+1. Lázaro caiu doente em Betânia, onde estavam Maria e sua irmã Marta.
+2. Maria era quem ungira o Senhor com o óleo perfumado e lhe enxugara os pés com os seus cabelos. E Lázaro, que estava enfermo, era seu irmão.
+3. Suas irmãs mandaram, pois, dizer a Jesus: Senhor, aquele que tu amas está enfermo.
+4. A estas palavras, disse-lhes Jesus: Esta enfermidade não causará a morte, mas tem por finalidade a glória de Deus. Por ela será glorificado o Filho de Deus.
+5. Ora, Jesus amava Marta, Maria, sua irmã, e Lázaro.
+6. Mas, embora tivesse ouvido que ele estava enfermo, demorou-se ainda dois dias no mesmo lugar.
+7. Depois, disse a seus discípulos: Voltemos para a Judéia.
+8. Mestre, responderam eles, há pouco os judeus te queriam apedrejar, e voltas para lá?
+9. Jesus respondeu: Não são doze as horas do dia? Quem caminha de dia não tropeça, porque vê a luz deste mundo.
+10. Mas quem anda de noite tropeça, porque lhe falta a luz.
+11. Depois destas palavras, ele acrescentou: Lázaro, nosso amigo, dorme, mas vou despertá-lo.
+12. Disseram-lhe os seus discípulos: Senhor, se ele dorme, há de sarar.
+13. Jesus, entretanto, falara da sua morte, mas eles pensavam que falasse do sono como tal.
+14. Então Jesus lhes declarou abertamente: Lázaro morreu.
+15. Alegro-me por vossa causa, por não ter estado lá, para que creiais. Mas vamos a ele.
+16. A isso Tomé, chamado Dídimo, disse aos seus condiscípulos: Vamos também nós, para morrermos com ele.
+17. À chegada de Jesus, já havia quatro dias que Lázaro estava no sepulcro.
+18. Ora, Betânia distava de Jerusalém cerca de quinze estádios.
+19. Muitos judeus tinham vindo a Marta e a Maria, para lhes apresentar condolências pela morte de seu irmão.
+20. Mal soube Marta da vinda de Jesus, saiu-lhe ao encontro. Maria, porém, estava sentada em casa.
+21. Marta disse a Jesus: Senhor, se tivesses estado aqui, meu irmão não teria morrido!
+22. Mas sei também, agora, que tudo o que pedires a Deus, Deus to concederá.
+23. Disse-lhe Jesus: Teu irmão ressurgirá.
+24. Respondeu-lhe Marta: Sei que há de ressurgir na ressurreição no último dia.
+25. Disse-lhe Jesus: Eu sou a ressurreição e a vida. Aquele que crê em mim, ainda que esteja morto, viverá.
+26. E todo aquele que vive e crê em mim, jamais morrerá. Crês nisto?
+27. Respondeu ela: Sim, Senhor. Eu creio que tu és o Cristo, o Filho de Deus, aquele que devia vir ao mundo.
+28. A essas palavras, ela foi chamar sua irmã Maria, dizendo-lhe baixinho: O Mestre está aí e te chama.
+29. Apenas ela o ouviu, levantou-se imediatamente e foi ao encontro dele.
+30. (Pois Jesus não tinha chegado à aldeia, mas estava ainda naquele lugar onde Marta o tinha encontrado.)
+31. Os judeus que estavam com ela em casa, em visita de pêsames, ao verem Maria levantar-se depressa e sair, seguiram-na, crendo que ela ia ao sepulcro para ali chorar.
+32. Quando, porém, Maria chegou onde Jesus estava e o viu, lançou-se aos seus pés e disse-lhe: Senhor, se tivesses estado aqui, meu irmão não teria morrido!
+33. Ao vê-la chorar assim, como também todos os judeus que a acompanhavam, Jesus ficou intensamente comovido em espírito. E, sob o impulso de profunda emoção,
+34. perguntou: Onde o pusestes? Responderam-lhe: Senhor, vinde ver.
+35. Jesus pôs-se a chorar.
+36. Observaram por isso os judeus: Vede como ele o amava!
+37. Mas alguns deles disseram: Não podia ele, que abriu os olhos do cego de nascença, fazer com que este não morresse?
+38. Tomado, novamente, de profunda emoção, Jesus foi ao sepulcro. Era uma gruta, coberta por uma pedra.
+39. Jesus ordenou: Tirai a pedra. Disse-lhe Marta, irmã do morto: Senhor, já cheira mal, pois há quatro dias que ele está aí...
+40. Respondeu-lhe Jesus: Não te disse eu: Se creres, verás a glória de Deus? Tiraram, pois, a pedra.
+41. Levantando Jesus os olhos ao alto, disse: Pai, rendo-te graças, porque me ouviste.
+42. Eu bem sei que sempre me ouves, mas falo assim por causa do povo que está em roda, para que creiam que tu me enviaste.
+43. Depois destas palavras, exclamou em alta voz: Lázaro, vem para fora!
+44. E o morto saiu, tendo os pés e as mãos ligados com faixas, e o rosto coberto por um sudário. Ordenou então Jesus: Desligai-o e deixai-o ir.
+45. Muitos dos judeus, que tinham vindo a Marta e Maria e viram o que Jesus fizera, creram nele.
+46. Alguns deles, porém, foram aos fariseus e lhes contaram o que Jesus realizara.
+47. Os pontífices e os fariseus convocaram o conselho e disseram: Que faremos? Esse homem multiplica os milagres.
+48. Se o deixarmos proceder assim, todos crerão nele, e os romanos virão e arruinarão a nossa cidade e toda a nação.
+49. Um deles, chamado Caifás, que era o sumo sacerdote daquele ano, disse-lhes: Vós não entendeis nada!
+50. Nem considerais que vos convém que morra um só homem pelo povo, e que não pereça toda a nação.
+51. E ele não disse isso por si mesmo, mas, como era o sumo sacerdote daquele ano, profetizava que Jesus havia de morrer pela nação,
+52. e não somente pela nação, mas também para que fossem reconduzidos à unidade os filhos de Deus dispersos.
+53. E desde aquele momento resolveram tirar-lhe a vida.
+54. Em conseqüência disso, Jesus já não andava em público entre os judeus. Retirou-se para uma região vizinha do deserto, a uma cidade chamada Efraim, e ali se detinha com seus discípulos.
+55. Estava próxima a Páscoa dos judeus, e muita gente de todo o país subia a Jerusalém antes da Páscoa para se purificar.
+56. Procuravam Jesus e falavam uns com os outros no templo: Que vos parece? Achais que ele não virá à festa?
+57. Mas os sumos sacerdotes e os fariseus tinham dado ordem para que todo aquele que soubesse onde ele estava o denunciasse, para o prenderem.São João, 12
+1. Seis dias antes da Páscoa, foi Jesus a Betânia, onde vivia Lázaro, que ele ressuscitara.
+2. Deram ali uma ceia em sua honra. Marta servia e Lázaro era um dos convivas.
+3. Tomando Maria uma libra de bálsamo de nardo puro, de grande preço, ungiu os pés de Jesus e enxugou-os com seus cabelos. A casa encheu-se do perfume do bálsamo.
+4. Mas Judas Iscariotes, um dos seus discípulos, aquele que o havia de trair, disse:
+5. Por que não se vendeu este bálsamo por trezentos denários e não se deu aos pobres?
+6. Dizia isso não porque ele se interessasse pelos pobres, mas porque era ladrão e, tendo a bolsa, furtava o que nela lançavam.
+7. Jesus disse: Deixai-a; ela guardou este perfume para o dia da minha sepultura.
+8. Pois sempre tereis convosco os pobres, mas a mim nem sempre me tereis.
+9. Uma grande multidão de judeus veio a saber que Jesus lá estava; e chegou, não somente por causa de Jesus, mas ainda para ver Lázaro, que ele ressuscitara.
+10. Mas os príncipes dos sacerdotes resolveram tirar a vida também a Lázaro,
+11. porque muitos judeus, por causa dele, se afastavam e acreditavam em Jesus.
+12. No dia seguinte, uma grande multidão que tinha vindo à festa em Jerusalém ouviu dizer que Jesus se ia aproximando.
+13. Saíram-lhe ao encontro com ramos de palmas, exclamando: Hosana! Bendito o que vem em nome do Senhor, o rei de Israel!
+14. Tendo Jesus encontrado um jumentinho, montou nele, segundo o que está escrito:
+15. Não temas, filha de Sião, eis que vem o teu rei montado num filho de jumenta (Zc 9,9).
+16. Os seus discípulos a princípio não compreendiam essas coisas, mas, quando Jesus foi glorificado, então se lembraram de que isto estava escrito a seu respeito e de que assim lho fizeram.
+17. A multidão, pois, que se achava com ele, quando chamara Lázaro do sepulcro e o ressuscitara, aclamava-o.
+18. Por isso o povo lhe saía ao encontro, porque tinha ouvido que Jesus fizera aquele milagre.
+19. Mas os fariseus disseram entre si: Vede! Nada adiantamos! Reparai que todo mundo corre após ele!
+20. Havia alguns gregos entre os que subiram para adorar durante a festa.
+21. Estes se aproximaram de Filipe (aquele de Betsaida da Galiléia) e rogaram-lhe: Senhor, quiséramos ver Jesus.
+22. Filipe foi e falou com André. Então André e Filipe o disseram ao Senhor.
+23. Respondeu-lhes Jesus: É chegada a hora para o Filho do Homem ser glorificado.
+24. Em verdade, em verdade vos digo: se o grão de trigo, caído na terra, não morrer, fica só; se morrer, produz muito fruto.
+25. Quem ama a sua vida, perdê-la-á; mas quem odeia a sua vida neste mundo, conservá-la-á para a vida eterna.
+26. Se alguém me quer servir, siga-me; e, onde eu estiver, estará ali também o meu servo. Se alguém me serve, meu Pai o honrará.
+27. Presentemente, a minha alma está perturbada. Mas que direi?... Pai, salva-me desta hora... Mas é exatamente para isso que vim a esta hora.
+28. Pai, glorifica o teu nome! Nisto veio do céu uma voz: Já o glorifiquei e tornarei a glorificá-lo.
+29. Ora, a multidão que ali estava, ao ouvir isso, dizia ter havido um trovão. Outros replicavam: Um anjo falou-lhe.
+30. Jesus disse: Essa voz não veio por mim, mas sim por vossa causa.
+31. Agora é o juízo deste mundo; agora será lançado fora o príncipe deste mundo.
+32. E quando eu for levantado da terra, atrairei todos os homens a mim.
+33. Dizia, porém, isto, significando de que morte havia de morrer.
+34. A multidão respondeu-lhe: Nós temos ouvido da lei que o Cristo permanece para sempre. Como dizes tu: Importa que o Filho do Homem seja levantado? Quem é esse Filho do Homem?
+35. Respondeu-lhes Jesus: Ainda por pouco tempo a luz estará em vosso meio. Andai enquanto tendes a luz, para que as trevas não vos surpreendam; e quem caminha nas trevas não sabe para onde vai.
+36. Enquanto tendes a luz, crede na luz, e assim vos tornareis filhos da luz. Jesus disse essas coisas, retirou-se e ocultou-se longe deles.
+37. Embora tivesse feito tantos milagres na presença deles, não acreditavam nele.
+38. Assim se cumpria o oráculo do profeta Isaías: Senhor, quem creu em nossa pregação? E a quem foi revelado o braço do Senhor (Is 53,1)?
+39. Aliás, não podiam crer, porque outra vez disse Isaías:
+40. Ele cegou-lhes os olhos, endureceu-lhes o coração, para que não vejam com os olhos nem entendam com o coração e se convertam e eu os sare (Is 6,10).
+41. Assim se exprimiu Isaías, quando teve a visão de sua glória e dele falou.
+42. Não obstante, também muitos dos chefes creram nele, mas por causa dos fariseus não o manifestavam, para não serem expulsos da sinagoga.
+43. Assim preferiram a glória dos homens àquela que vem de Deus.
+44. Entretanto, Jesus exclamou em voz alta: Aquele que crê em mim, crê não em mim, mas naquele que me enviou;
+45. e aquele que me vê, vê aquele que me enviou.
+46. Eu vim como luz ao mundo; assim, todo aquele que crer em mim não ficará nas trevas.
+47. Se alguém ouve as minhas palavras e não as guarda, eu não o condenarei, porque não vim para condenar o mundo, mas para salvá-lo.
+48. Quem me despreza e não recebe as minhas palavras, tem quem o julgue; a palavra que anunciei julgá-lo-á no último dia.
+49. Em verdade, não falei por mim mesmo, mas o Pai, que me enviou, ele mesmo me prescreveu o que devo dizer e o que devo ensinar.
+50. E sei que o seu mandamento é vida eterna. Portanto, o que digo, digo-o segundo me falou o Pai.São João, 13
+1. Antes da festa da Páscoa, sabendo Jesus que chegara a sua hora de passar deste mundo ao Pai, como amasse os seus que estavam no mundo, até o extremo os amou.
+2. Durante a ceia, - quando o demônio já tinha lançado no coração de Judas, filho de Simão Iscariotes, o propósito de traí-lo -,
+3. sabendo Jesus que o Pai tudo lhe dera nas mãos, e que saíra de Deus e para Deus voltava,
+4. levantou-se da mesa, depôs as suas vestes e, pegando duma toalha, cingiu-se com ela.
+5. Em seguida, deitou água numa bacia e começou a lavar os pés dos discípulos e a enxugá-los com a toalha com que estava cingido.
+6. Chegou a Simão Pedro. Mas Pedro lhe disse: Senhor, queres lavar-me os pés!...
+7. Respondeu-lhe Jesus: O que faço não compreendes agora, mas compreendê-lo-ás em breve.
+8. Disse-lhe Pedro: Jamais me lavarás os pés!... Respondeu-lhe Jesus: Se eu não tos lavar, não terás parte comigo.
+9. Exclamou então Simão Pedro: Senhor, não somente os pés, mas também as mãos e a cabeça.
+10. Disse-lhe Jesus: Aquele que tomou banho não tem necessidade de lavar-se; está inteiramente puro. Ora, vós estais puros, mas nem todos!...
+11. Pois sabia quem o havia de trair; por isso, disse: Nem todos estais puros.
+12. Depois de lhes lavar os pés e tomar as suas vestes, sentou-se novamente à mesa e perguntou-lhes: Sabeis o que vos fiz?
+13. Vós me chamais Mestre e Senhor, e dizeis bem, porque eu o sou.
+14. Logo, se eu, vosso Senhor e Mestre, vos lavei os pés, também vós deveis lavar-vos os pés uns aos outros.
+15. Dei-vos o exemplo para que, como eu vos fiz, assim façais também vós.
+16. Em verdade, em verdade vos digo: o servo não é maior do que o seu Senhor, nem o enviado é maior do que aquele que o enviou.
+17. Se compreenderdes estas coisas, sereis felizes, sob condição de as praticardes.
+18. Não digo isso de vós todos; conheço os que escolhi, mas é preciso que se cumpra esta palavra da Escritura: Aquele que come o pão comigo levantou contra mim o seu calcanhar (Sl 40,10).
+19. Desde já vo-lo digo, antes que aconteça, para que, quando acontecer, creiais e reconheçais quem sou eu.
+20. Em verdade, em verdade vos digo: quem recebe aquele que eu enviei recebe a mim; e quem me recebe, recebe aquele que me enviou.
+21. Dito isso, Jesus ficou perturbado em seu espírito e declarou abertamente: Em verdade, em verdade vos digo: um de vós me há de trair!...
+22. Os discípulos olhavam uns para os outros, sem saber de quem falava.
+23. Um dos discípulos, a quem Jesus amava, estava à mesa reclinado ao peito de Jesus.
+24. Simão Pedro acenou-lhe para dizer-lhe: Dize-nos, de quem é que ele fala.
+25. Reclinando-se este mesmo discípulo sobre o peito de Jesus, interrogou-o: Senhor, quem é?
+26. Jesus respondeu: É aquele a quem eu der o pão embebido. Em seguida, molhou o pão e deu-o a Judas, filho de Simão Iscariotes.
+27. Logo que ele o engoliu, Satanás entrou nele. Jesus disse-lhe, então: O que queres fazer, faze-o depressa.
+28. Mas ninguém dos que estavam à mesa soube por que motivo lho dissera.
+29. Pois, como Judas tinha a bolsa, pensavam alguns que Jesus lhe falava: Compra aquilo de que temos necessidade para a festa. Ou: Dá alguma coisa aos pobres.
+30. Tendo Judas recebido o bocado de pão, apressou-se em sair. E era noite...
+31. Logo que Judas saiu, Jesus disse: Agora é glorificado o Filho do Homem, e Deus é glorificado nele.
+32. Se Deus foi glorificado nele, também Deus o glorificará em si mesmo, e o glorificará em breve.
+33. Filhinhos meus, por um pouco apenas ainda estou convosco. Vós me haveis de procurar, mas como disse aos judeus, também vos digo agora a vós: para onde eu vou, vós não podeis ir.
+34. Dou-vos um novo mandamento: Amai-vos uns aos outros. Como eu vos tenho amado, assim também vós deveis amar-vos uns aos outros.
+35. Nisto todos conhecerão que sois meus discípulos, se vos amardes uns aos outros.
+36. Perguntou-lhe Simão Pedro: Senhor, para onde vais? Jesus respondeu-lhe: Para onde vou, não podes seguir-me agora, mas seguir-me-ás mais tarde.
+37. Pedro tornou a perguntar: Senhor, por que te não posso seguir agora? Darei a minha vida por ti!
+38. Respondeu-lhe Jesus: Darás a tua vida por mim!... Em verdade, em verdade te digo: não cantará o galo até que me negues três vezes.São João, 14
+1. Não se perturbe o vosso coração. Credes em Deus, crede também em mim.
+2. Na casa de meu Pai há muitas moradas. Não fora assim, e eu vos teria dito; pois vou preparar-vos um lugar.
+3. Depois de ir e vos preparar um lugar, voltarei e tomar-vos-ei comigo, para que, onde eu estou, também vós estejais.
+4. E vós conheceis o caminho para ir aonde vou.
+5. Disse-lhe Tomé: Senhor, não sabemos para onde vais. Como podemos conhecer o caminho?
+6. Jesus lhe respondeu: Eu sou o caminho, a verdade e a vida; ninguém vem ao Pai senão por mim.
+7. Se me conhecêsseis, também certamente conheceríeis meu Pai; desde agora já o conheceis, pois o tendes visto.
+8. Disse-lhe Filipe: Senhor, mostra-nos o Pai e isso nos basta.
+9. Respondeu Jesus: Há tanto tempo que estou convosco e não me conheceste, Filipe! Aquele que me viu, viu também o Pai. Como, pois, dizes: Mostra-nos o Pai...
+10. Não credes que estou no Pai, e que o Pai está em mim? As palavras que vos digo não as digo de mim mesmo; mas o Pai, que permanece em mim, é que realiza as suas próprias obras.
+11. Crede-me: estou no Pai, e o Pai em mim. Crede-o ao menos por causa destas obras.
+12. Em verdade, em verdade vos digo: aquele que crê em mim fará também as obras que eu faço, e fará ainda maiores do que estas, porque vou para junto do Pai.
+13. E tudo o que pedirdes ao Pai em meu nome, vo-lo farei, para que o Pai seja glorificado no Filho.
+14. Qualquer coisa que me pedirdes em meu nome, vo-lo farei.
+15. Se me amais, guardareis os meus mandamentos.
+16. E eu rogarei ao Pai, e ele vos dará outro Paráclito, para que fique eternamente convosco.
+17. É o Espírito da Verdade, que o mundo não pode receber, porque não o vê nem o conhece, mas vós o conhecereis, porque permanecerá convosco e estará em vós.
+18. Não vos deixarei órfãos. Voltarei a vós.
+19. Ainda um pouco de tempo e o mundo já não me verá. Vós, porém, me tornareis a ver, porque eu vivo e vós vivereis.
+20. Naquele dia conhecereis que estou em meu Pai, e vós em mim e eu em vós.
+21. Aquele que tem os meus mandamentos e os guarda, esse é que me ama. E aquele que me ama será amado por meu Pai, e eu o amarei e manifestar-me-ei a ele.
+22. Pergunta-lhe Judas, não o Iscariotes: Senhor, por que razão hás de manifestar-te a nós e não ao mundo?
+23. Respondeu-lhe Jesus: Se alguém me ama, guardará a minha palavra e meu Pai o amará, e nós viremos a ele e nele faremos nossa morada.
+24. Aquele que não me ama não guarda as minhas palavras. A palavra que tendes ouvido não é minha, mas sim do Pai que me enviou.
+25. Disse-vos estas coisas enquanto estou convosco.
+26. Mas o Paráclito, o Espírito Santo, que o Pai enviará em meu nome, ensinar-vos-á todas as coisas e vos recordará tudo o que vos tenho dito.
+27. Deixo-vos a paz, dou-vos a minha paz. Não vo-la dou como o mundo a dá. Não se perturbe o vosso coração, nem se atemorize!
+28. Ouvistes que eu vos disse: Vou e volto a vós. Se me amardes, certamente haveis de alegrar-vos, que vou para junto do Pai, porque o Pai é maior do que eu.
+29. E disse-vos agora estas coisas, antes que aconteçam, para que creiais quando acontecerem.
+30. Já não falarei muito convosco, porque vem o príncipe deste mundo; mas ele não tem nada em mim.
+31. O mundo, porém, deve saber que amo o Pai e procedo como o Pai me ordenou. Levantai-vos, vamo-nos daqui.
+São João, 15
+1. Eu sou a videira verdadeira, e meu Pai é o agricultor. Todo ramo que não der fruto em mim, ele o cortará;
+2. e podará todo o que der fruto, para que produza mais fruto.
+3. Vós já estais puros pela palavra que vos tenho anunciado.
+4. Permanecei em mim e eu permanecerei em vós. O ramo não pode dar fruto por si mesmo, se não permanecer na videira. Assim também vós: não podeis tampouco dar fruto, se não permanecerdes em mim.
+5. Eu sou a videira; vós, os ramos. Quem permanecer em mim e eu nele, esse dá muito fruto; porque sem mim nada podeis fazer.
+6. Se alguém não permanecer em mim será lançado fora, como o ramo. Ele secará e hão de ajuntá-lo e lançá-lo ao fogo, e queimar-se-á.
+7. Se permanecerdes em mim, e as minhas palavras permanecerem em vós, pedireis tudo o que quiserdes e vos será feito.
+8. Nisto é glorificado meu Pai, para que deis muito fruto e vos torneis meus discípulos.
+9. Como o Pai me ama, assim também eu vos amo. Perseverai no meu amor.
+10. Se guardardes os meus mandamentos, sereis constantes no meu amor, como também eu guardei os mandamentos de meu Pai e persisto no seu amor.
+11. Disse-vos essas coisas para que a minha alegria esteja em vós, e a vossa alegria seja completa.
+12. Este é o meu mandamento: amai-vos uns aos outros, como eu vos amo.
+13. Ninguém tem maior amor do que aquele que dá a sua vida por seus amigos.
+14. Vós sois meus amigos, se fazeis o que vos mando.
+15. Já não vos chamo servos, porque o servo não sabe o que faz seu senhor. Mas chamei-vos amigos, pois vos dei a conhecer tudo quanto ouvi de meu Pai.
+16. Não fostes vós que me escolhestes, mas eu vos escolhi e vos constituí para que vades e produzais fruto, e o vosso fruto permaneça. Eu assim vos constituí, a fim de que tudo quanto pedirdes ao Pai em meu nome, ele vos conceda.
+17. O que vos mando é que vos ameis uns aos outros.
+18. Se o mundo vos odeia, sabei que me odiou a mim antes que a vós.
+19. Se fôsseis do mundo, o mundo vos amaria como sendo seus. Como, porém, não sois do mundo, mas do mundo vos escolhi, por isso o mundo vos odeia.
+20. Lembrai-vos da palavra que vos disse: O servo não é maior do que o seu senhor. Se me perseguiram, também vos hão de perseguir. Se guardaram a minha palavra, hão de guardar também a vossa.
+21. Mas vos farão tudo isso por causa do meu nome, porque não conhecem aquele que me enviou.
+22. Se eu não viesse e não lhes tivesse falado, não teriam pecado; mas agora não há desculpa para o seu pecado.
+23. Aquele que me odeia, odeia também a meu Pai.
+24. Se eu não tivesse feito entre eles obras, como nenhum outro fez, não teriam pecado; mas agora as viram e odiaram a mim e a meu Pai.
+25. Mas foi para que se cumpra a palavra que está escrita na sua lei: Odiaram-me sem motivo (Sl 34,19; 68,5).
+26. Quando vier o Paráclito, que vos enviarei da parte do Pai, o Espírito da Verdade, que procede do Pai, ele dará testemunho de mim.
+27. Também vós dareis testemunho, porque estais comigo desde o princípio.São João, 16
+1. Disse-vos essas coisas para vos preservar de alguma queda.
+2. Expulsar-vos-ão das sinagogas, e virá a hora em que todo aquele que vos tirar a vida julgará prestar culto a Deus.
+3. Procederão deste modo porque não conheceram o Pai, nem a mim.
+4. Disse-vos, porém, essas palavras para que, quando chegar a hora, vos lembreis de que vo-lo anunciei. E não vo-las disse desde o princípio, porque estava convosco.
+5. Agora vou para aquele que me enviou, e ninguém de vós me pergunta: Para onde vais?
+6. Mas porque vos falei assim, a tristeza encheu o vosso coração.
+7. Entretanto, digo-vos a verdade: convém a vós que eu vá! Porque, se eu não for, o Paráclito não virá a vós; mas se eu for, vo-lo enviarei.
+8. E, quando ele vier, convencerá o mundo a respeito do pecado, da justiça e do juízo.
+9. Convencerá o mundo a respeito do pecado, que consiste em não crer em mim.
+10. Ele o convencerá a respeito da justiça, porque eu me vou para junto do meu Pai e vós já não me vereis;
+11. ele o convencerá a respeito do juízo, que consiste em que o príncipe deste mundo já está julgado e condenado.
+12. Muitas coisas ainda tenho a dizer-vos, mas não as podeis suportar agora.
+13. Quando vier o Paráclito, o Espírito da Verdade, ensinar-vos-á toda a verdade, porque não falará por si mesmo, mas dirá o que ouvir, e anunciar-vos-á as coisas que virão.
+14. Ele me glorificará, porque receberá do que é meu, e vo-lo anunciará.
+15. Tudo o que o Pai possui é meu. Por isso, disse: Há de receber do que é meu, e vo-lo anunciará.
+16. Ainda um pouco de tempo, e já me não vereis; e depois mais um pouco de tempo, e me tornareis a ver, porque vou para junto do Pai.
+17. Nisso alguns dos seus discípulos perguntavam uns aos outros: Que é isso que ele nos diz: Ainda um pouco de tempo, e não me vereis; e depois mais um pouco de tempo, e me tornareis a ver? E que significa também: Eu vou para o Pai?
+18. Diziam então: Que significa este pouco de tempo de que fala? Não sabemos o que ele quer dizer.
+19. Jesus notou que lho queriam perguntar e disse-lhes: Perguntais uns aos outros acerca do que eu disse: Ainda um pouco de tempo, e não me vereis; e depois mais um pouco de tempo, e me tornareis a ver.
+20. Em verdade, em verdade vos digo: haveis de lamentar e chorar, mas o mundo se há de alegrar. E haveis de estar tristes, mas a vossa tristeza se há de transformar em alegria.
+21. Quando a mulher está para dar à luz, sofre porque veio a sua hora. Mas, depois que deu à luz a criança, já não se lembra da aflição, por causa da alegria que sente de haver nascido um homem no mundo.
+22. Assim também vós: sem dúvida, agora estais tristes, mas hei de ver-vos outra vez, e o vosso coração se alegrará e ninguém vos tirará a vossa alegria.
+23. Naquele dia não me perguntareis mais coisa alguma. Em verdade, em verdade vos digo: o que pedirdes ao Pai em meu nome, ele vo-lo dará.
+24. Até agora não pedistes nada em meu nome. Pedi e recebereis, para que a vossa alegria seja perfeita.
+25. Disse-vos essas coisas em termos figurados e obscuros. Vem a hora em que já não vos falarei por meio de comparações e parábolas, mas vos falarei abertamente a respeito do Pai.
+26. Naquele dia pedireis em meu nome, e já não digo que rogarei ao Pai por vós.
+27. Pois o mesmo Pai vos ama, porque vós me amastes e crestes que saí de Deus.
+28. Saí do Pai e vim ao mundo. Agora deixo o mundo e volto para junto do Pai.
+29. Disseram-lhe os seus discípulos: Eis que agora falas claramente e a tua linguagem já não é figurada e obscura.
+30. Agora sabemos que conheces todas as coisas e que não necessitas que alguém te pergunte. Por isso, cremos que saíste de Deus.
+31. Jesus replicou-lhes: Credes agora!...
+32. Eis que vem a hora, e ela já veio, em que sereis espalhados, cada um para o seu lado, e me deixareis sozinho. Mas não estou só, porque o Pai está comigo.
+33. Referi-vos essas coisas para que tenhais a paz em mim. No mundo haveis de ter aflições. Coragem! Eu venci o mundo.São João, 17
+1. Jesus afirmou essas coisas e depois, levantando os olhos ao céu, disse: Pai, é chegada a hora. Glorifica teu Filho, para que teu Filho glorifique a ti;
+2. e para que, pelo poder que lhe conferiste sobre toda criatura, ele dê a vida eterna a todos aqueles que lhe entregaste.
+3. Ora, a vida eterna consiste em que conheçam a ti, um só Deus verdadeiro, e a Jesus Cristo que enviaste.
+4. Eu te glorifiquei na terra. Terminei a obra que me deste para fazer.
+5. Agora, pois, Pai, glorifica-me junto de ti, concedendo-me a glória que tive junto de ti, antes que o mundo fosse criado.
+6. Manifestei o teu nome aos homens que do mundo me deste. Eram teus e deste-mos e guardaram a tua palavra.
+7. Agora eles reconheceram que todas as coisas que me deste procedem de ti.
+8. Porque eu lhes transmiti as palavras que tu me confiaste e eles as receberam e reconheceram verdadeiramente que saí de ti, e creram que tu me enviaste.
+9. Por eles é que eu rogo. Não rogo pelo mundo, mas por aqueles que me deste, porque são teus.
+10. Tudo o que é meu é teu, e tudo o que é teu é meu. Neles sou glorificado.
+11. Já não estou no mundo, mas eles estão ainda no mundo; eu, porém, vou para junto de ti. Pai santo, guarda-os em teu nome, que me encarregaste de fazer conhecer, a fim de que sejam um como nós.
+12. Enquanto eu estava com eles, eu os guardava em teu nome, que me incumbiste de fazer conhecido. Conservei os que me deste, e nenhum deles se perdeu, exceto o filho da perdição, para que se cumprisse a Escritura.
+13. Mas, agora, vou para junto de ti. Dirijo-te esta oração enquanto estou no mundo para que eles tenham a plenitude da minha alegria.
+14. Dei-lhes a tua palavra, mas o mundo os odeia, porque eles não são do mundo, como também eu não sou do mundo.
+15. Não peço que os tires do mundo, mas sim que os preserves do mal.
+16. Eles não são do mundo, como também eu não sou do mundo.
+17. Santifica-os pela verdade. A tua palavra é a verdade.
+18. Como tu me enviaste ao mundo, também eu os enviei ao mundo.
+19. Santifico-me por eles para que também eles sejam santificados pela verdade.
+20. Não rogo somente por eles, mas também por aqueles que por sua palavra hão de crer em mim.
+21. Para que todos sejam um, assim como tu, Pai, estás em mim e eu em ti, para que também eles estejam em nós e o mundo creia que tu me enviaste.
+22. Dei-lhes a glória que me deste, para que sejam um, como nós somos um:
+23. eu neles e tu em mim, para que sejam perfeitos na unidade e o mundo reconheça que me enviaste e os amaste, como amaste a mim.
+24. Pai, quero que, onde eu estou, estejam comigo aqueles que me deste, para que vejam a minha glória que me concedeste, porque me amaste antes da criação do mundo.
+25. Pai justo, o mundo não te conheceu, mas eu te conheci, e estes sabem que tu me enviaste.
+26. Manifestei-lhes o teu nome, e ainda hei de lho manifestar, para que o amor com que me amaste esteja neles, e eu neles.São João, 18
+1. Depois dessas palavras, Jesus saiu com os seus discípulos para além da torrente de Cedron, onde havia um jardim, no qual entrou com os seus discípulos.
+2. Judas, o traidor, conhecia também aquele lugar, porque Jesus ia freqüentemente para lá com os seus discípulos.
+3. Tomou então Judas a coorte e os guardas de serviço dos pontífices e dos fariseus, e chegaram ali com lanternas, tochas e armas.
+4. Como Jesus soubesse tudo o que havia de lhe acontecer, adiantou-se e perguntou-lhes: A quem buscais?
+5. Responderam: A Jesus de Nazaré. Sou eu, disse-lhes. (Também Judas, o traidor, estava com eles.)
+6. Quando lhes disse Sou eu, recuaram e caíram por terra.
+7. Perguntou-lhes ele, pela segunda vez: A quem buscais? Disseram: A Jesus de Nazaré.
+8. Replicou Jesus: Já vos disse que sou eu. Se é, pois, a mim que buscais, deixai ir estes.
+9. Assim se cumpriu a palavra que disse: Dos que me deste não perdi nenhum (Jo 17,12).
+10. Simão Pedro, que tinha uma espada, puxou dela e feriu o servo do sumo sacerdote, decepando-lhe a orelha direita. (O servo chamava-se Malco.)
+11. Mas Jesus disse a Pedro: Enfia a tua espada na bainha! Não hei de beber eu o cálice que o Pai me deu?
+12. Então a coorte, o tribuno e os guardas dos judeus prenderam Jesus e o ataram.
+13. Conduziram-no primeiro a Anás, por ser sogro de Caifás, que era o sumo sacerdote daquele ano.
+14. Caifás fora quem dera aos judeus o conselho: Convém que um só homem morra em lugar do povo.
+15. Simão Pedro seguia Jesus, e mais outro discípulo. Este discípulo era conhecido do sumo sacerdote e entrou com Jesus no pátio da casa do sumo sacerdote,
+16. porém Pedro ficou de fora, à porta. Mas o outro discípulo (que era conhecido do sumo sacerdote) saiu e falou à porteira, e esta deixou Pedro entrar.
+17. A porteira perguntou a Pedro: Não és acaso também tu dos discípulos desse homem? Não o sou, respondeu ele.
+18. Os servos e os guardas acenderam um fogo, porque fazia frio, e se aqueciam. Com eles estava também Pedro, de pé, aquecendo-se.
+19. O sumo sacerdote indagou de Jesus acerca dos seus discípulos e da sua doutrina.
+20. Jesus respondeu-lhe: Falei publicamente ao mundo. Ensinei na sinagoga e no templo, onde se reúnem os judeus, e nada falei às ocultas.
+21. Por que me perguntas? Pergunta àqueles que ouviram o que lhes disse. Estes sabem o que ensinei.
+22. A estas palavras, um dos guardas presentes deu uma bofetada em Jesus, dizendo: É assim que respondes ao sumo sacerdote?
+23. Replicou-lhe Jesus: Se falei mal, prova-o, mas se falei bem, por que me bates?
+24. (Anás enviou-o preso ao sumo sacerdote Caifás.)
+25. Simão Pedro estava lá se aquecendo. Perguntaram-lhe: Não és porventura, também tu, dos seus discípulos? Negou-o, dizendo: Não!
+26. Disse-lhe um dos servos do sumo sacerdote, parente daquele a quem Pedro cortara a orelha: Não te vi eu com ele no horto?
+27. Mas Pedro negou-o outra vez, e imediatamente o galo cantou.
+28. Da casa de Caifás conduziram Jesus ao pretório. Era de manhã cedo. Mas os judeus não entraram no pretório, para não se contaminarem e poderem comer a Páscoa.
+29. Saiu, por isso, Pilatos para ter com eles, e perguntou: Que acusação trazeis contra este homem?
+30. Responderam-lhe: Se este não fosse malfeitor, não o teríamos entregue a ti.
+31. Disse, então, Pilatos: Tomai-o e julgai-o vós mesmos segundo a vossa lei. Responderam-lhe os judeus: Não nos é permitido matar ninguém.
+32. Assim se cumpria a palavra com a qual Jesus indicou de que gênero de morte havia de morrer (Mt 20,19).
+33. Pilatos entrou no pretório, chamou Jesus e perguntou-lhe: És tu o rei dos judeus?
+34. Jesus respondeu: Dizes isso por ti mesmo, ou foram outros que to disseram de mim?
+35. Disse Pilatos: Acaso sou eu judeu? A tua nação e os sumos sacerdotes entregaram-te a mim. Que fizeste?
+36. Respondeu Jesus: O meu Reino não é deste mundo. Se o meu Reino fosse deste mundo, os meus súditos certamente teriam pelejado para que eu não fosse entregue aos judeus. Mas o meu Reino não é deste mundo.
+37. Perguntou-lhe então Pilatos: És, portanto, rei? Respondeu Jesus: Sim, eu sou rei. É para dar testemunho da verdade que nasci e vim ao mundo. Todo o que é da verdade ouve a minha voz.
+38. Disse-lhe Pilatos: Que é a verdade?... Falando isso, saiu de novo, foi ter com os judeus e disse-lhes: Não acho nele crime algum.
+39. Mas é costume entre vós que pela Páscoa vos solte um preso. Quereis, pois, que vos solte o rei dos judeus?
+40. Então todos gritaram novamente e disseram: Não! A este não! Mas a Barrabás! (Barrabás era um salteador.)São João, 19
+1. Pilatos mandou então flagelar Jesus.
+2. Os soldados teceram de espinhos uma coroa e puseram-lha sobre a cabeça e cobriram-no com um manto de púrpura.
+3. Aproximavam-se dele e diziam: Salve, rei dos judeus! E davam-lhe bofetadas.
+4. Pilatos saiu outra vez e disse-lhes: Eis que vo-lo trago fora, para que saibais que não acho nele nenhum motivo de acusação.
+5. Apareceu então Jesus, trazendo a coroa de espinhos e o manto de púrpura. Pilatos disse: Eis o homem!
+6. Quando os pontífices e os guardas o viram, gritaram: Crucifica-o! Crucifica-o! Falou-lhes Pilatos: Tomai-o vós e crucificai-o, pois eu não acho nele culpa alguma.
+7. Responderam-lhe os judeus: Nós temos uma lei, e segundo essa lei ele deve morrer, porque se declarou Filho de Deus.
+8. Estas palavras impressionaram Pilatos.
+9. Entrou novamente no pretório e perguntou a Jesus: De onde és tu? Mas Jesus não lhe respondeu.
+10. Pilatos então lhe disse: Tu não me respondes? Não sabes que tenho poder para te soltar e para te crucificar?
+11. Respondeu Jesus: Não terias poder algum sobre mim, se de cima não te fora dado. Por isso, quem me entregou a ti tem pecado maior.
+12. Desde então Pilatos procurava soltá-lo. Mas os judeus gritavam: Se o soltares, não és amigo do imperador, porque todo o que se faz rei se declara contra o imperador.
+13. Ouvindo estas palavras, Pilatos trouxe Jesus para fora e sentou-se no tribunal, no lugar chamado Lajeado, em hebraico Gábata.
+14. (Era a Preparação para a Páscoa, cerca da hora sexta.) Pilatos disse aos judeus: Eis o vosso rei!
+15. Mas eles clamavam: Fora com ele! Fora com ele! Crucifica-o! Pilatos perguntou-lhes: Hei de crucificar o vosso rei? Os sumos sacerdotes responderam: Não temos outro rei senão César!
+16. Entregou-o então a eles para que fosse crucificado.
+17. Levaram então consigo Jesus. Ele próprio carregava a sua cruz para fora da cidade, em direção ao lugar chamado Calvário, em hebraico Gólgota.
+18. Ali o crucificaram, e com ele outros dois, um de cada lado, e Jesus no meio.
+19. Pilatos redigiu também uma inscrição e a fixou por cima da cruz. Nela estava escrito: Jesus de Nazaré, rei dos judeus.
+20. Muitos dos judeus leram essa inscrição, porque Jesus foi crucificado perto da cidade e a inscrição era redigida em hebraico, em latim e em grego.
+21. Os sumos sacerdotes dos judeus disseram a Pilatos: Não escrevas: Rei dos judeus, mas sim: Este homem disse ser o rei dos judeus.
+22. Respondeu Pilatos: O que escrevi, escrevi.
+23. Depois de os soldados crucificarem Jesus, tomaram as suas vestes e fizeram delas quatro partes, uma para cada soldado. A túnica, porém, toda tecida de alto a baixo, não tinha costura.
+24. Disseram, pois, uns aos outros: Não a rasguemos, mas deitemos sorte sobre ela, para ver de quem será. Assim se cumpria a Escritura: Repartiram entre si as minhas vestes e deitaram sorte sobre a minha túnica (Sl 21,19). Isso fizeram os soldados.
+25. Junto à cruz de Jesus estavam de pé sua mãe, a irmã de sua mãe, Maria, mulher de Cléofas, e Maria Madalena.
+26. Quando Jesus viu sua mãe e perto dela o discípulo que amava, disse à sua mãe: Mulher, eis aí teu filho.
+27. Depois disse ao discípulo: Eis aí tua mãe. E dessa hora em diante o discípulo a levou para a sua casa.
+28. Em seguida, sabendo Jesus que tudo estava consumado, para se cumprir plenamente a Escritura, disse: Tenho sede.
+29. Havia ali um vaso cheio de vinagre. Os soldados encheram de vinagre uma esponja e, fixando-a numa vara de hissopo, chegaram-lhe à boca.
+30. Havendo Jesus tomado do vinagre, disse: Tudo está consumado. Inclinou a cabeça e rendeu o espírito.
+31. Os judeus temeram que os corpos ficassem na cruz durante o sábado, porque já era a Preparação e esse sábado era particularmente solene. Rogaram a Pilatos que se lhes quebrassem as pernas e fossem retirados.
+32. Vieram os soldados e quebraram as pernas do primeiro e do outro, que com ele foram crucificados.
+33. Chegando, porém, a Jesus, como o vissem já morto, não lhe quebraram as pernas,
+34. mas um dos soldados abriu-lhe o lado com uma lança e, imediatamente, saiu sangue e água.
+35. O que foi testemunha desse fato o atesta (e o seu testemunho é digno de fé, e ele sabe que diz a verdade), a fim de que vós creiais.
+36. Assim se cumpriu a Escritura: Nenhum dos seus ossos será quebrado (Ex 12,46).
+37. E diz em outra parte a Escritura: Olharão para aquele que transpassaram (Zc 12,10).
+38. Depois disso, José de Arimatéia, que era discípulo de Jesus, mas ocultamente, por medo dos judeus, rogou a Pilatos a autorização para tirar o corpo de Jesus. Pilatos permitiu. Foi, pois, e tirou o corpo de Jesus.
+39. Acompanhou-o Nicodemos (aquele que anteriormente fora de noite ter com Jesus), levando umas cem libras de uma mistura de mirra e aloés.
+40. Tomaram o corpo de Jesus e envolveram-no em panos com os aromas, como os judeus costumam sepultar.
+41. No lugar em que ele foi crucificado havia um jardim, e no jardim um sepulcro novo, em que ninguém ainda fora depositado.
+42. Foi ali que depositaram Jesus por causa da Preparação dos judeus e da proximidade do túmulo.São João, 20
+1. No primeiro dia que se seguia ao sábado, Maria Madalena foi ao sepulcro, de manhã cedo, quando ainda estava escuro. Viu a pedra removida do sepulcro.
+2. Correu e foi dizer a Simão Pedro e ao outro discípulo a quem Jesus amava: Tiraram o Senhor do sepulcro, e não sabemos onde o puseram!
+3. Saiu então Pedro com aquele outro discípulo, e foram ao sepulcro.
+4. Corriam juntos, mas aquele outro discípulo correu mais depressa do que Pedro e chegou primeiro ao sepulcro.
+5. Inclinou-se e viu ali os panos no chão, mas não entrou.
+6. Chegou Simão Pedro que o seguia, entrou no sepulcro e viu os panos postos no chão.
+7. Viu também o sudário que estivera sobre a cabeça de Jesus. Não estava, porém, com os panos, mas enrolado num lugar à parte.
+8. Então entrou também o discípulo que havia chegado primeiro ao sepulcro. Viu e creu.
+9. Em verdade, ainda não haviam entendido a Escritura, segundo a qual Jesus devia ressuscitar dentre os mortos.
+10. Os discípulos, então, voltaram para as suas casas.
+11. Entretanto, Maria se conservava do lado de fora perto do sepulcro e chorava. Chorando, inclinou-se para olhar dentro do sepulcro.
+12. Viu dois anjos vestidos de branco, sentados onde estivera o corpo de Jesus, um à cabeceira e outro aos pés.
+13. Eles lhe perguntaram: Mulher, por que choras? Ela respondeu: Porque levaram o meu Senhor, e não sei onde o puseram.
+14. Ditas estas palavras, voltou-se para trás e viu Jesus em pé, mas não o reconheceu.
+15. Perguntou-lhe Jesus: Mulher, por que choras? Quem procuras? Supondo ela que fosse o jardineiro, respondeu: Senhor, se tu o tiraste, dize-me onde o puseste e eu o irei buscar.
+16. Disse-lhe Jesus: Maria! Voltando-se ela, exclamou em hebraico: Rabôni! (que quer dizer Mestre).
+17. Disse-lhe Jesus: Não me retenhas, porque ainda não subi a meu Pai, mas vai a meus irmãos e dize-lhes: Subo para meu Pai e vosso Pai, meu Deus e vosso Deus.
+18. Maria Madalena correu para anunciar aos discípulos que ela tinha visto o Senhor e contou o que ele lhe tinha falado.
+19. Na tarde do mesmo dia, que era o primeiro da semana, os discípulos tinham fechado as portas do lugar onde se achavam, por medo dos judeus. Jesus veio e pôs-se no meio deles. Disse-lhes ele: A paz esteja convosco!
+20. Dito isso, mostrou-lhes as mãos e o lado. Os discípulos alegraram-se ao ver o Senhor.
+21. Disse-lhes outra vez: A paz esteja convosco! Como o Pai me enviou, assim também eu vos envio a vós.
+22. Depois dessas palavras, soprou sobre eles dizendo-lhes: Recebei o Espírito Santo.
+23. Àqueles a quem perdoardes os pecados, ser-lhes-ão perdoados; àqueles a quem os retiverdes, ser-lhes-ão retidos.
+24. Tomé, um dos Doze, chamado Dídimo, não estava com eles quando veio Jesus.
+25. Os outros discípulos disseram-lhe: Vimos o Senhor. Mas ele replicou-lhes: Se não vir nas suas mãos o sinal dos pregos, e não puser o meu dedo no lugar dos pregos, e não introduzir a minha mão no seu lado, não acreditarei!
+26. Oito dias depois, estavam os seus discípulos outra vez no mesmo lugar e Tomé com eles. Estando trancadas as portas, veio Jesus, pôs-se no meio deles e disse: A paz esteja convosco!
+27. Depois disse a Tomé: Introduz aqui o teu dedo, e vê as minhas mãos. Põe a tua mão no meu lado. Não sejas incrédulo, mas homem de fé.
+28. Respondeu-lhe Tomé: Meu Senhor e meu Deus!
+29. Disse-lhe Jesus: Creste, porque me viste. Felizes aqueles que crêem sem ter visto!
+30. Fez Jesus, na presença dos seus discípulos, ainda muitos outros milagres que não estão escritos neste livro.
+31. Mas estes foram escritos, para que creiais que Jesus é o Cristo, o Filho de Deus, e para que, crendo, tenhais a vida em seu nome.São João, 21
+1. Depois disso, tornou Jesus a manifestar-se aos seus discípulos junto ao lago de Tiberíades. Manifestou-se deste modo:
+2. Estavam juntos Simão Pedro, Tomé (chamado Dídimo), Natanael (que era de Caná da Galiléia), os filhos de Zebedeu e outros dois dos seus discípulos.
+3. Disse-lhes Simão Pedro: Vou pescar. Responderam-lhe eles: Também nós vamos contigo. Partiram e entraram na barca. Naquela noite, porém, nada apanharam.
+4. Chegada a manhã, Jesus estava na praia. Todavia, os discípulos não o reconheceram.
+5. Perguntou-lhes Jesus: Amigos, não tendes acaso alguma coisa para comer? Não, responderam-lhe.
+6. Disse-lhes ele: Lançai a rede ao lado direito da barca e achareis. Lançaram-na, e já não podiam arrastá-la por causa da grande quantidade de peixes.
+7. Então aquele discípulo, que Jesus amava, disse a Pedro: É o Senhor! Quando Simão Pedro ouviu dizer que era o Senhor, cingiu-se com a túnica (porque estava nu) e lançou-se às águas.
+8. Os outros discípulos vieram na barca, arrastando a rede dos peixes (pois não estavam longe da terra, senão cerca de duzentos côvados).
+9. Ao saltarem em terra, viram umas brasas preparadas e um peixe em cima delas, e pão.
+10. Disse-lhes Jesus: Trazei aqui alguns dos peixes que agora apanhastes.
+11. Subiu Simão Pedro e puxou a rede para a terra, cheia de cento e cinqüenta e três peixes grandes. Apesar de serem tantos, a rede não se rompeu.
+12. Disse-lhes Jesus: Vinde, comei. Nenhum dos discípulos ousou perguntar-lhe: Quem és tu?, pois bem sabiam que era o Senhor.
+13. Jesus aproximou-se, tomou o pão e lhos deu, e do mesmo modo o peixe.
+14. Era esta já a terceira vez que Jesus se manifestava aos seus discípulos, depois de ter ressuscitado.
+15. Tendo eles comido, Jesus perguntou a Simão Pedro: Simão, filho de João, amas-me mais do que estes? Respondeu ele: Sim, Senhor, tu sabes que te amo. Disse-lhe Jesus: Apascenta os meus cordeiros.
+16. Perguntou-lhe outra vez: Simão, filho de João, amas-me? Respondeu-lhe: Sim, Senhor, tu sabes que te amo. Disse-lhe Jesus: Apascenta os meus cordeiros.
+17. Perguntou-lhe pela terceira vez: Simão, filho de João, amas-me? Pedro entristeceu-se porque lhe perguntou pela terceira vez: Amas-me?, e respondeu-lhe: Senhor, sabes tudo, tu sabes que te amo. Disse-lhe Jesus: Apascenta as minhas ovelhas.
+18. Em verdade, em verdade te digo: quando eras mais moço, cingias-te e andavas aonde querias. Mas, quando fores velho, estenderás as tuas mãos, e outro te cingirá e te levará para onde não queres.
+19. Por estas palavras, ele indicava o gênero de morte com que havia de glorificar a Deus. E depois de assim ter falado, acrescentou: Segue-me!
+20. Voltando-se Pedro, viu que o seguia aquele discípulo que Jesus amava (aquele que estivera reclinado sobre o seu peito, durante a ceia, e lhe perguntara: Senhor, quem é que te há de trair?).
+21. Vendo-o, Pedro perguntou a Jesus: Senhor, e este? Que será dele?
+22. Respondeu-lhe Jesus: Que te importa se eu quero que ele fique até que eu venha? Segue-me tu.
+23. Correu por isso o boato entre os irmãos de que aquele discípulo não morreria. Mas Jesus não lhe disse: Não morrerá, mas: Que te importa se quero que ele fique assim até que eu venha?
+24. Este é o discípulo que dá testemunho de todas essas coisas, e as escreveu. E sabemos que é digno de fé o seu testemunho.
+25. Jesus fez ainda muitas outras coisas. Se fossem escritas uma por uma, penso que nem o mundo inteiro poderia conter os livros que se deveriam escrever.Atos dos Apóstolos, 1
+1. Em minha primeira narração, ó Teófilo, contei toda a seqüência das ações e dos ensinamentos de Jesus,
+2. desde o princípio até o dia em que, depois de ter dado pelo Espírito Santo suas instruções aos apóstolos que escolhera, foi arrebatado (ao céu).
+3. E a eles se manifestou vivo depois de sua Paixão, com muitas provas, aparecendo-lhes durante quarenta dias e falando das coisas do Reino de Deus.
+4. E comendo com eles, ordenou-lhes que não se afastassem de Jerusalém, mas que esperassem o cumprimento da promessa de seu Pai, que ouvistes, disse ele, da minha boca;
+5. porque João batizou na água, mas vós sereis batizados no Espírito Santo daqui há poucos dias.
+6. Assim reunidos, eles o interrogavam: Senhor, é porventura agora que ides instaurar o reino de Israel?
+7. Respondeu-lhes ele: Não vos pertence a vós saber os tempos nem os momentos que o Pai fixou em seu poder,
+8. mas descerá sobre vós o Espírito Santo e vos dará força; e sereis minhas testemunhas em Jerusalém, em toda a Judéia e Samaria e até os confins do mundo.
+9. Dizendo isso elevou-se da (terra) à vista deles e uma nuvem o ocultou aos seus olhos..
+10. Enquanto o acompanhavam com seus olhares, vendo-o afastar-se para o céu, eis que lhes apareceram dois homens vestidos de branco, que lhes disseram:
+11. Homens da Galiléia, por que ficais aí a olhar para o céu? Esse Jesus que acaba de vos ser arrebatado para o céu voltará do mesmo modo que o vistes subir para o céu.
+12. Voltaram eles então para Jerusalém do monte chamado das Oliveiras, que fica perto de Jerusalém, distante uma jornada de sábado.
+13. Tendo entrado no cenáculo, subiram ao quarto de cima, onde costumavam permanecer. Eram eles: Pedro e João, Tiago, André, Filipe, Tomé, Bartolomeu, Mateus, Tiago, filho de Alfeu, Simão, o Zelador, e Judas, irmão de Tiago.
+14. Todos eles perseveravam unanimemente na oração, juntamente com as mulheres, entre elas Maria, mãe de Jesus, e os irmãos dele.
+15. Num daqueles dias, levantou-se Pedro no meio de seus irmãos, na assembléia reunida que constava de umas cento e vinte pessoas, e disse:
+16. Irmãos, convinha que se cumprisse o que o Espírito Santo predisse na escritura pela boca de Davi, acerca de Judas, que foi o guia daqueles que prenderam Jesus.
+17. Ele era um dos nossos e teve parte no nosso ministério.
+18. Este homem adquirira um campo com o salário de seu crime. Depois, tombando para a frente, arrebentou-se pelo meio, e todas as suas entranhas se derramaram.
+19. (Tornou-se este fato conhecido dos habitantes de Jerusalém, de modo que aquele campo foi chamado na língua deles Hacéldama, isto é, Campo de Sangue.)
+20. Pois está escrito no livro dos Salmos: Fique deserta a sua habitação, e não haja quem nela habite; e ainda mais: Que outro receba o seu cargo (Sl 68,26; 108,8).
+21. Convém que destes homens que têm estado em nossa companhia todo o tempo em que o Senhor Jesus viveu entre nós,
+22. a começar do batismo de João até o dia em que do nosso meio foi arrebatado, um deles se torne conosco testemunha de sua Ressurreição.
+23. Propuseram dois: José, chamado Barsabás, que tinha por sobrenome Justo, e Matias.
+24. E oraram nestes termos: Ó Senhor, que conheces os corações de todos, mostra-nos qual destes dois escolheste
+25. para tomar neste ministério e apostolado o lugar de Judas que se transviou, para ir para o seu próprio lugar.
+26. Deitaram sorte e caiu a sorte em Matias, que foi incorporado aos onze apóstolos.Atos dos Apóstolos, 2
+1. Chegando o dia de Pentecostes, estavam todos reunidos no mesmo lugar.
+2. De repente, veio do céu um ruído, como se soprasse um vento impetuoso, e encheu toda a casa onde estavam sentados.
+3. Apareceu-lhes então uma espécie de línguas de fogo que se repartiram e pousaram sobre cada um deles.
+4. Ficaram todos cheios do Espírito Santo e começaram a falar em línguas, conforme o Espírito Santo lhes concedia que falassem.
+5. Achavam-se então em Jerusalém judeus piedosos de todas as nações que há debaixo do céu.
+6. Ouvindo aquele ruído, reuniu-se muita gente e maravilhava-se de que cada um os ouvia falar na sua própria língua.
+7. Profundamente impressionados, manifestavam a sua admiração: Não são, porventura, galileus todos estes que falam?
+8. Como então todos nós os ouvimos falar, cada um em nossa própria língua materna?
+9. Partos, medos, elamitas; os que habitam a Macedônia, a Judéia, a Capadócia, o Ponto, a Ásia,
+10. a Frígia, a Panfília, o Egito e as províncias da Líbia próximas a Cirene; peregrinos romanos,
+11. judeus ou prosélitos, cretenses e árabes; ouvimo-los publicar em nossas línguas as maravilhas de Deus!
+12. Estavam, pois, todos atônitos e, sem saber o que pensar, perguntavam uns aos outros: Que significam estas coisas?
+13. Outros, porém, escarnecendo, diziam: Estão todos embriagados de vinho doce.
+14. Pedro então, pondo-se de pé em companhia dos Onze, com voz forte lhes disse: Homens da Judéia e vós todos que habitais em Jerusalém: seja-vos isto conhecido e prestai atenção às minhas palavras.
+15. Estes homens não estão embriagados, como vós pensais, visto não ser ainda a hora terceira do dia.
+16. Mas cumpre-se o que foi dito pelo profeta Joel:
+17. Acontecerá nos últimos dias - é Deus quem fala -, que derramarei do meu Espírito sobre todo ser vivo: profetizarão os vossos filhos e as vossas filhas. Os vossos jovens terão visões, e os vossos anciãos sonharão.
+18. Sobre os meus servos e sobre as minhas servas derramarei naqueles dias do meu Espírito e profetizarão.
+19. Farei aparecer prodígios em cima, no céu, e milagres embaixo, na terra: sangue fogo e vapor de fumaça.
+20. O sol se converterá em trevas e a lua em sangue, antes que venha o grande e glorioso dia do Senhor.
+21. E então todo o que invocar o nome do Senhor será salvo (Jl 3,1-5).
+22. Israelitas, ouvi estas palavras: Jesus de Nazaré, homem de quem Deus tem dado testemunho diante de vós com milagres, prodígios e sinais que Deus por ele realizou no meio de vós como vós mesmos o sabeis,
+23. depois de ter sido entregue, segundo determinado desígnio e presciência de Deus, vós o matastes, crucificando-o por mãos de ímpios.
+24. Mas Deus o ressuscitou, rompendo os grilhões da morte, porque não era possível que ela o retivesse em seu poder.
+25. Pois dele diz Davi: Eu via sempre o Senhor perto de mim, pois ele está à minha direita, para que eu não seja abalado.
+26. Alegrou-se por isso o meu coração e a minha língua exultou. Sim, também a minha carne repousará na esperança,
+27. pois não deixarás a minha alma na região dos mortos, nem permitirás que o teu santo conheça a corrupção.
+28. Fizeste-me conhecer os caminhos da vida, e me encherás de alegria com a visão de tua face (Sl 15,8-11).
+29. Irmãos, seja permitido dizer-vos com franqueza: do patriarca Davi dizemos que morreu e foi sepultado, e o seu sepulcro está entre nós até o dia de hoje.
+30. Mas ele era profeta e sabia que Deus lhe havia jurado que um dos seus descendentes seria colocado no seu trono.
+31. É, portanto, a ressurreição de Cristo que ele previu e anunciou por estas palavras: Ele não foi abandonado na região dos mortos, e sua carne não conheceu a corrupção.
+32. A este Jesus, Deus o ressuscitou: do que todos nós somos testemunhas.
+33. Exaltado pela direita de Deus, havendo recebido do Pai o Espírito Santo prometido, derramou-o como vós vedes e ouvis.
+34. Pois Davi pessoalmente não subiu ao céu, todavia diz: O Senhor disse a meu Senhor: Senta-te à minha direita
+35. até que eu ponha os teus inimigos por escabelo dos teus pés (Sl 109,1).
+36. Que toda a casa de Israel saiba, portanto, com a maior certeza de que este Jesus, que vós crucificastes, Deus o constituiu Senhor e Cristo.
+37. Ao ouvirem essas coisas, ficaram compungidos no íntimo do coração e indagaram de Pedro e dos demais apóstolos: Que devemos fazer, irmãos?
+38. Pedro lhes respondeu: Arrependei-vos e cada um de vós seja batizado em nome de Jesus Cristo para remissão dos vossos pecados, e recebereis o dom do Espírito Santo.
+39. Pois a promessa é para vós, para vossos filhos e para todos os que ouvirem de longe o apelo do Senhor, nosso Deus.
+40. Ainda com muitas outras palavras exortava-os, dizendo: Salvai-vos do meio dessa geração perversa!
+41. Os que receberam a sua palavra foram batizados. E naquele dia elevou-se a mais ou menos três mil o número dos adeptos.
+42. Perseveravam eles na doutrina dos apóstolos, na reunião em comum, na fração do pão e nas orações.
+43. De todos eles se apoderou o temor, pois pelos apóstolos foram feitos também muitos prodígios e milagres em Jerusalém e o temor estava em todos os corações.
+44. Todos os fiéis viviam unidos e tinham tudo em comum.
+45. Vendiam as suas propriedades e os seus bens, e dividiam-nos por todos, segundo a necessidade de cada um.
+46. Unidos de coração freqüentavam todos os dias o templo. Partiam o pão nas casas e tomavam a comida com alegria e singeleza de coração,
+47. louvando a Deus e cativando a simpatia de todo o povo. E o Senhor cada dia lhes ajuntava outros que estavam a caminho da salvação.Atos dos Apóstolos, 3
+1. Pedro e João iam subindo ao templo para rezar à hora nona.
+2. Nisto levavam um homem que era coxo de nascença e que punham todos os dias à porta do templo, chamada Formosa, para que pedisse esmolas aos que entravam no templo.
+3. Quando ele viu que Pedro e João iam entrando no templo, implorou a eles uma esmola.
+4. Pedro fitou nele os olhos, como também João, e disse: Olha para nós.
+5. Ele os olhou com atenção esperando receber deles alguma coisa.
+6. Pedro, porém, disse: Não tenho nem ouro nem prata, mas o que tenho eu te dou: em nome de Jesus Cristo Nazareno, levanta-te e anda!
+7. E tomando-o pela mão direita, levantou-o. Imediatamente os pés e os tornozelos se lhe firmaram. De um salto pôs-se de pé e andava.
+8. Entrou com eles no templo, caminhando, saltando e louvando a Deus.
+9. Todo o povo o viu andar e louvar a Deus.
+10. Reconheceram ser o mesmo coxo que se sentava para mendigar à porta Formosa do templo, e encheram-se de espanto e pasmo pelo que lhe tinha acontecido.
+11. Como ele se conservava perto de Pedro e João, uma multidão de curiosos afluiu a eles no pórtico chamado Salomão.
+12. À vista disso, falou Pedro ao povo: Homens de Israel, por que vos admirais assim? Ou por que fitais os olhos em nós, como se por nossa própria virtude ou piedade tivéssemos feito este homem andar?
+13. O Deus de Abraão, de Isaac, de Jacó, o Deus de nossos pais glorificou seu servo Jesus, que vós entregastes e negastes perante Pilatos, quando este resolvera soltá-lo.
+14. Mas vós renegastes o Santo e o Justo e pedistes que se vos desse um homicida.
+15. Matastes o Príncipe da vida, mas Deus o ressuscitou dentre os mortos: disso nós somos testemunhas.
+16. Em virtude da fé em seu nome foi que esse mesmo nome consolidou este homem, que vedes e conheceis. Foi a fé em Jesus que lhe deu essa cura perfeita, à vista de todos vós.
+17. Agora, irmãos, sei que o fizestes por ignorância, como também os vossos chefes.
+18. Deus, porém, assim cumpriu o que já antes anunciara pela boca de todos os profetas: que o seu Cristo devia padecer.
+19. Arrependei-vos, portanto, e convertei-vos para serem apagados os vossos pecados.
+20. Virão, assim, da parte do Senhor os tempos de refrigério, e ele enviará aquele que vos é destinado: Cristo Jesus.
+21. É necessário, porém, que o céu o receba até os tempos da restauração universal, da qual falou Deus outrora pela boca dos seus santos profetas.
+22. Já dissera Moisés: O Senhor, nosso Deus, vos suscitará dentre vossos irmãos um profeta semelhante a mim: a este ouvireis em tudo o que ele vos disser.
+23. Todo aquele que não ouvir esse profeta será exterminado do meio do povo (Dt 18,15.19).
+24. Todos os profetas, que têm falado sucessivamente desde Samuel, anunciaram estes dias.
+25. Vós sois filhos dos profetas e da aliança que Deus estabeleceu com os nossos pais, quando disse a Abraão: Na tua descendência serão abençoadas todas as famílias da terra (Gn 22,18).
+26. Foi em primeiro lugar para vós que Deus suscitou o seu servo, para vos abençoar, a fim de que cada um se aparte da sua iniqüidade.Atos dos Apóstolos, 4
+1. Enquanto eles falavam ao povo, vieram os sacerdotes, o chefe do templo e os saduceus,
+2. contrariados porque ensinavam ao povo e anunciavam, na pessoa de Jesus, a ressurreição dos mortos.
+3. Prenderam-nos e os meteram no cárcere até o outro dia, pois já era tarde.
+4. Muitos, porém, dos que tinham ouvido a pregação creram; e o número dos fiéis elevou-se a mais ou menos cinco mil.
+5. No dia seguinte reuniram-se em Jerusalém os chefes do povo, os anciãos, os escribas,
+6. com Anás, sumo sacerdote, Caifás, João, Alexandre e todos os que eram da linhagem pontifical.
+7. Colocando-os no meio, perguntaram: Com que poder ou em que nome fizestes isso?
+8. Então Pedro, cheio do Espírito Santo, respondeu-lhes: Chefes do povo e anciãos, ouvi-me:
+9. se hoje somos interrogados a respeito do benefício feito a um enfermo, e em que nome foi ele curado,
+10. ficai sabendo todos vós e todo o povo de Israel: foi em nome de Jesus Cristo Nazareno, que vós crucificastes, mas que Deus ressuscitou dos mortos. Por ele é que esse homem se acha são, em pé, diante de vós.
+11. Esse Jesus, pedra que foi desprezada por vós, edificadores, tornou-se a pedra angular.
+12. Em nenhum outro há salvação, porque debaixo do céu nenhum outro nome foi dado aos homens, pelo qual devamos ser salvos.
+13. Vendo eles a coragem de Pedro e de João, e considerando que eram homens sem estudo e sem instrução, admiravam-se. Reconheciam-nos como companheiros de Jesus.
+14. Mas vendo com eles o homem que tinha sido curado, não puderam replicar.
+15. Mandaram que se retirassem da sala do conselho, e conferenciaram entre si:
+16. Que faremos destes homens? Porquanto o milagre por eles feito se tornou conhecido de todos os habitantes de Jerusalém, e não o podemos negar.
+17. Todavia, para que esta notícia não se divulgue mais entre o povo, proibamos com ameaças, que no futuro falem a alguém nesse nome.
+18. Chamaram-nos e ordenaram-lhes que absolutamente não falassem nem ensinassem em nome de Jesus.
+19. Responderam-lhes Pedro e João: Julgai-o vós mesmos se é justo diante de Deus obedecermos a vós mais do que a Deus.
+20. Não podemos deixar de falar das coisas que temos visto e ouvido.
+21. Eles então, ameaçando-os de novo, soltaram-nos, não achando pretexto para os castigar por causa do povo, porque todos glorificavam a Deus pelo que tinha acontecido.
+22. Pois já passava dos 40 anos o homem em quem se realizara essa cura milagrosa.
+23. Postos em liberdade, voltaram aos seus irmãos e referiram tudo quanto lhes tinham dito os sumos sacerdotes e os anciãos.
+24. Ao ouvirem isso, levantaram unânimes a voz a Deus e disseram: Senhor, vós que fizestes o céu, a terra, o mar e tudo o que neles há.
+25. Vós que, pelo Espírito Santo, pela boca de nosso pai Davi, vosso servo, dissestes: Por que se agitam as nações, e imaginam os povos coisas vãs?
+26. Levantam-se os reis da terra, e os príncipes se reúnem em conselho contra o Senhor e contra o seu Cristo (Sl 2,1s.).
+27. Pois na verdade se uniram nesta cidade contra o vosso santo servo Jesus, que ungistes, Herodes e Pôncio Pilatos com as nações e com o povo de Israel,
+28. para executarem o que a vossa mão e o vosso conselho predeterminaram que se fizesse.
+29. Agora, pois, Senhor, olhai para as suas ameaças e concedei aos vossos servos que com todo o desassombro anunciem a vossa palavra.
+30. Estendei a vossa mão para que se realizem curas, milagres e prodígios pelo nome de Jesus, vosso santo servo!
+31. Mal acabavam de rezar, tremeu o lugar onde estavam reunidos. E todos ficaram cheios do Espírito Santo e anunciaram com intrepidez a palavra de Deus.
+32. A multidão dos fiéis era um só coração e uma só alma. Ninguém dizia que eram suas as coisas que possuía, mas tudo entre eles era comum.
+33. Com grande coragem os apóstolos davam testemunho da ressurreição do Senhor Jesus. Em todos eles era grande a graça.
+34. Nem havia entre eles nenhum necessitado, porque todos os que possuíam terras e casas vendiam-nas,
+35. e traziam o preço do que tinham vendido e depositavam-no aos pés dos apóstolos. Repartia-se então a cada um deles conforme a sua necessidade.
+36. Assim José (a quem os apóstolos deram o sobrenome de Barnabé que quer dizer Filho da Consolação), levita natural de Chipre, possuía um campo.
+37. Vendeu-o e trouxe o valor dele e depositou aos pés dos apóstolos.Atos dos Apóstolos, 5
+1. Um certo homem chamado Ananias, de comum acordo com sua mulher Safira, vendeu um campo
+2. e, combinando com ela, reteve uma parte da quantia da venda. Levando apenas a outra parte, depositou-a aos pés dos apóstolos.
+3. Pedro, porém, disse: Ananias, por que tomou conta Satanás do teu coração, para que mentisses ao Espírito Santo e enganasses acerca do valor do campo?
+4. Acaso não o podias conservar sem vendê-lo? E depois de vendido, não podias livremente dispor dessa quantia? Por que imaginaste isso em teu coração? Não foi aos homens que mentiste, mas a Deus.
+5. Ao ouvir estas palavras, Ananias caiu morto. Apoderou-se grande terror de todos os que o ouviram.
+6. Uns moços retiraram-no dali, levaram-no para fora e o enterraram.
+7. Depois de umas três horas, entrou também sua mulher, nada sabendo do ocorrido.
+8. Pedro perguntou-lhe: Dize-me, mulher. Foi por tanto que vendestes o vosso campo? Respondeu ela: Sim, por esse preço.
+9. Replicou Pedro: Por que combinastes para pôr à prova o Espírito do Senhor? Estão ali à porta os pés daqueles que sepultaram teu marido. Hão de levar-te também a ti.
+10. Imediatamente caiu aos seus pés e expirou. Entrando aqueles moços, acharam-na morta. Levaram-na para fora e a enterraram junto do seu marido.
+11. Sobreveio grande pavor a toda a comunidade e a todos os que ouviram falar desse acontecimento.
+12. Enquanto isso, realizavam-se entre o povo pelas mãos dos apóstolos muitos milagres e prodígios. Reuniam-se eles todos unânimes no pórtico de Salomão.
+13. Dos outros ninguém ousava juntar-se a eles, mas o povo lhes tributava grandes louvores.
+14. Cada vez mais aumentava a multidão dos homens e mulheres que acreditavam no Senhor.
+15. De maneira que traziam os doentes para as ruas e punham-nos em leitos e macas, a fim de que, quando Pedro passasse, ao menos a sua sombra cobrisse alguns deles.
+16. Também das cidades vizinhas de Jerusalém afluía muita gente, trazendo os enfermos e os atormentados por espíritos imundos, e todos eles eram curados.
+17. Levantaram-se então os sumos sacerdotes e seus partidários (isto é, a seita dos saduceus) cheios de inveja,
+18. e deitaram as mãos nos apóstolos e meteram-nos na cadeia pública.
+19. Mas um anjo do Senhor abriu de noite as portas do cárcere e, conduzindo-os para fora, disse-lhes:
+20. Ide e apresentai-vos no templo e pregai ao povo as palavras desta vida.
+21. Obedecendo a essa ordem, eles entraram ao amanhecer, no templo, e puseram-se a ensinar. Enquanto isso, o sumo sacerdote e os seus partidários reuniram-se e convocaram o Grande Conselho e todos os anciãos de Israel, e mandaram trazer os apóstolos do cárcere.
+22. Dirigiram-se para lá os guardas, mas ao abrirem o cárcere, não os encontraram, e voltaram a informar:
+23. Achamos o cárcere fechado com toda segurança e os guardas de pé diante das portas, e, no entanto, abrindo-as, não achamos ninguém lá dentro.
+24. A essa notícia, os sumos sacerdotes e o chefe do templo ficaram perplexos e indagaram entre si sobre o que significava isso.
+25. Mas, nesse momento, alguém transmitiu-lhes esta notícia: Aqueles homens que metestes no cárcere estão no templo ensinando o povo!
+26. Foi então o comandante do templo com seus guardas e trouxe-os sem violência, porque temiam ser apedrejados pelo povo.
+27. Trouxeram-nos e os introduziram no Grande Conselho, onde o sumo sacerdote os interrogou, dizendo:
+28. Expressamente vos ordenamos que não ensinásseis nesse nome. Não obstante isso, tendes enchido Jerusalém de vossa doutrina! Quereis fazer recair sobre nós o sangue deste homem!
+29. Pedro e os apóstolos replicaram: Importa obedecer antes a Deus do que aos homens.
+30. O Deus de nossos pais ressuscitou Jesus, que vós matastes, suspendendo-o num madeiro.
+31. Deus elevou-o pela mão direita como Príncipe e Salvador, a fim de dar a Israel o arrependimento e a remissão dos pecados.
+32. Deste fato nós somos testemunhas, nós e o Espírito Santo, que Deus deu a todos aqueles que lhe obedecem.
+33. Ao ouvirem essas palavras, enfureceram-se e resolveram matá-los.
+34. Levantou-se, porém, um membro do Grande Conselho. Era Gamaliel, um fariseu, doutor da lei, respeitado por todo o povo.
+35. Mandou que se retirassem aqueles homens por um momento, e então lhes disse: Homens de Israel, considerai bem o que ides fazer com estes homens.
+36. Faz algum tempo apareceu um certo Teudas, que se considerava um grande homem. A ele se associaram cerca de quatrocentos homens: foi morto e todos os seus partidários foram dispersados e reduzidos a nada.
+37. Depois deste, levantou-se Judas, o galileu, nos dias do recenseamento, e arrastou o povo consigo, mas também ele pereceu e todos quantos o seguiam foram dispersados.
+38. Agora, pois, eu vos aconselho: não vos metais com estes homens. Deixai-os! Se o seu projeto ou a sua obra provém de homens, por si mesma se destruirá;
+39. mas se provier de Deus, não podereis desfazê-la. Vós vos arriscaríeis a entrar em luta contra o próprio Deus. Aceitaram o seu conselho.
+40. Chamaram os apóstolos e mandaram açoitá-los. Ordenaram-lhes então que não pregassem mais em nome de Jesus, e os soltaram.
+41. Eles saíram da sala do Grande Conselho, cheios de alegria, por terem sido achados dignos de sofrer afrontas pelo nome de Jesus.
+42. E todos os dias não cessavam de ensinar e de pregar o Evangelho de Jesus Cristo no templo e pelas casas.Atos dos Apóstolos, 6
+1. Naqueles dias, como crescesse o número dos discípulos, houve queixas dos gregos contra os hebreus, porque as suas viúvas teriam sido negligenciadas na distribuição diária.
+2. Por isso, os Doze convocaram uma reunião dos discípulos e disseram: Não é razoável que abandonemos a palavra de Deus, para administrar.
+3. Portanto, irmãos, escolhei dentre vós sete homens de boa reputação, cheios do Espírito Santo e de sabedoria, aos quais encarregaremos este ofício.
+4. Nós atenderemos sem cessar à oração e ao ministério da palavra.
+5. Este parecer agradou a toda a reunião. Escolheram Estêvão, homem cheio de fé e do Espírito Santo; Filipe, Prócoro, Nicanor, Timão, Pármenas e Nicolau, prosélito de Antioquia.
+6. Apresentaram-nos aos apóstolos, e estes, orando, impuseram-lhes as mãos.
+7. Divulgou-se sempre mais a palavra de Deus. Multiplicava-se consideravelmente o número dos discípulos em Jerusalém. Também grande número de sacerdotes aderia à fé.
+8. Estêvão, cheio de graça e fortaleza, fazia grandes milagres e prodígios entre o povo.
+9. Mas alguns da sinagoga, chamada dos Libertos, dos cirenenses, dos alexandrinos e dos que eram da Cilícia e da Ásia, levantaram-se para disputar com ele.
+10. Não podiam, porém, resistir à sabedoria e ao Espírito que o inspirava.
+11. Então subornaram alguns indivíduos para que dissessem que o tinham ouvido proferir palavras de blasfêmia contra Moisés e contra Deus.
+12. Amotinaram assim o povo, os anciãos e os escribas e, investindo contra ele, agarraram-no e o levaram ao Grande Conselho.
+13. Apresentaram falsas testemunhas que diziam: Esse homem não cessa de proferir palavras contra o lugar santo e contra a lei.
+14. Nós o ouvimos dizer que Jesus de Nazaré há de destruir este lugar e há de mudar as tradições que Moisés nos legou.
+15. Fixando nele os olhos, todos os membros do Grande Conselho viram o seu rosto semelhante ao de um anjo.Atos dos Apóstolos, 7
+1. Perguntou-lhe então o sumo sacerdote: É realmente assim?
+2. Respondeu ele: Irmãos e pais, escutai. O Deus da glória apareceu a nosso pai Abraão, quando estava na Mesopotâmia, antes de ir morar em Harã.
+3. E disse-lhe: Sai de teu país e de tua parentela, e vai para a terra que eu te mostrar (Gn 12,1).
+4. Ele saiu da terra dos caldeus, e foi habitar em Harã. Dali, depois que lhe faleceu o pai, Deus o fez passar para esta terra, em que vós agora habitais.
+5. Não lhe deu nela propriedade alguma, nem sequer um palmo de terra, mas prometeu dar-lha em posse, e depois dele à sua posteridade, quando ainda não tinha filho algum.
+6. Eis como falou Deus: Tua descendência habitará em terra estranha e será reduzida à escravidão e maltratada pelo espaço de quatrocentos anos.
+7. Mas eu julgarei a nação que os dominar - diz o Senhor -, e eles sairão e me prestarão culto neste lugar (Gn 15,13s.; Ex 3,12).
+8. E deu-lhe a aliança da circuncisão. Assim, Abraão teve um filho, Isaac, e, passados oito dias, o circuncidou; e Isaac, a Jacó; e Jacó, os doze patriarcas.
+9. Os patriarcas, invejosos de José, venderam-no para o Egito. Mas Deus estava com ele.
+10. Livrou-o de todas as suas tribulações e deu-lhe graça e sabedoria diante do faraó, rei do Egito, que o fez governador do Egito e chefe de sua casa.
+11. Sobreveio depois uma fome a todo o Egito e Canaã. Grande era a tribulação, e os nossos pais não achavam o que comer.
+12. Mas quando Jacó soube que havia trigo no Egito, enviou pela primeira vez os nossos pais para lá.
+13. Na segunda, foi José reconhecido por seus irmãos, e foi descoberta ao faraó a sua origem.
+14. Enviando mensageiros, José mandou vir seu pai Jacó com toda a sua família, que constava de setenta e cinco pessoas.
+15. Jacó desceu ao Egito e morreu ali, como também nossos pais.
+16. Seus corpos foram trasladados para Siquém, e foram postos no sepulcro que Abraão tinha comprado, a peso de dinheiro, dos filhos de Hemor, de Siquém.
+17. Aproximava-se o tempo em que devia realizar-se a promessa que Deus havia jurado a Abraão. O povo cresceu e se multiplicou no Egito
+18. até que se levantou outro rei no Egito, o qual nada sabia de José.
+19. Este rei, usando de astúcia contra a nossa raça, maltratou nossos pais e obrigou-os a enjeitar seus filhos para privá-los da vida.
+20. Por este mesmo tempo, nasceu Moisés. Era belo aos olhos de Deus e por três meses foi criado na casa paterna.
+21. Depois, quando foi exposto, a filha do faraó o recolheu e o criou como seu próprio filho.
+22. Moisés foi instruído em todas as ciências dos egípcios e tornou-se forte em palavras e obras.
+23. Quando completou 40 anos, veio-lhe à mente visitar seus irmãos, os filhos de Israel.
+24. Viu que um deles era maltratado; tomou-lhe a defesa e vingou o que padecia a injúria, matando o egípcio.
+25. Ele esperava que os seus irmãos compreendessem que Deus se servia de sua mão para livrá-los. Mas não o entenderam.
+26. No dia seguinte, dois dentre eles brigavam, e ele procurou reconciliá-los: Amigos, disse ele, sois irmãos, por que vos maltratais um ao outro?
+27. Mas o que maltratava seu compatriota o repeliu: Quem te constituiu chefe ou juiz sobre nós?
+28. Porventura queres tu matar-me, como ontem mataste o egípcio?
+29. A estas palavras, Moisés fugiu. E esteve como estrangeiro na terra de Madiã, onde teve dois filhos.
+30. Passados quarenta anos, apareceu-lhe no deserto do monte Sinai um anjo, na chama duma sarça ardente.
+31. Moisés, admirado de uma tal visão, aproximou-se para a examinar. E a voz do Senhor lhe falou:
+32. Eu sou o Deus de teus pais, o Deus de Abraão, de Isaac, de Jacó. Moisés, atemorizado, não ousava levantar os olhos.
+33. O Senhor lhe disse: Tira o teu calçado, porque o lugar onde estás é uma terra santa.
+34. Considerei a aflição do meu povo no Egito, ouvi os seus gemidos e desci para livrá-los. Vem, pois, agora e eu te enviarei ao Egito.
+35. Este Moisés que desprezaram, dizendo: Quem te constituiu chefe ou juiz?, a este Deus enviou como chefe e libertador pela mão do anjo que lhe apareceu na sarça.
+36. Ele os fez sair do Egito, operando prodígios e milagres na terra do Egito, no mar Vermelho e no deserto, por espaço de quarenta anos.
+37. Foi este Moisés que disse aos filhos de Israel: Deus vos suscitará dentre os vossos irmãos um profeta como eu.
+38. Este é o que esteve entre o povo congregado no deserto, e com o anjo que lhe falara no monte Sinai, e com os nossos pais; que recebeu palavras de vida para no-las transmitir.
+39. Nossos pais não lhe quiseram obedecer, mas o repeliram. Em seus corações voltaram-se para o Egito,
+40. dizendo a Aarão: Faze-nos deuses, que vão diante de nós, porque quanto a este Moisés, que nos tirou da terra do Egito, não sabemos o que foi feito dele.
+41. Fizeram, naqueles dias, um bezerro de ouro e ofereceram um sacrifício ao ídolo, e se alegravam diante da obra das suas mãos.
+42. Mas Deus afastou-se e os abandonou ao culto dos astros do céu, como está escrito no livro dos profetas: Porventura, casa de Israel, vós me oferecestes vítimas e sacrifícios por quarenta anos no deserto?
+43. Aceitastes a tenda de Moloc e a estrela do vosso deus Renfão, figuras que vós fizestes para adorá-las! Assim eu vos deportarei para além da Babilônia (Am 5,25ss.).
+44. A Arca da Aliança esteve com os nossos pais no deserto, como Deus ordenou a Moisés que a fizesse conforme o modelo que tinha visto.
+45. Recebendo-a nossos pais, levaram-na sob a direção de Josué às terras dos pagãos, que Deus expulsou da presença de nossos pais. E ali ficou até o tempo de Davi.
+46. Este encontrou graça diante de Deus e pediu que pudesse achar uma morada para o Deus de Jacó.
+47. Salomão foi quem lhe edificou a casa.
+48. O Altíssimo, porém, não habita em casas construídas por mãos humanas. Como diz o profeta:
+49. O céu é o meu trono, e a terra o escabelo dos meus pés. Que casa me edificareis vós?, diz o Senhor. Qual é o lugar do meu repouso?
+50. Acaso não foi minha mão que fez tudo isto (Is 66,1s.)?
+51. Homens de dura cerviz, e de corações e ouvidos incircuncisos! Vós sempre resistis ao Espírito Santo. Como procederam os vossos pais, assim procedeis vós também!
+52. A qual dos profetas não perseguiram os vossos pais? Mataram os que prediziam a vinda do Justo, do qual vós agora tendes sido traidores e homicidas.
+53. Vós que recebestes a lei pelo ministério dos anjos e não a guardastes...
+54. Ao ouvir tais palavras, esbravejaram de raiva e rangiam os dentes contra ele.
+55. Mas, cheio do Espírito Santo, Estêvão fitou o céu e viu a glória de Deus e Jesus de pé à direita de Deus:
+56. Eis que vejo, disse ele, os céus abertos e o Filho do Homem, de pé, à direita de Deus.
+57. Levantaram então um grande clamor, taparam os ouvidos e todos juntos se atiraram furiosos contra ele.
+58. Lançaram-no fora da cidade e começaram a apedrejá-lo. As testemunhas depuseram os seus mantos aos pés de um moço chamado Saulo.
+59. E apedrejavam Estêvão, que orava e dizia: Senhor Jesus, recebe o meu espírito.
+60. Posto de joelhos, exclamou em alta voz: Senhor, não lhes leves em conta este pecado... A estas palavras, expirou.Atos dos Apóstolos, 8
+1. E Saulo havia aprovado a morte de Estêvão. Naquele dia, rompeu uma grande perseguição contra a comunidade de Jerusalém. Todos se dispersaram pelas regiões da Judéia e de Samaria, com exceção dos apóstolos.
+2. Entretanto, alguns homens piedosos trataram de enterrar Estêvão e fizeram grande pranto a seu respeito.
+3. Saulo, porém, devastava a Igreja. Entrando pelas casas, arrancava delas homens e mulheres e os entregava à prisão.
+4. Os que se haviam dispersado iam por toda parte, anunciando a palavra (de Deus).
+5. Assim Filipe desceu à cidade de Samaria, pregando-lhes Cristo.
+6. A multidão estava atenta ao que Filipe lhe dizia, escutando-o unanimemente e presenciando os prodígios que fazia.
+7. Pois os espíritos imundos de muitos possessos saíam, levantando grandes brados. Igualmente foram curados muitos paralíticos e coxos.
+8. Por esse motivo, naquela cidade reinava grande alegria.
+9. Ora, havia ali um homem, por nome Simão, que exercia magia na cidade, maravilhando o povo de Samaria, e fazia-se passar por um grande personagem.
+10. Todos lhe davam ouvidos, do menor até o maior, comentando: Este homem é o poder de Deus, chamado o Grande.
+11. Eles o atendiam, porque por muito tempo os havia deslumbrado com as suas artes mágicas.
+12. Mas, depois que acreditaram em Filipe, que lhes anunciava o Reino de Deus e o nome de Jesus Cristo, homens e mulheres pediam o batismo.
+13. Simão também acreditou e foi batizado. Ele não abandonava Filipe, admirando, estupefato, os grandes milagres e prodígios que eram feitos.
+14. Os apóstolos que se achavam em Jerusalém, tendo ouvido que a Samaria recebera a palavra de Deus, enviaram-lhe Pedro e João.
+15. Estes, assim que chegaram, fizeram oração pelos novos fiéis, a fim de receberem o Espírito Santo,
+16. visto que não havia descido ainda sobre nenhum deles, mas tinham sido somente batizados em nome do Senhor Jesus.
+17. Então os dois apóstolos lhes impuseram as mãos e receberam o Espírito Santo.
+18. Quando Simão viu que se dava o Espírito Santo por meio da imposição das mãos dos apóstolos, ofereceu-lhes dinheiro, dizendo:
+19. Dai-me também este poder, para que todo aquele a quem impuser as mãos receba o Espírito Santo.
+20. Pedro respondeu: Maldito seja o teu dinheiro e tu também, se julgas poder comprar o dom de Deus com dinheiro!
+21. Não terás direito nem parte alguma neste ministério, já que o teu coração não é puro diante de Deus.
+22. Arrepende-te desta tua maldade e roga a Deus, para que, sendo possível, te seja perdoado este pensamento do teu coração.
+23. Pois estou a ver-te no fel da amargura e nos laços da iniqüidade.
+24. Retorquiu Simão: Rogai vós por mim ao Senhor, para que nada do que haveis dito venha a cair sobre mim.
+25. Os apóstolos, depois de terem dado testemunho e anunciado a palavra do Senhor, voltaram para Jerusalém e pregavam a boa nova em muitos lugares dos samaritanos.
+26. Um anjo do Senhor dirigiu-se a Filipe e disse: Levanta-te e vai para o sul, em direção do caminho que desce de Jerusalém a Gaza, a Deserta.
+27. Filipe levantou-se e partiu. Ora, um etíope, eunuco, ministro da rainha Candace, da Etiópia, e superintendente de todos os seus tesouros, tinha ido a Jerusalém para adorar.
+28. Voltava sentado em seu carro, lendo o profeta Isaías.
+29. O Espírito disse a Filipe: Aproxima-te para bem perto deste carro.
+30. Filipe aproximou-se e ouviu que o eunuco lia o profeta Isaías, e perguntou-lhe: Porventura entendes o que estás lendo?
+31. Respondeu-lhe: Como é que posso, se não há alguém que mo explique? E rogou a Filipe que subisse e se sentasse junto dele.
+32. A passagem da Escritura, que ia lendo, era esta: Como ovelha, foi levado ao matadouro; e como cordeiro mudo diante do que o tosquia, ele não abriu a sua boca.
+33. Na sua humilhação foi consumado o seu julgamento. Quem poderá contar a sua descendência? Pois a sua vida foi tirada da terra (Is 53,7s.).
+34. O eunuco disse a Filipe: Rogo-te que me digas de quem disse isto o profeta: de si mesmo ou de outrem?
+35. Começou então Filipe a falar, e, principiando por essa passagem da Escritura, anunciou-lhe Jesus.
+36. Continuando o caminho, encontraram água. Disse então o eunuco: Eis aí a água. Que impede que eu seja batizado?
+37. [Filipe respondeu: Se crês de todo o coração, podes sê-lo. Eu creio, disse ele, que Jesus Cristo é o Filho de Deus.]
+38. E mandou parar o carro. Ambos desceram à água e Filipe batizou o eunuco.
+39. Mal saíram da água, o Espírito do Senhor arrebatou Filipe dos olhares do eunuco, que, cheio de alegria, continuou o seu caminho.
+40. Filipe, entretanto, foi transportado a Azoto. Passando além, pregava o Evangelho em todas as cidades, até que chegou a Cesaréia.Atos dos Apóstolos, 9
+1. Enquanto isso, Saulo só respirava ameaças e morte contra os discípulos do Senhor. Apresentou-se ao príncipe dos sacerdotes,
+2. e pediu-lhe cartas para as sinagogas de Damasco, com o fim de levar presos a Jerusalém todos os homens e mulheres que achasse seguindo essa doutrina.
+3. Durante a viagem, estando já perto de Damasco, subitamente o cercou uma luz resplandecente vinda do céu.
+4. Caindo por terra, ouviu uma voz que lhe dizia: Saulo, Saulo, por que me persegues?
+5. Saulo disse: Quem és, Senhor? Respondeu ele: Eu sou Jesus, a quem tu persegues. [Duro te é recalcitrar contra o aguilhão.
+6. Então, trêmulo e atônito, disse ele: Senhor, que queres que eu faça? Respondeu-lhe o Senhor:] Levanta-te, entra na cidade. Aí te será dito o que deves fazer.
+7. Os homens que o acompanhavam enchiam-se de espanto, pois ouviam perfeitamente a voz, mas não viam ninguém.
+8. Saulo levantou-se do chão. Abrindo, porém, os olhos, não via nada. Tomaram-no pela mão e o introduziram em Damasco,
+9. onde esteve três dias sem ver, sem comer nem beber.
+10. Havia em Damasco um discípulo chamado Ananias. O Senhor, numa visão, lhe disse: Ananias! Eis-me aqui, Senhor, respondeu ele.
+11. O Senhor lhe ordenou: Levanta-te e vai à rua Direita, e pergunta em casa de Judas por um homem de Tarso, chamado Saulo; ele está orando.
+12. (Este via numa visão um homem, chamado Ananias, entrar e impor-lhe as mãos para recobrar a vista.)
+13. Ananias respondeu: Senhor, muitos já me falaram deste homem, quantos males fez aos teus fiéis em Jerusalém.
+14. E aqui ele tem poder dos príncipes dos sacerdotes para prender a todos aqueles que invocam o teu nome.
+15. Mas o Senhor lhe disse: Vai, porque este homem é para mim um instrumento escolhido, que levará o meu nome diante das nações, dos reis e dos filhos de Israel.
+16. Eu lhe mostrarei tudo o que terá de padecer pelo meu nome.
+17. Ananias foi. Entrou na casa e, impondo-lhe as mãos, disse: Saulo, meu irmão, o Senhor, esse Jesus que te apareceu no caminho, enviou-me para que recobres a vista e fiques cheio do Espírito Santo.
+18. No mesmo instante caíram dos olhos de Saulo umas como escamas, e recuperou a vista. Levantou-se e foi batizado.
+19. Depois tomou alimento e sentiu-se fortalecido. Demorou-se por alguns dias com os discípulos que se achavam em Damasco.
+20. Imediatamente começou a proclamar pelas sinagogas que Jesus é o Filho de Deus.
+21. Todos os seus ouvintes pasmavam e diziam: Este não é aquele que perseguia em Jerusalém os que invocam o nome de Jesus? Não veio cá só para levá-los presos aos sumos sacerdotes?
+22. Saulo, porém, sentia crescer o seu poder e confundia os judeus de Damasco, demonstrando que Jesus é o Cristo.
+23. Decorridos alguns dias, os judeus deliberaram, em conselho, matá-lo.
+24. Estas intenções chegaram ao conhecimento de Saulo. Guardavam eles as portas de dia e de noite, para matá-lo.
+25. Mas os discípulos, tomando-o de noite, fizeram-no descer pela muralha dentro de um cesto.
+26. Chegando a Jerusalém, tentava ajuntar-se aos discípulos, mas todos o temiam, não querendo crer que se tivesse tornado discípulo.
+27. Então Barnabé, levando-o consigo, apresentou-o aos apóstolos e contou-lhes como Saulo vira o Senhor no caminho, e que lhe havia falado, e como em Damasco pregara, com desassombro, o nome de Jesus.
+28. Daí por diante permaneceu com eles, saindo e entrando em Jerusalém, e pregando, destemidamente, o nome do Senhor.
+29. Falava também e discutia com os helenistas. Mas estes procuravam matá-lo.
+30. Os irmãos, informados disso, acompanharam-no até Cesaréia e dali o fizeram partir para Tarso.
+31. A Igreja gozava então de paz por toda a Judéia, Galiléia e Samaria. Estabelecia-se ela caminhando no temor do Senhor, e a assistência do Espírito Santo a fazia crescer em número.
+32. Pedro, que caminhava por toda parte, de cidade em cidade, desceu também aos fiéis que habitavam em Lida.
+33. Ali achou um homem chamado Enéias, que havia oito anos jazia paralítico num leito.
+34. Disse-lhe Pedro: Enéias, Jesus Cristo te cura: levanta-te e faze tua cama. E levantou-se imediatamente.
+35. Viram-no todos os que habitavam em Lida e em Sarona, e converteram-se ao Senhor.
+36. Em Jope havia uma discípula chamada Tabita - em grego, Dorcas. Esta era rica em boas obras e esmolas que dava.
+37. Aconteceu que adoecera naqueles dias e veio a falecer. Depois de a terem lavado, levaram-na para o quarto de cima.
+38. Ora, como Lida fica perto de Jope, os discípulos, ouvindo dizer que Pedro aí se encontrava, enviaram-lhe dois homens, rogando-lhe: Não te demores em vir ter conosco.
+39. Pedro levantou-se imediatamente e foi com eles. Logo que chegou, conduziram-no ao quarto de cima. Cercavam-no todas as viúvas, chorando e mostrando-lhe as túnicas e os vestidos que Dorcas lhes fazia quando viva.
+40. Pedro então, tendo feito todos sair, pôs-se de joelhos e orou. Voltando-se para o corpo, disse: Tabita, levanta-te! Ela abriu os olhos e, vendo Pedro, sentou-se.
+41. Ele a fez levantar-se, estendendo-lhe a mão. Chamando os irmãos e as viúvas, entregou-lha viva.
+42. Este fato espalhou-se por toda Jope e muitos creram no Senhor.
+43. Pedro permaneceu ainda muitos dias em Jope, em casa dum curtidor, chamado Simão.Atos dos Apóstolos, 10
+1. Havia em Cesaréia um homem, por nome Cornélio, centurião da coorte que se chamava Itálica.
+2. Era religioso; ele e todos os de sua casa eram tementes a Deus. Dava muitas esmolas ao povo e orava constantemente.
+3. Este homem viu claramente numa visão, pela hora nona do dia, aproximar-se dele um anjo de Deus e o chamar: Cornélio!
+4. Cornélio fixou nele os olhos e, possuído de temor, perguntou: Que há, Senhor? O anjo replicou: As tuas orações e as tuas esmolas subiram à presença de Deus como uma oferta de lembrança.
+5. Agora envia homens a Jope e faze vir aqui um certo Simão, que tem por sobrenome Pedro.
+6. Ele se acha hospedado em casa de Simão, um curtidor, cuja casa fica junto ao mar.
+7. Quando se retirou o anjo que lhe falara, chamou dois dos seus criados e um soldado temente ao Senhor, daqueles que estavam às suas ordens.
+8. Contou-lhes tudo e enviou-os a Jope.
+9. No dia seguinte, enquanto estavam em viagem e se aproximavam da cidade - pelo meio-dia -, Pedro subiu ao terraço da casa para fazer oração.
+10. Então, como sentisse fome, quis comer. Mas, enquanto lho preparavam, caiu em êxtase.
+11. Viu o céu aberto e descer uma coisa parecida com uma grande toalha que baixava do céu à terra, segura pelas quatro pontas.
+12. Nela havia de todos os quadrúpedes, dos répteis da terra e das aves do céu.
+13. Uma voz lhe falou: Levanta-te, Pedro! Mata e come.
+14. Disse Pedro: De modo algum, Senhor, porque nunca comi coisa alguma profana e impura.
+15. Esta voz lhe falou pela segunda vez: O que Deus purificou não chames tu de impuro.
+16. Isto se repetiu três vezes e logo a toalha foi recolhida ao céu.
+17. Desconcertado, Pedro refletia consigo mesmo sobre o que significava a visão que tivera, quando os homens, enviados por Cornélio, se apresentaram à porta, perguntando pela casa de Simão.
+18. Eles chamaram e indagaram se ali estava hospedado Simão, com o sobrenome Pedro.
+19. Enquanto Pedro refletia na visão, disse o Espírito: Eis aí três homens que te procuram.
+20. Levanta-te! Desce e vai com eles sem hesitar, porque sou eu quem os enviou.
+21. Pedro desceu ao encontro dos homens e disse-lhes: Aqui me tendes, sou eu a quem buscais. Qual é o motivo por que viestes aqui?
+22. Responderam: O centurião Cornélio, homem justo e temente a Deus, o qual goza de excelente reputação entre todos os judeus, recebeu dum santo anjo o aviso de te mandar chamar à sua casa e de ouvir as tuas palavras.
+23. Então Pedro os mandou entrar e hospedou-os. No dia seguinte, levantou-se e partiu com eles, e alguns dos irmãos de Jope o acompanharam.
+24. No outro dia chegaram a Cesaréia. Cornélio os estava esperando, tendo convidado os seus parentes e amigos mais íntimos.
+25. Quando Pedro estava para entrar, Cornélio saiu a recebê-lo e prostrou-se aos seus pés para adorá-lo.
+26. Pedro, porém, o ergueu, dizendo: Levanta-te! Também eu sou um homem!
+27. E, falando com ele, entrou e achou ali muitas pessoas que se tinham reunido e disse:
+28. Vós sabeis que é proibido a um judeu aproximar-se dum estrangeiro ou ir à sua casa. Todavia, Deus me mostrou que nenhum homem deve ser considerado profano ou impuro.
+29. Por isso vim sem hesitar, logo que fui chamado. Pergunto, pois, por que motivo me chamastes.
+30. Disse Cornélio: Faz hoje quatro dias que estava eu a orar em minha casa, à hora nona, quando se pôs diante de mim um homem com vestes resplandecentes, que disse:
+31. Cornélio, a tua oração foi atendida e Deus se lembrou de tuas esmolas.
+32. Envia alguém a Jope e manda vir Simão, que tem por sobrenome Pedro. Está hospedado perto do mar em casa do curtidor Simão.
+33. Por isso mandei chamar-te logo e felicito-te por teres vindo. Agora, pois, eis-nos todos reunidos na presença de Deus para ouvir tudo o que Deus te ordenou de nos dizer.
+34. Então Pedro tomou a palavra e disse: Em verdade, reconheço que Deus não faz distinção de pessoas,
+35. mas em toda nação lhe é agradável aquele que o temer e fizer o que é justo.
+36. Deus enviou a sua palavra aos filhos de Israel, anunciando-lhes a boa nova da paz, por meio de Jesus Cristo. Este é o Senhor de todos.
+37. Vós sabeis como tudo isso aconteceu na Judéia, depois de ter começado na Galiléia, após o batismo que João pregou.
+38. Vós sabeis como Deus ungiu a Jesus de Nazaré com o Espírito Santo e com o poder, como ele andou fazendo o bem e curando todos os oprimidos do demônio, porque Deus estava com ele.
+39. E nós somos testemunhas de tudo o que fez na terra dos judeus e em Jerusalém. Eles o mataram, suspendendo-o num madeiro.
+40. Mas Deus o ressuscitou ao terceiro dia e permitiu que aparecesse,
+41. não a todo o povo, mas às testemunhas que Deus havia predestinado, a nós que comemos e bebemos com ele, depois que ressuscitou.
+42. Ele nos mandou pregar ao povo e testemunhar que é ele quem foi constituído por Deus juiz dos vivos e dos mortos.
+43. Dele todos os profetas dão testemunho, anunciando que todos os que nele crêem recebem o perdão dos pecados por meio de seu nome.
+44. Estando Pedro ainda a falar, o Espírito Santo desceu sobre todos os que ouviam a (santa) palavra.
+45. Os fiéis da circuncisão, que tinham vindo com Pedro, profundamente se admiraram, vendo que o dom do Espírito Santo era derramado também sobre os pagãos;
+46. pois eles os ouviam falar em outras línguas e glorificar a Deus.
+47. Então Pedro tomou a palavra: Porventura pode-se negar a água do batismo a estes que receberam o Espírito Santo como nós?
+48. E mandou que fossem batizados em nome de Jesus Cristo. Rogaram-lhe então que ficasse com eles por alguns dias.Atos dos Apóstolos, 11
+1. Os apóstolos e os irmãos da Judéia ouviram dizer que também os pagãos haviam recebido a palavra de Deus.
+2. E, quando Pedro subiu a Jerusalém, os fiéis que eram da circuncisão repreenderam-no:
+3. Por que entraste em casa de incircuncisos e comeste com eles?
+4. Mas Pedro fez-lhes uma exposição de tudo o que acontecera, dizendo:
+5. Eu estava orando na cidade de Jope e, arrebatado em espírito, tive uma visão: uma coisa, à maneira duma grande toalha, presa pelas quatro pontas, descia do céu até perto de mim.
+6. Olhei-a atentamente e distingui claramente quadrúpedes terrestres, feras, répteis e aves do céu.
+7. Ouvi também uma voz que me dizia: Levanta-te, Pedro! Mata e come.
+8. Eu, porém, disse: De nenhum modo, Senhor, pois nunca entrou em minha boca coisa profana ou impura.
+9. Outra vez falou a voz do céu: O que Deus purificou não chames tu de impuro.
+10. Isto aconteceu três vezes e tudo tornou a ser levado ao céu.
+11. Nisso chegaram três homens à casa onde eu estava, enviados a mim de Cesaréia.
+12. O Espírito me disse que fosse com eles sem hesitar. Foram comigo também os seis irmãos aqui presentes e entramos na casa de Cornélio.
+13. Este nos referiu então como em casa tinha visto um anjo diante de si, que lhe dissera: Envia alguém a Jope e chama Simão, que tem por sobrenome Pedro.
+14. Ele te dirá as palavras pelas quais serás salvo tu e toda a tua casa.
+15. Apenas comecei a falar, quando desceu o Espírito Santo sobre eles, como no princípio descera também sobre nós.
+16. Lembrei-me então das palavras do Senhor, quando disse: João batizou em água, mas vós sereis batizados no Espírito Santo.
+17. Pois, se Deus lhes deu a mesma graça que a nós, que cremos no Senhor Jesus Cristo, com que direito me oporia eu a Deus?
+18. Depois de terem ouvido essas palavras, eles se calaram e deram glória a Deus, dizendo: Portanto, também aos pagãos concedeu Deus o arrependimento que conduz à vida!
+19. Entretanto, aqueles que foram dispersados pela perseguição que houve no tempo de Estêvão chegaram até a Fenícia, Chipre e Antioquia, pregando a palavra só aos judeus.
+20. Alguns deles, porém, que eram de Chipre e de Cirene, entrando em Antioquia, dirigiram-se também aos gregos, anunciando-lhes o Evangelho do Senhor Jesus.
+21. A mão do Senhor estava com eles e grande foi o número dos que receberam a fé e se converteram ao Senhor.
+22. A notícia dessas coisas chegou aos ouvidos da Igreja de Jerusalém. Enviaram então Barnabé até Antioquia.
+23. Ao chegar lá, alegrou-se, vendo a graça de Deus, e a todos exortava a perseverar no Senhor com firmeza de coração,
+24. pois era um homem de bem e cheio do Espírito Santo e de fé. Assim uma grande multidão uniu-se ao Senhor.
+25. Em seguida, partiu Barnabé para Tarso, à procura de Saulo. Achou-o e levou-o para Antioquia.
+26. Durante um ano inteiro eles tomaram parte nas reuniões da comunidade e instruíram grande multidão, de maneira que em Antioquia é que os discípulos, pela primeira vez, foram chamados pelo nome de cristãos.
+27. Por aqueles dias desceram alguns profetas de Jerusalém a Antioquia.
+28. Um deles, chamado Ágabo, levantou-se e deu a entender pelo Espírito que haveria uma grande fome em toda a terra. Esta, com efeito, veio no reinado de Cláudio.
+29. Os discípulos resolveram, cada um conforme as suas posses, enviar socorro aos irmãos da Judéia.
+30. Assim o fizeram e o enviaram aos anciãos por intermédio de Barnabé e Saulo.Atos dos Apóstolos, 12
+1. Por aquele mesmo tempo, o rei Herodes mandou prender alguns membros da Igreja para os maltratar.
+2. Assim foi que matou à espada Tiago, irmão de João.
+3. Vendo que isto agradava aos judeus, mandou prender Pedro. Eram então os dias dos pães sem fermento.
+4. Mandou prendê-lo e lançou-o no cárcere, entregando-o à guarda de quatro grupos, de quatro soldados cada um, com a intenção de apresentá-lo ao povo depois da Páscoa.
+5. Pedro estava assim encerrado na prisão, mas a Igreja orava sem cessar por ele a Deus.
+6. Ora, quando Herodes estava para o apresentar, naquela mesma noite dormia Pedro entre dois soldados, ligado com duas cadeias. Os guardas, à porta, vigiavam o cárcere.
+7. De repente, apresentou-se um anjo do Senhor, e uma luz brilhou no recinto. Tocando no lado de Pedro, o anjo despertou-o: Levanta-te depressa, disse ele. Caíram-lhe as cadeias das mãos.
+8. O anjo ordenou: Cinge-te e calça as tuas sandálias. Ele assim o fez. O anjo acrescentou: Cobre-te com a tua capa e segue-me.
+9. Pedro saiu e seguiu-o, sem saber se era real o que se fazia por meio do anjo. Julgava estar sonhando.
+10. Passaram o primeiro e o segundo postos da guarda. Chegaram ao portão de ferro, que dá para a cidade, o qual se lhes abriu por si mesmo. Saíram e tomaram juntos uma rua. Em seguida, de súbito, o anjo desapareceu.
+11. Então Pedro tornou a si e disse: Agora vejo que o Senhor mandou verdadeiramente o seu anjo e me livrou da mão de Herodes e de tudo o que esperava o povo dos judeus.
+12. Refletiu um momento e dirigiu-se para a casa de Maria, mãe de João, que tem por sobrenome Marcos, onde muitos se tinham reunido e faziam oração.
+13. Quando bateu à porta de entrada, uma criada, chamada Rode, adiantou-se para escutar.
+14. Mal reconheceu a voz de Pedro, de tanta alegria não abriu a porta, mas, correndo para dentro, foi anunciar que era Pedro que estava à porta.
+15. Disseram-lhe: Estás louca! Mas ela persistia em afirmar que era verdade. Diziam eles: Então é o seu anjo.
+16. Pedro continuava a bater. Afinal abriram a porta, viram-no e ficaram atônitos.
+17. Ele, acenando-lhes com a mão que se calassem, contou como o Senhor o havia livrado da prisão, e disse: Comunicai-o a Tiago e aos irmãos. Em seguida, saiu dali e retirou-se para outro lugar.
+18. Logo que amanheceu, houve um sobressalto pouco comum entre os soldados sobre o que acontecera a Pedro.
+19. Herodes, procurando-o e não o achando, instaurou um processo contra os guardas e mandou supliciá-los. Em seguida, desceu da Judéia para Cesaréia, onde permaneceu.
+20. Estava Herodes em conflito com os habitantes de Tiro e de Sidônia. Estes, porém, de comum acordo, se apresentaram a ele, e, com o favor de Blasto, que era camareiro do rei, pediram a paz. (Porque a sua região era abastecida por ele.)
+21. No dia marcado, Herodes, vestido em traje real, sentou-se no tribunal e lhes dirigiu uma alocução.
+22. O povo aplaudia: É a voz de um deus, e não de um homem!
+23. No mesmo instante, o anjo do Senhor o feriu, por ele não haver dado honra a Deus. E, roído de vermes, expirou.
+24. Entretanto, a palavra de Deus crescia e se espalhava sempre mais.
+25. Tendo Barnabé e Saulo concluído a sua missão, voltaram de Jerusalém (a Antioquia), levando consigo João, que tem por sobrenome Marcos.Atos dos Apóstolos, 13
+1. Havia então na Igreja de Antioquia profetas e doutores, entre eles Barnabé, Simão, apelidado o Negro, Lúcio de Cirene, Manaém, companheiro de infância do tetrarca Herodes, e Saulo.
+2. Enquanto celebravam o culto do Senhor, depois de terem jejuado, disse-lhes o Espírito Santo: Separai-me Barnabé e Saulo para a obra a que os tenho destinado.
+3. Então, jejuando e orando, impuseram-lhes as mãos e os despediram.
+4. Enviados assim pelo Espírito Santo, foram a Selêucia e dali navegaram para a ilha de Chipre.
+5. Chegados a Salamina, pregavam a palavra de Deus nas sinagogas dos judeus. Tinham com eles João para auxiliá-los.
+6. Percorreram toda a ilha até Pafos e acharam um judeu chamado Barjesus, mago e falso profeta,
+7. que vivia na companhia do procônsul Sérgio Paulo, homem sensato. Este chamou Barnabé e Saulo, e exprimiu-lhes o desejo de ouvir a palavra de Deus.
+8. Mas Élimas, o Mago - pois assim é interpretado o seu nome -, se lhes opunha, procurando desviar da fé o procônsul.
+9. Então Saulo, chamado também Paulo, cheio do Espírito Santo, cravou nele os olhos e disse-lhe:
+10. Filho do demônio, cheio de todo engano e de toda astúcia, inimigo de toda justiça, não cessas de perverter os caminhos retos do Senhor!
+11. Eis que agora está sobre ti a mão do Senhor e ficarás cego. Não verás o sol até nova ordem! Caíram logo sobre ele a escuridão e as trevas, e, andando à roda, buscava quem lhe desse a mão.
+12. À vista deste prodígio, o procônsul abraçou a fé, admirando vivamente a doutrina do Senhor.
+13. Paulo e os seus companheiros navegaram de Pafos e chegaram a Perge, na Panfília, de onde João, apartando-se deles, voltou para Jerusalém.
+14. Mas eles, deixando Perge, foram para Antioquia da Pisídia. Ali entraram em dia de sábado na sinagoga, e sentaram-se.
+15. Depois da leitura da lei e dos profetas, mandaram-lhes dizer os chefes da sinagoga: Irmãos, se tendes alguma palavra de exortação ao povo, falai-a.
+16. Paulo levantou-se, fez um sinal com a mão e falou: Homens de Israel e vós que temeis a Deus, ouvi.
+17. O Deus do povo de Israel escolheu nossos pais e exaltou este povo no tempo em que habitava na terra do Egito, de onde os tirou com o poder de seu braço.
+18. Por espaço de quarenta anos alimentou-os no deserto.
+19. Destruiu sete nações na terra de Canaã e distribuiu-lhes por sorte aquela terra durante quase quatrocentos e cinqüenta anos.
+20. Em seguida, lhes deu juízes até o profeta Samuel.
+21. Pediram então um rei, e Deus lhes deu, por quarenta anos, Saul, filho de Cis, da tribo de Benjamim.
+22. Depois, Deus o rejeitou e mandou-lhes Davi como rei, de quem deu este testemunho: Achei Davi, filho de Jessé, homem segundo o meu coração, que fará todas as minhas vontades.
+23. De sua descendência, conforme a promessa, Deus fez sair para Israel o Salvador Jesus.
+24. João tinha pregado, desde antes da sua vinda, o batismo do arrependimento a todo o povo de Israel.
+25. Terminando a sua carreira, dizia: Eu não sou aquele que vós pensais, mas após mim virá aquele de quem não sou digno de desatar o calçado.
+26. Irmãos, filhos de Abraão, e os que entre vós temem a Deus: a nós é que foi dirigida a mensagem de salvação.
+27. Com efeito, os habitantes de Jerusalém e os seus magistrados não conheceram Jesus, e, sentenciando-o, cumpriram os oráculos dos profetas, que cada sábado são lidos.
+28. Embora não achassem nele culpa alguma de morte, pediram a Pilatos que lhe tirasse a vida.
+29. Depois de realizarem todas as coisas que dele estavam escritas, tirando-o do madeiro, puseram-no num sepulcro.
+30. Mas Deus o ressuscitou dentre os mortos.
+31. Durante muitos dias apareceu àqueles que com ele subiram da Galiléia a Jerusalém, os quais até agora são testemunhas dele junto ao povo.
+32. Nós vos anunciamos: a promessa feita a nossos pais,
+33. Deus a tem cumprido diante de nós, seus filhos, suscitando Jesus, como também está escrito no Salmo segundo: Tu és meu Filho, eu hoje te gerei (Sl 2,7).
+34. Que Deus o ressuscitou dentre os mortos, para nunca mais tornar à corrupção, ele o declarou desta maneira: Eu vos darei as coisas sagradas prometidas a Davi (Is 55,3).
+35. E diz também noutra passagem: Não permitirás que teu Santo experimente a corrupção (Sl 15,10).
+36. Ora, Davi, depois de ter servido em vida aos desígnios de Deus, morreu. Foi reunido a seus pais e experimentou a corrupção.
+37. Mas aquele a quem Deus ressuscitou não experimentou a corrupção.
+38. Sabei, pois, irmãos, que por ele se vos anuncia a remissão dos pecados.
+39. Todo aquele que crê é justificado por ele de tudo aquilo que não pôde ser pela Lei de Moisés.
+40. Cuidai, pois, que não venha sobre vós o que foi dito pelos profetas:
+41. Vede, ó desprezadores, pasmai e morrei de espanto. Pois eu vou realizar uma obra em vossos dias, obra a que não creríeis, se alguém vo-la contasse (Hab 1,5).
+42. Ao saírem, rogavam que lhes repetissem essas palavras no sábado seguinte.
+43. Depois que a assembléia terminou, muitos judeus e prosélitos devotos seguiram Paulo e Barnabé, os quais com muitas palavras os exortavam a perseverar na graça de Deus.
+44. No sábado seguinte, afluiu quase toda a cidade para ouvir a palavra de Deus.
+45. Os judeus, vendo a multidão, encheram-se de inveja e puseram-se a protestar com injúrias contra o que Paulo falava.
+46. Então Paulo e Barnabé disseram-lhes resolutamente: Era a vós que em primeiro lugar se devia anunciar a palavra de Deus. Mas, porque a rejeitais e vos julgais indignos da vida eterna, eis que nos voltamos para os pagãos.
+47. Porque o Senhor assim no-lo mandou: Eu te estabeleci para seres luz das nações, e levares a salvação até os confins da terra (Is 49,6).
+48. Estas palavras encheram de alegria os pagãos que glorificavam a palavra do Senhor. Todos os que estavam predispostos para a vida eterna fizeram ato de fé.
+49. Divulgava-se, assim, a palavra do Senhor por toda a região.
+50. Mas os judeus instigaram certas mulheres religiosas da aristocracia e os principais da cidade, que excitaram uma perseguição contra Paulo e Barnabé e os expulsaram do seu território.
+51. Estes sacudiram contra eles o pó dos seus pés, e foram a Icônio.
+52. Os discípulos, por sua vez, estavam cheios de alegria e do Espírito Santo.Atos dos Apóstolos, 14
+1. Em Icônio, Paulo e Barnabé, segundo seu costume, entraram na sinagoga dos judeus e ali pregaram, de tal modo que uma grande multidão de judeus e de gregos se converteu à fé.
+2. Mas os judeus, que tinham permanecido incrédulos, excitaram os ânimos dos pagãos contra os irmãos.
+3. Não obstante, eles se demoraram ali por muito tempo, falando com desassombro e confiança no Senhor, que dava testemunho à palavra da sua graça pelos milagres e prodígios que ele operava por mãos dos apóstolos.
+4. A população da cidade achava-se dividida: uns eram pelos judeus, outros pelos apóstolos.
+5. Mas como se tivesse levantado um motim dos gentios e dos judeus, com os seus chefes, para os ultrajar e apedrejar,
+6. ao saberem disso, fugiram para as cidades da Licaônia, Listra e Derbe e suas circunvizinhanças.
+7. Ali pregaram o Evangelho.
+8. Em Listra vivia um homem aleijado das pernas, coxo de nascença, que nunca tinha andado.
+9. Sentado, ele ouvia Paulo pregar. Este, fixando nele os olhos e vendo que tinha fé para ser curado,
+10. disse em alta voz: Levanta-te direito sobre os teus pés! Ele deu um salto e pôs-se a andar.
+11. Vendo a multidão o que Paulo fizera, levantou a voz, gritando em língua licaônica: Deuses em figura de homens baixaram a nós!
+12. Chamavam a Barnabé Zeus e a Paulo Hermes, porque era este quem dirigia a palavra.
+13. Um sacerdote de Zeus Propóleos trouxe para as portas touros ornados de grinaldas, querendo, de acordo com todo o povo, sacrificar-lhos.
+14. Mas os apóstolos Barnabé e Paulo, ao perceberem isso, rasgaram as suas vestes e saltaram no meio da multidão:
+15. Homens, clamavam eles, por que fazeis isso? Também nós somos homens, da mesma condição que vós, e pregamos justamente para que vos convertais das coisas vãs ao Deus vivo, que fez o céu, a terra, o mar e tudo quanto neles há.
+16. Ele permitiu nos tempos passados que todas as nações seguissem os seus caminhos.
+17. Contudo, nunca deixou de dar testemunho de si mesmo, por seus benefícios: dando-vos do céu as chuvas e os tempos férteis, concedendo abundante alimento e enchendo os vossos corações de alegria.
+18. Apesar dessas palavras, não foi sem dificuldade que contiveram a multidão de sacrificar a eles.
+19. Sobrevieram, porém, alguns judeus de Antioquia e de Icônio que persuadiram a multidão. Apedrejaram Paulo e, dando-o por morto, arrastaram-no para fora da cidade.
+20. Os discípulos o rodearam. Ele se levantou e entrou na cidade. No dia seguinte, partiu com Barnabé para Derbe.
+21. Depois de ter pregado o Evangelho à cidade de Derbe, onde ganharam muitos discípulos, voltaram para Listra, Icônio e Antioquia (da Pisídia).
+22. Confirmavam as almas dos discípulos e exortavam-nos a perseverar na fé, dizendo que é necessário entrarmos no Reino de Deus por meio de muitas tribulações.
+23. Em cada igreja instituíram anciãos e, após orações com jejuns, encomendaram-nos ao Senhor, em quem tinham confiado.
+24. Atravessaram a Pisídia e chegaram a Panfília.
+25. Depois de ter anunciado a palavra do Senhor em Perge, desceram a Atália.
+26. Dali navegaram para Antioquia (da Síria), de onde tinham partido, encomendados à graça de Deus para a obra que estavam a completar.
+27. Ali chegados, reuniram a igreja e contaram quão grandes coisas Deus fizera com eles, e como abrira a porta da fé aos gentios.
+28. Demoraram-se com os discípulos longo tempo.Atos dos Apóstolos, 15
+1. Alguns homens, descendo da Judéia, puseram-se a ensinar aos irmãos o seguinte: Se não vos circuncidais, segundo o rito de Moisés, não podeis ser salvos.
+2. Originou-se então grande discussão de Paulo e Barnabé com eles, e resolveu-se que estes dois, com alguns outros irmãos, fossem tratar desta questão com os apóstolos e os anciãos em Jerusalém.
+3. Acompanhados (algum tempo) dos membros da comunidade, tomaram o caminho que atravessa a Fenícia e Samaria. Contaram a todos os irmãos a conversão dos gentios, o que causou a todos grande alegria.
+4. Chegando a Jerusalém, foram recebidos pela comunidade, pelos apóstolos e anciãos, a quem contaram tudo o que Deus tinha feito com eles.
+5. Mas levantaram-se alguns que antes de ter abraçado a fé eram da seita dos fariseus, dizendo que era necessário circuncidar os pagãos e impor-lhes a observância da Lei de Moisés.
+6. Reuniram-se os apóstolos e os anciãos para tratar desta questão.
+7. Ao fim de uma grande discussão, Pedro levantou-se e lhes disse: Irmãos, vós sabeis que já há muito tempo Deus me escolheu dentre vós, para que da minha boca os pagãos ouvissem a palavra do Evangelho e cressem.
+8. Ora, Deus, que conhece os corações, testemunhou a seu respeito, dando-lhes o Espírito Santo, da mesma forma que a nós.
+9. Nem fez distinção alguma entre nós e eles, purificando pela fé os seus corações.
+10. Por que, pois, provocais agora a Deus, impondo aos discípulos um jugo que nem nossos pais nem nós pudemos suportar?
+11. Nós cremos que pela graça do Senhor Jesus seremos salvos, exatamente como eles.
+12. Toda a assembléia o ouviu silenciosamente. Em seguida, ouviram Barnabé e Paulo contar quantos milagres e prodígios Deus fizera por meio deles entre os gentios.
+13. Depois de terminarem, Tiago tomou a palavra: Irmãos, ouvi-me, disse ele.
+14. Simão narrou como Deus começou a olhar para as nações pagãs para tirar delas um povo que trouxesse o seu nome.
+15. Ora, com isto concordam as palavras dos profetas, como está escrito:
+16. Depois disto voltarei, e reedificarei o tabernáculo de Davi que caiu. E reedificarei as suas ruínas, e o levantarei
+17. para que o resto dos homens busque o Senhor, e todas as nações, sobre as quais tem sido invocado o meu nome.
+18. Assim fala o Senhor que faz estas coisas, coisas que ele conheceu desde a eternidade (Am 9,11s.).
+19. Por isso, julgo que não se devem inquietar os que dentre os gentios se convertem a Deus.
+20. Mas que se lhes escreva somente que se abstenham das carnes oferecidas aos ídolos, da impureza, das carnes sufocadas e do sangue.
+21. Porque Moisés, desde muitas gerações, tem em cada cidade seus pregadores, pois que ele é lido nas sinagogas todos os sábados.
+22. Então pareceu bem aos apóstolos e aos anciãos com toda a comunidade escolher homens dentre eles e enviá-los a Antioquia com Paulo e Barnabé: Judas, que tinha o sobrenome de Barsabás, e Silas, homens notáveis entre os irmãos.
+23. Por seu intermédio enviaram a seguinte carta: "Os apóstolos e os anciãos aos irmãos de origem pagã, em Antioquia, na Síria e Cilícia, saúde!
+24. Temos ouvido que alguns dentre nós vos têm perturbado com palavras, transtornando os vossos espíritos, sem lhes termos dado semelhante incumbência.
+25. Assim nós nos reunimos e decidimos escolher delegados e enviá-los a vós, com os nossos amados Barnabé e Paulo,
+26. homens que têm exposto suas vidas pelo nome de nosso Senhor Jesus Cristo.
+27. Enviamos, portanto, Judas e Silas que de viva voz vos exporão as mesmas coisas.
+28. Com efeito, pareceu bem ao Espírito Santo e a nós não vos impor outro peso além do seguinte indispensável:
+29. que vos abstenhais das carnes sacrificadas aos ídolos, do sangue, da carne sufocada e da impureza. Dessas coisas fareis bem de vos guardar conscienciosamente. Adeus!
+30. Tendo-se despedido, a delegação dirigiu-se a Antioquia. Ali reuniram a assembléia e entregaram a carta.
+31. À sua leitura, todos se alegraram com o estímulo que ela trazia.
+32. Judas e Silas, que eram também profetas, dirigiam aos irmãos muitas palavras de exortação e de animação.
+33. Demoraram-se ali por algum tempo. Foram depois pelos irmãos despedidos em paz, voltando aos que lhos tinham enviado.
+34. [A Silas contudo, pareceu bem ficar ali, e Judas partiu sozinho.]
+35. Paulo e Barnabé detiveram-se também em Antioquia, ensinando e pregando com muitos outros a palavra do Senhor.
+36. Ao termo de alguns dias, disse Paulo a Barnabé: Tornemos a visitar os irmãos por todas as cidades onde temos pregado a palavra do Senhor, para ver como estão passando.
+37. Barnabé queria levar consigo também João, que tinha por sobrenome Marcos.
+38. Paulo, porém, achava que não devia ser admitido quem se tinha separado deles em Panfília e não os havia acompanhado no ministério.
+39. Houve tal discussão que se separaram um do outro, e Barnabé, levando consigo Marcos, navegou para Chipre.
+40. Paulo, porém, tendo escolhido Silas, e depois de ter sido recomendado pelos irmãos à graça do Senhor, partiu. Ele percorreu a Síria, a Cilícia, confirmando as comunidades.Atos dos Apóstolos, 16
+1. Chegou a Derbe e depois a Listra. Havia ali um discípulo, chamado Timóteo, filho de uma judia cristã, mas de pai grego,
+2. que gozava de ótima reputação junto dos irmãos de Listra e de Icônio.
+3. Paulo quis que ele fosse em sua companhia. Ao tomá-lo consigo, circuncidou-o, por causa dos judeus daqueles lugares, pois todos sabiam que o seu pai era grego.
+4. Nas cidades pelas quais passavam, ensinavam que observassem as decisões que haviam sido tomadas pelos apóstolos e anciãos em Jerusalém.
+5. Assim as igrejas eram confirmadas na fé, e cresciam em número dia a dia.
+6. Atravessando em seguida a Frígia e a província da Galácia, foram impedidos pelo Espírito Santo de anunciar a palavra de Deus na (província da) Ásia.
+7. Ao chegarem aos confins da Mísia, tencionavam seguir para a Bitínia, mas o Espírito de Jesus não o permitiu.
+8. Depois de haverem atravessado rapidamente a Mísia, desceram a Trôade.
+9. De noite, Paulo teve uma visão: um macedônio, em pé, diante dele, lhe rogava: Passa à Macedônia, e vem em nosso auxílio!
+10. Assim que teve essa visão, procuramos partir para a Macedônia, certos de que Deus nos chamava a pregar-lhes o Evangelho.
+11. Embarcados em Trôade, fomos diretamente à Samotrácia e no outro dia a Neápolis;
+12. e dali a Filipos, que é a cidade principal daquele distrito da Macedônia, uma colônia (romana). Nesta cidade nos detivemos por alguns dias.
+13. No sábado, saímos fora da porta para junto do rio, onde pensávamos haver lugar de oração. Aí nos assentamos e falávamos às mulheres que se haviam reunido.
+14. Uma mulher, chamada Lídia, da cidade dos tiatirenos, vendedora de púrpura, temente a Deus, nos escutava. O Senhor abriu-lhe o coração, para atender às coisas que Paulo dizia.
+15. Foi batizada juntamente com a sua família e fez-nos este pedido: Se julgais que tenho fé no Senhor, entrai em minha casa e ficai comigo. E obrigou-nos a isso.
+16. Certo dia, quando íamos à oração, eis que nos veio ao encontro uma moça escrava que tinha o espírito de Pitão, a qual com as suas adivinhações dava muito lucro a seus senhores.
+17. Pondo-se a seguir a Paulo e a nós, gritava: Estes homens são servos do Deus Altíssimo, que vos anunciam o caminho da salvação.
+18. Repetiu isto por muitos dias. Por fim, Paulo enfadou-se. Voltou-se para ela e disse ao espírito: Ordeno-te em nome de Jesus Cristo que saias dela. E na mesma hora ele saiu.
+19. Vendo seus amos que se lhes esvaecera a esperança do lucro, pegaram Paulo e Silas e levaram-nos ao foro, à presença das autoridades.
+20. Em seguida, apresentaram-nos aos magistrados, acusando: Estes homens são judeus; amotinam a nossa cidade.
+21. E pregam um modo de vida que nós, romanos, não podemos admitir nem seguir.
+22. O povo insurgiu-se contra eles. Os magistrados mandaram arrancar-lhes as vestes para açoitá-los com varas.
+23. Depois de lhes terem feito muitas chagas, meteram-nos na prisão, mandando ao carcereiro que os guardasse com segurança.
+24. Este, conforme a ordem recebida, meteu-os na prisão inferior e prendeu-lhes os pés ao cepo.
+25. Pela meia-noite, Paulo e Silas rezavam e cantavam um hino a Deus, e os prisioneiros os escutavam.
+26. Subitamente, sentiu-se um terremoto tão grande que se abalaram até os fundamentos do cárcere. Abriram-se logo todas as portas e soltaram-se as algemas de todos.
+27. Acordou o carcereiro e, vendo abertas as portas do cárcere, supôs que os presos haviam fugido. Tirou da espada e queria matar-se.
+28. Mas Paulo bradou em alta voz: Não te faças nenhum mal, pois estamos todos aqui.
+29. Então o carcereiro pediu luz, entrou e lançou-se trêmulo aos pés de Paulo e Silas.
+30. Depois os conduziu para fora e perguntou-lhes: Senhores, que devo fazer para me salvar?
+31. Disseram-lhe: Crê no Senhor Jesus e serás salvo, tu e tua família.
+32. Anunciaram-lhe a palavra de Deus, a ele e a todos os que estavam em sua casa.
+33. Então, naquela mesma hora da noite, ele cuidou deles e lavou-lhes as chagas. Imediatamente foi batizado, ele e toda a sua família.
+34. Em seguida, ele os fez subir para sua casa, pôs-lhes a mesa e alegrou-se com toda a sua casa por haver crido em Deus.
+35. Quando amanheceu, os magistrados mandaram os lictores dizer: Solta esses homens.
+36. O carcereiro transmitiu essa mensagem a Paulo: Os magistrados mandaram-me dizer que vos ponha em liberdade. Saí, pois, e ide em paz.
+37. Mas Paulo replicou: Sem nenhum julgamento nos açoitaram publicamente, a nós que somos cidadãos romanos, e meteram-nos no cárcere, e agora nos lançam fora ocultamente... Não há de ser assim! Mas venham e soltem-nos pessoalmente!
+38. Os lictores deram parte dessas palavras aos magistrados. Estes temeram, ao ouvir dizer que eram romanos.
+39. Foram e lhes falaram brandamente. Pedindo desculpas, rogavam-lhes que se retirassem da cidade.
+40. Saindo do cárcere, entraram em casa de Lídia, onde reviram e consolaram os irmãos. Depois partiram.Atos dos Apóstolos, 17
+1. Passaram por Anfípolis e Apolônia e chegaram a Tessalônica, onde havia uma sinagoga de judeus.
+2. Paulo dirigiu-se a eles, segundo o seu costume, e por três sábados disputou com eles.
+3. Explicava e demonstrava, à base das Escrituras, que era necessário que Cristo padecesse e ressurgisse dos mortos. E este Cristo é Jesus que eu vos anuncio.
+4. Alguns deles creram e associaram-se a Paulo e Silas, como também uma grande multidão de prosélitos gentios, e não poucas mulheres de destaque.
+5. Os judeus, tomados de inveja, ajuntaram alguns homens da plebe e com esta gente amotinaram a cidade. Assaltaram a casa de Jasão, procurando-os para os entregar ao povo.
+6. Mas como não os achassem, arrastaram Jasão e alguns irmãos à presença dos magistrados, clamando: Estes homens amotinam todo o mundo. Estão agora aqui! E Jasão os acolheu!
+7. Todos eles contrariam os decretos de César, proclamando outro rei: Jesus.
+8. Assim excitavam o povo e os magistrados.
+9. E só depois de receberem uma caução de Jasão e dos outros é que os deixaram ir.
+10. Logo que se fez noite, os irmãos enviaram Paulo e Silas para Beréia. Quando ali chegaram, entraram na sinagoga dos judeus.
+11. Estes eram mais nobres do que os de Tessalônica e receberam a palavra com ansioso desejo, indagando todos os dias, nas Escrituras, se essas coisas eram de fato assim.
+12. Muitos deles creram, como também muitas mulheres gregas da aristocracia, e não poucos homens.
+13. Mas os judeus de Tessalônica, sabendo que também em Beréia tinha sido pregada por Paulo a palavra de Deus, foram para lá agitar e sublevar o povo.
+14. Então os irmãos fizeram que Paulo se retirasse e fosse até o mar, ao passo que Silas e Timóteo ficaram ali.
+15. Os que conduziam Paulo levaram-no até Atenas. De lá voltaram e transmitiram para Silas e Timóteo a ordem de que fossem ter com ele o mais cedo possível.
+16. Enquanto Paulo os esperava em Atenas, à vista da cidade entregue à idolatria, o seu coração enchia-se de amargura.
+17. Disputava na sinagoga com os judeus e prosélitos, e todos os dias, na praça, com os que ali se encontravam.
+18. Alguns filósofos epicureus e estóicos conversaram com ele. Diziam uns: Que quer dizer esse tagarela? Outros: Parece que é pregador de novos deuses. Pois lhes anunciava Jesus e a Ressurreição.
+19. Tomaram-no consigo e levaram-no ao Areópago, e lhe perguntaram: Podemos saber que nova doutrina é essa que pregas?
+20. Pois o que nos trazes aos ouvidos nos parece muito estranho. Queremos saber o que vem a ser isso.
+21. Ora (como se sabe), todos os atenienses e os forasteiros que ali se fixaram não se ocupavam de outra coisa senão a de dizer ou de ouvir as últimas novidades.
+22. Paulo, em pé no meio do Areópago, disse: Homens de Atenas, em tudo vos vejo muitíssimo religiosos.
+23. Percorrendo a cidade e considerando os monumentos do vosso culto, encontrei também um altar com esta inscrição: A um Deus desconhecido. O que adorais sem o conhecer, eu vo-lo anuncio!
+24. O Deus, que fez o mundo e tudo o que nele há, é o Senhor do céu e da terra, e não habita em templos feitos por mãos humanas.
+25. Nem é servido por mãos de homens, como se necessitasse de alguma coisa, porque é ele quem dá a todos a vida, a respiração e todas as coisas.
+26. Ele fez nascer de um só homem todo o gênero humano, para que habitasse sobre toda a face da terra. Fixou aos povos os tempos e os limites da sua habitação.
+27. Tudo isso para que procurem a Deus e se esforcem por encontrá-lo como que às apalpadelas, pois na verdade ele não está longe de cada um de nós.
+28. Porque é nele que temos a vida, o movimento e o ser, como até alguns dos vossos poetas disseram: Nós somos também de sua raça...
+29. Se, pois, somos da raça de Deus, não devemos pensar que a divindade é semelhante ao ouro, à prata ou à pedra lavrada por arte e gênio dos homens.
+30. Deus, porém, não levando em conta os tempos da ignorância, convida agora a todos os homens de todos os lugares a se arrependerem.
+31. Porquanto fixou o dia em que há de julgar o mundo com justiça, pelo ministério de um homem que para isso destinou. Para todos deu como garantia disso o fato de tê-lo ressuscitado dentre os mortos.
+32. Quando o ouviram falar de ressurreição dos mortos, uns zombavam e outros diziam: A respeito disso te ouviremos outra vez.
+33. Assim saiu Paulo do meio deles.
+34. Todavia, alguns homens aderiram a ele e creram: entre eles, Dionísio, o areopagita, e uma mulher chamada Dâmaris; e com eles ainda outros.Atos dos Apóstolos, 18
+1. Depois disso, saindo de Atenas, Paulo dirigiu-se a Corinto.
+2. Encontrou ali um judeu chamado Áquila, natural do Ponto, e sua mulher Priscila. Eles pouco antes haviam chegado da Itália, por Cláudio ter decretado que todos os judeus saíssem de Roma. Paulo uniu-se a eles.
+3. Como exercessem o mesmo ofício, morava e trabalhava com eles. (Eram fabricantes de tendas.)
+4. Todos os sábados ele falava na sinagoga e procurava convencer os judeus e os gregos.
+5. Quando Silas e Timóteo chegaram da Macedônia, Paulo dedicou-se inteiramente à pregação da palavra, dando aos judeus testemunho de que Jesus era o Messias.
+6. Mas como esses contradissessem e o injuriassem, ele, sacudindo as vestes, disse-lhes: O vosso sangue caia sobre a vossa cabeça! Tenho as mãos inocentes. Desde agora vou para o meio dos gentios.
+7. Saindo dali, entrou em casa de um prosélito, chamado Tício Justo, cuja casa era contígua à sinagoga.
+8. Entretanto Crispo, o chefe da sinagoga, acreditou no Senhor com todos os da sua casa. Sabendo disso, muitos dos coríntios, ouvintes de Paulo, acreditaram e foram batizados.
+9. Numa noite, o Senhor disse a Paulo em visão: Não temas! Fala e não te cales.
+10. Porque eu estou contigo. Ninguém se aproximará de ti para te fazer mal, pois tenho um numeroso povo nesta cidade.
+11. Paulo deteve-se ali um ano e seis meses, ensinando a eles a palavra de Deus.
+12. Sendo Galião procônsul da Acaia, levantaram-se os judeus de comum acordo contra Paulo e levaram-no ao tribunal e disseram:
+13. Este homem persuade os ouvintes a (adotar) um culto contrário à lei.
+14. Paulo ia falar, mas Galião disse aos judeus: Se fosse, na realidade, uma injustiça ou verdadeiro crime, seria razoável que vos atendesse.
+15. Mas se são questões de doutrina, de nomes e da vossa lei, isso é lá convosco. Não quero ser juiz dessas coisas.
+16. E mandou-o sair do tribunal.
+17. Então todos pegaram em Sóstenes, chefe da sinagoga, e o espancaram diante do tribunal, sem que Galião fizesse caso algum disso.
+18. Paulo permaneceu ali (em Corinto) ainda algum tempo. Depois se despediu dos irmãos e navegou para a Síria e com ele Priscila e Áquila. Antes, porém, cortara o cabelo em Cêncris, porque terminara um voto.
+19. Chegaram a Éfeso, onde os deixou. Ele entrou na sinagoga e entretinha-se com os judeus.
+20. Pediram-lhe estes que ficasse com eles ali por mais tempo, mas ele não quis.
+21. Ao despedir-se, disse: Voltarei a vós, se Deus quiser. E partiu de Éfeso.
+22. Viajou até Cesaréia, subiu (a Jerusalém) e saudou a comunidade e logo em seguida desceu a Antioquia.
+23. Aí se demorou apenas por algum tempo, partiu de novo e atravessou sucessivamente as regiões da Galácia e da Frígia, fortalecendo todos os discípulos.
+24. Entrementes, um judeu chamado Apolo, natural de Alexandria, homem eloqüente e muito versado nas Escrituras, chegou a Éfeso.
+25. Era instruído no caminho do Senhor, falava com fervor de espírito e ensinava com precisão a respeito de Jesus, embora conhecesse somente o batismo de João.
+26. Começou, pois, a falar na sinagoga com desassombro. Como Priscila e Áquila o ouvissem, levaram-no consigo, e expuseram-lhe mais profundamente o caminho do Senhor.
+27. Como ele quisesse ir à Acaia, os irmãos animaram-no e escreveram aos discípulos que o recebessem bem. A sua presença (em Corinto) foi, pela graça de Deus, de muito proveito para os que haviam crido,
+28. pois com grande veemência refutava publicamente os judeus, provando, pelas Escrituras, que Jesus era o Messias.Atos dos Apóstolos, 19
+1. Enquanto Apolo estava em Corinto, Paulo atravessou as províncias superiores e chegou a Éfeso, onde achou alguns discípulos e indagou deles:
+2. Recebestes o Espírito Santo, quando abraçastes a fé? Responderam-lhe: Não, nem sequer ouvimos dizer que há um Espírito Santo!
+3. Então em que batismo fostes batizados?, perguntou Paulo. Disseram: No batismo de João.
+4. Paulo então replicou: João só dava um batismo de penitência, dizendo ao povo que cresse naquele que havia de vir depois dele, isto é, em Jesus.
+5. Ouvindo isso, foram batizados em nome do Senhor Jesus.
+6. E quando Paulo lhes impôs as mãos, o Espírito Santo desceu sobre eles, e falavam em línguas estranhas e profetizavam.
+7. Eram ao todo uns doze homens.
+8. Paulo entrou na sinagoga e falou com desassombro por três meses, disputando e persuadindo-os acerca do Reino de Deus.
+9. Mas, como alguns se endurecessem e não cressem, desacreditando a sua doutrina diante da multidão, apartou-se deles e reuniu à parte os discípulos, onde os ensinava diariamente na escola de um certo Tirano.
+10. Isto durou dois anos, de tal maneira que todos os habitantes da Ásia, judeus e gentios, puderam ouvir a palavra do Senhor.
+11. Deus fazia milagres extraordinários por intermédio de Paulo, de modo que lenços e outros panos que tinham tocado o seu corpo eram levados aos enfermos;
+12. e afastavam-se deles as doenças e retiravam-se os espíritos malignos.
+13. Alguns judeus exorcistas que percorriam vários lugares inventaram invocar o nome do Senhor Jesus sobre os que se achavam possessos dos espíritos malignos, com as palavras: Esconjuro-vos por Jesus, a quem Paulo prega.
+14. Assim procediam os sete filhos de um judeu chamado Cevas, sumo sacerdote.
+15. Mas o espírito maligno replicou-lhes: Conheço Jesus e sei quem é Paulo. Mas vós, quem sois?
+16. Nisto o homem possuído do espírito maligno, saltando sobre eles, apoderou-se de dois deles e subjugou-os de tal maneira, que tiveram que fugir daquela casa feridos e com as roupas estraçalhadas.
+17. Este caso tornou-se (em breve) conhecido de todos os judeus e gregos de Éfeso, e encheu-os de temor e engrandeceram o nome do Senhor Jesus.
+18. Muitos dos que haviam acreditado vinham confessar e declarar as suas obras.
+19. Muitos também, que tinham exercido artes mágicas, ajuntaram os seus livros e queimaram-nos diante de todos. Calculou-se o seu valor, e achou-se que montava a cinqüenta mil moedas de prata.
+20. Foi assim que o poder do Senhor fez crescer a palavra e a tornou sempre mais eficaz.
+21. Concluídas essas coisas, Paulo resolveu ir a Jerusalém, depois de atravessar a Macedônia e a Acaia. Depois de eu ter estado lá, disse ele, é necessário que veja também Roma.
+22. Enviou à Macedônia dois dos seus auxiliares, Timóteo e Erasto, mas ele mesmo se demorou ainda por algum tempo na Ásia.
+23. Por esse tempo, ocorreu um grande alvoroço a respeito do Evangelho.
+24. Um ourives, chamado Demétrio, que fazia de prata templozinhos de Ártemis, dava muito a ganhar aos artífices.
+25. Convocou-os, juntamente com os demais operários do mesmo ramo, e disse: Conheceis o lucro que nos resulta desta indústria.
+26. Ora, estais vendo e ouvindo que não só em Éfeso, mas quase em toda a Ásia, esse Paulo tem persuadido e desencaminhado muita gente, dizendo que não são deuses os ídolos que são feitos por mãos de homens.
+27. Daí não somente há perigo de que essa nossa corporação caia em descrédito, como também que o templo da grande Ártemis seja desconsiderado, e até mesmo seja despojada de sua majestade aquela que toda a Ásia e o mundo inteiro adoram.
+28. Estas palavras encheram-nos de ira e puseram-se a gritar: Viva a Ártemis dos efésios!
+29. A cidade alvoroçou-se e todos correram ao teatro levando consigo Caio e Aristarco, macedônios e companheiros de Paulo.
+30. Paulo queria apresentar-se ao povo, mas os discípulos não o deixaram.
+31. Até alguns dos asiarcas, que eram seus amigos, enviaram-lhe recado, pedindo que não se aventurasse a ir ao teatro.
+32. Todos gritavam ao mesmo tempo. A assembléia era uma grande confusão e a maioria nem sabia por que se achavam ali reunidos.
+33. Então fizeram sair do meio da turba Alexandre, que os judeus empurravam para a frente. Alexandre, fazendo sinal com a mão, queria dar satisfação ao povo.
+34. Mas quando perceberam que ele era judeu, todos a uma voz gritaram pelo espaço de quase duas horas: Viva a Ártemis dos efésios!
+35. Então o escrivão da cidade (veio) para apaziguar a multidão e disse: Efésios, que homem há que não saiba que a cidade de Éfeso cultua a grande Ártemis, e que a sua estátua caiu dos céus?
+36. Se isso é incontestável, convém que vos sossegueis e nada façais inconsideradamente.
+37. Estes homens, que aqui trouxestes, não são sacrílegos nem blasfemadores da vossa deusa.
+38. Mas, se Demétrio e os outros artífices têm alguma queixa contra alguém, os tribunais estão abertos e aí estão os magistrados: institua-se um processo contra eles.
+39. Se tendes reclamação a fazer, a assembléia legal decidirá.
+40. Do que se deu hoje, até corremos risco de sermos acusados de rebelião, porque não há motivo algum que nos permita justificar este concurso.
+41. A estas palavras, dissolveu-se a aglomeração.Atos dos Apóstolos, 20
+1. Depois que cessou o tumulto, Paulo convocou os discípulos. Fez-lhes uma exortação, despediu-se e pôs-se a caminho para ir à Macedônia.
+2. Percorreu aquela região, exortou os discípulos com muitas palavras e chegou à Grécia,
+3. onde se deteve por três meses. Como os judeus lhe armassem ciladas no momento em que ia embarcar para a Síria, tomou a resolução de voltar pela Macedônia.
+4. Acompanharam-no Sópatro de Beréia, filho de Pirro, e os tessalonicenses Aristarco e Segundo, Gaio de Derbe, Timóteo, Tíquico e Trófimo, da Ásia.
+5. Estes foram na frente e esperaram-nos em Trôade.
+6. Nós outros, só depois da festa de Páscoa é que navegamos de Filipos. E, cinco dias depois, fomos ter com eles em Trôade, onde ficamos uma semana.
+7. No primeiro dia da semana, estando nós reunidos para partir o pão, Paulo, que havia de viajar no dia seguinte, conversava com os discípulos e prolongou a palestra até a meia-noite.
+8. Havia muitas lâmpadas no quarto, onde nos achávamos reunidos.
+9. Acontece que um moço, chamado Êutico, que estava sentado numa janela, foi tomado de profundo sono, enquanto Paulo ia prolongando seu discurso. Vencido pelo sono, caiu do terceiro andar abaixo, e foi levantado morto.
+10. Paulo desceu, debruçou-se sobre ele, tomou-o nos braços e disse: Não vos perturbeis, porque a sua alma está nele.
+11. Então subiu, partiu o pão, comeu falou-lhes largamente até o romper do dia. Depois partiu.
+12. Quanto ao moço, levaram-no dali vivo, cheios de consolação.
+13. Nós nos tínhamos adiantado e navegado para Assos, para ali recebermos Paulo. Ele mesmo assim o havia disposto, preferindo fazer a viagem a pé.
+14. Reuniu-se a nós em Assos, e nós o tomamos a bordo e fomos a Mitilene.
+15. Continuando dali, sempre por mar, chegamos no dia seguinte defronte de Quios. No outro dia, chegamos a Samos, e um dia depois estávamos em Mileto.
+16. Paulo havia determinado não ir a Éfeso, para não se demorar na Ásia, pois se apressava para celebrar, se possível em Jerusalém, o dia de Pentecostes.
+17. Mas de Mileto mandou a Éfeso chamar os anciãos da igreja.
+18. Quando chegaram, e estando todos reunidos, disse-lhes: Vós sabeis de que modo sempre me tenho comportado para convosco, desde o primeiro dia em que entrei na Ásia.
+19. Servi ao Senhor com toda a humildade, com lágrimas e no meio das provações que me sobrevieram pelas ciladas dos judeus.
+20. Vós sabeis como não tenho negligenciado, como não tenho ocultado coisa alguma que vos podia ser útil. Preguei e vos instruí publicamente e dentro de vossas casas.
+21. Preguei aos judeus e aos gentios a conversão a Deus e a fé em nosso Senhor Jesus.
+22. Agora, constrangido pelo Espírito, vou a Jerusalém, ignorando a que ali me espera.
+23. Só sei que, de cidade em cidade, o Espírito Santo me assegura que me esperam em Jerusalém cadeias e perseguições.
+24. Mas nada disso temo, nem faço caso da minha vida, contanto que termine a minha carreira e o ministério da palavra que recebi do Senhor Jesus, para dar testemunho ao Evangelho da graça de Deus.
+25. Sei agora que não tornareis a ver a minha face, todos vós, por entre os quais andei pregando o Reino de Deus.
+26. Portanto, hoje eu protesto diante de vós que sou inocente do sangue de todos,
+27. porque nada omiti no anúncio que vos fiz dos desígnios de Deus.
+28. Cuidai de vós mesmos e de todo o rebanho sobre o qual o Espírito Santo vos constituiu bispos, para pastorear a Igreja de Deus, que ele adquiriu com o seu próprio sangue.
+29. Sei que depois da minha partida se introduzirão entre vós lobos cruéis, que não pouparão o rebanho.
+30. Mesmo dentre vós surgirão homens que hão de proferir doutrinas perversas, com o intento de arrebatarem após si os discípulos.
+31. Vigiai! Lembrai-vos, portanto, de que por três anos não cessei, noite e dia, de admoestar, com lágrimas, a cada um de vós.
+32. Agora eu vos encomendo a Deus e à palavra da sua graça, àquele que é poderoso para edificar e dar a herança com os santificados.
+33. De ninguém cobicei prata, nem ouro, nem vestes.
+34. Vós mesmos sabeis: estas mãos proveram às minhas necessidades e às dos meus companheiros.
+35. Em tudo vos tenho mostrado que assim, trabalhando, convém acudir os fracos e lembrar-se das palavras do Senhor Jesus, porquanto ele mesmo disse: É maior felicidade dar que receber!
+36. A essas palavras, ele se pôs de joelhos a orar.
+37. Derramaram-se em lágrimas e lançaram-se ao pescoço de Paulo para abraçá-lo,
+38. aflitos, sobretudo pela palavra que tinha dito: Já não vereis a minha face. Em seguida, acompanharam-no até o navio.Atos dos Apóstolos, 21
+1. Depois de nos separarmos dele, embarcamos e fomos em direção a Cós, e no dia seguinte a Rodes e dali a Pátara.
+2. Encontramos aí um navio que ia partir para a Fenícia. Entramos e seguimos viagem.
+3. Quando estávamos à vista de Chipre, deixando-a à esquerda, continuamos rumo à Síria e aportamos em Tiro, onde o navio devia ser descarregado.
+4. Como achássemos uns discípulos, detivemo-nos com eles por sete dias. Eles, sob a inspiração do Espírito, aconselhavam Paulo que não subisse a Jerusalém.
+5. Mas, passados que foram esses dias, partimos e seguimos a nossa viagem. Todos eles com suas mulheres e filhos acompanharam-nos até fora da cidade. Ajoelhados na praia, fizemos a nossa oração.
+6. Despedimo-nos então e embarcamos, enquanto eles voltaram para suas casas.
+7. Navegando, fomos de Tiro a Ptolemaida, onde saudamos os irmãos, passando um dia com eles.
+8. Partindo no dia seguinte, chegamos a Cesaréia e, entrando na casa de Filipe, o Evangelista, que era um dos sete (diáconos), ficamos com ele.
+9. Tinha quatro filhas virgens que profetizavam.
+10. Já estávamos aí fazia alguns dias, quando chegou da Judéia um profeta, chamado Ágabo.
+11. Veio ter conosco, tomou o cinto de Paulo e, amarrando-se com ele pés e mãos, disse: Isto diz o Espírito Santo: assim os judeus em Jerusalém ligarão o homem a quem pertence este cinto e o entregarão às mãos dos pagãos.
+12. A estas palavras, nós e os fiéis que eram daquele lugar, rogamos-lhe que não subisse a Jerusalém.
+13. Paulo, porém, respondeu: Por que chorais e me magoais o coração? Pois eu estou pronto não só a ser preso, mas também a morrer em Jerusalém pelo nome do Senhor Jesus.
+14. Como não pudéssemos persuadi-lo, desistimos, dizendo: Faça-se a vontade do Senhor!
+15. Depois desses dias, terminados os preparativos, subimos a Jerusalém.
+16. Foram também conosco alguns dos discípulos de Cesaréia, que nos levaram à casa de Menason de Chipre, um antigo discípulo em cuja casa nos devíamos hospedar.
+17. À nossa chegada em Jerusalém, os irmãos nos receberam com alegria.
+18. No dia seguinte, Paulo dirigiu-se conosco à casa de Tiago, onde todos os anciãos se reuniram.
+19. Tendo-os saudado, contou-lhes uma por uma todas as coisas que Deus fizera entre os pagãos por seu ministério.
+20. Ouvindo isso, glorificaram a Deus e disseram a Paulo: Bem vês, irmão, quantos milhares de judeus abraçaram a fé sem abandonar seu zelo pela lei.
+21. Eles têm ouvido dizer de ti que ensinas os judeus, que vivem entre os gentios, a deixarem Moisés, dizendo que não devem circuncidar os seus filhos nem observar os costumes (mosaicos).
+22. Que se há de fazer? Sem dúvida, saberão de tua chegada.
+23. Faze, pois, o que te vamos dizer. Temos aqui quatro homens que têm um voto.
+24. Toma-os contigo, faze com eles os ritos da purificação e paga por eles (a oferta obrigatória) para que rapem a cabeça. Então todos saberão que é falso quanto de ti ouviram, mas que também tu guardas a lei.
+25. Mas a respeito dos que creram dentre os gentios, já escrevemos, ordenando que se abstenham do que for sacrificado aos ídolos, do sangue, da carne sufocada e da fornicação.
+26. Então Paulo acompanhou aqueles homens no dia seguinte e, purificando-se com eles, entrou no templo e fez aí uma declaração do termo do voto, findo o qual se devia oferecer um sacrifício a favor de cada um deles.
+27. Ao fim dos sete dias, os judeus, vindos da Ásia, viram Paulo no templo e amotinaram todo o povo. Lançando-lhe as mãos,
+28. gritavam: Ó judeus, valei-nos! Este é o homem que por toda parte prega a todos contra o povo, a lei e o templo. Além disso, introduziu até gregos no templo e profanou o lugar santo.
+29. É que tinham visto Trófimo, de Éfeso, com ele na cidade, e pensavam que Paulo o tivesse introduzido no templo.
+30. Alvoroçou-se toda a cidade com grande ajuntamento de povo. Agarraram Paulo e arrastaram-no para fora do templo, cujas portas se fecharam imediatamente.
+31. Como quisessem matá-lo, o tribuno da coorte foi avisado de que toda Jerusalém estava amotinada.
+32. Ele tomou logo soldados e oficiais e correu aos manifestantes. Estes, ao avistarem o tribuno e os saldados, cessaram de espancar Paulo.
+33. Aproximando-se então o tribuno, prendeu-o e mandou acorrentá-lo com duas cadeias. Perguntou então quem era e o que havia feito.
+34. Na multidão todos gritavam de tal modo que, não podendo apurar a verdade por causa do tumulto, mandou que fosse recolhido à cidadela.
+35. Quando Paulo chegou às escadas, foi carregado pelos soldados, por causa do furor da multidão.
+36. O povo o seguia em massa dizendo aos gritos: À morte
+37. Quando estava para ser introduzido na fortaleza, Paulo perguntou ao tribuno: É-me permitido dizer duas palavras? Este respondeu: Sabes o grego!
+38. Não és tu, portanto, aquele egípcio que há tempos levantou um tumulto e conduziu ao deserto quatro mil extremistas?
+39. Paulo replicou: Eu sou judeu, natural de Tarso, na Cilícia, cidadão dessa ilustre cidade. Mas rogo-te que me permitas falar ao povo.
+40. O tribuno lho permitiu. Paulo, em pé nos degraus, acenou ao povo com a mão e se fez um grande silêncio. Falou em língua hebraica do seguinte modo:Atos dos Apóstolos, 22
+1. Irmãos e pais, ouvi o que vos tenho a dizer em minha defesa.
+2. Quando ouviram que lhes falava em língua hebraica, escutaram-no com a maior atenção.
+3. Continuou ele: Eu sou judeu, nasci em Tarso da Cilícia, mas criei-me nesta cidade, instruí-me aos pés de Gamaliel, em toda a observância da lei de nossos pais, partidário entusiasta da causa de Deus como todos vós também o sois no dia de hoje.
+4. Eu persegui de morte essa doutrina, prendendo e metendo em cárceres homens e mulheres.
+5. O sumo sacerdote e todo o conselho dos anciãos me são testemunhas. E foi deles que também recebi cartas para os irmãos de Damasco, para onde me dirigi, com o fim de prender os que lá se achassem e trazê-los a Jerusalém, para que fossem castigados.
+6. Ora, estando eu a caminho, e aproximando-me de Damasco, pelo meio-dia, de repente me cercou uma forte luz do céu.
+7. Caí por terra e ouvi uma voz que me dizia: Saulo, Saulo, por que me persegues?
+8. Eu repliquei: Quem és tu, Senhor? A voz me disse: Eu sou Jesus de Nazaré, a quem tu persegues.
+9. Os meus companheiros viram a luz, mas não ouviram a voz de quem falava.
+10. Então eu disse: Senhor, que devo fazer? E o Senhor me respondeu: Levanta-te, vai a Damasco e lá te será dito tudo o que deves fazer.
+11. Como eu não pudesse ver por causa da intensidade daquela luz, guiado pela mão dos meus companheiros, cheguei a Damasco.
+12. Um certo Ananias, homem piedoso e observador da lei, muito bem conceituado entre todos os judeus daquela cidade,
+13. veio ter comigo e disse-me: Irmão Saulo, recobra a tua vista. Naquela mesma hora pude enxergá-lo.
+14. Continuou ele: O Deus de nossos pais te predestinou para que conhecesses a sua vontade, visses o Justo e ouvisses a palavra da sua boca,
+15. pois lhe serás, diante de todos os homens, testemunha das coisas que tens visto e ouvido.
+16. E agora, por que tardas? Levanta-te. Recebe o batismo e purifica-te dos teus pecados, invocando o seu nome.
+17. Voltei para Jerusalém e, orando no templo, fui arrebatado em êxtase.
+18. E vi Jesus que me dizia: Apressa-te e sai logo de Jerusalém, porque não receberão o teu testemunho a meu respeito.
+19. Eu repliquei: Senhor, eles sabem que eu encarcerava e açoitava com varas nas sinagogas os que crêem em ti.
+20. E quando se derramou o sangue de Estêvão, tua testemunha, eu estava presente, consentia nisso e guardava os mantos dos que o matavam.
+21. Mas ele me respondeu: Vai, porque eu te enviarei para longe, às nações...
+22. Haviam-no escutado até essa palavra. Então levantaram a voz: Tira do mundo esse homem! Não é digno de viver!
+23. Como vociferassem, arrojassem de si as vestes e lançassem pó ao ar,
+24. o tribuno mandou recolhê-lo à cidadela, açoitá-lo e submetê-lo a torturas, para saber por que causa clamavam assim contra ele.
+25. Quando o iam amarrando com a correia, Paulo perguntou a um centurião que estava presente: É permitido açoitar um cidadão romano que nem sequer foi julgado?
+26. Ao ouvir isso, o centurião foi ter com o tribuno e avisou-o: Que vais fazer? Este homem é cidadão romano.
+27. Veio o tribuno e perguntou-lhe: Dize-me, és romano? Sim, respondeu-lhe.
+28. O tribuno replicou: Eu adquiri este direito de cidadão por grande soma de dinheiro. Paulo respondeu: Pois eu o sou de nascimento.
+29. Apartaram-se então dele os que iam torturá-lo. O tribuno alarmou-se porque o mandara acorrentar, sendo ele um cidadão romano.
+30. No dia seguinte, querendo saber com mais exatidão de que os judeus o acusavam, soltou-o e ordenou que se reunissem os sumos sacerdotes e todo o Grande Conselho. Trouxe Paulo e o mandou comparecer diante deles.Atos dos Apóstolos, 23
+1. Paulo, fitando os olhos nos membros do conselho, disse: Irmãos, eu tenho procedido diante de Deus com toda a boa consciência ate o dia de hoje...
+2. Mas Ananias, sumo sacerdote, mandou aos que estavam ao seu lado que lhe batessem na boca.
+3. Então Paulo lhe disse: Deus te ferirá também a ti, hipócrita! Tu estás aí assentado para julgar-me segundo a lei, e contra a lei mandas que eu seja ferido?
+4. Os assistentes disseram: Tu injurias o sumo sacerdote de Deus.
+5. Respondeu Paulo: Não sabia, irmãos, que é o sumo sacerdote. Pois está escrito: Não falarás mal do príncipe do teu povo (Ex 22,28).
+6. Paulo sabia que uma parte do Sinédrio era de saduceus e a outra de fariseus e disse em alta voz.: Irmãos, eu sou fariseu, filho de fariseus. Por causa da minha esperança na ressurreição dos mortos é que sou julgado.
+7. Ao dizer ele estas palavras, houve uma discussão entre os fariseus e os saduceus, e dividiu-se a assembléia.
+8. (Pois os saduceus afirmam não haver ressurreição, nem anjos, nem espíritos, mas os fariseus admitem uma e outra coisa.)
+9. Originou-se, então, grande vozearia. Levantaram-se alguns escribas dos fariseus e contestaram ruidosamente: Não achamos mal algum neste homem. (Quem sabe) se não lhe falou algum espírito ou um anjo...
+10. A discussão fazia-se sempre mais violenta. O tribuno temeu que Paulo fosse despedaçado por eles e mandou aos soldados que descessem, o tirassem do meio deles e o levassem para a cidadela.
+11. Na noite seguinte, apareceu-lhe o Senhor e lhe disse: Coragem! Deste testemunho de mim em Jerusalém, assim importa também que o dês em Roma.
+12. Quando amanheceu, coligaram-se alguns judeus e juraram com imprecações não comer nem beber nada, enquanto não matassem Paulo.
+13. Eram mais de quarenta as pessoas que fizeram essa conjuração.
+14. Foram apresentar-se aos sumos sacerdotes e aos cidadãos, dizendo: Juramos solenemente nada comer enquanto não matarmos Paulo.
+15. Vós, pois, ide com o conselho requerer do tribuno que o conduza à vossa presença, como se houvésseis de investigar com mais precisão a sua causa; e nós estamos prontos para matá-lo durante o trajeto.
+16. Mas um filho da irmã de Paulo, inteirado da cilada, dirigiu-se à cidadela e o comunicou a Paulo.
+17. Este chamou a si um dos centuriões e disse-lhe: Leva este moço ao tribuno, porque tem alguma coisa a lhe transmitir.
+18. Ele o introduziu à presença do tribuno e lhe disse: O preso Paulo rogou-me que trouxesse este moço à tua presença, porque tem alguma coisa a dizer-te.
+19. O tribuno, tomando-o pela mão, retirou-se com ele à parte e perguntou: Que tens a dizer-me?
+20. Respondeu-lhe ele: Os judeus têm combinado rogar-te amanhã que apresentes Paulo ao Grande Conselho, como se houvessem de inquirir dele alguma coisa com mais precisão.
+21. Mas tu não creias, porque mais de quarenta homens dentre eles lhe armam traição. Juraram solenemente nada comer, nem beber, enquanto não o matarem. Eles já estão preparados e só esperam a tua permissão.
+22. Então o tribuno despediu o moço, ordenando-lhe que a ninguém dissesse que o havia avisado.
+23. Depois disso, chamou ele dois centuriões e disse-lhes: Preparai duzentos soldados, setenta cavaleiros e duzentos lanceiros para irem a Cesaréia à terceira hora da noite.
+24. Aprontai também cavalgaduras para Paulo, que tendes de levar com toda a segurança ao governador Félix.
+25. E ele escreveu uma carta nestes termos:
+26. Cláudio Lísias ao excelentíssimo governador Félix, saúde!
+27. Esse homem foi preso pelos judeus e estava a ponto de ser morto por eles, quando eu, sobrevindo com a tropa, o livrei, ao saber que era romano.
+28. Então, querendo saber a causa por que o acusavam, levei-o ao Grande Conselho.
+29. Soube que era acusado sobre questões da lei deles, sem haver nele delito algum que merecesse morte ou prisão.
+30. Mas, como tivesse chegado a mim a notícia das traições que maquinavam contra ele, envio-o com urgência a ti, intimando também aos acusadores que recorram a ti. Adeus.
+31. Os soldados, conforme lhes fora ordenado, tomaram Paulo e o levaram de noite a Antipátride.
+32. No dia seguinte, voltaram para a guarnição, deixando que os soldados da cavalaria o escoltassem.
+33. À sua chegada a Cesaréia, entregaram ao governador a carta e apresentaram-lhe também Paulo.
+34. Ele, depois de lê-la e perguntar de que província ele era, sabendo que era da Cilícia, disse:
+35. Ouvir-te-ei quando chegarem teus acusadores. Mandou, então, que Paulo fosse guardado no pretório de Herodes.Atos dos Apóstolos, 24
+1. Cinco dias depois, desceu o sumo sacerdote Ananias com alguns anciãos e Tertulo, advogado. Compareceram eles ante o governador para acusar Paulo.
+2. Este foi citado e Tertulo começou a acusá-lo nestes termos: Graças a ti nós gozamos de paz, e pela tua providência se têm corrigido muitos abusos em nossa nação.
+3. Nós o reconhecemos em todo o tempo e lugar, excelentíssimo Félix, com toda a gratidão.
+4. Mas, para não te enfadar por mais tempo, rogo-te que, na tua bondade, nos ouças por um momento.
+5. Encontramos este homem, uma peste, um indivíduo que fomenta discórdia entre os judeus no mundo inteiro. É um dos líderes da seita dos nazarenos.
+6. Tentou mesmo profanar o templo. Nós, porém, o prendemos.
+7. (Quisemos julgá-lo segundo a nossa lei, mas, sobrevindo o tribuno Lísias, no-lo tirou das mãos com grande violência, ordenando que os seus acusadores comparecessem diante de ti.)
+8. Tu mesmo, interrogando-o, poderás verificar todas essas coisas de que nós o acusamos.
+9. Os judeus apoiaram o advogado, confirmando que as coisas de fato eram assim.
+10. Depois disso, a um sinal do governador, Paulo respondeu: Sabendo eu que há muitos anos és governador desta nação, é com confiança que farei a minha defesa.
+11. Podes verificar que não há mais de doze dias que eu subi a Jerusalém para fazer minhas devoções.
+12. Não me acharam disputando com alguém, nem amotinando o povo, quer no templo, quer nas sinagogas, ou na cidade.
+13. Nem tampouco te podem provar as coisas de que agora me acusam.
+14. Reconheço na tua presença que, segundo a doutrina que eles chamam de sectária, sirvo a Deus de nossos pais, crendo em todas as coisas que estão escritas na lei e nos profetas.
+15. Tenho esperança em Deus, como também eles esperam, de que há de haver a ressurreição dos justos e dos pecadores.
+16. Por isso, procuro ter sempre sem mácula a minha consciência diante de Deus e dos homens.
+17. Depois de muitos anos (de ausência) vim trazer à minha nação esmolas e oferendas (rituais).
+18. Nesta ocasião, acharam-me no templo, depois de uma purificação, sem aglomeração e sem tumulto.
+19. Viram-me ali uns judeus vindos da Ásia, e estes é que deviam comparecer diante de ti e me acusar, se tivessem alguma queixa contra mim.
+20. Ou digam estes aqui que crime terão achado em mim, quando eu compareci diante do Grande Conselho.
+21. A não ser esta única frase que proferi em voz alta no meio deles: Por causa da ressurreição dos mortos é que sou julgado hoje diante de vós!
+22. Félix conhecia bem esta religião e, adiando a questão, disse: Quando descer o tribuno Lísias, então examinarei a fundo a vossa questão.
+23. Ordenou ao centurião que o guardasse e o tratasse com brandura, sem proibir que os seus o servissem.
+24. Passados que foram alguns dias, veio Félix com sua mulher Drusila, que era judia. Chamou Paulo e ouvia-o falar da fé em Jesus Cristo.
+25. Mas, como Paulo lhe falasse sobre a justiça, a castidade e o juízo futuro, Félix, todo atemorizado, disse-lhe: Por ora, podes retirar-te. Na primeira ocasião, chamar-te-ei.
+26. Esperava outrossim, ao mesmo tempo, que Paulo lhe desse algum dinheiro, pelo que o mandava chamar com freqüência e se entretinha com ele.
+27. Decorridos dois anos, Félix teve por sucessor a Pórcio Festo. Querendo, porém, agradar aos judeus, deixou Paulo na prisão.Atos dos Apóstolos, 25
+1. Três dias depois de sua chegada à província, Festo subiu de Cesaréia a Jerusalém.
+2. Aí os sumos sacerdotes e os judeus mais notáveis foram ter com ele, acusando Paulo, e rogaram-lhe,
+3. com insistência, como um favor, que o mandasse de volta para Jerusalém. É que queriam armar-lhe uma emboscada para o assassinarem no caminho.
+4. Festo, porém, respondeu que Paulo se achava detido em Cesaréia e que ele mesmo partiria para lá dentro de poucos dias. E acrescentou:
+5. Portanto, os que dentre vós são de prestígio desçam comigo; e se houver algum crime nesse homem, acusem-no.
+6. Demorou-se entre eles cerca de oito ou dez dias e desceu a Cesaréia. No dia seguinte, sentou-se no tribunal e citou Paulo.
+7. Assim que este compareceu, rodearam-no os judeus que tinham descido de Jerusalém e acusaram-no de muitos e graves delitos que não podiam provar.
+8. Paulo alegava em sua defesa: Em nada tenho pecado contra a lei dos judeus, nem contra o templo, nem contra César!
+9. Mas Festo, querendo agradar aos judeus, disse a Paulo: Queres subir a Jerusalém e ser julgado ali diante de mim?
+10. Paulo, porém, disse: Estou perante o tribunal de César. É lá que devo ser julgado. Não fiz mal algum aos judeus, como bem sabes.
+11. Se lhes tenho feito algum mal ou coisa digna de morte, não recuso morrer. Mas, se nada há daquilo de que estes me acusam, ninguém tem o direito de entregar-me a eles. Apelo para César!
+12. Então Festo conferenciou com os seus assessores e respondeu: Para César apelaste, a César irás.
+13. Alguns dias depois, o rei Agripa e Berenice desceram a Cesaréia para saudar Festo.
+14. Como se demorassem ali muitos dias, Festo expôs ao rei o caso de Paulo: Félix deixou preso aqui um certo homem.
+15. Quando estive em Jerusalém, os sumos sacerdotes e os anciãos dos judeus vieram queixar-se dele comigo pedindo a sua condenação.
+16. Respondi-lhes que não era costume dos romanos condenar homem algum, antes de ter confrontado o acusado com os seus acusadores e antes de se lhes dar a liberdade de defender-se dos crimes que lhes são imputados.
+17. Compareceram aqui. E eu, sem demora, logo no dia seguinte, dei audiência e ordenei que conduzissem esse homem.
+18. Apresentaram-se os seus acusadores, mas não o acusaram de nenhum dos crimes de que eu suspeitava.
+19. Eram só desavenças entre eles a respeito da sua religião, e uma discussão a respeito de um tal Jesus, já morto, e que Paulo afirma estar vivo.
+20. Vi-me perplexo quanto ao modo de inquirir essas questões e perguntei-lhe se queria ir a Jerusalém e ser ali julgado.
+21. Mas, como Paulo apelou para o julgamento do imperador, mandei que fique detido até que o remeta a César.
+22. Agripa disse então a Festo: Eu também desejava ouvir esse homem. Ao que ele respondeu: Amanhã o ouvirás.
+23. No dia seguinte, Agripa e Berenice apresentaram-se com grande pompa. E, entrando com os tribunos e as pessoas de mais relevo da cidade na sala de audiência, foi também Paulo introduzido por ordem de Festo.
+24. Festo tomou a palavra: Ó rei, e todos vós que estais aqui presentes, vedes este homem contra quem os judeus em massa e com grandes gritos vieram reclamar a morte, tanto aqui como em Jerusalém.
+25. Mas tenho averiguado que ele não fez coisa alguma digna de morte. Entretanto, havendo ele apelado para o imperador, determinei remeter-lho.
+26. Mas dele não tenho nada de positivo que possa escrever ao imperador, e por isso mandei-o comparecer diante de vós, mormente diante de tua majestade, para que essa audiência apure alguma coisa que eu possa escrever.
+27. Pois não me parece razoável remeter um preso, sem mencionar ao mesmo tempo as acusações formuladas contra ele.Atos dos Apóstolos, 26
+1. Agripa disse a Paulo: Tens permissão de fazer a tua defesa. Paulo então fez um gesto com a mão e começou a sua justificação:
+2. Julgo-me feliz de poder hoje fazer a minha defesa, na tua presença, ó rei Agripa, de tudo quanto me acusam os judeus,
+3. porque tu conheces perfeitamente os seus costumes e controvérsias. Peço-te, pois, que me ouças com paciência.
+4. Minha vida, desde a minha primeira juventude, tem decorrido no meio de minha pátria e em Jerusalém, e é conhecida dos judeus.
+5. Sabem eles, desde longa data, e se quiserem poderão testemunhá-lo, que vivi segundo a seita mais rigorosa da nossa religião, isto é, como fariseu.
+6. Mas agora sou acusado em juízo, por esperar a promessa que foi feita por Deus a nossos pais,
+7. e a qual as nossas doze tribos esperam alcançar, servindo a Deus noite e dia. Por essa esperança, ó rei, é que sou acusado pelos judeus.
+8. Que pensais vós? É coisa incrível que Deus ressuscite os mortos?
+9. Também eu acreditei que devia fazer a maior oposição ao nome de Jesus de Nazaré.
+10. Assim procedi de fato em Jerusalém e tenho encerrado muitos irmãos em cárceres, havendo recebido para isso poder dos sumos sacerdotes; quando os sentenciavam à morte, eu dava a minha plena aprovação.
+11. Muitas vezes, perseguindo-os por todas as sinagogas, eu os maltratava para obrigá-los a blasfemar. Enfurecendo-me mais e mais contra eles, eu os perseguia até no estrangeiro.
+12. Nesse intuito, fui a Damasco, com poder e comissão dos sumos sacerdotes.
+13. Era meio-dia, ó rei. Eu estava a caminho quando uma luz do céu, mais fulgurante que o sol, brilhou em torno de mim e dos meus companheiros.
+14. Caímos todos nós por terra, e ouvi uma voz que me dizia em língua hebraica: Saulo, Saulo, por que me persegues? Dura coisa te é recalcitrar contra o aguilhão.
+15. Então eu disse: Quem és, Senhor? O Senhor respondeu: Eu sou Jesus, a quem persegues.
+16. Mas levanta-te e põe-te em pé, pois eu te apareci para te fazer ministro e testemunha das coisas que viste e de outras para as quais hei de manifestar-me a ti.
+17. Escolhi-te do meio do povo e dos pagãos, aos quais agora te envio
+18. para abrir-lhes os olhos, a fim de que se convertam das trevas à luz e do poder de Satanás a Deus, para que, pela fé em mim, recebam perdão dos pecados e herança entre os que foram santificados.
+19. Desde então, ó rei, não fui desobediente à visão celestial.
+20. Preguei primeiramente aos de Damasco e depois em Jerusalém e por toda a terra da Judéia, e aos pagãos, para que se arrependessem e se convertessem a Deus, fazendo dignas obras correspondentes.
+21. Por isso, os judeus me prenderam no templo e tentaram matar-me.
+22. Mas, assistido do socorro de Deus, permaneço vivo até o dia de hoje. Dou testemunho a pequenos e a grandes, nada dizendo senão o que os profetas e Moisés disseram que havia de acontecer,
+23. a saber: que Cristo havia de padecer e seria o primeiro que, pela ressurreição dos mortos, havia de anunciar a luz ao povo judeu e aos pagãos.
+24. Dizendo ele essas coisas em sua defesa, Festo exclamou em alta voz: Estás louco, Paulo! O teu muito saber tira-te o juízo.
+25. Paulo, então, respondeu: Não estou louco, excelentíssimo Festo, mas digo palavras de verdade e de prudência.
+26. Pois dessas coisas tem conhecimento o rei, em cuja presença falo com franqueza. Sei que nada disso lhe é oculto, porque nenhuma dessas coisas se fez ali ocultamente.
+27. Crês, ó rei, nos profetas? Bem sei que crês!
+28. Disse então Agripa a Paulo: Por pouco não me persuades a fazer-me cristão!
+29. Respondeu Paulo: Prouvera a Deus que, por pouco e por muito, não somente tu, senão também quantos me ouvem, se fizessem hoje tal qual eu sou... menos estas algemas!
+30. Então o rei, o governador, Berenice e os que estavam sentados com eles se levantaram.
+31. Retirando-se, comentavam uns com os outros: Esse homem não fez coisa que mereça a morte ou prisão.
+32. Agripa ainda disse a Festo: Ele poderia ser solto, se não tivesse apelado para César.Atos dos Apóstolos, 27
+1. Logo que foi determinado que embarcássemos para a Itália, Paulo foi entregue com outros presos a um centurião da coorte Augusta, chamado Júlio.
+2. Embarcamos num navio de Adramito que devia costear as terras da Ásia, e levantamos âncora. Em nossa companhia estava Aristarco, macedônio de Tessalônica.
+3. No dia seguinte, fazendo escala em Sidônia, Júlio, usando de bondade com Paulo, permitiu-lhe ir ver os seus amigos e prover-se do que havia de necessário.
+4. Dali, fazendo-nos ao mar, fomos navegando perto das costas de Chipre, por nos serem contrários os ventos.
+5. Tendo atravessado o mar da Cilícia e da Panfília, chegamos a Mira, cidade da Lícia.
+6. O centurião encontrou ali um navio de Alexandria, que rumava para a Itália, e fez-nos passar para ele.
+7. Por muitos dias navegamos lentamente e com dificuldade até diante de Cnido, onde o vento não nos permitiu aportar.
+8. Fomos então costeando ao sul da ilha de Creta, junto ao cabo Salmona. Navegando com dificuldade ao longo da costa, chegamos afinal a um lugar, a que chamam Bons Portos, perto do qual está a cidade de Lasaia.
+9. Passara o tempo - já havia passado a época do jejum - e a navegação se tornava perigosa. Paulo advertiu-os:
+10. Amigos, vejo que a navegação não se fará sem perigo e sem graves danos, não somente ao navio e à sua carga, mas ainda às nossas vidas.
+11. O centurião, porém, dava mais crédito ao piloto e ao mestre do que ao que Paulo dizia.
+12. O porto era impróprio para passar o inverno, pelo que a maior parte deles foi de parecer que se retornasse ao mar, na esperança de chegar a Fenice, para passar ali o inverno, por ser esse um porto de Creta, abrigado dos ventos do sudeste e do nordeste.
+13. Soprava então brandamente o vento sul. Julgavam poder executar os seus planos. Levantaram a âncora e foram costeando de perto a ilha de Creta.
+14. Mas, não muito depois, veio do lado da ilha um tufão chamado Euroaquilão.
+15. Sem poder resistir à ventania, o navio foi arrebatado e deixamo-nos arrastar.
+16. Impelidos rapidamente para uma pequena ilha chamada Cauda, conseguimos, com muito esforço, recolher o batel.
+17. Içaram-no e, depois, como meio de segurança, cingiram o navio com cabos. Então, temendo encalhar em Sirte, arriaram as velas e entregaram-se à mercê dos ventos.
+18. No dia seguinte, sendo a tempestade ainda mais violenta, atiraram fora a carga.
+19. No terceiro dia, atiramos para fora com as nossas próprias mãos os acessórios do navio.
+20. Ora, não aparecendo por muitos dias nem sol nem estrelas e sendo batidos por forte tempestade, tínhamos por fim perdido toda a esperança de sermos salvos.
+21. Desde muito tempo ninguém havia comido nada. Paulo levantou-se no meio deles e disse: Amigos, deveras devíeis ter-me atendido e não ter saído de Creta, e assim evitar esse perigo e essas perdas.
+22. Agora, porém, vos admoesto a que tenhais coragem, pois não perecerá nenhum de vós, mas somente o navio.
+23. Esta noite apareceu-me um anjo de Deus, a quem pertenço e a quem sirvo, o qual me disse:
+24. Não temas, Paulo. É necessário que compareças diante de César. Deus deu-te todos os que navegam contigo.
+25. Por isso, amigos, coragem! Eu confio em Deus que há de acontecer como me foi dito.
+26. Vamos dar a uma ilha.
+27. Já estávamos na décima quarta noite, pelo mar Adriático, quando, pela meia-noite, os marinheiros pressentiram que estavam perto de alguma terra.
+28. Então, atirando a sonda, perceberam que a profundidade era de vinte braças. Depois, um pouco mais adiante, viram que era de quinze braças.
+29. Temendo que déssemos em algum recife, lançaram quatro âncoras da popa, esperando ansiosos que amanhecesse o dia.
+30. Imediatamente, os marinheiros procuraram fugir e, sob o pretexto de largar as âncoras da proa, lançaram o bote ao mar.
+31. Paulo disse ao centurião e aos soldados: Se estes homens não permanecerem no navio, não podereis salvar-vos.
+32. Os soldados cortaram, então, os cabos do bote e deixaram-no cair.
+33. Enquanto ia amanhecendo, Paulo encorajou a todos que comessem alguma coisa, e disse: Já faz hoje catorze dias que estais em jejum, sem comer nada.
+34. Rogo-vos que comais alguma coisa, no interesse de vossa vida, porque nem um cabelo da cabeça de alguém de vós perecerá.
+35. Tendo dito isso, tomou do pão, pronunciou uma bênção na presença de todos e, depois de parti-lo, começou a comer.
+36. Com isso, todos cobraram ânimo e puseram-se igualmente a comer.
+37. No navio éramos ao todo duzentas e setenta e seis pessoas.
+38. Depois de terem comido à vontade, aliviaram o navio, atirando o trigo ao mar.
+39. Afinal, clareou o dia. Os marinheiros não reconheceram a terra, mas viram uma enseada com uma praia, na qual tencionavam encalhar o navio, caso o pudessem.
+40. Levantaram as âncoras e largaram ao mesmo tempo as amarras dos lemes. Desfraldaram ao vento a vela mestra e rumaram para a praia.
+41. Mas deram numa língua de terra, e o navio encalhou aí. A proa, encalhada, permanecia imóvel, ao mesmo tempo que a popa se abria com a força do mar.
+42. Os soldados tencionavam matar os presos, por temerem que algum deles fugisse a nado.
+43. O centurião, porém, querendo salvar Paulo, impediu que o fizessem e ordenou que aqueles que pudessem nadar fossem os primeiros a lançar-se ao mar e alcançar a terra.
+44. Os demais, uns atingiram a terra em tábuas, outros em cima dos destroços do navio. Desse modo, todos conseguiram chegar à terra, sãos e salvos.Atos dos Apóstolos, 28
+1. Estando já salvos, soubemos então que a ilha se chamava Malta.
+2. Os indígenas trataram-nos com extraordinária benevolência. Acenderam uma grande fogueira e em torno dela nos recolheram, em vista da chuva que caía e do frio que fazia.
+3. Paulo ajuntou um feixe de gravetos e o pôs na fogueira. Nisto uma víbora, que fugira ao fogo, mordeu-lhe a mão.
+4. Quando os indígenas viram a serpente pendendo da sua mão, diziam uns aos outros: Sem dúvida, este homem é homicida, pois, tendo escapado ao mar, a justiça não o deixa viver.
+5. Ele, porém, sacudindo a víbora no fogo, não sofreu mal algum.
+6. Julgavam os indígenas que ele viesse a inchar, e que subitamente caísse morto. Mas, depois de esperarem muito tempo, vendo que não lhe acontecia mal nenhum, mudaram de parecer e disseram: Ele é um deus.
+7. Havia na vizinhança sítios pertencentes ao principal da ilha, chamado Públio. Este homem nos hospedou por três dias em sua casa, tratando-nos bem.
+8. Ora, o pai desse Públio achava-se acamado com febre e sofrendo de disenteria. Paulo foi visitá-lo e, orando e impondo-lhe as mãos, sarou-o.
+9. Depois desse fato, vieram ter com ele todos os habitantes da ilha que se achavam doentes, e foram curados. Tiveram assim conosco toda sorte de considerações e,
+10. quando estávamos para navegar, proveram-nos do que era necessário.
+11. Ao termo de três meses, embarcamos num navio de Alexandria, que havia passado o inverno na ilha. Este navio levava por insígnias os Dióscuros.
+12. Fizemos escala em Siracusa, onde ficamos três dias.
+13. De lá, seguindo a costa, atingimos Régio. No dia seguinte, soprava o vento sul e chegamos em dois dias a Pozzuoli.
+14. Ali encontramos irmãos que nos rogaram que ficássemos na sua companhia sete dias. Em seguida, nos dirigimos a Roma.
+15. Os irmãos de Roma foram informados de nossa chegada e vieram ao nosso encontro até o Foro de Ápio e as Três Tavernas. Ao vê-los, Paulo deu graças a Deus e se sentiu animado.
+16. Chegados que fomos a Roma, foi concedida licença a Paulo para que ficasse em casa própria com um soldado que o guardava.
+17. Três dias depois, Paulo convocou os judeus mais notáveis. Estando reunidos, disse-lhes: Irmãos, sem cometer nada contra o povo nem contra os costumes de nossos pais, fui preso em Jerusalém e entregue nas mãos dos romanos.
+18. Estes, depois de terem instruído o meu processo, quiseram soltar-me, visto não achar em mim crime algum que merecesse morte.
+19. Mas, opondo-se a isso os judeus, vi-me obrigado a apelar para César, sem intentar contudo acusar de alguma coisa a minha nação.
+20. Por esse motivo, mandei chamar-vos, para vos ver e falar convosco. Porquanto, pela esperança de Israel, é que estou preso com esta corrente.
+21. Responderam-lhe eles: Não temos recebido carta alguma da Judéia, que fale em ti, nem de lá tem vindo irmão algum que nos dissesse ou falasse mal de ti.
+22. Quiséramos, porém, que tu mesmo nos dissesses o que pensas, pois o que nós sabemos dessa seita é que em toda parte lhe fazem oposição.
+23. Marcaram um dia e muitos foram procurá-lo no albergue onde se achava hospedado. A entrevista durou desde a manhã até a tarde. Paulo expôs-lhes o Reino de Deus e apresentou, sempre de novo, testemunhos destinados a convencê-los a respeito de Jesus, baseando-se na Lei de Moisés e nos profetas.
+24. Alguns se persuadiram pelas suas palavras, outros não acreditaram.
+25. Não estando concordes entre si, retiraram-se, enquanto Paulo lhes fazia esta reflexão: Bem falou o Espírito Santo pelo profeta Isaías a vossos pais, dizendo:
+26. Vai a este povo e dize-lhes: Com vossos ouvidos ouvireis, sem compreender. Com vossos olhos olhareis, sem enxergar.
+27. Coração obstinado o deste povo, ouvido duro, olhos fechados, para não verem com a vista, nem ouvirem com o ouvido, nem entenderem com o coração, e se converterem e eu os curar (Is 6,9s.).
+28. Ficai, pois, sabendo que aos gentios é enviada agora esta salvação de Deus; e eles a ouvirão.
+29. [Havendo dito isso, saíram dali os judeus, discutindo animosamente entre si.]
+30. Paulo permaneceu por dois anos inteiros no aposento alugado, e recebia a todos os que vinham procurá-lo.
+31. Pregava o Reino de Deus e ensinava as coisas a respeito do Senhor Jesus Cristo, com toda a liberdade e sem proibição.Romanos, 1
+1. Paulo, servo de Jesus Cristo, escolhido para ser apóstolo, reservado para anunciar o Evangelho de Deus;
+2. este Evangelho Deus prometera outrora pelos seus profetas na Sagrada Escritura,
+3. acerca de seu Filho Jesus Cristo, nosso Senhor, descendente de Davi quanto à carne,
+4. que, segundo o Espírito de santidade, foi estabelecido Filho de Deus no poder por sua ressurreição dos mortos;
+5. e do qual temos recebido a graça e o apostolado, a fim de levar, em seu nome, todas as nações pagãs à obediência da fé,
+6. entre as quais também vós sois os eleitos de Jesus Cristo,
+7. a todos os que estão em Roma, queridos de Deus, chamados a serem santos: a vós, graça e paz da parte de Deus, nosso Pai, e da parte do Senhor Jesus Cristo!
+8. Primeiramente, dou graças a meu Deus, por meio de Jesus Cristo, por todos vós, porque em todo o mundo é preconizada a vossa fé.
+9. Pois Deus, a quem sirvo em meu espírito, anunciando o Evangelho de seu Filho, me é testemunha de como vos menciono incessantemente em minhas orações.
+10. A ele suplico, se for de sua vontade, conceder-me finalmente ocasião favorável de vos visitar.
+11. Desejo ardentemente ver-vos, a fim de comunicar-vos alguma graça espiritual, com que sejais confirmados,
+12. ou melhor, para me encorajar juntamente convosco naquela vossa e minha fé que nos é comum.
+13. Pois não quero que ignoreis, irmãos, como muitas vezes me tenho proposto ir ter convosco. (Eu queria recolher algum fruto entre vós, como entre os outros pagãos), mas até agora tenho sido impedido.
+14. Sou devedor a gregos e a bárbaros, a sábios e a simples.
+15. Daí o ardente desejo que eu sinto de vos anunciar o Evangelho também a vós, que habitais em Roma.
+16. Com efeito, não me envergonho do Evangelho, pois ele é uma força vinda de Deus para a salvação de todo o que crê, ao judeu em primeiro lugar e depois ao grego.
+17. Porque nele se revela a justiça de Deus, que se obtém pela fé e conduz à fé, como está escrito: O justo viverá pela fé (Hab 2,4).
+18. A ira de Deus se manifesta do alto do céu contra toda a impiedade e perversidade dos homens, que pela injustiça aprisionam a verdade.
+19. Porquanto o que se pode conhecer de Deus eles o lêem em si mesmos, pois Deus lho revelou com evidência.
+20. Desde a criação do mundo, as perfeições invisíveis de Deus, o seu sempiterno poder e divindade, se tornam visíveis à inteligência, por suas obras; de modo que não se podem escusar.
+21. Porque, conhecendo a Deus, não o glorificaram como Deus, nem lhe deram graças. Pelo contrário, extraviaram-se em seus vãos pensamentos, e se lhes obscureceu o coração insensato.
+22. Pretendendo-se sábios, tornaram-se estultos.
+23. Mudaram a majestade de Deus incorruptível em representações e figuras de homem corruptível, de aves, quadrúpedes e répteis.
+24. Por isso, Deus os entregou aos desejos dos seus corações, à imundície, de modo que desonraram entre si os próprios corpos.
+25. Trocaram a verdade de Deus pela mentira, e adoraram e serviram à criatura em vez do Criador, que é bendito pelos séculos. Amém!
+26. Por isso, Deus os entregou a paixões vergonhosas: as suas mulheres mudaram as relações naturais em relações contra a natureza.
+27. Do mesmo modo também os homens, deixando o uso natural da mulher, arderam em desejos uns para com os outros, cometendo homens com homens a torpeza, e recebendo em seus corpos a paga devida ao seu desvario.
+28. Como não se preocupassem em adquirir o conhecimento de Deus, Deus entregou-os aos sentimentos depravados, e daí o seu procedimento indigno.
+29. São repletos de toda espécie de malícia, perversidade, cobiça, maldade; cheios de inveja, homicídio, contenda, engano, malignidade.
+30. São difamadores, caluniadores, inimigos de Deus, insolentes, soberbos, altivos, inventores de maldades, rebeldes contra os pais.
+31. São insensatos, desleais, sem coração, sem misericórdia.
+32. Apesar de conhecerem o justo decreto de Deus que considera dignos de morte aqueles que fazem tais coisas, não somente as praticam, como também aplaudem os que as cometem.Romanos, 2
+1. Assim, és inescusável, ó homem, quem quer que sejas, que te arvoras em juiz. Naquilo que julgas a outrem, a ti mesmo te condenas; pois tu, que julgas, fazes as mesmas coisas que eles.
+2. Ora, sabemos que o juízo de Deus contra aqueles que fazem tais coisas corresponde à verdade.
+3. Tu, ó homem, que julgas os que praticam tais coisas, mas as cometes também, pensas que escaparás ao juízo de Deus?
+4. Ou desprezas as riquezas da sua bondade, tolerância e longanimidade, desconhecendo que a bondade de Deus te convida ao arrependimento?
+5. Mas, pela tua obstinação e coração impenitente, vais acumulando ira contra ti, para o dia da cólera e da revelação do justo juízo de Deus,
+6. que retribuirá a cada um segundo as suas obras:
+7. a vida eterna aos que, perseverando em fazer o bem, buscam a glória, a honra e a imortalidade;
+8. mas ira e indignação aos contumazes, rebeldes à verdade e seguidores do mal.
+9. Tribulação e angústia sobrevirão a todo aquele que pratica o mal, primeiro ao judeu e depois ao grego;
+10. mas glória, honra e paz a todo o que faz o bem, primeiro ao judeu e depois ao grego.
+11. Porque, diante de Deus, não há distinção de pessoas.
+12. Todos os que sem a lei pecaram, sem aplicação da lei perecerão; e quantos pecaram sob o regime da lei, pela lei serão julgados.
+13. Porque diante de Deus não são justos os que ouvem a lei, mas serão tidos por justos os que praticam a lei.
+14. Os pagãos, que não têm a lei, fazendo naturalmente as coisas que são da lei, embora não tenham a lei, a si mesmos servem de lei;
+15. eles mostram que o objeto da lei está gravado nos seus corações, dando-lhes testemunho a sua consciência, bem como os seus raciocínios, com os quais se acusam ou se escusam mutuamente.
+16. Isso aparecerá claramente no dia em que, segundo o meu Evangelho, Deus julgar as ações secretas dos homens, por Jesus Cristo.
+17. Mas tu, que és chamado judeu, e te apóias na lei, e te glorias de teu Deus;
+18. tu, que conheces a sua vontade, e instruído pela lei sabes aquilatar a diferença das coisas;
+19. tu, que te ufanas de ser guia dos cegos, luzeiro dos que estão em trevas,
+20. doutor dos ignorantes, mestre dos simples, porque encontras na lei a regra da ciência e da verdade;
+21. tu, que ensinas aos outros... não te ensinas a ti mesmo! Tu, que pregas que não se deve furtar, furtas!
+22. Tu, que dizes que não se deve adulterar, adulteras! Tu, que abominas os ídolos, pilhas os seus templos!
+23. Tu, que te glorias da lei, desonras a Deus pela transgressão da lei!
+24. Porque assim fala a Escritura: "Por vossa causa o nome de Deus é blasfemado entre os pagãos (Is 52,5).
+25. A circuncisão, em verdade, é proveitosa se guardares a lei. Mas, se fores transgressor da lei, serás, com tua circuncisão, um mero incircunciso.
+26. Se, portanto, o incircunciso observa os preceitos da lei, não será ele considerado como circunciso, apesar de sua incircuncisão?
+27. Ainda mais, o incircunciso de nascimento, cumprindo a lei, te julgará que, com a letra e com a circuncisão, és transgressor da lei.
+28. Não é verdadeiro judeu o que o é exteriormente, nem verdadeira circuncisão a que aparece exteriormente na carne.
+29. Mas é judeu o que o é interiormente, e verdadeira circuncisão é a do coração, segundo o espírito da lei, e não segundo a letra. Tal judeu recebe o louvor não dos homens, e sim de Deus.Romanos, 3
+1. Em que, então, se avantaja o judeu? Ou qual é a utilidade da circuncisão?
+2. Muita, em todos os aspectos. Principalmente porque lhes foram confiados os oráculos de Deus.
+3. Mas então! Se alguns deles não foram fiéis, acaso a sua infidelidade destruirá a fidelidade de Deus?
+4. De modo algum. Porque Deus há de ser reconhecido como veraz, e todo homem como mentiroso, segundo está escrito: Assim, serás reconhecido justo nas tuas palavras e vencerás, quando julgares (Sl 50,6).
+5. Portanto, se a nossa injustiça realça a justiça de Deus, que diremos então? Para falar como os homens: não é injusto Deus quando descarrega a sua cólera?
+6. Certo que não! De outra maneira, como julgaria Deus o mundo?
+7. Mas, se a verdade de Deus brilha ainda mais para a sua glória por minha mentira, por que serei eu ainda julgado pecador?
+8. Então, por que não faríamos o mal para que dele venha o bem, expressão que os caluniadores, falsamente, nos atribuem? É justo que estes tais sejam condenados.
+9. E então? Avantajamo-nos a eles? De maneira alguma. Pois já demonstramos que judeus e gregos estão todos sob o domínio do pecado, como está escrito:
+10. Não há nenhum justo, não há sequer um.
+11. Não há um só que tenha inteligência, um só que busque a Deus.
+12. Extraviaram-se todos e todos se perverteram. Não há quem faça o bem, não há sequer um (Sl 13,lss).
+13. A sua garganta é um sepulcro aberto; com as suas línguas enganam; veneno de áspide está debaixo dos seus lábios (Sl 5,10; 139,4).
+14. A sua boca está cheia de maldição e amargar (Sl 9,28).
+15. Os seus pés são velozes para derramar sangue.
+16. Há destruição e ruína nos seus caminhos,
+17. e não conhecem o caminho da paz (Is 59,7s).
+18. Não há temor a Deus diante dos seus olhos (Sl 35,2).
+19. Ora, sabemos que tudo o que diz a lei, di-lo aos que estão sujeitos à lei, para que toda boca fique fechada e que o mundo inteiro seja reconhecido culpado diante de Deus:
+20. Porquanto pela observância da lei nenhum homem será justificado diante dele, porque a lei se limita a dar o conhecimento do pecado.
+21. Mas, agora, sem o concurso da lei, manifestou-se a justiça de Deus, atestada pela lei e pelos profetas.
+22. Esta é a a justiça de Deus pela fé em Jesus Cristo, para todos os fiéis (pois não há distinção;
+23. com efeito, todos pecaram e todos estão privados da glória de Deus),
+24. e são justificados gratuitamente por sua graça; tal é a obra da redenção, realizada em Jesus Cristo.
+25. Deus o destinou para ser, pelo seu sangue, vítima de propiciação mediante a fé. Assim, ele manifesta a sua justiça; porque no tempo de sua paciência, ele havia deixado sem castigo os pecados anteriores.
+26. Assim, digo eu, ele manifesta a sua justiça no tempo presente, exercendo a justiça e justificando aquele que tem fé em Jesus.
+27. Onde está, portanto, o motivo de se gloriar? Foi eliminado. Por qual lei? Pela das obras? Não, mas pela lei da fé.
+28. Porque julgamos que o homem é justificado pela fé, sem as observâncias da lei.
+29. Ou Deus só o é dos judeus? Não é também Deus dos pagãos? Sim, ele o é também dos pagãos.
+30. Porque não há mais que um só Deus, o qual justificará pela fé os circuncisos e, também pela fé, os incircuncisos.
+31. Destruímos então a lei pela fé? De modo algum. Pelo contrário, damos-lhe toda a sua força.Romanos, 4
+1. Que vantagem diremos, pois, que conseguiu Abraão, nosso pai segundo a carne?
+2. Porque, se Abraão foi justificado em virtude de sua observância, tem que se gloriar; mas não diante de Deus.
+3. Ora, que diz a Escritura? Abraão creu em Deus e isso lhe foi imputado em conta de justiça (Gn 15,6).
+4. Ora, o salário não é gratificação, mas uma dívida ao trabalhador.
+5. Mas aquele que sem obra alguma crê naquele que justifica o ímpio, a sua fé lhe é imputada em conta de justiça.
+6. É assim que Davi proclama bem-aventurado o homem a quem Deus atribui justiça, independentemente das obras:
+7. Bem-aventurados aqueles cujas iniqüidades foram perdoadas e cujos pecados foram cobertos!
+8. Bem-aventurado o homem ao qual o Senhor não imputou o seu pecado (Sl 31,1s).
+9. Essa bem-aventurança é somente para os circuncisos, ou também para os incircuncisos? Dizemos, com efeito, que a fé foi imputada a Abraão em conta de justiça.
+10. Quando lhe foi ela imputada? Depois ou antes de sua circuncisão? Não depois, mas antes de ser circuncidado.
+11. Depois é que recebeu o sinal da circuncisão, como selo da justiça que tinha obtido pela fé antes de ser circuncidado. E assim se tornou o pai de todos os incircuncisos que crêem, a fim de que também a estes seja imputada a justiça.
+12. Pai também dos circuncisos, que não só trazem o sinal, mas que acompanham as pegadas da fé que nosso pai Abraão possuía antes de ser circuncidado.
+13. Com efeito, não foi em virtude da lei que a promessa de herdar o mundo foi feita a Abraão ou à sua posteridade, mas em virtude da justiça da fé.
+14. Porque, se a herança é reservada aos observadores da lei, a fé já não tem razão de ser e a promessa fica sem valor.
+15. Porquanto a lei produz a ira; e onde não existe lei, não há transgressão.
+16. Logo, é pela fé que alguém se torna herdeiro. Portanto, gratuitamente; e a promessa é assegurada a toda a posteridade de Abraão, não somente aos que procedem da lei, mas também aos que possuem a fé de Abraão, que é pai de todos nós.
+17. Em verdade, está escrito: Eu te constituí pai de muitas nações (Gn 17,5); (nosso pai, portanto) diante dos olhos daquele em quem acreditou, o Deus que dá vida aos mortos e chama à existência as coisas que estão no nada.
+18. Esperando, contra toda a esperança, Abraão teve fé e se tornou pai de muitas nações, segundo o que lhe fora dito: Assim será a tua descendência (Gn 15,5).
+19. Não vacilou na fé, embora reconhecendo o seu próprio corpo sem vigor - pois tinha quase cem anos - e o seio de Sara igualmente amortecido.
+20. Ante a promessa de Deus, não vacilou, não desconfiou, mas conservou-se forte na fé e deu glória a Deus.
+21. Estava plenamente convencido de que Deus era poderoso para cumprir o que prometera.
+22. Eis por que sua fé lhe foi contada como justiça.
+23. Ora, não é só para ele que está escrito que a fé lhe foi imputada em conta de justiça.
+24. É também para nós, pois a nossa fé deve ser-nos imputada igualmente, porque cremos naquele que dos mortos ressuscitou Jesus, nosso Senhor,
+25. o qual foi entregue por nossos pecados e ressuscitado para a nossa justificação.Romanos, 5
+1. Justificados, pois, pela fé temos a paz com Deus, por meio de nosso Senhor Jesus Cristo.
+2. Por ele é que tivemos acesso a essa graça, na qual estamos firmes, e nos gloriamos na esperança de possuir um dia a glória de Deus.
+3. Não só isso, mas nos gloriamos até das tribulações. Pois sabemos que a tribulação produz a paciência,
+4. a paciência prova a fidelidade e a fidelidade, comprovada, produz a esperança.
+5. E a esperança não engana. Porque o amor de Deus foi derramado em nossos corações pelo Espírito Santo que nos foi dado.
+6. Com efeito, quando éramos ainda fracos, Cristo a seu tempo morreu pelos ímpios.
+7. Em rigor, a gente aceitaria morrer por um justo, por um homem de bem, quiçá se consentiria em morrer.
+8. Mas eis aqui uma prova brilhante de amor de Deus por nós: quando éramos ainda pecadores, Cristo morreu por nós.
+9. Portanto, muito mais agora, que estamos justificados pelo seu sangue, seremos por ele salvos da ira.
+10. Se, quando éramos ainda inimigos, fomos reconciliados com Deus pela morte de seu Filho, com muito mais razão, estando já reconciliados, seremos salvos por sua vida.
+11. Ainda mais: nós nos gloriamos em Deus por nosso Senhor Jesus Cristo, por quem desde agora temos recebido a reconciliação!
+12. Por isso, como por um só homem entrou o pecado no mundo, e pelo pecado a morte, assim a morte passou a todo o gênero humano, porque todos pecaram...
+13. De fato, até a lei o mal estava no mundo. Mas o mal não é imputado quando não há lei.
+14. No entanto, desde Adão até Moisés reinou a morte, mesmo sobre aqueles que não pecaram à imitação da transgressão de Adão (o qual é figura do que havia de vir).
+15. Mas, com o dom gratuito, não se dá o mesmo que com a falta. Pois se a falta de um só causou a morte de todos os outros, com muito mais razão o dom de Deus e o benefício da graça obtida por um só homem, Jesus Cristo, foram concedidos copiosamente a todos.
+16. Nem aconteceu com o dom o mesmo que com as conseqüências do pecado de um só: a falta de um só teve por conseqüência um veredicto de condenação, ao passo que, depois de muitas ofensas, o dom da graça atrai um juízo de justificação.
+17. Se pelo pecado de um só homem reinou a morte (por esse único homem), muito mais aqueles que receberam a abundância da graça e o dom da justiça reinarão na vida por um só, que é Jesus Cristo!
+18. Portanto, como pelo pecado de um só a condenação se estendeu a todos os homens, assim por um único ato de justiça recebem todos os homens a justificação que dá a vida.
+19. Assim como pela desobediência de um só homem foram todos constituídos pecadores, assim pela obediência de um só todos se tornarão justos.
+20. Sobreveio a lei para que abundasse o pecado. Mas onde abundou o pecado, superabundou a graça.
+21. Assim como o pecado reinou para a morte, assim também a graça reinaria pela justiça para a vida eterna, por meio de Jesus Cristo, nosso Senhor.Romanos, 6
+1. Então que diremos? Permaneceremos no pecado, para que haja abundância da graça?
+2. De modo algum. Nós, que já morremos ao pecado, como poderíamos ainda viver nele?
+3. Ou ignorais que todos os que fomos batizados em Jesus Cristo, fomos batizados na sua morte?
+4. Fomos, pois, sepultados com ele na sua morte pelo batismo para que, como Cristo ressurgiu dos mortos pela glória do Pai, assim nós também vivamos uma vida nova.
+5. Se fomos feitos o mesmo ser com ele por uma morte semelhante à sua, sê-lo-emos igualmente por uma comum ressurreição.
+6. Sabemos que o nosso velho homem foi crucificado com ele, para que seja reduzido à impotência o corpo (outrora) subjugado ao pecado, e já não sejamos escravos do pecado.
+7. (Pois quem morreu, libertado está do pecado.)
+8. Ora, se morremos com Cristo, cremos que viveremos também com ele,
+9. pois sabemos que Cristo, tendo ressurgido dos mortos, já não morre, nem a morte terá mais domínio sobre ele.
+10. Morto, ele o foi uma vez por todas pelo pecado; porém, está vivo, continua vivo para Deus!
+11. Portanto, vós também considerai-vos mortos ao pecado, porém vivos para Deus, em Cristo Jesus.
+12. Não reine, pois, o pecado em vosso corpo mortal, de modo que obedeçais aos seus apetites.
+13. Nem ofereçais os vossos membros ao pecado, como instrumentos do mal. Oferecei-vos a Deus, como vivos, salvos da morte, para que os vossos membros sejam instrumentos do bem ao seu serviço.
+14. O pecado já não vos dominará, porque agora não estais mais sob a lei, e sim sob a graça.
+15. Então? Havemos de pecar, pelo fato de não estarmos sob a lei, mas sob a graça? De modo algum.
+16. Não sabeis que, quando vos ofereceis a alguém para lhe obedecer, sois escravos daquele a quem obedeceis, quer seja do pecado para a morte, quer da obediência para a justiça?
+17. Graças a Deus, porém, que, depois de terdes sido escravos do pecado, obedecestes de coração à regra da doutrina na qual tendes sido instruídos.
+18. E, libertados do pecado, vos tornastes servos da justiça.
+19. Vou-me servir de linguagem corrente entre os homens, por causa da fraqueza da vossa carne. Pois, como pusestes os vossos membros a serviço da impureza e do mal para cometer a iniqüidade, assim ponde agora os vossos membros a serviço da justiça para chegar à santidade.
+20. Quando éreis escravos do pecado, éreis livres a respeito da justiça.
+21. Que frutos produzíeis então? Frutos dos quais agora vos envergonhais. O fim deles é a morte.
+22. Mas agora, libertados do pecado e feitos servos de Deus, tendes por fruto a santidade; e o termo é a vida eterna.
+23. Porque o salário do pecado é a morte, enquanto o dom de Deus é a vida eterna em Cristo Jesus, nosso Senhor.Romanos, 7
+1. Ignorais, irmãos (falo aos que têm conhecimentos jurídicos), que a lei só tem domínio sobre o homem durante o tempo que vive?
+2. Assim, a mulher casada está sujeita ao marido pela lei enquanto ele vive; mas, se o marido morrer, fica desobrigada da lei que a ligava ao marido.
+3. Por isso, enquanto viver o marido, se se tornar mulher de outro homem, será chamada adúltera. Porém, morrendo o marido, fica desligada da lei, de maneira que, sem se tornar adúltera, poderá casar-se com outro homem.
+4. Assim, meus irmãos, também vós estais mortos para a lei, pelo sacrifício do corpo de Cristo, para pertencerdes a outrem, àquele que ressuscitou dentre os mortos, a fim de que demos frutos para Deus.
+5. De fato, quando estávamos na carne, as paixões pecaminosas despertadas pela lei operavam em nossos membros, a fim de frutificarmos para a morte.
+6. Agora, mortos para essa lei que nos mantinha sujeitos, dela nos temos libertado, e nosso serviço realiza-se conforme a renovação do Espírito e não mais sob a autoridade envelhecida da letra.
+7. Que diremos, então? Que a lei é pecado? De modo algum. Mas eu não conheci o pecado senão pela lei. Porque não teria idéia da concupiscência, se a lei não dissesse: Não cobiçarás (Ex 20,17).
+8. Foi o pecado, portanto, que, aproveitando-se da ocasião que lhe foi dada pelo preceito, excitou em mim todas as concupiscências; porque, sem a lei, o pecado estava morto.
+9. Quando eu estava sem a lei, eu vivia; mas, sobrevindo o preceito, o pecado recobrou vida,
+10. e eu morri. Assim o mandamento, que me devia dar a vida, conduziu-me à morte.
+11. Porque o pecado, aproveitando da ocasião do mandamento, seduziu-me, e por ele me levou à morte.
+12. Por conseguinte, a lei é santa e o mandamento é santo, e justo, e bom...
+13. Então o que é bom tornou-se causa de morte para mim? De certo que não. Foi o pecado que, para se mostrar realmente pecado, acarretou para mim a morte por meio do que é bom, a fim de que, pelo mandamento, o pecado se fizesse excessivamente pecaminoso.
+14. Sabemos, de fato, que a lei é espiritual, mas eu sou carnal, vendido ao pecado.
+15. Não entendo, absolutamente, o que faço, pois não faço o que quero; faço o que aborreço.
+16. E, se faço o que não quero, reconheço que a lei é boa.
+17. Mas, então, não sou eu que o faço, mas o pecado que em mim habita.
+18. Eu sei que em mim, isto é, na minha carne, não habita o bem, porque o querer o bem está em mim, mas não sou capaz de efetuá-lo.
+19. Não faço o bem que quereria, mas o mal que não quero.
+20. Ora, se faço o que não quero, já não sou eu que faço, mas sim o pecado que em mim habita.
+21. Encontro, pois, em mim esta lei: quando quero fazer o bem, o que se me depara é o mal.
+22. Deleito-me na lei de Deus, no íntimo do meu ser.
+23. Sinto, porém, nos meus membros outra lei, que luta contra a lei do meu espírito e me prende à lei do pecado, que está nos meus membros.
+24. Homem infeliz que sou! Quem me livrará deste corpo que me acarreta a morte?...
+25. Graças sejam dadas a Deus por Jesus Cristo, nosso Senhor!
+26. Assim, pois, de um lado, pelo meu espírito, sou submisso à lei de Deus; de outro lado, por minha carne, sou escravo da lei do pecado.Romanos, 8
+1. De agora em diante, pois, já não há nenhuma condenação para aqueles que estão em Jesus Cristo.
+2. A lei do Espírito de Vida me libertou, em Jesus Cristo, da lei do pecado e da morte.
+3. O que era impossível à lei, visto que a carne a tornava impotente, Deus o fez. Enviando, por causa do pecado, o seu próprio Filho numa carne semelhante à do pecado, condenou o pecado na carne,
+4. a fim de que a justiça, prescrita pela lei, fosse realizada em nós, que vivemos não segundo a carne, mas segundo o espírito.
+5. Os que vivem segundo a carne gostam do que é carnal; os que vivem segundo o espírito apreciam as coisas que são do espírito.
+6. Ora, a aspiração da carne é a morte, enquanto a aspiração do espírito é a vida e a paz.
+7. Porque o desejo da carne é hostil a Deus, pois a carne não se submete à lei de Deus, e nem o pode.
+8. Os que vivem segundo a carne não podem agradar a Deus.
+9. Vós, porém, não viveis segundo a carne, mas segundo o Espírito, se realmente o espírito de Deus habita em vós. Se alguém não possui o Espírito de Cristo, este não é dele.
+10. Ora, se Cristo está em vós, o corpo, em verdade, está morto pelo pecado, mas o Espírito vive pela justificação.
+11. Se o Espírito daquele que ressuscitou Jesus dos mortos habita em vós, ele, que ressuscitou Jesus Cristo dos mortos, também dará a vida aos vossos corpos mortais, pelo seu Espírito que habita em vós.
+12. Portanto, irmãos, não somos devedores da carne, para que vivamos segundo a carne.
+13. De fato, se viverdes segundo a carne, haveis de morrer; mas, se pelo Espírito mortificardes as obras da carne, vivereis,
+14. pois todos os que são conduzidos pelo Espírito de Deus são filhos de Deus.
+15. Porquanto não recebestes um espírito de escravidão para viverdes ainda no temor, mas recebestes o espírito de adoção pelo qual clamamos: Aba! Pai!
+16. O Espírito mesmo dá testemunho ao nosso espírito de que somos filhos de Deus.
+17. E, se filhos, também herdeiros, herdeiros de Deus e co-herdeiros de Cristo, contanto que soframos com ele, para que também com ele sejamos glorificados.
+18. Tenho para mim que os sofrimentos da presente vida não têm proporção alguma com a glória futura que nos deve ser manifestada.
+19. Por isso, a criação aguarda ansiosamente a manifestação dos filhos de Deus.
+20. Pois a criação foi sujeita à vaidade (não voluntariamente, mas por vontade daquele que a sujeitou),
+21. todavia com a esperança de ser também ela libertada do cativeiro da corrupção, para participar da gloriosa liberdade dos filhos de Deus.
+22. Pois sabemos que toda a criação geme e sofre como que dores de parto até o presente dia.
+23. Não só ela, mas também nós, que temos as primícias do Espírito, gememos em nós mesmos, aguardando a adoção, a redenção do nosso corpo.
+24. Porque pela esperança é que fomos salvos. Ora, ver o objeto da esperança já não é esperança; porque o que alguém vê, como é que ainda o espera?
+25. Nós que esperamos o que não vemos, é em paciência que o aguardamos.
+26. Outrossim, o Espírito vem em auxílio à nossa fraqueza; porque não sabemos o que devemos pedir, nem orar como convém, mas o Espírito mesmo intercede por nós com gemidos inefáveis.
+27. E aquele que perscruta os corações sabe o que deseja o Espírito, o qual intercede pelos santos, segundo Deus.
+28. Aliás, sabemos que todas as coisas concorrem para o bem daqueles que amam a Deus, daqueles que são os eleitos, segundo os seus desígnios.
+29. Os que ele distinguiu de antemão, também os predestinou para serem conformes à imagem de seu Filho, a fim de que este seja o primogênito entre uma multidão de irmãos.
+30. E aos que predestinou, também os chamou; e aos que chamou, também os justificou; e aos que justificou, também os glorificou.
+31. Que diremos depois disso? Se Deus é por nós, quem será contra nós?
+32. Aquele que não poupou seu próprio Filho, mas que por todos nós o entregou, como não nos dará também com ele todas as coisas?
+33. Quem poderia acusar os escolhidos de Deus? É Deus quem os justifica.
+34. Quem os condenará? Cristo Jesus, que morreu, ou melhor, que ressuscitou, que está à mão direita de Deus, é quem intercede por nós!
+35. Quem nos separará do amor de Cristo? A tribulação? A angústia? A perseguição? A fome? A nudez? O perigo? A espada?
+36. Realmente, está escrito: Por amor de ti somos entregues à morte o dia inteiro; somos tratados como gado destinado ao matadouro (Sl 43,23).
+37. Mas, em todas essas coisas, somos mais que vencedores pela virtude daquele que nos amou.
+38. Pois estou persuadido de que nem a morte, nem a vida, nem os anjos, nem os principados, nem o presente, nem o futuro, nem as potestades,
+39. nem as alturas, nem os abismos, nem outra qualquer criatura nos poderá apartar do amor que Deus nos testemunha em Cristo Jesus, nosso Senhor.Romanos, 9
+1. Digo a verdade em Jesus Cristo, não minto; a minha consciência me dá testemunho pelo Espírito Santo:
+2. sinto grande pesar, incessante amargura no coração.
+3. Porque eu mesmo desejaria ser reprovado, separado de Cristo, por amor de meus irmãos, que são do mesmo sangue que eu, segundo a carne.
+4. Eles são os israelitas; a eles foram dadas a adoção, a glória, as alianças, a lei, o culto, as promessas
+5. e os patriarcas; deles descende Cristo, segundo a carne, o qual é, sobre todas as coisas, Deus bendito para sempre. Amém.
+6. Não quer dizer, porém, que a palavra de Deus tenha falhado. Porque nem todos os que descendem de Israel são verdadeiros israelitas,
+7. como nem todos os descendentes de Abraão são filhos de Abraão; mas: É em Isaac que terás uma descendência que trará o teu nome (Gn 21,12).
+8. Isto é, não são os filhos da carne que são filhos de Deus, mas os filhos da promessa é que serão considerados como descendentes.
+9. Realmente, a palavra da promessa é esta: Por este tempo virei, e Sara terá um filho (Gn 18,10).
+10. E não somente ela, senão também Rebeca, que concebeu (dois filhos) de um só homem, Isaac, nosso patriarca.
+11. Antes mesmo que fossem nascidos, e antes que tivessem feito bem ou mal algum (para que fosse confirmada a liberdade da escolha de Deus,
+12. que depende não das obras, mas daquele que chama), foi dito a Rebeca: O mais velho servirá o mais moço (Gn 25,23).
+13. Como está escrito: Amei Jacó, porém aborreci Esaú (Ml 1,3).
+14. Que diremos, pois? Haverá injustiça em Deus? De modo algum!
+15. Porque ele disse a Moisés: Farei misericórdia a quem eu fizer misericórdia; terei compaixão de quem eu tiver compaixão (Ex 33,19).
+16. Dessa forma, a escolha não depende daquele que quer, nem daquele que corre, mas da misericórdia de Deus.
+17. Por isso, diz a Escritura ao faraó: Eis o motivo por que te suscitei, para mostrar em ti o meu poder e para que se anuncie o meu nome por toda a terra (Ex 9,16).
+18. Portanto, ele tem misericórdia de quem quer, e endurece a quem quer.
+19. Dir-me-ás talvez: Por que ele ainda se queixa? Quem pode resistir à sua vontade?
+20. Mas quem és tu, ó homem, para contestar a Deus? Porventura o vaso de barro diz ao oleiro: Por que me fizeste assim?
+21. Ou não tem o oleiro poder sobre o barro para fazer da mesma massa um vaso de uso nobre e outro de uso vulgar?
+22. (Onde, então, está a injustiça) em ter Deus, para mostrar a sua ira e manifestar o seu poder, suportado com muita paciência os objetos de ira preparados para a perdição,
+23. mostrando as riquezas da sua glória para com os objetos de misericórdia, que de antemão preparou para a glória?
+24. (Esses somos nós, que ele chamou não só dentre os judeus, mas também dentre os pagãos.) É o que ele diz em Oséias:
+25. Chamarei meu povo ao que não era meu povo, e amada a que não era amada.
+26. E no lugar mesmo em que lhes foi dito: Vós não sois meu povo, ali serão chamados filhos de Deus vivo (Os 2,1).
+27. A respeito de Israel, exclama Isaías: Ainda que o número de filhos de Israel fosse como a areia do mar, só um resto será salvo;
+28. porque o Senhor realizará plenamente e prontamente a sua palavra sobre a terra (10,22s).
+29. E ainda como predisse Isaías: Se o Senhor dos exércitos não nos tivesse deixado um rebento, ficaríamos como Sodoma, seríamos como Gomorra (Is 1,9).
+30. Então que diremos? Que os gentios, que não buscavam a justiça, alcançaram a justificação, a que vem da fé,
+31. ao passo que Israel, que procurava uma lei que desse a justificação, não a encontrou.
+32. Por quê? Porque Israel a buscava como fruto não da fé, e sim das obras. E tropeçou na pedra do escândalo,
+33. como está escrito: Eis que ponho em Sião uma pedra de escândalo, um rochedo que faz cair; quem nele crer não será confundido (Is 8,14; 28,16).Romanos, 10
+1. Irmãos, o desejo do meu coração e a súplica que dirijo a Deus por eles são para que se salvem.
+2. Pois lhes dou testemunho de que têm zelo por Deus, mas um zelo sem discernimento.
+3. Desconhecendo a justiça de Deus e procurando estabelecer a sua própria justiça, não se sujeitaram à justiça de Deus.
+4. Porque Cristo é o fim da lei, para justificar todo aquele que crê.
+5. Ora, Moisés escreve da justiça que vem da lei: O homem que a praticar viverá por ela (Lv 18,5).
+6. Mas a justiça que vem da fé diz assim: Não digas em teu coração: Quem subirá ao céu? Isto é, para trazer do alto o Cristo;
+7. ou: Quem descerá ao abismo? Isto é, para fazer voltar Cristo dentre os mortos.
+8. Que diz ela, afinal? A palavra está perto de ti, na tua boca e no teu coração (Dt 30,14). Essa é a palavra da fé, que pregamos.
+9. Portanto, se com tua boca confessares que Jesus é o Senhor, e se em teu coração creres que Deus o ressuscitou dentre os mortos, serás salvo.
+10. É crendo de coração que se obtém a justiça, e é professando com palavras que se chega à salvação.
+11. A Escritura diz: Todo o que nele crer não será confundido (Is 28,16).
+12. Pois não há distinção entre judeu e grego, porque todos têm um mesmo Senhor, rico para com todos os que o invocam,
+13. porque todo aquele que invocar o nome do Senhor será salvo (Jl 3,5).
+14. Porém, como invocarão aquele em quem não têm fé? E como crerão naquele de quem não ouviram falar? E como ouvirão falar, se não houver quem pregue?
+15. E como pregarão, se não forem enviados, como está escrito: Quão formosos são os pés daqueles que anunciam as boas novas (Is 52,7)?
+16. Mas não são todos que prestaram ouvido à boa nova. É o que exclama Isaías: Senhor, quem acreditou na nossa pregação (Is 53,1)?
+17. Logo, a fé provém da pregação e a pregação se exerce em razão da palavra de Cristo.
+18. Pergunto, agora: Acaso não ouviram? Claro que sim! Por toda a terra correu a sua voz, e até os confins do mundo foram as suas palavras (Sl 18,5).
+19. E pergunto ainda: Acaso Israel não o compreendeu? Já Moisés lhes havia dito: Eu vos despertarei ciúmes com um povo que não merece este nome; provocar-vos-ei a ira contra uma nação insensata (Dt 32,21).
+20. E Isaías se abalança a dizer: Fui achado pelos que não me buscavam; manifestei-me aos que não perguntavam por mim (Is 65,1).
+21. Ao passo que a respeito de Israel ele diz: Todo o dia estendi as minhas mãos a um povo desobediente e teimoso (Is 65,2).Romanos, 11
+1. Pergunto, então: Acaso rejeitou Deus o seu povo? De maneira alguma. Pois eu mesmo sou israelita, descendente de Abraão, da tribo de Benjamim.
+2. Deus não repeliu o seu povo, que ele de antemão distinguiu! Desconheceis o que narra a Escritura, no episódio de Elias, quando este se queixava de Israel a Deus:
+3. Senhor, mataram vossos profetas, destruíram vossos altares. Fiquei apenas eu, e ainda procuram tirar-me a vida (I Rs 19,10)?
+4. Que lhe respondeu a voz divina? Reservei para mim sete mil homens, que não dobraram o joelho diante de Baal (I Rs 19,18).
+5. É o que continua a acontecer no tempo presente: subsiste um resto, segundo a eleição da graça.
+6. E se é pela graça, já não o é pelas obras; de outra maneira, a graça cessaria de ser graça.
+7. Conseqüência? Que Israel não conseguiu o que procura. Os escolhidos, estes sim, o conseguiram. Quanto aos mais, foram obcecados,
+8. como está escrito: Deus lhes deu um espírito de torpor, olhos para que não vejam e ouvidos para que não ouçam, até o dia presente (Dt 29,3).
+9. Davi também o diz: A mesa se lhes torne em laço, em armadilha, em ocasião de tropeço, em justo castigo!
+10. A vista se lhes obscureça para não verem! Dobra-lhes o espinhaço sem cessar (Sl 68,23s)!
+11. Pergunto ainda: Tropeçaram acaso para cair? De modo algum. Mas sua queda, tornando a salvação acessível aos pagãos, incitou-os à emulação.
+12. Ora, se o seu pecado ocasionou a riqueza do mundo, e a sua decadência a riqueza dos pagãos, que não fará a sua conversão em massa?!
+13. Declaro-o a vós, homens de origem pagã: como apóstolo dos pagãos, eu procuro honrar o meu ministério,
+14. com o intuito de, eventualmente, excitar à emulação os homens da minha raça e salvar alguns deles.
+15. Porque, se de sua rejeição resultou a reconciliação do mundo, qual será o efeito de sua reintegração, senão uma ressurreição dentre os mortos?
+16. Se as primícias são santas, também a massa o é; e se a raiz é santa, os ramos também o são.
+17. Se alguns dos ramos foram cortados, e se tu, oliveira selvagem, foste enxertada em seu lugar e agora recebes seiva da raiz da oliveira,
+18. não te envaideças nem menosprezes os ramos. Pois, se te gloriares, sabe que não és tu que sustentas a raiz, mas a raiz a ti.
+19. Dirás, talvez: Os ramos foram cortados para que eu fosse enxertada.
+20. Sem dúvida! É pela incredulidade que foram cortados, ao passo que tu é pela fé que estás firme. Não te ensoberbeças, antes teme.
+21. Se Deus não poupou os ramos naturais, bem poderá não poupar a ti.
+22. Considera, pois, a bondade e a severidade de Deus: severidade para com aqueles que caíram, bondade para contigo, suposto que permaneças fiel a essa bondade; do contrário, também tu serás cortada.
+23. E eles, se não persistirem na incredulidade, serão enxertados; pois Deus é poderoso para enxertá-los de novo.
+24. Se tu, cortada da oliveira de natureza selvagem, contra a tua natureza foste enxertada em boa oliveira, quanto mais eles, que são naturais, poderão ser enxertados na sua própria oliveira!
+25. Não quero, irmãos, que ignoreis este mistério, para que não vos gabeis de vossa sabedoria: esta cegueira de uma parte de Israel só durará até que haja entrado a totalidade dos pagãos.
+26. Então Israel em peso será salvo, como está escrito: Virá de Sião o libertador, apartará de Jacó a impiedade.
+27. E esta será a minha aliança com eles, quando eu tirar os seus pecados (Is 59,20s; 27,9).
+28. Se, quanto ao Evangelho, eles são inimigos de Deus, para proveito vosso, quanto à eleição eles são muito queridos por causa de seus pais.
+29. Pois os dons e o chamado de Deus são irrevogáveis.
+30. Assim como vós antes fostes desobedientes a Deus, e agora obtivestes misericórdia com a desobediência deles,
+31. assim eles são incrédulos agora, em conseqüência da misericórdia feita a vós, para que eles também mais tarde alcancem, por sua vez, a misericórdia.
+32. Deus encerrou a todos esses homens na desobediência para usar com todos de misericórdia.
+33. Ó abismo de riqueza, de sabedoria e de ciência em Deus! Quão impenetráveis são os seus juízos e inexploráveis os seus caminhos!
+34. Quem pode compreender o pensamento do Senhor? Quem jamais foi o seu conselheiro?
+35. Quem lhe deu primeiro, para que lhe seja retribuído?
+36. Dele, por ele e para ele são todas as coisas. A ele a glória por toda a eternidade! Amém.Romanos, 12
+1. Eu vos exorto, pois, irmãos, pelas misericórdias de Deus, a oferecerdes vossos corpos em sacrifício vivo, santo, agradável a Deus: é este o vosso culto espiritual.
+2. Não vos conformeis com este mundo, mas transformai-vos pela renovação do vosso espírito, para que possais discernir qual é a vontade de Deus, o que é bom, o que lhe agrada e o que é perfeito.
+3. Em virtude da graça que me foi dada, recomendo a todos e a cada um: não façam de si próprios uma opinião maior do que convém, mas um conceito razoavelmente modesto, de acordo com o grau de fé que Deus lhes distribuiu.
+4. Pois, como em um só corpo temos muitos membros e cada um dos nossos membros tem diferente função,
+5. assim nós, embora sejamos muitos, formamos um só corpo em Cristo, e cada um de nós é membro um do outro.
+6. Temos dons diferentes, conforme a graça que nos foi conferida. Aquele que tem o dom da profecia, exerça-o conforme a fé.
+7. Aquele que é chamado ao ministério, dedique-se ao ministério. Se tem o dom de ensinar, que ensine;
+8. o dom de exortar, que exorte; aquele que distribui as esmolas, faça-o com simplicidade; aquele que preside, presida com zelo; aquele que exerce a misericórdia, que o faça com afabilidade.
+9. Que vossa caridade não seja fingida. Aborrecei o mal, apegai-vos solidamente ao bem.
+10. Amai-vos mutuamente com afeição terna e fraternal. Adiantai-vos em honrar uns aos outros.
+11. Não relaxeis o vosso zelo. Sede fervorosos de espírito. Servi ao Senhor.
+12. Sede alegres na esperança, pacientes na tribulação e perseverantes na oração.
+13. Socorrei às necessidades dos fiéis. Esmerai-vos na prática da hospitalidade.
+14. Abençoai os que vos perseguem; abençoai-os, e não os praguejeis.
+15. Alegrai-vos com os que se alegram; chorai com os que choram.
+16. Vivei em boa harmonia uns com os outros. Não vos deixeis levar pelo gosto das grandezas; afeiçoai-vos com as coisa modestas. Não sejais sábios aos vossos próprios olhos.
+17. Não pagueis a ninguém o mal com o mal. Aplicai-vos a fazer o bem diante de todos os homens.
+18. Se for possível, quanto depender de vós, vivei em paz com todos os homens.
+19. Não vos vingueis uns aos outros, caríssimos, mas deixai agir a ira de Deus, porque está escrito: A mim a vingança; a mim exercer a justiça, diz o Senhor (Dt 32,35).
+20. Se o teu inimigo tiver fome, dá-lhe de comer; se tiver sede, dá-lhe de beber. Procedendo assim, amontoarás carvões em brasa sobre a sua cabeça (Pr 25,21s).
+21. Não te deixes vencer pelo mal, mas triunfa do mal com o bem.Romanos, 13
+1. Cada qual seja submisso às autoridades constituídas, porque não há autoridade que não venha de Deus; as que existem foram instituídas por Deus.
+2. Assim, aquele que resiste à autoridade, opõe-se à ordem estabelecida por Deus; e os que a ela se opõem, atraem sobre si a condenação.
+3. Em verdade, as autoridades inspiram temor, não porém a quem pratica o bem, e sim a quem faz o mal! Queres não ter o que temer a autoridade? Faze o bem e terás o seu louvor.
+4. Porque ela é instrumento de Deus para teu bem. Mas, se fizeres o mal, teme, porque não é sem razão que leva a espada: é ministro de Deus, para fazer justiça e para exercer a ira contra aquele que pratica o mal.
+5. Portanto, é necessário submeter-se, não somente por temor do castigo, mas também por dever de consciência.
+6. É também por essa razão que pagais os impostos, pois os magistrados são ministros de Deus, quando exercem pontualmente esse ofício.
+7. Pagai a cada um o que lhe compete: o imposto, a quem deveis o imposto; o tributo, a quem deveis o tributo; o temor e o respeito, a quem deveis o temor e o respeito.
+8. A ninguém fiqueis devendo coisa alguma, a não ser o amor recíproco; porque aquele que ama o seu próximo cumpriu toda a lei.
+9. Pois os preceitos: Não cometerás adultério, não matarás, não furtarás, não cobiçarás, e ainda outros mandamentos que existam, eles se resumem nestas palavras: Amarás o teu próximo como a ti mesmo.
+10. A caridade não pratica o mal contra o próximo. Portanto, a caridade é o pleno cumprimento da lei.
+11. Isso é tanto mais importante porque sabeis em que tempo vivemos. Já é hora de despertardes do sono. A salvação está mais perto do que quando abraçamos a fé.
+12. A noite vai adiantada, e o dia vem chegando. Despojemo-nos das obras das trevas e vistamo-nos das armas da luz.
+13. Comportemo-nos honestamente, como em pleno dia: nada de orgias, nada de bebedeira; nada de desonestidades nem dissoluções; nada de contendas, nada de ciúmes.
+14. Ao contrário, revesti-vos do Senhor Jesus Cristo e não façais caso da carne nem lhe satisfaçais aos apetites.Romanos, 14
+1. Acolhei aquele que é fraco na fé, com bondade, sem discutir as suas opiniões.
+2. Um crê poder comer de tudo; outro, que é fraco, só come legumes.
+3. Quem come de tudo não despreze aquele que não come. Quem não come não julgue aquele que come, porque Deus o acolhe do mesmo modo.
+4. Quem és tu, para julgares o servo de outros? Que esteja firme, ou caia, isto é lá com o seu senhor. Mas ele estará firme, porque poderoso é Deus para o sustentar.
+5. Um faz distinção entre dia e dia; outro, porém, considera iguais todos os dias. Cada um proceda segundo sua convicção.
+6. Quem distingue o dia, age assim pelo Senhor. Quem come de tudo, o faz pelo Senhor, porque dá graças a Deus. E quem não come, abstém-se pelo Senhor, e igualmente dá graças a Deus.
+7. Nenhum de nós vive para si, e ninguém morre para si.
+8. Se vivemos, vivemos para o Senhor; se morremos, morremos para o Senhor. Quer vivamos quer morramos, pertencemos ao Senhor.
+9. Para isso é que morreu Cristo e retomou a vida, para ser o Senhor tanto dos mortos como dos vivos.
+10. Por que julgas, então, o teu irmão? Ou por que desprezas o teu irmão? Todos temos que comparecer perante o tribunal de Deus.
+11. Porque está escrito: Por minha vida, diz o Senhor, diante de mim se dobrará todo joelho, e toda língua dará glória a Deus (Is 45,23).
+12. Assim, pois, cada um de nós dará conta de si mesmo a Deus.
+13. Deixemos, pois, de nos julgar uns aos outros; antes, cuidai em não pôr um tropeço diante do vosso irmão ou dar-lhe ocasião de queda.
+14. Sei, estou convencido no Senhor Jesus de que nenhuma coisa é impura em si mesma; somente o é para quem a considera impura.
+15. Ora, se por uma questão de comida entristeces o teu irmão, já não vives segundo a caridade. Pela comida não causes a perdição daquele por quem Cristo morreu!
+16. Não venha a tornar-se objeto de calúnia a tua vantagem.
+17. O Reino de Deus não é comida nem bebida, mas justiça, paz e gozo no Espírito Santo.
+18. Quem deste modo serve a Cristo, agrada a Deus e goza de estima dos homens.
+19. Portanto, apliquemo-nos ao que contribui para a paz e para a mútua edificação.
+20. Não destruas a obra de Deus por questão de comida. Todas as coisas, em verdade, são puras, mas o que é mau para um homem é o fato de comer provocando um escândalo.
+21. Bom é não comer carne, nem beber vinho, nem outra coisa que para teu irmão possa ser uma ocasião de queda.
+22. Tens uma convicção; guarda-a para ti mesmo, diante de Deus. Feliz é aquele que não se condena a si mesmo no ato a que se decide.
+23. Mas, aquele que come apesar de suas dúvidas, condena-se, por não se guiar pela convicção. Tudo o que não procede da convicção é pecado.Romanos, 15
+1. Nós, que somos os fortes, devemos suportar as fraquezas dos que são fracos, e não agir a nosso modo.
+2. Cada um de vós procure contentar o próximo, para seu bem e sua edificação.
+3. Cristo não se agradou a si mesmo; pelo contrário, como está escrito: Os insultos dos que vos ultrajam caíram sobre mim (Sl 68,10).
+4. Ora, tudo quanto outrora foi escrito, foi escrito para a nossa instrução, a fim de que, pela perseverança e pela consolação que dão as Escrituras, tenhamos esperança.
+5. O Deus da perseverança e da consolação vos conceda o mesmo sentimento uns para com os outros, segundo Jesus Cristo,
+6. para que, com um só coração e uma só voz, glorifiqueis a Deus, Pai de nosso Senhor Jesus Cristo.
+7. Por isso, acolhei-vos uns aos outros, como Cristo nos acolheu para a glória de Deus.
+8. Pois asseguro que Cristo exerceu seu ministério entre os incircuncisos para manifestar a veracidade de Deus pela realização das promessas feitas aos patriarcas.
+9. Quanto aos pagãos, eles só glorificam a Deus em razão de sua misericórdia, como está escrito: Por isso, eu vos louvarei entre as nações e cantarei louvores ao vosso nome (II Sm 22,50; Sl 17,50).
+10. Noutro lugar diz: Alegrai-vos, nações, com o seu povo (Dt 32,43).
+11. E ainda diz: Louvai ao Senhor, nações todas, e glorificai-o, todos os povos (Sl 116,1)!
+12. Isaías também diz: Da raiz de Jessé surgirá um rebento que governará as nações; nele esperarão as nações (Is 11,10).
+13. O Deus da esperança vos encha de toda a alegria e de toda a paz na vossa fé, para que pela virtude do Espírito Santo transbordeis de esperança!
+14. Estou pessoalmente convencido, meus irmãos, de que estais cheios de bondade, cheios de um perfeito conhecimento, capazes de vos admoestar uns aos outros.
+15. Se, em parte, vos escrevi com particular liberdade, foi para relembrar-vos. E o fiz em virtude da graça que me foi dada por Deus,
+16. de ser o ministro de Jesus Cristo entre os pagãos, exercendo a função sagrada do Evangelho de Deus. E isso para que os pagãos, santificados pelo Espírito Santo, lhe sejam uma oferta agradável.
+17. Tenho motivo de gloriar-me em Jesus Cristo, no que diz respeito ao serviço de Deus.
+18. Porque não ousaria mencionar ação alguma que Cristo não houvesse realizado por meu ministério, para levar os pagãos a aceitar o Evangelho, pela palavra e pela ação,
+19. pelo poder dos milagres e prodígios, pela virtude do Espírito. De maneira que tenho divulgado o Evangelho de Cristo desde Jerusalém e suas terras vizinhas até a Ilíria.
+20. E me empenhei por anunciar o Evangelho onde ainda não havia sido anunciado o nome de Cristo, pois não queria edificar sobre fundamento lançado por outro.
+21. Fiz bem assim como está escrito: Vê-lo-ão aqueles aos quais ainda não tinha sido anunciado; conhecê-lo-ão aqueles que dele ainda não tinham ouvido falar (Is 52,15).
+22. Foi isso o que muitas vezes me impediu de ir ter convosco.
+23. Mas, agora, já não tenho com que me ocupar nestas terras; e como há muitos anos tenho saudades de vós,
+24. espero ver-vos de passagem, quando eu for à Espanha. Espero também ser por vós conduzido até lá, depois que tiver satisfeito, ao menos em parte, o meu desejo de estar convosco.
+25. Mas no momento vou a Jerusalém para ajuda dos irmãos.
+26. A Macedônia e a Acaia houveram por bem fazer uma coleta para os irmãos de Jerusalém que se acham em pobreza.
+27. Houveram-no por bem; aliás, o devem a eles, pois se os pagãos têm parte nos bens espirituais dos judeus, devem por sua vez assisti-los com os bens materiais.
+28. Logo que eu tiver desempenhado essa incumbência, e lhes tiver feito entrega fiel dessa coleta, irei à Espanha, passando por vós.
+29. E sei que, quando for ter convosco, irei com todas as riquezas das bênçãos de Cristo.
+30. Rogo-vos, irmãos, em nome de nosso Senhor Jesus Cristo e em nome da caridade que é dada pelo Espírito, combatei comigo, dirigindo vossas orações a Deus por mim
+31. para que eu escape dos infiéis que estão na Judéia, e para que o auxílio que levo a Jerusalém seja bem acolhido pelos irmãos.
+32. Então poderei ir ver-vos com alegria e, se for a vontade de Deus, encontrar no vosso meio algum repouso.
+33. E o Deus da paz esteja com todos vós. Amém.Romanos, 16
+1. Recomendo-vos a nossa irmã Febe, que é diaconisa da igreja de Cêncris,
+2. para que a recebais no Senhor, dum modo digno dos santos, e a ajudeis em qualquer coisa que de vós venha a precisar; porque ela tem ajudado a muitos e também a mim.
+3. Saudai Prisca e Áquila, meus cooperadores em Cristo Jesus;
+4. pela minha vida eles expuseram as suas cabeças. E isso lhes agradeço, não só eu, mas também todas as igrejas dos gentios.
+5. Saudai também a comunidade que se reúne em sua casa. Saudai o meu querido Epêneto, que foi as primícias da Ásia para Cristo.
+6. Saudai Maria, que muito trabalhou por vós.
+7. Saudai Andrônico e Júnias, meus parentes e companheiros de prisão, os quais são muito estimados entre os apóstolos e se tornaram discípulos de Cristo antes de mim.
+8. Saudai Ampliato, amicíssimo meu no Senhor.
+9. Saudai Urbano, nosso colaborador em Cristo Jesus, e o meu amigo Estáquis.
+10. Saudai Apeles, provado em Cristo. Saudai aqueles que são da casa de Aristóbulo.
+11. Saudai Herodião, meu parente. Saudai os que são da família de Narciso, que estão no Senhor.
+12. Saudai Trifena e Trifosa, que trabalham para o Senhor. Saudai a estimada Pérside, que muito trabalhou para o Senhor.
+13. Saudai Rufo, escolhido no Senhor, e sua mãe, que considero como minha.
+14. Saudai Asíncrito, Flegonte, Hermes, Pátrobas, Hermas e os irmãos que estão com eles.
+15. Saudai Filólogo e Júlia, Nereu e sua irmã, Olímpio e todos os irmãos que estão com eles.
+16. Saudai-vos uns aos outros com ósculo santo. Todas as igrejas de Cristo vos saúdam.
+17. Rogo-vos, irmãos, que desconfieis daqueles que causam divisões e escândalos, apartando-se da doutrina que recebestes. Evitai-os!
+18. Esses tais não servem a Cristo nosso Senhor, mas ao próprio ventre. E com palavras adocicadas e linguagem lisonjeira enganam os corações simples.
+19. A vossa obediência se tornou notória em toda parte, razão por que eu me alegro a vosso respeito. Mas quero que sejais prudentes no tocante ao bem, e simples no tocante ao mal.
+20. O Deus da paz em breve não tardará a esmagar Satanás debaixo dos vossos pés. A graça de nosso Senhor Jesus Cristo esteja convosco!
+21. Saúdam-vos Timóteo, meu cooperador, Lúcio, Jasão e Sosípatro, meus parentes.
+22. Eu, Tércio, que escrevi esta carta, vos saúdo no Senhor.
+23. Saúda-vos Gaio, meu hospedeiro, e de toda a Igreja.
+24. Saúda-vos Erasto, tesoureiro da cidade, e Quarto, nosso irmão.
+25. Àquele que é poderoso para vos confirmar, segundo o meu Evangelho, na pregação de Jesus Cristo - conforme a revelação do mistério, guardado em segredo durante séculos,
+26. mas agora manifestado por ordem do eterno Deus e, por meio das Escrituras proféticas, dado a conhecer a todas as nações, a fim de levá-las à obediência da fé - ,
+27. a Deus, único, sábio, por Jesus Cristo, glória por toda a eternidade! Amém.I Coríntios, 1
+1. Paulo, apóstolo de Jesus Cristo por chamamento e vontade de Deus, e o irmão Sóstenes,
+2. à igreja de Deus que está em Corinto, aos fiéis santificados em Jesus Cristo, chamados à santidade, juntamente com todos os que, em qualquer lugar que estejam, invocam o nome de nosso Senhor Jesus Cristo, Senhor deles e nosso;
+3. a vós, graça e paz da parte de Deus, nosso Pai, e da parte do Senhor Jesus Cristo!
+4. Não cesso de agradecer a Deus por vós, pela graça divina que vos foi dada em Jesus Cristo.
+5. Nele fostes ricamente contemplados com todos os dons, com os da palavra e os da ciência,
+6. tão solidamente foi confirmado em vós o testemunho de Cristo.
+7. Assim, enquanto aguardais a manifestação de nosso Senhor Jesus Cristo, não vos falta dom algum.
+8. Ele há de vos confirmar até o fim, para que sejais irrepreensíveis no dia de nosso Senhor Jesus Cristo.
+9. Fiel é Deus, por quem fostes chamados à comunhão de seu Filho Jesus Cristo, nosso Senhor.
+10. Rogo-vos, irmãos, em nome de nosso Senhor Jesus Cristo, que todos estejais em pleno acordo e que não haja entre vós divisões. Vivei em boa harmonia, no mesmo espírito e no mesmo sentimento.
+11. Pois acerca de vós, irmãos meus, fui informado pelos que são da casa de Cloé, que há contendas entre vós.
+12. Refiro-me ao fato de que entre vós se usa esta linguagem: Eu sou discípulo de Paulo; eu, de Apolo; eu, de Cefas; eu, de Cristo.
+13. Então estaria Cristo dividido? É Paulo quem foi crucificado por vós? É em nome de Paulo que fostes batizados?
+14. Graças a Deus, não batizei nenhum de vós, à exceção de Crispo e Gaio.
+15. Assim ninguém poderá dizer que fostes batizados em meu nome.
+16. (Aliás, batizei também a família de Estéfanas. Além destes, não me consta ter batizado ninguém mais.)
+17. Cristo não me enviou para batizar, mas para pregar o Evangelho; e isso sem recorrer à habilidade da arte oratória, para que não se desvirtue a cruz de Cristo.
+18. A linguagem da cruz é loucura para os que se perdem, mas, para os que foram salvos, para nós, é uma força divina.
+19. Está escrito: Destruirei a sabedoria dos sábios, e anularei a prudência dos prudentes (Is 29,14).
+20. Onde está o sábio? Onde o erudito? Onde o argumentador deste mundo? Acaso não declarou Deus por loucura a sabedoria deste mundo?
+21. Já que o mundo, com a sua sabedoria, não reconheceu a Deus na sabedoria divina, aprouve a Deus salvar os que crêem pela loucura de sua mensagem.
+22. Os judeus pedem milagres, os gregos reclamam a sabedoria;
+23. mas nós pregamos Cristo crucificado, escândalo para os judeus e loucura para os pagãos;
+24. mas, para os eleitos - quer judeus quer gregos -, força de Deus e sabedoria de Deus.
+25. Pois a loucura de Deus é mais sábia do que os homens, e a fraqueza de Deus é mais forte do que os homens.
+26. Vede, irmãos, o vosso grupo de eleitos: não há entre vós muitos sábios, humanamente falando, nem muitos poderosos, nem muitos nobres.
+27. O que é estulto no mundo, Deus o escolheu para confundir os sábios; e o que é fraco no mundo, Deus o escolheu para confundir os fortes;
+28. e o que é vil e desprezível no mundo, Deus o escolheu, como também aquelas coisas que nada são, para destruir as que são.
+29. Assim, nenhuma criatura se vangloriará diante de Deus.
+30. É por sua graça que estais em Jesus Cristo, que, da parte de Deus, se tornou para nós sabedoria, justiça, santificação e redenção,
+31. para que, como está escrito: quem se gloria, glorie-se no Senhor (Jr 9,23).I Coríntios, 2
+1. Também eu, quando fui ter convosco, irmãos, não fui com o prestígio da eloqüência nem da sabedoria anunciar-vos o testemunho de Deus.
+2. Julguei não dever saber coisa alguma entre vós, senão Jesus Cristo, e Jesus Cristo crucificado.
+3. Eu me apresentei em vosso meio num estado de fraqueza, de desassossego e de temor.
+4. A minha palavra e a minha pregação longe estavam da eloqüência persuasiva da sabedoria; eram, antes, uma demonstração do Espírito e do poder divino,
+5. para que vossa fé não se baseasse na sabedoria dos homens, mas no poder de Deus.
+6. Entretanto, o que pregamos entre os perfeitos é uma sabedoria, porém não a sabedoria deste mundo nem a dos grandes deste mundo, que são, aos olhos daquela, desqualificados.
+7. Pregamos a sabedoria de Deus, misteriosa e secreta, que Deus predeterminou antes de existir o tempo, para a nossa glória.
+8. Sabedoria que nenhuma autoridade deste mundo conheceu (pois se a houvessem conhecido, não teriam crucificado o Senhor da glória).
+9. É como está escrito: Coisas que os olhos não viram, nem os ouvidos ouviram, nem o coração humano imaginou (Is 64,4), tais são os bens que Deus tem preparado para aqueles que o amam.
+10. Todavia, Deus no-las revelou pelo seu Espírito, porque o Espírito penetra tudo, mesmo as profundezas de Deus.
+11. Pois quem conhece as coisas que há no homem, senão o espírito do homem que nele reside? Assim também as coisas de Deus ninguém as conhece, senão o Espírito de Deus.
+12. Ora, nós não recebemos o espírito do mundo, mas sim o Espírito que vem de Deus, que nos dá a conhecer as graças que Deus nos prodigalizou
+13. e que pregamos numa linguagem que nos foi ensinada não pela sabedoria humana, mas pelo Espírito, que exprime as coisas espirituais em termos espirituais.
+14. Mas o homem natural não aceita as coisas do Espírito de Deus, pois para ele são loucuras. Nem as pode compreender, porque é pelo Espírito que se devem ponderar.
+15. O homem espiritual, ao contrário, julga todas as coisas e não é julgado por ninguém.
+16. Por que quem conheceu o pensamento do Senhor, se abalançará a instruí-lo (Is 40,13)? Nós, porém, temos o pensamento de Cristo.I Coríntios, 3
+1. A vós, irmãos, não vos pude falar como a homens espirituais, mas como a carnais, como a criancinhas em Cristo.
+2. Eu vos dei leite a beber, e não alimento sólido que ainda não podíeis suportar. Nem ainda agora o podeis, porque ainda sois carnais.
+3. Com efeito, enquanto houver entre vós ciúmes e contendas, não será porque sois carnais e procedeis de um modo totalmente humano?
+4. Quando, entre vós, um diz: Eu sou de Paulo, e outro: Eu, de Apolo, não é isto modo de pensar totalmente humano?
+5. Pois que é Apolo? E que é Paulo? Simples servos, por cujo intermédio abraçastes a fé, e isto conforme a medida que o Senhor repartiu a cada um deles:
+6. eu plantei, Apolo regou, mas Deus é quem fez crescer.
+7. Assim, nem o que planta é alguma coisa nem o que rega, mas só Deus, que faz crescer.
+8. O que planta ou o que rega são iguais; cada um receberá a sua recompensa, segundo o seu trabalho.
+9. Nós somos operários com Deus. Vós, o campo de Deus, o edifício de Deus.
+10. Segundo a graça que Deus me deu, como sábio arquiteto lancei o fundamento, mas outro edifica sobre ele.
+11. Quanto ao fundamento, ninguém pode pôr outro diverso daquele que já foi posto: Jesus Cristo.
+12. Agora, se alguém edifica sobre este fundamento, com ouro, ou com prata, ou com pedras preciosas, com madeira, ou com feno, ou com palha,
+13. a obra de cada um aparecerá. O dia (do julgamento) demonstrá-lo-á. Será descoberto pelo fogo; o fogo provará o que vale o trabalho de cada um.
+14. Se a construção resistir, o construtor receberá a recompensa.
+15. Se pegar fogo, arcará com os danos. Ele será salvo, porém passando de alguma maneira através do fogo.
+16. Não sabeis que sois o templo de Deus, e que o Espírito de Deus habita em vós?
+17. Se alguém destruir o templo de Deus, Deus o destruirá. Porque o templo de Deus é sagrado - e isto sois vós.
+18. Ninguém se engane a si mesmo. Se alguém dentre vós se julga sábio à maneira deste mundo, faça-se louco para tornar-se sábio,
+19. porque a sabedoria deste mundo é loucura diante de Deus; pois (diz a Escritura) ele apanhará os sábios na sua própria astúcia (Jó 5,13).
+20. E em outro lugar: O Senhor conhece os pensamentos dos sábios, e ele sabe que são vãos (Sl 93,11).
+21. Portanto, ninguém ponha sua glória nos homens. Tudo é vosso:
+22. Paulo, Apolo, Cefas, o mundo, a vida, a morte, o presente e o futuro. Tudo é vosso!
+23. Mas vós sois de Cristo, e Cristo é de Deus.I Coríntios, 4
+1. Que os homens nos considerem, pois, como simples operários de Cristo e administradores dos mistérios de Deus.
+2. Ora, o que se exige dos administradores é que sejam fiéis.
+3. A mim pouco se me dá ser julgado por vós ou por tribunal humano, pois nem eu me julgo a mim mesmo.
+4. De nada me acusa a consciência; contudo, nem por isso sou justificado. Meu juiz é o Senhor.
+5. Por isso, não julgueis antes do tempo; esperai que venha o Senhor. Ele porá às claras o que se acha escondido nas trevas. Ele manifestará as intenções dos corações. Então cada um receberá de Deus o louvor que merece.
+6. Se apliquei tudo isso a mim e a Apolo foi por vossa causa, para que, por meio de nós, aprendais a não ultrapassar o que está escrito e para que vos não ensoberbeçais tomando partido a favor de um e com prejuízo de outrem.
+7. O que há de superior em ti? Que é que possuis que não tenhas recebido? E, se o recebeste, por que te glorias, como se o não tivesses recebido?
+8. Já estais fartos! Já estais ricos! Sem nós, sois reis! Praza a Deus que reineis, de fato, para que também nós reinemos convosco!
+9. Porque, ao que parece, Deus nos tem posto a nós, apóstolos, na última classe dos homens, por assim dizer sentenciados à morte, visto que fomos entregues em espetáculo ao mundo, aos anjos e aos homens.
+10. Nós, estultos por causa de Cristo; e vós, sábios em Cristo! Nós, fracos; e vós, fortes! Vós, honrados; e nós, desprezados!
+11. Até esta hora padecemos fome, sede e nudez. Somos esbofeteados, somos errantes,
+12. fatigamo-nos, trabalhando com as nossas próprias mãos. Insultados, abençoamos; perseguidos, suportamos; caluniados, consolamos!
+13. Chegamos a ser como que o lixo do mundo, a escória de todos até agora...
+14. Não vos escrevo estas coisas para vos envergonhar, mas admoesto-vos como meus filhos muitos amados.
+15. Com efeito, ainda que tivésseis dez mil mestres em Cristo, não tendes muitos pais; ora, fui eu que vos gerei em Cristo Jesus pelo Evangelho.
+16. Por isso, vos conjuro a que sejais meus imitadores.
+17. Para isso é que vos enviei Timóteo, meu filho muito amado e fiel no Senhor. Ele vos recordará as minhas normas de conduta, tais como as ensino por toda parte, em todas as igrejas.
+18. Alguns, presumindo que eu não mais iria ter convosco, encheram-se de orgulho.
+19. Mas brevemente irei ter convosco, se Deus quiser, e tomarei conhecimento não do que esses orgulhosos falam, mas do que são capazes.
+20. Porque o Reino de Deus não consiste em palavras, mas em atos.
+21. Que preferis? Que eu vá visitar-vos com a vara, ou com caridade e espírito de mansidão?I Coríntios, 5
+1. Ouve-se dizer constantemente que se comete, em vosso meio, a luxúria, e uma luxúria tão grave que não se costuma encontrar nem mesmo entre os pagãos: há entre vós quem vive com a mulher de seu pai!...
+2. E continuais cheios de orgulho, em vez de manifestardes tristeza, para que seja tirado dentre vós o que cometeu tal ação!
+3. Pois eu, em verdade, ainda que distante corporalmente, mas presente em espírito, já julguei, como se estivesse presente, aquele que assim se comportou.
+4. Em nome do Senhor Jesus -, reunidos vós e o meu espírito, com o poder de nosso Senhor Jesus -,
+5. seja esse homem entregue a Satanás, para mortificação do seu corpo, a fim de que a sua alma seja salva no dia do Senhor Jesus.
+6. Não é nada belo o motivo da vossa jactância! Não sabeis que um pouco de fermento leveda a massa toda?
+7. Purificai-vos do velho fermento, para que sejais massa nova, porque sois pães ázimos, porquanto Cristo, nossa Páscoa, foi imolado.
+8. Celebremos, pois, a festa, não com o fermento velho nem com o fermento da malícia e da corrupção, mas com os pães não fermentados de pureza e de verdade.
+9. Na minha carta vos escrevi que não tivésseis familiaridade com os impudicos.
+10. Porém, não me referia de um modo absoluto a todos os impudicos deste mundo, os avarentos, os ladrões ou os idólatras, pois neste caso deveríeis sair deste mundo.
+11. Mas eu simplesmente quis dizer-vos que não tenhais comunicação com aquele que, chamando-se irmão, é impuro, avarento, idólatra, difamador, beberrão, ladrão. Com tais indivíduos nem sequer deveis comer.
+12. Pois que tenho eu de julgar os que estão fora? Não são os de dentro que deveis julgar?
+13. Os de fora é Deus que os julgará... Tirai o perverso do vosso meio.I Coríntios, 6
+1. Quando algum de vós tem litígio contra outro, como é que se atreve a pedir justiça perante os injustos, em vez de recorrer aos (irmãos) santos?
+2. Não sabeis que os santos julgarão o mundo? E, se o mundo há de ser julgado por vós, seríeis indignos de julgar os processos de mínima importância?
+3. Não sabeis que julgaremos os anjos? Quanto mais as pequenas questões desta vida!
+4. No entanto, quando tendes contendas desse gênero, escolheis para juízes pessoas cuja opinião é tida em nada pela Igreja.
+5. Digo-o para confusão vossa. Será possível que não há entre vós um homem sábio, nem um sequer que possa julgar entre seus irmãos?
+6. Mas um irmão litiga com outro irmão, e isso diante de infiéis!
+7. Na verdade, já é um mal para vós o fato de terdes processos uns contra os outros. Por que não preferis sofrer injustiça? Por que não preferis ser espoliados?
+8. Não! Vós é que fazeis injustiça, vós é que espoliais - e isso entre irmãos!
+9. Acaso não sabeis que os injustos não hão de possuir o Reino de Deus? Não vos enganeis: nem os impuros, nem os idólatras, nem os adúlteros, nem os efeminados, nem os devassos,
+10. nem os ladrões, nem os avarentos, nem os bêbados, nem os difamadores, nem os assaltantes hão de possuir o Reino de Deus.
+11. Ao menos alguns de vós têm sido isso. Mas fostes lavados, mas fostes santificados, mas fostes justificados, em nome do Senhor Jesus Cristo e pelo Espírito de nosso Deus.
+12. Tudo me é permitido, mas nem tudo convém. Tudo me é permitido, mas eu não me deixarei dominar por coisa alguma.
+13. Os alimentos são para o estômago e o estômago para os alimentos: Deus destruirá tanto aqueles como este. O corpo, porém, não é para a impureza, mas para o Senhor e o Senhor para o corpo:
+14. Deus, que ressuscitou o Senhor, também nos ressuscitará a nós pelo seu poder.
+15. Não sabeis que vossos corpos são membros de Cristo? Tomarei, então, os membros de Cristo e os farei membros de uma prostituta? De modo algum!
+16. Ou não sabeis que o que se ajunta a uma prostituta se torna um só corpo com ela? Está escrito: Os dois serão uma só carne (Gn 2,24).
+17. Pelo contrário, quem se une ao Senhor torna-se com ele um só espírito.
+18. Fugi da fornicação. Qualquer outro pecado que o homem comete é fora do corpo, mas o impuro peca contra o seu próprio corpo.
+19. Ou não sabeis que o vosso corpo é templo do Espírito Santo, que habita em vós, o qual recebestes de Deus e que, por isso mesmo, já não vos pertenceis?
+20. Porque fostes comprados por um grande preço. Glorificai, pois, a Deus no vosso corpo.I Coríntios, 7
+1. Agora, a respeito das coisas que me escrevestes. Penso que seria bom ao homem não tocar mulher alguma.
+2. Todavia, considerando o perigo da incontinência, cada um tenha sua mulher, e cada mulher tenha seu marido.
+3. O marido cumpra o seu dever para com a sua esposa e da mesma forma também a esposa o cumpra para com o marido.
+4. A mulher não pode dispor de seu corpo: ele pertence ao seu marido. E da mesma forma o marido não pode dispor do seu corpo: ele pertence à sua esposa.
+5. Não vos recuseis um ao outro, a não ser de comum acordo, por algum tempo, para vos aplicardes à oração; e depois retornai novamente um para o outro, para que não vos tente Satanás por vossa incontinência.
+6. Isto digo como concessão, não como ordem.
+7. Pois quereria que todos fossem como eu; mas cada um tem de Deus um dom particular: uns este, outros aquele.
+8. Aos solteiros e às viúvas, digo que lhes é bom se permanecerem assim, como eu.
+9. Mas, se não podem guardar a continência, casem-se. É melhor casar do que abrasar-se.
+10. Aos casados mando (não eu, mas o Senhor) que a mulher não se separe do marido.
+11. E, se ela estiver separada, que fique sem se casar, ou que se reconcilie com seu marido. Igualmente, o marido não repudie sua mulher.
+12. Aos outros, digo eu, não o Senhor: se um irmão desposou uma mulher pagã (sem a fé) e esta consente em morar com ele, não a repudie.
+13. Se uma mulher desposou um marido pagão e este consente em coabitar com ela, não repudie o marido.
+14. Porque o marido que não tem a fé é santificado por sua mulher; assim como a mulher que não tem a fé é santificada pelo marido que recebeu a fé. Do contrário, os vossos filhos seriam impuros quando, na realidade, são santos.
+15. Mas, se o pagão quer separar-se, que se separe; em tal caso, nem o irmão nem a irmã estão ligados. Deus vos chamou a viver em paz.
+16. Aliás, como sabes tu, ó mulher, se salvarás o teu marido? Ou como sabes tu, ó marido, se salvarás a tua mulher?
+17. Quanto ao mais, que cada um viva na condição na qual o Senhor o colocou ou em que o Senhor o chamou. É o que recomendo a todas as igrejas.
+18. O que era circunciso quando foi chamado (à fé), não dissimule sua circuncisão. Quem era incircunciso, não se faça circuncidar.
+19. A circuncisão de nada vale, e a incircuncisão de nada vale, o que importa é a observância dos mandamentos de Deus.
+20. Cada um permaneça na profissão em que foi chamado por Deus.
+21. Eras escravo, quando Deus te chamou? Não te preocupes disto. Mesmo que possas tornar-te livre, antes cuida de aproveitar melhor o teu chamamento.
+22. Pois o escravo, que foi chamado pelo Senhor, conquistou a liberdade do Senhor. Da mesma forma, quem era livre por ocasião do chamado, fez-se escravo de Cristo.
+23. Por alto preço fostes comprados, não vos torneis escravos de homens.
+24. Irmãos, cada um permaneça diante de Deus na condição em que estava quando Deus o chamou.
+25. A respeito das pessoas virgens, não tenho mandamento do Senhor; porém, dou o meu conselho, como homem que recebeu da misericórdia do Senhor a graça de ser digno de confiança.
+26. Julgo, pois, em razão das dificuldades presentes, ser conveniente ao homem ficar assim como é.
+27. Estás casado? Não procures desligar-te. Não estás casado? Não procures mulher.
+28. Mas, se queres casar-te, não pecas; assim como a jovem que se casa não peca. Todavia, padecerão a tribulação da carne; e eu quisera poupar-vos.
+29. Mas eis o que vos digo, irmãos: o tempo é breve. O que importa é que os que têm mulher vivam como se a não tivessem;
+30. os que choram, como se não chorassem; os que se alegram, como se não se alegrassem; os que compram, como se não possuíssem;
+31. os que usam deste mundo, como se dele não usassem. Porque a figura deste mundo passa.
+32. Quisera ver-vos livres de toda preocupação. O solteiro cuida das coisas que são do Senhor, de como agradar ao Senhor.
+33. O casado preocupa-se com as coisas do mundo, procurando agradar à sua esposa.
+34. A mesma diferença existe com a mulher solteira ou a virgem. Aquela que não é casada cuida das coisas do Senhor, para ser santa no corpo e no espírito; mas a casada cuida das coisas do mundo, procurando agradar ao marido.
+35. Digo isto para vosso proveito, não para vos estender um laço, mas para vos ensinar o que melhor convém, o que vos poderá unir ao Senhor sem partilha.
+36. Se alguém julga que é inconveniente para a sua filha ultrapassar a idade de casar-se e que é seu dever casá-la, faça-o como quiser: não há falta alguma em fazê-la casar-se.
+37. Mas aquele que, sem nenhum constrangimento e com perfeita liberdade de escolha, tiver tomado no seu coração a decisão de guardar a sua filha virgem, procede bem.
+38. Em suma, aquele que casa a sua filha faz bem; e aquele que não a casa, faz ainda melhor.
+39. A mulher está ligada ao marido enquanto ele viver. Mas, se morrer o marido, ela fica livre e poderá casar-se com quem quiser, contanto que seja no Senhor.
+40. Contudo, na minha opinião, ela será mais feliz se permanecer como está. E creio que também eu tenho o Espírito de Deus.I Coríntios, 8
+1. Quanto às carnes oferecidas aos ídolos, somos esclarecidos, possuímos todos a ciência... Porém, a ciência incha, a caridade constrói.
+2. Se alguém pensa que sabe alguma coisa, ainda não conhece nada como convém conhecer.
+3. Mas, se alguém ama a Deus, esse é conhecido por ele.
+4. Assim, pois, quanto ao comer das carnes imoladas aos ídolos, sabemos que não existem realmente ídolos no mundo e que não há outro Deus, senão um só.
+5. Pretende-se, é verdade, que existam outros deuses, quer no céu quer na terra (e há um bom número desses deuses e senhores).
+6. Mas, para nós, há um só Deus, o Pai, do qual procedem todas as coisas e para o qual existimos, e um só Senhor, Jesus Cristo, por quem todas as coisas existem e nós também.
+7. Todavia, nem todos têm esse conhecimento. Alguns, habituados ao modo antigo de considerar o ídolo, comem a carne como sacrificada ao ídolo; e sua consciência, por ser débil, se mancha.
+8. Não é, entretanto, a comida que nos torna agradáveis a Deus: comendo, não ganhamos nada; e não comendo, nada perdemos.
+9. Atenção, porém: que essa vossa liberdade não venha a ser ocasião de queda aos fracos.
+10. Se alguém te vir, a ti que és instruído, sentado à mesa no templo dos ídolos, não se sentirá, por fraqueza de consciência, também autorizado a comer do sacrifício aos ídolos?
+11. E assim por tua ciência vai se perder quem é fraco, um irmão, pelo qual Cristo morreu!
+12. Assim, pecando vós contra os irmãos e ferindo sua débil consciência, pecais contra Cristo.
+13. Pelo que, se a comida serve de ocasião de queda a meu irmão, jamais comerei carne, a fim de que eu não me torne ocasião de queda para o meu irmão.I Coríntios, 9
+1. Não sou eu livre? Não sou apóstolo? Não vi Jesus nosso Senhor? Não sois vós minha obra no Senhor?
+2. Se para outros não sou apóstolo, ao menos para vós o sou, porque vós sois no Senhor o selo do meu apostolado.
+3. Esta é a minha defesa contra os que me denigrem.
+4. Não temos nós porventura o direito de comer e beber?
+5. Acaso não temos nós direito de deixar que nos acompanhe uma mulher irmã, a exemplo dos outros apóstolos e dos irmãos do Senhor e de Cefas?
+6. Ou só eu e Barnabé não temos direito de deixar o trabalho?
+7. Quem, jamais, vai à guerra à sua custa? Quem planta uma vinha e não come do seu fruto? Quem apascenta um rebanho e não se alimenta do leite do rebanho?
+8. Trata-se, acaso, de simples norma entre os homens? Ou a lei não diz também o mesmo?
+9. Na Lei de Moisés está escrito: Não atarás a boca ao boi que debulha (Dt 25,4). Acaso Deus tem dó dos bois?
+10. Não é, na realidade, em atenção a nós que ele diz isto? Sim! É por nós que está escrito. Quem trabalha deve trabalhar com esperança e igualmente quem debulha deve debulhar com esperança de receber a sua parte.
+11. Se entre vós semeamos bens espirituais, será, porventura, demasiada exigência colhermos de vossos bens materiais?
+12. Se outros se arrogam este direito sobre vós, não o temos muito mais? Entretanto, não temos feito uso deste direito: sofremos tudo para não pôr obstáculo algum ao Evangelho de Cristo.
+13. Não sabeis que os ministros do culto vivem do culto, e que os que servem ao altar participam do altar?
+14. Assim também ordenou o Senhor que os que anunciam o Evangelho vivam do Evangelho.
+15. Mas não tenho usado de nenhum desses direitos; e nem escrevo isto para reclamá-los. Preferiria morrer a... Mas ninguém me tirará este título de glória.
+16. Anunciar o Evangelho não é glória para mim; é uma obrigação que se me impõe. Ai de mim, se eu não anunciar o Evangelho!
+17. Se o fizesse de minha iniciativa, mereceria recompensa. Se o faço independentemente de minha vontade, é uma missão que me foi imposta.
+18. Então em que consiste a minha recompensa? Em que, na pregação do Evangelho, o anuncio gratuitamente, sem usar do direito que esta pregação me confere.
+19. Embora livre de sujeição de qualquer pessoa, eu me fiz servo de todos para ganhar o maior número possível.
+20. Para os judeus fiz-me judeu, a fim de ganhar os judeus. Para os que estão debaixo da lei, fiz-me como se eu estivesse debaixo da lei, embora o não esteja, a fim de ganhar aqueles que estão debaixo da lei.
+21. Para os que não têm lei, fiz-me como se eu não tivesse lei, ainda que eu não esteja isento da lei de Deus - porquanto estou sob a lei de Cristo -, a fim de ganhar os que não têm lei.
+22. Fiz-me fraco com os fracos, a fim de ganhar os fracos. Fiz-me tudo para todos, a fim de salvar a todos.
+23. E tudo isso faço por causa do Evangelho, para dele me fazer participante.
+24. Nas corridas de um estádio, todos correm, mas bem sabeis que um só recebe o prêmio. Correi, pois, de tal maneira que o consigais.
+25. Todos os atletas se impõem a si muitas privações; e o fazem para alcançar uma coroa corruptível. Nós o fazemos por uma coroa incorruptível.
+26. Assim, eu corro, mas não sem rumo certo. Dou golpes, mas não no ar.
+27. Ao contrário, castigo o meu corpo e o mantenho em servidão, de medo de vir eu mesmo a ser excluído depois de eu ter pregado aos outros.I Coríntios, 10
+1. (Não quero que ignoreis, irmãos), que os nossos pais estiveram todos debaixo da nuvem e que todos atravessaram o mar;
+2. todos foram batizados em Moisés, na nuvem e no mar;
+3. todos comeram do mesmo alimento espiritual;
+4. todos beberam da mesma bebida espiritual (pois todos bebiam da pedra espiritual que os seguia; e essa pedra era Cristo).
+5. Não obstante, a maioria deles desgostou a Deus, pois seus cadáveres cobriram o deserto.
+6. Estas coisas aconteceram para nos servir de exemplo, a fim de não cobiçarmos coisas más, como eles as cobiçaram.
+7. Nem vos torneis idólatras, como alguns deles, conforme está escrito: O povo sentou-se para comer e para beber, e depois levantou-se para se divertir (Ex 32,6).
+8. Nem nos entreguemos à impureza como alguns deles se entregaram, e morreram num só dia vinte e três mil.
+9. Nem tentemos o Senhor, como alguns deles o tentaram, e pereceram mordidos pelas serpentes.
+10. Nem murmureis, como murmuraram alguns deles, e foram mortos pelo exterminador.
+11. Todas estas desgraças lhes aconteceram para nosso exemplo; foram escritas para advertência nossa, para nós que tocamos o final dos tempos.
+12. Portanto, quem pensa estar de pé veja que não caia.
+13. Não vos sobreveio tentação alguma que ultrapassasse as forças humanas. Deus é fiel: não permitirá que sejais tentados além das vossas forças, mas com a tentação ele vos dará os meios de suportá-la e sairdes dela.
+14. Portanto, caríssimos meus, fugi da idolatria.
+15. Falo como a pessoas sensatas; julgai vós mesmos o que digo.
+16. O cálice de bênção, que benzemos, não é a comunhão do sangue de Cristo? E o pão, que partimos, não é a comunhão do corpo de Cristo?
+17. Uma vez que há um único pão, nós, embora sendo muitos, formamos um só corpo, porque todos nós comungamos do mesmo pão.
+18. Considerai Israel segundo a carne: não entram em comunhão com o altar os que comem as vítimas?
+19. Que quero afirmar com isto? Que a carne sacrificada aos ídolos ou o próprio ídolo são alguma coisa?
+20. Não! As coisas que os pagãos sacrificam, sacrificam-nas a demônios e não a Deus. E eu não quero que tenhais comunhão com os demônios.
+21. Não podeis beber ao mesmo tempo o cálice do Senhor e o cálice dos demônios. Não podeis participar ao mesmo tempo da mesa do Senhor e da mesa dos demônios.
+22. Ou queremos provocar a ira do Senhor? Acaso somos mais fortes do que ele?
+23. Tudo é permitido, mas nem tudo é oportuno. Tudo é permitido, mas nem tudo edifica.
+24. Ninguém busque o seu interesse, mas o do próximo.
+25. Comei de tudo o que se vende no açougue, sem indagar de coisa alguma por motivo de consciência.
+26. Do Senhor é a terra e tudo que ela encerra.
+27. Se algum infiel vos convidar e quiserdes ir, comei de tudo o que se vos puser diante sem indagar de coisa alguma por motivo de consciência.
+28. Mas se alguém disser: Isto foi sacrificado aos ídolos, não o comais, em atenção àquele que o advertiu e por motivo de consciência.
+29. Dizendo consciência, refiro-me não à tua, mas à do outro. Com efeito, por que razão seria regulada a minha liberdade pela consciência alheia?
+30. Se eu como com ações de graças, por que serei eu censurado por causa do alimento pelo qual rendo graças?
+31. Portanto, quer comais quer bebais ou façais qualquer outra coisa, fazei tudo para a glória de Deus.
+32. Não vos torneis causa de escândalo, nem para os judeus, nem para os gentios, nem para a Igreja de Deus.
+33. Fazei como eu: em todas as circunstâncias procuro agradar a todos. Não busco os meus interesses próprios, mas os interesses dos outros, para que todos sejam salvos.I Coríntios, 11
+1. Tornai-vos os meus imitadores, como eu o sou de Cristo.
+2. Eu vos felicito, porque em tudo vos lembrais de mim, e guardais as minhas instruções, tais como eu vo-las transmiti.
+3. Mas quero que saibais que senhor de todo homem é Cristo, senhor da mulher é o homem, senhor de Cristo é Deus.
+4. Todo homem que ora ou profetiza com a cabeça coberta falta ao respeito ao seu senhor.
+5. E toda mulher que ora ou profetiza, não tendo coberta a cabeça, falta ao respeito ao seu senhor, porque é como se estivesse rapada.
+6. Se uma mulher não se cobre com um véu, então corte o cabelo. Ora, se é vergonhoso para a mulher ter os cabelos cortados ou a cabeça rapada, então que se cubra com um véu.
+7. Quanto ao homem, não deve cobrir sua cabeça, porque é imagem e esplendor de Deus; a mulher é o reflexo do homem.
+8. Com efeito, o homem não foi tirado da mulher, mas a mulher do homem;
+9. nem foi o homem criado para a mulher, mas sim a mulher para o homem.
+10. Por isso a mulher deve trazer o sinal da submissão sobre sua cabeça, por causa dos anjos.
+11. Com tudo isso, aos olhos do Senhor, nem o homem existe sem a mulher, nem a mulher sem o homem.
+12. Pois a mulher foi tirada do homem, porém o homem nasce da mulher, e ambos vêm de Deus.
+13. Julgai vós mesmos: é decente que uma mulher reze a Deus sem estar coberta com véu?
+14. A própria natureza não vos ensina que é uma desonra para o homem usar cabelo comprido?
+15. Ao passo que é glória para a mulher uma longa cabeleira, porque lhe foi dada como um véu.
+16. Se, no entanto, alguém quiser contestar, nós não temos tal costume e nem as igrejas de Deus.
+17. Fazendo-vos essas advertências, não vos posso louvar a respeito de vossas assembléias que causam mais prejuízo que proveito.
+18. Em primeiro lugar, ouço dizer que, quando se reúne a vossa assembléia, há desarmonias entre vós. (E em parte eu acredito.
+19. É necessário que entre vós haja partidos para que possam manifestar-se os que são realmente virtuosos.)
+20. Desse modo, quando vos reunis, já não é para comer a ceia do Senhor,
+21. porquanto, mal vos pondes à mesa, cada um se apressa a tomar sua própria refeição; e enquanto uns têm fome, outros se fartam.
+22. Porventura não tendes casa onde comer e beber? Ou menosprezais a Igreja de Deus, e quereis envergonhar aqueles que nada têm? Que vos direi? Devo louvar-vos? Não! Nisto não vos louvo...
+23. Eu recebi do Senhor o que vos transmiti: que o Senhor Jesus, na noite em que foi traído, tomou o pão
+24. e, depois de ter dado graças, partiu-o e disse: Isto é o meu corpo, que é entregue por vós; fazei isto em memória de mim.
+25. Do mesmo modo, depois de haver ceado, tomou também o cálice, dizendo: Este cálice é a Nova Aliança no meu sangue; todas as vezes que o beberdes, fazei-o em memória de mim.
+26. Assim, todas as vezes que comeis desse pão e bebeis desse cálice lembrais a morte do Senhor, até que venha.
+27. Portanto, todo aquele que comer o pão ou beber o cálice do Senhor indignamente será culpável do corpo e do sangue do Senhor.
+28. Que cada um se examine a si mesmo, e assim coma desse pão e beba desse cálice.
+29. Aquele que o come e o bebe sem distinguir o corpo do Senhor, come e bebe a sua própria condenação.
+30. Esta é a razão por que entre vós há muitos adoentados e fracos, e muitos mortos.
+31. Se nos examinássemos a nós mesmos, não seríamos julgados.
+32. Mas, sendo julgados pelo Senhor, ele nos castiga para não sermos condenados com o mundo.
+33. Portanto, irmãos meus, quando vos reunis para a ceia, esperai uns pelos outros.
+34. Se alguém tem fome, coma em casa. Assim vossas reuniões não vos atrairão a condenação. As demais coisas eu determinarei quando for ter convosco.I Coríntios, 12
+1. A respeito dos dons espirituais, irmãos, não quero que vivais na ignorância.
+2. Sabeis que, quando éreis pagãos, vos deixáveis levar, conforme vossas tendências, aos ídolos mudos.
+3. Por isso, eu vos declaro: ninguém, falando sob a ação divina, pode dizer: Jesus seja maldito e ninguém pode dizer: Jesus é o Senhor, senão sob a ação do Espírito Santo.
+4. Há diversidade de dons, mas um só Espírito.
+5. Os ministérios são diversos, mas um só é o Senhor.
+6. Há também diversas operações, mas é o mesmo Deus que opera tudo em todos.
+7. A cada um é dada a manifestação do Espírito para proveito comum.
+8. A um é dada pelo Espírito uma palavra de sabedoria; a outro, uma palavra de ciência, por esse mesmo Espírito;
+9. a outro, a fé, pelo mesmo Espírito; a outro, a graça de curar as doenças, no mesmo Espírito;
+10. a outro, o dom de milagres; a outro, a profecia; a outro, o discernimento dos espíritos; a outro, a variedade de línguas; a outro, por fim, a interpretação das línguas.
+11. Mas um e o mesmo Espírito distribui todos estes dons, repartindo a cada um como lhe apraz.
+12. Porque, como o corpo é um todo tendo muitos membros, e todos os membros do corpo, embora muitos, formam um só corpo, assim também é Cristo.
+13. Em um só Espírito fomos batizados todos nós, para formar um só corpo, judeus ou gregos, escravos ou livres; e todos fomos impregnados do mesmo Espírito.
+14. Assim o corpo não consiste em um só membro, mas em muitos.
+15. Se o pé dissesse: Eu não sou a mão; por isso, não sou do corpo, acaso deixaria ele de ser do corpo?
+16. E se a orelha dissesse: Eu não sou o olho; por isso, não sou do corpo, deixaria ela de ser do corpo?
+17. Se o corpo todo fosse olho, onde estaria o ouvido? Se fosse todo ouvido, onde estaria o olfato?
+18. Mas Deus dispôs no corpo cada um dos membros como lhe aprouve.
+19. Se todos fossem um só membro, onde estaria o corpo?
+20. Há, pois, muitos membros, mas um só corpo.
+21. O olho não pode dizer à mão: Eu não preciso de ti; nem a cabeça aos pés: Não necessito de vós.
+22. Antes, pelo contrário, os membros do corpo que parecem os mais fracos, são os mais necessários.
+23. E os membros do corpo que temos por menos honrosos, a esses cobrimos com mais decoro. Os que em nós são menos decentes, recatamo-los com maior empenho,
+24. ao passo que os membros decentes não reclamam tal cuidado. Deus dispôs o corpo de tal modo que deu maior honra aos membros que não a têm,
+25. para que não haja dissensões no corpo e que os membros tenham o mesmo cuidado uns para com os outros.
+26. Se um membro sofre, todos os membros padecem com ele; e se um membro é tratado com carinho, todos os outros se congratulam por ele.
+27. Ora, vós sois o corpo de Cristo e cada um, de sua parte, é um dos seus membros.
+28. Na Igreja, Deus constituiu primeiramente os apóstolos, em segundo lugar os profetas, em terceiro lugar os doutores, depois os que têm o dom dos milagres, o dom de curar, de socorrer, de governar, de falar diversas línguas.
+29. São todos apóstolos? São todos profetas? São todos doutores?
+30. Fazem todos milagres? Têm todos a graça de curar? Falam todos em diversas línguas? Interpretam todos?
+31. Aspirai aos dons superiores. E agora, ainda vou indicar-vos o caminho mais excelente de todos.I Coríntios, 13
+1. Ainda que eu falasse as línguas dos homens e dos anjos, se não tiver caridade, sou como o bronze que soa, ou como o címbalo que retine.
+2. Mesmo que eu tivesse o dom da profecia, e conhecesse todos os mistérios e toda a ciência; mesmo que tivesse toda a fé, a ponto de transportar montanhas, se não tiver caridade, não sou nada.
+3. Ainda que distribuísse todos os meus bens em sustento dos pobres, e ainda que entregasse o meu corpo para ser queimado, se não tiver caridade, de nada valeria!
+4. A caridade é paciente, a caridade é bondosa. Não tem inveja. A caridade não é orgulhosa. Não é arrogante.
+5. Nem escandalosa. Não busca os seus próprios interesses, não se irrita, não guarda rancor.
+6. Não se alegra com a injustiça, mas se rejubila com a verdade.
+7. Tudo desculpa, tudo crê, tudo espera, tudo suporta.
+8. A caridade jamais acabará. As profecias desaparecerão, o dom das línguas cessará, o dom da ciência findará.
+9. A nossa ciência é parcial, a nossa profecia é imperfeita.
+10. Quando chegar o que é perfeito, o imperfeito desaparecerá.
+11. Quando eu era criança, falava como criança, pensava como criança, raciocinava como criança. Desde que me tornei homem, eliminei as coisas de criança.
+12. Hoje vemos como por um espelho, confusamente; mas então veremos face a face. Hoje conheço em parte; mas então conhecerei totalmente, como eu sou conhecido.
+13. Por ora subsistem a fé, a esperança e a caridade - as três. Porém, a maior delas é a caridade.I Coríntios, 14
+1. Empenhai-vos em procurar a caridade. Aspirai igualmente aos dons espirituais, mas sobretudo ao de profecia.
+2. Aquele que fala em línguas não fala aos homens, senão a Deus: ninguém o entende, pois fala coisas misteriosas, sob a ação do Espírito.
+3. Aquele, porém, que profetiza fala aos homens, para edificá-los, exortá-los e consolá-los.
+4. Aquele que fala em línguas edifica-se a si mesmo; mas o que profetiza, edifica a assembléia.
+5. Ora, desejo que todos faleis em línguas, porém muito mais desejo que profetizeis. Maior é quem profetiza do que quem fala em línguas, a não ser que este as interprete, para que a assembléia receba edificação.
+6. Suponhamos, irmãos, que eu fosse ter convosco falando em línguas, de que vos aproveitaria, se minha palavra não vos desse revelação, nem ciência, nem profecia ou doutrina?
+7. É o que se dá com os instrumentos inanimados de música, por exemplo a flauta ou a harpa: se não produzirem sons distintos, como se poderá reconhecer a música tocada?
+8. Se a trombeta só der sons confusos, quem se preparará para a batalha?
+9. Assim também vós: se vossa língua só profere palavras ininteligíveis, como se compreenderá o que dizeis? Sereis como quem fala ao vento.
+10. Há no mundo grande quantidade de línguas e todas são compreensíveis.
+11. Porém, se desconhecer o sentido das palavras, serei um estrangeiro para quem me fala e ele será também um estrangeiro para mim.
+12. Assim, uma vez que aspirais aos dons espirituais, procurai tê-los em abundância para edificação da Igreja.
+13. Por isso, quem fala em línguas, peça na oração o dom de as interpretar.
+14. Se eu oro em virtude do dom das línguas, o meu espírito ora, mas o meu entendimento fica sem fruto.
+15. Então que fazer? Orarei com o espírito, mas orarei também com o entendimento; cantarei com o espírito, mas cantarei também com o entendimento.
+16. De outra forma, se só renderes graças com o espírito, como dirá Amém a tuas ações de graças aquele que ocupar o lugar dos simples?
+17. Sem dúvida, as tuas ações de graças podem ser belas, mas o outro não é edificado.
+18. Graças a Deus que possuo o dom de línguas superior a todos vós.
+19. Mas prefiro falar na assembléia cinco palavras que compreendo, para instruir também os outros, a falar dez mil palavras em línguas.
+20. Irmãos, não sejais crianças quanto ao modo de julgar: na malícia, sim, sede crianças; mas quanto ao julgamento, sede homens.
+21. Na lei está escrito: Será por gente de língua estrangeira e por lábios estrangeiros que falarei a este povo; e nem assim me ouvirão, diz o Senhor (Is 28,11s).
+22. Assim, as línguas são sinal, não para os fiéis, mas para os infiéis; enquanto as profecias são um sinal, não para os infiéis, mas para os fiéis.
+23. Se, pois, numa assembléia da igreja inteira todos falarem em línguas, e se entrarem homens simples ou infiéis, não dirão que estais loucos?
+24. Se, porém, todos profetizarem, e entrar ali um infiel ou um homem simples, por todos é convencido, por todos é julgado;
+25. os segredos do seu coração tornam-se manifestos. Então, prostrado com a face em terra, adorará a Deus e proclamará que Deus está realmente entre vós.
+26. Em suma, que dizer, irmãos? Quando vos reunis, quem dentre vós tem um cântico, um ensinamento, uma revelação, um discurso em línguas, uma interpretação a fazer - que isto se faça de modo a edificar.
+27. Se há quem fala em línguas, não falem senão dois ou três, quando muito, e cada um por sua vez, e haja alguém que interprete.
+28. Se não houver intérprete, fiquem calados na reunião, e falem consigo mesmos e com Deus.
+29. Quanto aos profetas, falem dois ou três, e os outros julguem.
+30. Se for feita uma revelação a algum dos assistentes, cale-se o primeiro.
+31. Todos, um após outro, podeis profetizar, para todos aprenderem e serem todos exortados.
+32. O espírito dos profetas deve estar-lhes submisso,
+33. porquanto Deus não é Deus de confusão, mas de paz.
+34. Como em todas as igrejas dos santos, as mulheres estejam caladas nas assembléias: não lhes é permitido falar, mas devem estar submissas, como também ordena a lei.
+35. Se querem aprender alguma coisa, perguntem-na em casa aos seus maridos, porque é inconveniente para uma mulher falar na assembléia.
+36. Porventura foi dentre vós que saiu a palavra de Deus? Ou veio ela tão-somente para vós?
+37. Se alguém se julga profeta ou agraciado com dons espirituais, reconheça que as coisas que vos escrevo são um mandamento do Senhor.
+38. Mas, se alguém quiser ignorá-lo, que o ignore!
+39. Assim, pois, irmãos, aspirai ao dom de profetizar; porém, não impeçais falar em línguas.
+40. Mas faça-se tudo com dignidade e ordem.I Coríntios, 15
+1. Eu vos lembro, irmãos, o Evangelho que vos preguei, e que tendes acolhido, no qual estais firmes.
+2. Por ele sereis salvos, se o conservardes como vo-lo preguei. De outra forma, em vão teríeis abraçado a fé.
+3. Eu vos transmiti primeiramente o que eu mesmo havia recebido: que Cristo morreu por nossos pecados, segundo as Escrituras;
+4. foi sepultado, e ressurgiu ao terceiro dia, segundo as Escrituras;
+5. apareceu a Cefas, e em seguida aos Doze.
+6. Depois apareceu a mais de quinhentos irmãos de uma vez, dos quais a maior parte ainda vive (e alguns já são mortos);
+7. depois apareceu a Tiago, em seguida a todos os apóstolos.
+8. E, por último de todos, apareceu também a mim, como a um abortivo.
+9. Porque eu sou o menor dos apóstolos, e não sou digno de ser chamado apóstolo, porque persegui a Igreja de Deus.
+10. Mas, pela graça de Deus, sou o que sou, e a graça que ele me deu não tem sido inútil. Ao contrário, tenho trabalhado mais do que todos eles; não eu, mas a graça de Deus que está comigo.
+11. Portanto, seja eu ou sejam eles, assim pregamos, e assim crestes.
+12. Ora, se se prega que Jesus ressuscitou dentre os mortos, como dizem alguns de vós que não há ressurreição de mortos?
+13. Se não há ressurreição dos mortos, nem Cristo ressuscitou.
+14. Se Cristo não ressuscitou, é vã a nossa pregação, e também é vã a vossa fé.
+15. Além disso, seríamos convencidos de ser falsas testemunhas de Deus, por termos dado testemunho contra Deus, afirmando que ele ressuscitou a Cristo, ao qual não ressuscitou (se os mortos não ressuscitam).
+16. Pois, se os mortos não ressuscitam, também Cristo não ressuscitou.
+17. E se Cristo não ressuscitou, é inútil a vossa fé, e ainda estais em vossos pecados.
+18. Também estão perdidos os que morreram em Cristo.
+19. Se é só para esta vida que temos colocado a nossa esperança em Cristo, somos, de todos os homens, os mais dignos de lástima.
+20. Mas não! Cristo ressuscitou dentre os mortos, como primícias dos que morreram!
+21. Com efeito, se por um homem veio a morte, por um homem vem a ressurreição dos mortos.
+22. Assim como em Adão todos morrem, assim em Cristo todos reviverão.
+23. Cada qual, porém, em sua ordem: como primícias, Cristo; em seguida, os que forem de Cristo, na ocasião de sua vinda.
+24. Depois, virá o fim, quando entregar o Reino a Deus, ao Pai, depois de haver destruído todo principado, toda potestade e toda dominação.
+25. Porque é necessário que ele reine, até que ponha todos os inimigos debaixo de seus pés.
+26. O último inimigo a derrotar será a morte, porque Deus sujeitou tudo debaixo dos seus pés.
+27. Mas, quando ele disser que tudo lhe está sujeito, claro é que se excetua aquele que lhe sujeitou todas as coisas.
+28. E, quando tudo lhe estiver sujeito, então também o próprio Filho renderá homenagem àquele que lhe sujeitou todas as coisas, a fim de que Deus seja tudo em todos.
+29. De outra maneira, que intentam aqueles que se batizam em favor dos mortos? Se os mortos realmente não ressuscitam, por que se batizam por eles?
+30. E nós, por que nos expomos a perigos a toda hora?
+31. Cada dia, irmãos, expondo-me à morte, tão certo como vós sois a minha glória em Jesus Cristo nosso Senhor.
+32. Se foi por intenção humana que combati com as feras em Éfeso, que me aproveita isso? Se os mortos não ressuscitam, comamos e bebamos, porque amanhã morreremos.
+33. Não vos deixeis enganar: Más companhias corrompem bons costumes.
+34. Despertai, como convém, e não pequeis! Porque alguns vivem na total ignorância de Deus - para vergonha vossa o digo.
+35. Mas, dirá alguém, como ressuscitam os mortos? E com que corpo vêm?
+36. Insensato! O que semeias não recobra vida, sem antes morrer.
+37. E, quando semeias, não semeias o corpo da planta que há de nascer, mas o simples grão, como, por exemplo, de trigo ou de alguma outra planta.
+38. Deus, porém, lhe dá o corpo como lhe apraz, e a cada uma das sementes o corpo da planta que lhe é própria.
+39. Nem todas as carnes são iguais: uma é a dos homens e outra a dos animais; a das aves difere da dos peixes.
+40. Também há corpos celestes e corpos terrestres, mas o brilho dos celestes difere do brilho dos terrestres.
+41. Uma é a claridade do sol, outra a claridade da lua e outra a claridade das estrelas; e ainda uma estrela difere da outra na claridade.
+42. Assim também é a ressurreição dos mortos. Semeado na corrupção, o corpo ressuscita incorruptível;
+43. semeado no desprezo, ressuscita glorioso; semeado na fraqueza, ressuscita vigoroso;
+44. semeado corpo animal, ressuscita corpo espiritual. Se há um corpo animal, também há um espiritual.
+45. Como está escrito: O primeiro homem, Adão, foi feito alma vivente (Gn 2,7); o segundo Adão é espírito vivificante.
+46. Mas não é o espiritual que vem primeiro, e sim o animal; o espiritual vem depois.
+47. O primeiro homem, tirado da terra, é terreno; o segundo veio do céu.
+48. Qual o homem terreno, tais os homens terrenos; e qual o homem celestial, tais os homens celestiais.
+49. Assim como reproduzimos em nós as feições do homem terreno, precisamos reproduzir as feições do homem celestial.
+50. O que afirmo, irmãos, é que nem a carne nem o sangue podem participar do Reino de Deus; e que a corrupção não participará da incorruptibilidade.
+51. Eis que vos revelo um mistério: nem todos morreremos, mas todos seremos transformados,
+52. num momento, num abrir e fechar de olhos, ao som da última trombeta (porque a trombeta soará). Os mortos ressuscitarão incorruptíveis, e nós seremos transformados.
+53. É necessário que este corpo corruptível se revista da incorruptibilidade, e que este corpo mortal se revista da imortalidade.
+54. Quando este corpo corruptível estiver revestido da incorruptibilidade, e quando este corpo mortal estiver revestido da imortalidade, então se cumprirá a palavra da Escritura:
+55. A morte foi tragada pela vitória (Is 25,8). Onde está, ó morte, a tua vitória? Onde está, ó morte, o teu aguilhão (Os 13,14)?
+56. Ora, o aguilhão da morte é o pecado, e a força do pecado é a lei.
+57. Graças, porém, sejam dadas a Deus, que nos dá a vitória por nosso Senhor Jesus Cristo!
+58. Por conseqüência, meus amados irmãos, sede firmes e inabaláveis, aplicando-vos cada vez mais à obra do Senhor. Sabeis que o vosso trabalho no Senhor não é em vão.I Coríntios, 16
+1. Quanto à coleta em benefício dos santos, segui também vós as diretrizes que eu tracei às igrejas da Galácia.
+2. No primeiro dia da semana, cada um de vós ponha de parte o que tiver podido poupar, para que não esperem a minha chegada para fazer as coletas.
+3. Quando chegar, enviarei, com uma carta, os que tiverdes escolhido para levar a Jerusalém a vossa oferta.
+4. Se valer a pena que eu também vá, irão comigo.
+5. Irei ter convosco, depois que tiver passado pela Macedônia; apenas passarei por lá.
+6. Talvez fique convosco ou até passe todo o inverno, para que me leveis aonde eu tenho de ir.
+7. Desta vez, quero vos ver não somente de passagem, mas espero demorar-me algum tempo convosco, se o Senhor o permitir.
+8. Ficarei em Éfeso até Pentecostes:
+9. aí se me abriu uma grande porta à minha atividade e os adversários aí são muitos.
+10. Se Timóteo for visitar-vos, vede que esteja sem preocupação entre vós, porque trabalha exatamente como eu na obra do Senhor.
+11. Portanto, ninguém o despreze. E preparai-lhe a viagem em paz para que venha ter comigo, porque o espero com os irmãos.
+12. Quanto ao nosso irmão Apolo, roguei-lhe muito fosse ter convosco com os irmãos, mas de modo algum quis ele ir agora. Contudo irá ver-vos, quando tiver oportunidade.
+13. Vigiai! Sede firmes na fé! Sede homens! Sede fortes!
+14. Tudo o que fazeis, fazei-o na caridade.
+15. Ainda uma recomendação, irmãos: sabeis que a família de Estéfanas são as primícias da Acaia e se consagraram ao serviço dos santos.
+16. Tratai essas pessoas com consideração, bem como todos aqueles que ajudam e trabalham na mesma obra.
+17. Eu me alegro com a vinda de Estéfanas, Fortunato e Acaico, porque eles supriram a vossa ausência,
+18. e tranqüilizaram o meu espírito e o vosso. Tende, pois, consideração a tais homens.
+19. As igrejas da Ásia vos saúdam. Áquila e Prisca, com a comunidade que se reúne em sua casa, enviam-vos muitas saudações.
+20. Todos os irmãos vos saúdam.
+21. Saudai-vos uns aos outros com ósculo santo.
+22. Esta saudação escrevo-a de próprio punho: PAULO.
+23. Se alguém não amar o Senhor, seja maldito! Maran atá.
+24. A graça do Senhor Jesus esteja convosco.
+25. Eu vos amo a todos vós em Cristo Jesus.II Coríntios, 1
+1. Paulo, apóstolo de Jesus Cristo pela vontade de Deus, e o irmão Timóteo, à igreja de Deus que está em Corinto, e a todos os irmãos santos que estão em toda a Acaia.
+2. A vós, graça e paz da parte de Deus, nosso Pai, e da parte do Senhor Jesus Cristo!
+3. Bendito seja Deus, o Pai de nosso Senhor Jesus Cristo, o Pai das misericórdias, Deus de toda a consolação,
+4. que nos conforta em todas as nossas tribulações, para que, pela consolação com que nós mesmos somos consolados por Deus, possamos consolar os que estão em qualquer angústia!
+5. Com efeito, à medida que em nós crescem os sofrimentos de Cristo, crescem também por Cristo as nossas consolações.
+6. Se, pois, somos atribulados, é para vossa consolação e salvação. Se somos consolados, é para vossa consolação, a qual se efetua em vós pela paciência em tolerar os sofrimentos que nós mesmos suportamos.
+7. A nossa esperança a respeito de vós é firme: sabemos que, como sois companheiros das nossas aflições, assim também o sereis da nossa consolação.
+8. Não queremos, irmãos, que ignoreis a tribulação que nos sobreveio na Ásia. Fomos maltratados ali desmedidamente, além das nossas forças, a ponto de termos perdido a esperança de sair com vida.
+9. Sentíamos dentro de nós mesmos a sentença de morte, para que aprendêssemos a pôr a nossa confiança não em nós, mas em Deus, que ressuscita os mortos.
+10. Ele nos livrou e nos livrará de tamanhos perigos de morte. Sim, esperamos que ainda nos livrará
+11. se nos ajudardes também vós com orações em nossa intenção. Assim esta graça, obtida por intervenção de muitas pessoas, lhes será ocasião de agradecer a Deus a nosso respeito.
+12. A razão da nossa glória é esta: o testemunho da nossa consciência de que, no mundo e particularmente entre vós, temos agido com santidade e sinceridade diante de Deus, não conforme o espírito de sabedoria do mundo, mas com o socorro da graça de Deus.
+13. Em verdade, não vos queremos dizer coisa alguma diferente da que ledes em nossas cartas, e que compreendeis. E espero que reconheçais até o fim,
+14. como aliás já o tendes em parte reconhecido, que nós somos a vossa glória, exatamente como vós sereis a nossa, no dia do Senhor Jesus.
+15. Foi nesta persuasão que eu resolvera primeiro ir ter convosco, para que recebêsseis uma dupla alegria:
+16. eu passaria por vós ao dirigir-me à Macedônia e, ao voltar da Macedônia, iria novamente visitar-vos e de lá seria por vós conduzido até a Judéia.
+17. Formando este plano, terei usado de leviandade? Ou são puramente humanas as resoluções que tomo, de modo que haja em mim o sim e depois o não?
+18. Deus é testemunha de que quando vos dirijo a palavra, não existe um sim e depois um não.
+19. O Filho de Deus, Jesus Cristo, que nós, Silvano, Timóteo e eu, vos temos anunciado, não foi sim e depois não, mas sempre foi sim.
+20. Porque todas as promessas de Deus são sim em Jesus. Por isso, é por ele que nós dizemos Amém à glória de Deus.
+21. Ora, quem nos confirma a nós e a vós em Cristo, e nos consagrou, é Deus.
+22. Ele nos marcou com o seu selo e deu aos nossos corações o penhor do Espírito.
+23. Invoco a Deus por testemunha: juro por minha vida que foi para vos poupar que não voltei a Corinto.
+24. Não porque pretendamos dominar sobre a vossa fé. Queremos apenas contribuir para a vossa alegria, porque, quanto à fé, estais firmes.II Coríntios, 2
+1. Eu decidi, pois, comigo mesmo não tornar a visitar-vos, para não vos contristar;
+2. porque, se eu vos entristeço, como poderia esperar alegria daqueles que por mim foram entristecidos?
+3. Se vos escrevi estas coisas foi para que, quando eu chegar, não sinta tristeza precisamente da parte dos que me deviam alegrar. Confio em todos vós que a minha alegria seja a de todos.
+4. Foi numa grande aflição, com o coração despedaçado e lágrimas nos olhos, que vos escrevi, não com o propósito de vos contristar, mas para vos fazer conhecer o amor todo particular que vos tenho.
+5. Se alguém causou tristeza, não me contristou a mim, mas de certo modo - para não exagerar - a todos vós.
+6. Basta a esse homem o castigo que a maioria dentre vós lhe infligiu.
+7. Assim deveis agora perdoar-lhe e consolá-lo para que não sucumba por demasiada tristeza.
+8. Peço-vos que tenhais caridade para com ele,
+9. Quando vos escrevi, a minha intenção era submeter-vos à prova para ver se éreis totalmente obedientes.
+10. A quem vós perdoais, também eu perdôo. Com efeito, o que perdoei - se alguma coisa tenho perdoado - foi por amor de vós, sob o olhar de Cristo.
+11. Não quero que sejamos vencidos por Satanás, pois não ignoramos as suas maquinações.
+12. Quando cheguei a Trôade para pregar o Evangelho de Cristo, apesar da porta que o Senhor me abriu,
+13. o meu espírito não teve sossego, porque não achei o meu irmão Tito. Despedi-me deles e parti para a Macedônia.
+14. Mas graças sejam dadas a Deus, que nos concede sempre triunfar em Cristo, e que por nosso meio difunde o perfume do seu conhecimento em todo lugar.
+15. Somos para Deus o perfume de Cristo entre os que se salvam e entre os que se perdem.
+16. Para estes, na verdade, odor de morte e que dá a morte; para os primeiros, porém, odor de vida e que dá a vida. E qual o homem capaz de uma tal obra?
+17. É que, de fato, não somos, como tantos outros, falsificadores da palavra de Deus. Mas é na sua integridade, tal como procede de Deus, que nós a pregamos em Cristo, sob os olhares de Deus.II Coríntios, 3
+1. Recomeçamos a fazer o nosso próprio elogio? Temos, acaso, como alguns, necessidade de vos apresentar ou receber de vós carta de recomendação?
+2. Vós mesmos sois a nossa carta, escrita em nossos corações, conhecida e lida por todos os homens.
+3. Não há dúvida de que vós sois uma carta de Cristo, redigida por nosso ministério e escrita, não com tinta, mas com o Espírito de Deus vivo, não em tábuas de pedra, mas em tábuas de carne, isto é, em vossos corações.
+4. Tal é a convicção que temos em Deus por Cristo.
+5. Não que sejamos capazes por nós mesmos de ter algum pensamento, como de nós mesmos. Nossa capacidade vem de Deus.
+6. Ele é que nos fez aptos para ser ministros da Nova Aliança, não a da letra, e sim a do Espírito. Porque a letra mata, mas o Espírito vivifica.
+7. Ora, se o ministério da morte, gravado com letras em pedras, se revestiu de tal glória que os filhos de Israel não podiam fitar os olhos no rosto de Moisés, por causa do resplendor de sua face (embora transitório),
+8. quanto mais glorioso não será o ministério do Espírito!
+9. Se o ministério da condenação já foi glorioso, muito mais o há de sobrepujar em glória o ministério da justificação !
+10. Aliás, sob esse aspecto e em comparação desta glória eminentemente superior, empalidece a glória do primeiro ministério.
+11. Se o transitório era glorioso, muito mais glorioso é o que permanece!
+12. Em posse de tal esperança, procedemos com total desassombro,
+13. Não fazemos como Moisés, que cobria o rosto com um véu para que os filhos de Israel não fixassem os olhos no fim daquilo que era transitório.
+14. Em conseqüência, a inteligência deles permaneceu obscurecida. Ainda agora, quando lêem o Antigo Testamento, esse mesmo véu permanece abaixado, porque é só em Cristo que ele deve ser levantado.
+15. Por isso, até o dia de hoje, quando lêem Moisés, um, véu cobre-lhes o coração.
+16. Esse véu só será tirado quando se converterem ao Senhor.
+17. Ora, o Senhor é Espírito, e onde está o Espírito do Senhor, aí há liberdade.
+18. Mas todos nós temos o rosto descoberto, refletimos como num espelho a glória do Senhor e nos vemos transformados nesta mesma imagem, sempre mais resplandecentes, pela ação do Espírito do Senhor.II Coríntios, 4
+1. Por isso não desanimamos deste ministério que nos foi conferido por misericórdia.
+2. Afastamos de nós todo procedimento fingido e vergonhoso. Não andamos com astúcia, nem falsificamos a palavra de Deus. Pela manifestação da verdade nós nos recomendamos à consciência de todos os homens, diante de Deus.
+3. Se o nosso Evangelho ainda estiver encoberto, está encoberto para aqueles que se perdem,
+4. para os incrédulos, cujas inteligências o deus deste mundo obcecou a tal ponto que não percebem a luz do Evangelho, onde resplandece a glória de Cristo, que é a imagem de Deus.
+5. De fato, não nos pregamos, a nós mesmos, mas a Jesus Cristo, o Senhor. Quanto a nós, consideramo-nos servos vossos por amor de Jesus.
+6. Porque Deus que disse: Das trevas brilhe a luz, é também aquele que fez brilhar a sua luz em nossos corações, para que irradiássemos o conhecimento do esplendor de Deus, que se reflete na face de Cristo.
+7. Porém, temos este tesouro em vasos de barro, para que transpareça claramente que este poder extraordinário provém de Deus e não de nós.
+8. Em tudo somos oprimidos, mas não sucumbimos. Vivemos em completa penúria, mas não desesperamos.
+9. Somos perseguidos, mas não ficamos desamparados. Somos abatidos, mas não somos destruídos.
+10. Trazemos sempre em nosso corpo os traços da morte de Jesus para que também a vida de Jesus se manifeste em nosso corpo.
+11. Estando embora vivos, somos a toda hora entregues à morte por causa de Jesus, para que também a vida de Jesus apareça em nossa carne mortal.
+12. Assim em nós opera a morte, e em vós a vida.
+13. Animados deste espírito de fé, conforme está escrito: Eu cri, por isto falei (Sl 115,1), também nós cremos, e por isso falamos.
+14. Pois sabemos que aquele que ressuscitou o Senhor Jesus, nos ressuscitará também a nós com Jesus e nos fará comparecer diante dele convosco.
+15. E tudo isso se faz por vossa causa, para que a graça se torne copiosa entre muitos e redunde o sentimento de gratidão, para glória de Deus.
+16. É por isso que não desfalecemos. Ainda que exteriormente se desconjunte nosso homem exterior, nosso interior renova-se de dia para dia.
+17. A nossa presente tribulação, momentânea e ligeira, nos proporciona um peso eterno de glória incomensurável. Porque não miramos as coisas que se vêem, mas sim as que não se vêem . Pois as coisas que se vêem são temporais e as que não se vêem são eternas.II Coríntios, 5
+1. Sabemos, com efeito, que ao se desfazer a tenda que habitamos neste mundo, recebemos uma casa preparada por Deus e não por mãos humanas, uma habitação eterna no céu.
+2. E por isto suspiramos e anelamos ser sobrevestidos da nossa habitação celeste,
+3. contanto que sejamos achados vestidos e não despidos.
+4. Pois, enquanto permanecemos nesta tenda, gememos oprimidos: desejamos ser não despojados, mas revestidos com uma veste nova por cima da outra, de modo que o que há de mortal em nós seja absorvido pela vida.
+5. Aquele que nos formou para este destino é Deus mesmo, que nos deu por penhor o seu Espírito.
+6. Por isso, estamos sempre cheios de confiança. Sabemos que todo o tempo que passamos no corpo é um exílio longe do Senhor.
+7. Andamos na fé e não na visão.
+8. Estamos, repito, cheios de confiança, preferindo ausentar-nos deste corpo para ir habitar junto do Senhor.
+9. É também por isso que, vivos ou mortos, nos esforçamos por agradar-lhe.
+10. Porque teremos de comparecer diante do tribunal de Cristo. Ali cada um receberá o que mereceu, conforme o bem ou o mal que tiver feito enquanto estava no corpo.
+11. Compenetrados do temor do Senhor, procuramos persuadir os homens. Estamos a descoberto aos olhos de Deus, e espero que o estejamos também ante as vossas consciências.
+12. Não estamos a gabar-nos ante os vossos olhos, mas damo-vos ocasião de vos gloriardes por nossa causa. Tereis assim o que responder àqueles que se prevalecem das aparências e não do que há no coração.
+13. De fato, se ficamos arrebatados fora dos sentidos, é por Deus; e se raciocinamos sobriamente, é por vós.
+14. O amor de Cristo nos constrange, considerando que, se um só morreu por todos, logo todos morreram.
+15. Sim, ele morreu por todos, a fim de que os que vivem já não vivam para si, mas para aquele que por eles morreu e ressurgiu.
+16. Por isso, nós daqui em diante a ninguém conhecemos de um modo humano. Muito embora tenhamos considerado Cristo dessa maneira, agora já não o julgamos assim.
+17. Todo aquele que está em Cristo é uma nova criatura. Passou o que era velho; eis que tudo se fez novo!
+18. Tudo isso vem de Deus, que nos reconciliou consigo, por Cristo, e nos confiou o ministério desta reconciliação.
+19. Porque é Deus que, em Cristo, reconciliava consigo o mundo, não levando mais em conta os pecados dos homens, e pôs em nossos lábios a mensagem da reconciliação.
+20. Portanto, desempenhamos o encargo de embaixadores em nome de Cristo, e é Deus mesmo que exorta por nosso intermédio. Em nome de Cristo vos rogamos: reconciliai-vos com Deus!
+21. Aquele que não conheceu o pecado, Deus o fez pecado por nós, para que nele nós nos tornássemos justiça de Deus.II Coríntios, 6
+1. Na qualidade de colaboradores seus, exortamo-vos a que não recebais a graça de Deus em vão.
+2. Pois ele diz: Eu te ouvi no tempo favorável e te ajudei no dia da salvação (Is 49,8). Agora é o tempo favorável, agora é o dia da salvação.
+3. A ninguém damos qualquer motivo de escândalo, para que o nosso ministério não seja criticado.
+4. Mas em todas as coisas nos apresentamos como ministros de Deus, por uma grande constância nas tribulações, nas misérias, nas angústias,
+5. nos açoites, nos cárceres, nos tumultos populares, nos trabalhos, nas vigílias, nas privações;
+6. pela pureza, pela ciência, pela longanimidade, pela bondade, pelo Espírito Santo, por uma caridade sincera,
+7. pela palavra da verdade, pelo poder de Deus; pelas armas da justiça ofensivas e defensivas,
+8. através da honra e da desonra, da boa e da má fama.
+9. Tidos por impostores, somos, no entanto, sinceros; por desconhecidos, somos bem conhecidos; por agonizantes, estamos com vida; por condenados e, no entanto, estamos livres da morte.
+10. Somos julgados tristes, nós que estamos sempre contentes; indigentes, porém enriquecendo a muitos; sem posses, nós que tudo possuímos!
+11. Ó coríntios, acabamos de vos falar com toda a franqueza. O nosso coração está todo ele aberto.
+12. Não é estreito o lugar que nele ocupais. Estreito, isso sim, é vosso íntimo.
+13. Correspondei-me com igual ternura. Falo como a meus filhos: também vós outros abri largamente os vossos corações.
+14. Não vos prendais ao mesmo jugo com os infiéis. Que união pode haver entre a justiça e a iniqüidade? Ou que comunidade entre a luz e as trevas?
+15. Que compatibilidade pode haver entre Cristo e Belial? Ou que acordo entre o fiel e o infiel?
+16. Como conciliar o templo de Deus e os ídolos? Porque somos o templo de Deus vivo, como o próprio Deus disse: Eu habitarei e andarei entre eles, e serei o seu Deus e eles serão o meu povo (Lv 26,11s).
+17. Portanto, saí do meio deles e separai-vos, diz o Senhor. Não toqueis no que é impuro, e vos receberei.
+18. Serei para vós um Pai e vós sereis para mim filhos e filhas, diz o Senhor todo-poderoso (Is 52,11; Jr 31,9).II Coríntios, 7
+1. Depositários de tais promessas, caríssimos, purifiquemo-nos de toda imundície da carne e do espírito, realizando plenamente nossa santificação no temor de Deus.
+2. Acolhei-nos dentro do vosso coração. A ninguém temos ofendido, a ninguém temos arruinado, a ninguém temos enganado.
+3. Não vos digo isto por vos condenar, pois já vos declaramos que estais em nosso coração, conosco unidos na morte e unidos na vida.
+4. Tenho grande confiança em vós. Grande é o motivo de me gloriar de vós. Estou cheio de consolação, transbordo de gozo em todas as nossas tribulações.
+5. De fato, à nossa chegada em Macedônia, nenhum repouso teve o nosso corpo. Eram aflições de todos os lados, combates por fora, temores por dentro.
+6. Deus, porém, que consola os humildes, confortou-nos com a chegada de Tito;
+7. e não somente com a sua chegada, mas também com a consolação que ele recebeu de vós. Ele nos contou o vosso ardor, as vossas lágrimas, a vossa solicitude por mim, de modo que ainda mais me regozijei.
+8. Se minha carta vos penalizou, não me arrependo. Se a princípio o senti (porque vejo que, ao menos por um momento, essa carta vos penalizou),
+9. agora me alegro, não porque fostes entristecidos, mas porque esta tristeza vos levou à penitência. Pois fostes entristecidos segundo Deus, de modo que nenhum dano sofrestes de nossa parte.
+10. De fato, a tristeza segundo Deus produz um arrependimento salutar de que ninguém se arrepende, enquanto a tristeza do mundo produz a morte.
+11. Vede, pois, que solicitude operou em vós a tristeza segundo Deus! Muito mais: que excusas! Que indignação! Que temor! Que ardor! Que zelo! Que severidade! Mostrastes em tudo que não tínheis culpa neste assunto.
+12. Portanto, se vos escrevi, não o fiz por causa daquele que cometeu a ofensa, nem por causa do ofendido; foi para que se manifestasse a vossa dedicação por mim diante de Deus.
+13. Eis o que nos tem consolado. Mas, acima desta consolação, o que nos deixou sobremaneira contentes foi a alegria de Tito, cujo coração tranqüilizastes.
+14. Se me gloriei de vós em presença dele, não fui envergonhado. Pois, assim como tudo o que vos temos dito foi conforme a verdade, assim também o louvor que de vós fizemos a Tito demonstrou-se verdadeiro.
+15. A sua afeição por vós é cada vez maior, quando se lembra da obediência que todos vós lhe testemunhastes, de como o recebestes com respeito e deferência.
+16. Alegro-me por poder contar convosco em tudo.II Coríntios, 8
+1. Desejamos dar-vos a conhecer, irmãos, a graça que Deus concedeu às igrejas da Macedônia.
+2. Em meio a tantas tribulações com que foram provadas, espalharam generosamente e com transbordante alegria, apesar de sua extrema pobreza, os tesouros de sua liberalidade.
+3. Sou testemunha de que, segundo as suas forças, e até além dessas forças, contribuíram espontaneamente
+4. e nos pediam com muita insistência o favor de poderem se associar neste socorro destinado aos irmãos.
+5. E ultrapassaram nossas expectativas. Primeiro deram-se a si mesmos ao Senhor e, depois, a nós, pela vontade de Deus.
+6. De maneira que recomendamos a Tito que leve a termo entre vós esta obra de caridade, como havia começado.
+7. Vós vos distinguis em tudo: na fé, na eloqüência, no conhecimento, no zelo de todo o gênero e no afeto para conosco. Cuidai de ser notáveis também nesta obra de caridade.
+8. Não o digo como quem manda, mas, para exemplo do zelo dos outros, quisera pôr em prova a sinceridade de vossa caridade.
+9. Vós conheceis a bondade de nosso Senhor Jesus Cristo. Sendo rico, se fez pobre por vós, a fim de vos enriquecer por sua pobreza.
+10. Aqui vos dou apenas um conselho. Isso vos convém. Há um ano fostes os primeiros, não só a iniciar esta obra, mas mesmo os primeiros a sugeri-la.
+11. Agora, pois, levai a termo a obra, para que, como houve prontidão em querer, assim também haja para a concluir, segundo as vossas posses.
+12. Quando se dá de bom coração segundo as posses (evidentemente não do que não se tem), sempre se é bem recebido.
+13. Não se trata de aliviar os outros fazendo-vos sofrer penúria, mas sim que haja igualdade entre vós.
+14. Nas atuais circunstâncias, vossa abundância supra a indigência daqueles, para que, por seu turno, a abundância deles venha a suprir a vossa indigência. Assim reinará a igualdade,
+15. como está escrito: O que colheu muito, não teve sobra; e o que pouco colheu, não teve falta (Ex 16,18).
+16. Bendito seja Deus, por ter posto no coração de Tito a mesma solicitude por vós.
+17. Não só recebeu bem o meu pedido, mas, no ardor do seu zelo, espontaneamente partiu para vos visitar.
+18. Juntamente com ele enviamos o irmão, cujo renome na pregação do Evangelho se espalha em todas as igrejas.
+19. Não só isto, mas foi destinado também pelos sufrágios das igrejas para nosso companheiro de viagem, nesta obra de caridade, que por nós é administrada para a glória do Senhor, em testemunho da nossa boa vontade.
+20. Queremos evitar assim que alguém nos censure por motivo desta importante coleta que empreendemos,
+21. porque procuramos fazer o bem, não só diante do Senhor, senão também diante dos homens.
+22. Com eles enviamos ainda outro nosso irmão, cujo zelo pudemos comprovar várias vezes e em diversas ocasiões. Desta vez se mostrará ainda mais zeloso, em razão da grande confiança que tem em vós.
+23. Quanto a Tito, é o meu companheiro e o meu colaborador junto de vós; quanto aos nossos irmãos, são legados das igrejas, que são a glória de Cristo.
+24. Portanto, em presença das igrejas, demonstrai-lhes vossa caridade e o verdadeiro motivo da ufania que sentimos por vós.II Coríntios, 9
+1. Com respeito ao auxílio a prestar aos irmãos, acho quase supérfluo continuar a escrever-vos.
+2. Porquanto estou ciente de vossa boa vontade, que enalteço, para glória vossa, ante os macedônios, dizendo-lhes que a Acaia também está pronta desde o ano passado. O exemplo de vosso zelo tem estimulado a muitos.
+3. Eu, porém, vos enviei os nossos irmãos para que o louvor que dissemos a vosso respeito, neste particular, não se tornasse vão e para que, como tenho dito, estejais prevenidos.
+4. Eu temia que, se os macedônios fossem comigo e vós não estivésseis preparados, esta certeza redundasse para confusão nossa, para não dizer vossa.
+5. Por este motivo, julguei necessário rogar aos irmãos que nos precedessem junto de vós e preparassem em tempo a generosidade prometida. Assim, será verdadeiramente uma liberalidade, e não uma mesquinhez.
+6. Convém lembrar: aquele que semeia pouco, pouco ceifará. Aquele que semeia em profusão, em profusão ceifará.
+7. Dê cada um conforme o impulso do seu coração, sem tristeza nem constrangimento. Deus ama o que dá com alegria.
+8. Poderoso é Deus para cumular-vos com toda a espécie de benefícios, para que tendo sempre e em todas as coisas o necessário, vos sobre ainda muito para toda espécie de boas obras.
+9. Como está escrito: Espalhou, deu aos pobres, a sua justiça subsiste para sempre (Sl 111,9).
+10. Aquele que dá a semente ao semeador e o pão para comer, vos dará rica sementeira e aumentará os frutos da vossa justiça.
+11. Assim, enriquecidos em todas as coisas, podereis exercer toda espécie de generosidade que, por nosso intermédio, será ocasião de agradecer a Deus.
+12. Realmente, o serviço desta obra de caridade não só provê as necessidades dos irmãos, mas é também uma abundante fonte de ações de graças a Deus.
+13. Pois, ao reconhecer a experimentada virtude que esta assistência revela da vossa parte, eles glorificam a Deus pela obediência que professais relativamente ao Evangelho de Cristo e pela generosidade de vossas esmolas em favor deles e em favor de todos.
+14. Além disso, eles oram por vós e vos dedicam a mais terna afeição em vista da eminente graça que Deus vos fez.
+15. Graças sejam dadas a Deus pelo seu dom inefável!II Coríntios, 10
+1. Eu, Paulo, vos exorto pela mansidão e bondade de Cristo, eu que me mostro humilde quando estou entre vós, mas, quando longe, sou ousado convosco.
+2. Peço-vos que, quando eu estiver presente, não me veja obrigado a usar de minha autoridade de que pretendo realmente usar com certas pessoas que imaginam que nós procedemos com intenções humanas.
+3. Porque, ainda que vivamos na carne, não militamos segundo a carne.
+4. Não são carnais as armas com que lutamos. São poderosas, em Deus, capazes de arrasar fortificações.
+5. Nós aniquilamos todo raciocínio e todo orgulho que se levanta contra o conhecimento de Deus, e cativamos todo pensamento e o reduzimos à obediência a Cristo.
+6. Estamos prontos também para castigar todos os desobedientes, assim que for perfeita a vossa obediência.
+7. Julgais as coisas pela aparência!... Quem se gloria de pertencer a Cristo considere que, como ele é de Cristo, assim também nós o somos.
+8. Ainda que eu me orgulhasse um pouco em demasia da autoridade que o Senhor nos deu, para vossa edificação e não para vossa ruína, não teria de que envergonhar-me.
+9. Não quero, porém, dar a impressão de querer aterrar-vos com minhas cartas.
+10. Suas cartas, dizem, são imperativas e fortes, mas, quando está presente, a sua pessoa é fraca e a palavra desprezível.
+11. Quem assim pensa, fique sabendo que quais somos por escrito nas cartas, quando estamos ausentes, tais seremos também de fato, quando estivermos presentes.
+12. Em verdade, não ousamos equiparar-nos nem comparar-nos com alguns que se preconizam a si próprios. Medindo-se eles conforme a sua própria medida e comparando-se consigo mesmos, dão provas de pouco bom senso.
+13. Nós outros não nos gloriaremos além da medida, mas permaneceremos dentro do campo de ação que Deus nos determinou, levando-nos até vós.
+14. Não passamos além dos limites. Estaríamos passando, caso não houvéssemos chegado até vós. Ora, realmente temos chegado até vós, pregando o Evangelho de Cristo.
+15. Não nos ufanamos além da medida, cobrindo-nos de trabalhos alheios. Esperamos que, com o progresso de vossa fé, nossa obra cresça entre vós dentro do quadro de ação que nos foi determinado.
+16. Assim esperamos levar o Evangelho aos países que ficam além de vós, sem nos gloriarmos das obras realizadas por outros dentro do domínio reservado a eles.
+17. Ora, quem se gloria, glorie-se no Senhor.
+18. Pois merece a aprovação não aquele que se recomenda a si mesmo, mas aquele que o Senhor recomenda.II Coríntios, 11
+1. Oxalá suportásseis um pouco de loucura de minha parte! Oh, sim! Tolerai-me.
+2. Eu vos consagro um carinho e amor santo, porque vos desposei com um esposo único e vos apresentei a Cristo como virgem pura.
+3. Mas temo que, como a serpente enganou Eva com a sua astúcia, assim se corrompam os vossos pensamentos e se apartem da sinceridade para com Cristo.
+4. Porque quando aparece alguém pregando-vos outro Jesus, diferente daquele que vos temos pregado, ou se trata de receber outro espírito, diferente do que haveis recebido, ou outro evangelho, diverso do que haveis abraçado, de boa mente o aceitais.
+5. Mas penso que em nada tenho sido inferior a esses eminentes apóstolos!
+6. Pois, embora eu seja de pouca eloqüência, não acontece o mesmo quanto à ciência: é o que em tudo e a cada passo vos temos manifestado.
+7. Porventura cometi alguma falta, em vos ter pregado o Evangelho de Deus gratuitamente, humilhando-me para vos exaltar?
+8. Para vos servir, despojei outras igrejas, recebendo delas o meu sustento.
+9. Estando convosco e passando alguma necessidade, não fui pesado a ninguém, porque os irmãos que vieram da Macedônia supriram o que me faltava. Em tudo me guardei e me guardarei de vos ser pesado.
+10. Tão certo como a verdade de Cristo está em mim, não me será tirada esta glória nas regiões de Acaia.
+11. E por quê?... Será por que não vos amo? Deus o sabe!
+12. Mas o que faço, continuarei a fazer, para cortar pela raiz todo pretexto àqueles que procuram algum pretexto para se envaidecerem e se afirmarem iguais a nós.
+13. Esses tais são falsos apóstolos, operários desonestos, que se disfarçam em apóstolos de Cristo,
+14. o que não é de espantar. Pois, se o próprio Satanás se transfigura em anjo de luz,
+15. parece bem normal que seus ministros se disfarcem em ministros de justiça, cujo fim, no entanto, será segundo as suas obras.
+16. Repito: não me queiram tomar por um louco. No mínimo, aceitai-me como tal, para que também eu possa me gloriar!
+17. O que vou dizer, na certeza de poder gloriar-me, não o digo sob a inspiração do Senhor, mas como num acesso de delírio.
+18. Porque muitos se gloriam segundo a carne, também eu me gloriarei.
+19. Vós, sendo homens sensatos, suportais de boa mente os loucos...
+20. Sim, tolerais a quem vos escraviza, a quem vos devora, a quem vos faz violência, a quem vos trata com orgulho, a quem vos dá no rosto.
+21. Sinto vergonha de o dizer; temos mostrado demasiada fraqueza... Entretanto, de tudo aquilo de que outrem se ufana (falo como um insensato), disto também eu me ufano.
+22. São hebreus? Também eu. São israelitas? Também eu.
+23. São ministros de Cristo? Falo como menos sábio: eu, ainda mais. Muito mais pelos trabalhos, muito mais pelos cárceres, pelos açoites sem medida. Muitas vezes vi a morte de perto.
+24. Cinco vezes recebi dos judeus os quarenta açoites menos um.
+25. Três vezes fui flagelado com varas. Uma vez apedrejado. Três vezes naufraguei, uma noite e um dia passei no abismo.
+26. Viagens sem conta, exposto a perigos nos rios, perigos de salteadores, perigos da parte de meus concidadãos, perigos da parte dos pagãos, perigos na cidade, perigos no deserto, perigos no mar, perigos entre falsos irmãos!
+27. Trabalhos e fadigas, repetidas vigílias, com fome e sede, freqüentes jejuns, frio e nudez!
+28. Além de outras coisas, a minha preocupação cotidiana, a solicitude por todas as igrejas!
+29. Quem é fraco, que eu não seja fraco? Quem sofre escândalo, que eu não me consuma de dor?
+30. Se for preciso que a gente se glorie, eu me gloriarei na minha fraqueza.
+31. Deus, Pai de nosso Senhor Jesus Cristo, que é bendito pelos séculos, sabe que não minto.
+32. Em Damasco, o governador do rei Aretas mandou guardar a cidade dos damascenos para me prender.
+33. Mas, dentro de um cesto, desceram-me por uma janela ao longo da muralha, e assim escapei das suas mãos.II Coríntios, 12
+1. Importa que me glorie? Na verdade, não convém! Passarei, entretanto, às visões e revelações do Senhor.
+2. Conheço um homem em Cristo que há catorze anos foi arrebatado até o terceiro céu. Se foi no corpo, não sei. Se fora do corpo, também não sei; Deus o sabe.
+3. E sei que esse homem - se no corpo ou se fora do corpo, não sei; Deus o sabe -
+4. foi arrebatado ao paraíso e lá ouviu palavras inefáveis, que não é permitido a um homem repetir.
+5. Desse homem eu me gloriarei, mas de mim mesmo não me gloriarei, a não ser das minhas fraquezas.
+6. Pois, ainda que me quisesse gloriar, não seria insensato, porque diria a verdade. Mas abstenho-me, para que ninguém me tenha em conta de mais do que vê em mim ou ouve dizer de mim.
+7. Demais, para que a grandeza das revelações não me levasse ao orgulho, foi-me dado um espinho na carne, um anjo de Satanás para me esbofetear e me livrar do perigo da vaidade.
+8. Três vezes roguei ao Senhor que o apartasse de mim.
+9. Mas ele me disse: Basta-te minha graça, porque é na fraqueza que se revela totalmente a minha força. Portanto, prefiro gloriar-me das minhas fraquezas, para que habite em mim a força de Cristo.
+10. Eis por que sinto alegria nas fraquezas, nas afrontas, nas necessidades, nas perseguições, no profundo desgosto sofrido por amor de Cristo. Porque quando me sinto fraco, então é que sou forte.
+11. Tenho-me tornado insensato! Vós a isso me obrigastes. Vós é que deveríeis fazer o meu elogio, visto que em nada fui inferior a esses eminentes apóstolos, se bem que nada sou.
+12. Os sinais distintivos do verdadeiro apóstolo se realizaram em vosso meio através de uma paciência a toda prova, de sinais, prodígios e milagres.
+13. Em que fostes inferiores às outras igrejas, senão no fato de que a vós não vos fui pesado? Relevai-me esta injúria!...
+14. Eis que estou pronto a ir ter convosco pela terceira vez. Não vos serei oneroso, porque não busco os vossos bens, mas sim a vós mesmos. Com efeito, não são os filhos que devem entesourar para os pais, mas os pais para os filhos.
+15. De mui boa vontade darei o que é meu, e me darei a mim mesmo pelas vossas almas, ainda que, amando-vos mais, seja menos amado por vós.
+16. Mas seja! Não vos fui pesado. Como, porém, sou esperto, apanhei-vos pela astúcia...
+17. Acaso tirei proveito de vós por meio de algum daqueles que vos enviei?
+18. Roguei a Tito, e com ele enviei um irmão que conheceis. Por acaso tirou Tito de vós alguma coisa? Não andamos nós com o mesmo espírito, sobre as mesmas pegadas?
+19. Já há muito pensais que nos justificamos diante de vós. Perante Deus, em Cristo, é que nós falamos; mas tudo isto, meus caríssimos, para vossa edificação.
+20. Temo que, quando for, não vos ache quais eu quisera, e que vós me acheis qual não quereríeis. Receio encontrar entre vós contendas, invejas, rixas, dissensões, calúnias, murmurações, arrogâncias e desordens.
+21. Receio que à minha chegada entre vós Deus me humilhe ainda a vosso respeito; e tenha de chorar por muitos daqueles que pecaram e não fizeram penitência da impureza, fornicação e dissolução que cometeram.II Coríntios, 13
+1. É esta a terceira vez que vou visitar-vos. Pelo depoimento de duas ou três testemunhas se resolve toda a questão.
+2. Quando de minha segunda visita, já adverti àqueles que pecaram, e hoje, que estou ausente, torno a repeti-lo a eles e aos demais: se eu for outra vez, não usarei de perdão!
+3. Simplesmente porque exigis a prova de que é Cristo que fala em mim. Ora, para convosco ele não é fraco, mas exerce o seu poder entre vós.
+4. É verdade que ele foi crucificado por fraqueza, mas está vivo pelo poder de Deus. Também nós somos fracos nele, mas com ele viveremos, pelo poder de Deus para atuar entre vós.
+5. Examinai-vos a vós mesmos, se estais na fé. Provai-vos a vós mesmos. Acaso não reconheceis que Cristo Jesus está em vós? A menos que a prova vos seja, talvez, desfavorável.
+6. Mas espero que reconhecereis que ela não é contra nós.
+7. Entretanto, rogamos a Deus que não façais mal algum, não para que pareçamos aprovados, mas para que vós façais o bem, embora nós sejamos tidos como reprovados.
+8. Contra a verdade não temos poder algum; temo-lo apenas em prol da verdade.
+9. Alegramo-nos de ver-vos fortes, enquanto nós somos fracos. E até oramos por vossa perfeição.
+10. Eis por que eu vos escrevo de longe para que, estando presente, não tenha que usar de rigor, em vista do poder que o Senhor me conferiu para edificar, e não para destruir.
+11. Por fim, irmãos, vivei com alegria. Tendei à perfeição, animai-vos, tende um só coração, vivei em paz, e o Deus de amor e paz estará convosco.
+12. Saudai-vos uns aos outros no ósculo santo. Todos os santos vos saúdam.
+13. A graça do Senhor Jesus Cristo, o amor de Deus e a comunhão do Espírito Santo estejam com todos vós!Gálatas, 1
+1. Paulo apóstolo - não da parte de homens, nem por meio de algum homem, mas por Jesus Cristo e por Deus Pai que o ressuscitou dos mortos -
+2. e todos os irmãos que estão comigo, às igrejas da Galácia:
+3. a vós, graça e paz da parte de Deus, nosso Pai, e da parte do Senhor Jesus Cristo,
+4. que se entregou por nossos pecados, para nos libertar da perversidade do mundo presente, segundo a vontade de Deus, nosso Pai,
+5. a quem seja dada a glória pelos séculos dos séculos. Amém.
+6. Estou admirado de que tão depressa passeis daquele que vos chamou à graça de Cristo para um evangelho diferente.
+7. De fato, não há dois (evangelhos): há apenas pessoas que semeiam a confusão entre vós e querem perturbar o Evangelho de Cristo.
+8. Mas, ainda que alguém - nós ou um anjo baixado do céu - vos anunciasse um evangelho diferente do que vos temos anunciado, que ele seja anátema.
+9. Repito aqui o que acabamos de dizer: se alguém pregar doutrina diferente da que recebestes, seja ele excomungado!
+10. É, porventura, o favor dos homens que eu procuro, ou o de Deus? Por acaso tenho interesse em agradar aos homens? Se quisesse ainda agradar aos homens, não seria servo de Cristo.
+11. Asseguro-vos, irmãos, que o Evangelho pregado por mim não tem nada de humano.
+12. Não o recebi nem o aprendi de homem algum, mas mediante uma revelação de Jesus Cristo.
+13. Certamente ouvistes falar de como outrora eu vivia no judaísmo, com que excesso perseguia a Igreja de Deus e a assolava;
+14. avantajava-me no judaísmo a muitos dos meus companheiros de idade e nação, extremamente zeloso das tradições de meus pais.
+15. Mas, quando aprouve àquele que me reservou desde o seio de minha mãe e me chamou pela sua graça,
+16. para revelar seu Filho em minha pessoa, a fim de que eu o tornasse conhecido entre os gentios, imediatamente, sem consultar a ninguém,
+17. sem ir a Jerusalém para ver os que eram apóstolos antes de mim, parti para a Arábia; de lá regressei a Damasco.
+18. Três anos depois subi a Jerusalém para conhecer Cefas, e fiquei com ele quinze dias.
+19. Dos outros apóstolos não vi mais nenhum, a não ser Tiago, irmão do Senhor.
+20. Isto que vos escrevo - Deus me é testemunha -, não o estou inventando.
+21. Em seguida, fui para as regiões da Síria e da Cilícia.
+22. Eu era ainda pessoalmente desconhecido das comunidades cristãs da Judéia;
+23. tinham elas apenas ouvido dizer: Aquele que antes nos perseguia, agora prega a fé que outrora combatia. E glorificavam a Deus por minha causa.Gálatas, 2
+1. Catorze anos mais tarde, subi outra vez a Jerusalém com Barnabé, levando também Tito comigo.
+2. E subi em conseqüência de uma revelação. Expus-lhes o Evangelho que prego entre os pagãos, e isso particularmente aos que eram de maior consideração, a fim de não correr ou de não ter corrido em vão.
+3. Entretanto, nem sequer meu companheiro Tito, embora gentio, foi obrigado a circuncidar-se.
+4. Mas, por causa dos falsos irmãos, intrusos - que furtivamente se introduziram entre nós para espionar a liberdade de que gozávamos em Cristo Jesus, a fim de nos escravizar -,
+5. fomos, por esta vez, condescendentes, para que o Evangelho permanecesse em sua integridade.
+6. Quanto aos que eram de autoridade - o que antes tenham sido não me importa, pois Deus não se deixa levar por consideração de pessoas -, estas autoridades, digo, nada me impuseram.
+7. Ao contrário, viram que a evangelização dos incircuncisos me era confiada, como a dos circuncisos a Pedro
+8. (porque aquele cuja ação fez de Pedro o apóstolo dos circuncisos, fez também de mim o dos pagãos).
+9. Tiago, Cefas e João, que são considerados as colunas, reconhecendo a graça que me foi dada, deram as mãos a mim e a Barnabé em sinal de pleno acordo:
+10. iríamos aos pagãos, e eles aos circuncidados. Recomendaram-nos apenas que nos lembrássemos dos pobres, o que era precisamente a minha intenção.
+11. Quando, porém, Cefas veio a Antioquia, resisti-lhe francamente, porque era censurável.
+12. Pois, antes de chegarem alguns homens da parte de Tiago, ele comia com os pagãos convertidos. Mas, quando aqueles vieram, retraiu-se e separou-se destes, temendo os circuncidados.
+13. Os demais judeus convertidos seguiram-lhe a atitude equívoca, de maneira que mesmo Barnabé foi levado por eles a essa dissimulação.
+14. Quando vi que o seu procedimento não era segundo a verdade do Evangelho, disse a Cefas, em presença de todos: Se tu, que és judeu, vives como os gentios, e não como os judeus, com que direito obrigas os pagãos convertidos a viver como os judeus?
+15. Nós, judeus de nascença, e não pecadores dentre os pagãos,
+16. sabemos, contudo, que ninguém se justifica pela prática da lei, mas somente pela fé em Jesus Cristo. Também nós cremos em Jesus Cristo, e tiramos assim a nossa justificação da fé em Cristo, e não pela prática da lei. Pois, pela prática da lei, nenhum homem será justificado.
+17. Pois, se nós, que aspiramos à justificação em Cristo, retornamos, todavia, ao pecado, seria porventura Cristo ministro do pecado? Por certo que não!
+18. Se torno a edificar o que destruí, confesso-me transgressor.
+19. Na realidade, pela fé eu morri para a lei, a fim de viver para Deus. Estou pregado à cruz de Cristo.
+20. Eu vivo, mas já não sou eu; é Cristo que vive em mim. A minha vida presente, na carne, eu a vivo na fé no Filho de Deus, que me amou e se entregou por mim.
+21. Não menosprezo a graça de Deus; mas, em verdade, se a justiça se obtém pela lei, Cristo morreu em vão.Gálatas, 3
+1. Ó insensatos gálatas! Quem vos fascinou a vós, ante cujos olhos foi apresentada a imagem de Jesus Cristo crucificado?
+2. Apenas isto quero saber de vós: recebestes o Espírito pelas práticas da lei ou pela aceitação da fé?
+3. Sois assim tão levianos? Depois de terdes começado pelo Espírito, quereis agora acabar pela carne?
+4. Ter feito tais experiências em vão! Se é que foi em vão!
+5. Aquele que vos dá o Espírito e realiza milagres entre vós, acaso o faz pela prática da lei, ou pela aceitação da fé?
+6. Foi este o caso de Abraão: ele creu em Deus e isto lhe foi levado em conta de justiça (Gn 15,6).
+7. Sabei, pois: só os que têm fé é que são filhos de Abraão.
+8. Prevendo a Escritura que Deus justificaria os povos pagãos pela fé, anunciou esta boa nova a Abraão: Em ti todos os povos serão abençoados (Gn 18,18).
+9. De modo que os homens de fé são abençoados com a bênção de Abraão, homem de fé.
+10. Todos os que se apóiam nas práticas legais estão sob um regime de maldição. Pois está escrito: Maldito aquele que não cumpre todas as prescrições do livro da lei (Dt 27,26).
+11. Que ninguém é justificado pela lei perante Deus é evidente, porque o justo viverá pela fé (Hab 2,4).
+12. Ora, a lei não provém da fé e sim (do cumprimento): quem observar estes preceitos viverá por eles (Lv 18,5).
+13. Cristo remiu-nos da maldição da lei, fazendo-se por nós maldição, pois está escrito: Maldito todo aquele que é suspenso no madeiro (Dt 21,23).
+14. Assim a bênção de Abraão se estende aos gentios, em Cristo Jesus, e pela fé recebemos o Espírito prometido.
+15. Irmãos, vou apresentar-vos uma comparação de ordem humana. Se um testamento for feito em boa e devida forma, por quem quer que seja, ninguém o pode anular ou acrescentar-lhe alguma coisa.
+16. Ora, as promessas foram feitas a Abraão e à sua descendência. Não diz: aos seus descendentes, como se fossem muitos, mas fala de um só: e a tua descendência (Gn 12,7), isto é, a Cristo.
+17. Afirmo, portanto: a lei, que veio quatrocentos e trinta anos mais tarde, não pode anular o testamento feito por Deus em boa e devida forma e não pode tornar sem efeito a promessa.
+18. Porque, se a herança se obtivesse pela lei, já não proviria da promessa. Ora, pela promessa é que Deus deu o seu favor a Abraão.
+19. Então que é a lei? É um complemento ajuntado em vista das transgressões, até que viesse a descendência a quem fora feita a promessa; foi promulgada por anjos, passando por um intermediário.
+20. Mas não há intermediário, tratando-se de uma só pessoa, e Deus é um só.
+21. Portanto, é a lei contrária às promessas de Deus? De nenhum modo. Se fosse dada uma lei que pudesse vivificar, em verdade a justiça viria pela lei;
+22. mas a Escritura encerrou tudo sob o império do pecado, para que a promessa mediante a fé em Jesus Cristo fosse dada aos que crêem.
+23. Antes que viesse a fé, estávamos encerrados sob a vigilância de uma lei, esperando a revelação da fé.
+24. Assim a lei se nos tornou pedagogo encarregado de levar-nos a Cristo, para sermos justificados pela fé.
+25. Mas, depois que veio a fé, já não dependemos de pedagogo,
+26. porque todos sois filhos de Deus pela fé em Jesus Cristo.
+27. Todos vós que fostes batizados em Cristo, vos revestistes de Cristo.
+28. Já não há judeu nem grego, nem escravo nem livre, nem homem nem mulher, pois todos vós sois um em Cristo Jesus.
+29. Ora, se sois de Cristo, então sois verdadeiramente a descendência de Abraão, herdeiros segundo a promessa.Gálatas, 4
+1. Explico-me: enquanto o herdeiro é menor, em nada difere do escravo, ainda que seja senhor de tudo,
+2. mas está sob tutores e administradores, até o tempo determinado por seu pai.
+3. Assim também nós, quando menores, estávamos escravizados pelos rudimentos do mundo.
+4. Mas quando veio a plenitude dos tempos, Deus enviou seu Filho, que nasceu de uma mulher e nasceu submetido a uma lei,
+5. a fim de remir os que estavam sob a lei, para que recebêssemos a sua adoção.
+6. A prova de que sois filhos é que Deus enviou aos vossos corações o Espírito de seu Filho, que clama: Aba, Pai!
+7. Portanto já não és escravo, mas filho. E, se és filho, então também herdeiro por Deus.
+8. Outrora, é certo, desconhecendo a Deus, servíeis aos que na realidade não são deuses.
+9. Agora, porém, conhecendo a Deus, ou melhor, sendo conhecidos por Deus, como é que tornais aos rudimentos fracos e miseráveis, querendo de novo escravizar-vos a eles?
+10. Observais dias, meses, estações e anos!
+11. Temo que os meus esforços entre vós tenham sido em vão. Voltemos à nossa confiança cordial
+12. Irmãos, sede como eu, pois também eu me tornei como vós. Não tenho nenhum motivo de queixa contra vós.
+13. Estais lembrados de como eu estava doente quando, pela primeira vez, vos preguei o Evangelho
+14. e fui para vós uma provação por causa do meu corpo. Mas nem por isto me desprezastes nem rejeitastes, antes me acolhestes como um enviado de Deus, como Cristo Jesus.
+15. Onde está agora aquele vosso entusiasmo? Asseguro-vos que, se possível fora, teríeis arrancado os vossos olhos para mos dar!
+16. Tornei-me, acaso, vosso inimigo, porque vos disse a verdade?
+17. Eles vos testemunham amizade com má intenção, e querem separar-vos de mim, para captar a vossa amizade.
+18. É maravilhoso receber demonstrações de boa amizade, mas que seja em todas as circunstâncias, e não somente quando estou convosco.
+19. Filhinhos meus, por quem de novo sinto dores de parto, até que Cristo seja formado em vós,
+20. quem me dera estar agora convosco, para descobrir o tom que convém à minha linguagem, visto que eu me encontro extremamente perplexo a vosso respeito.
+21. Dizei-me, vós que quereis estar sujeitos a uma lei: não ouvis a lei?
+22. A Escritura diz que Abraão teve dois filhos, um da escrava e outro da livre.
+23. O da escrava, filho da natureza; e o da livre, filho da promessa.
+24. Nestes fatos há uma alegoria, visto que aquelas mulheres representam as duas alianças: uma, a do monte Sinai, que gera para a escravidão, é Agar.
+25. (O monte Sinai está na Arábia.) Corresponde à Jerusalém atual, que é escrava com seus filhos.
+26. Mas a Jerusalém lá do alto é livre e esta é a nossa mãe,
+27. porque está escrito: Alegra-te, ó estéril, que não davas à luz; rejubila e canta, tu que não tinhas dores de parto, pois são mais numerosos os filhos da abandonada do que daquela que tem marido (Is 54,1).
+28. Como Isaac, irmãos, vós sois filhos da promessa.
+29. Como naquele tempo o filho da natureza perseguia o filho da promessa, o mesmo se dá hoje.
+30. Que diz, porém, a Escritura? Lança fora a escrava e seu filho, porque o filho da escrava não será herdeiro com o filho da livre (Gn 21,10).
+31. Pelo que, irmãos, não somos filhos da escrava, mas sim da que é livre.Gálatas, 5
+1. É para que sejamos homens livres que Cristo nos libertou. Ficai, portanto, firmes e não vos submetais outra vez ao jugo da escravidão.
+2. Eis que eu, Paulo, vos declaro: se vos circuncidardes, de nada vos servirá Cristo.
+3. E atesto novamente, a todo homem que se circuncidar: ele está obrigado a observar toda a lei.
+4. Já estais separados de Cristo, vós que procurais a justificação pela lei. Decaístes da graça.
+5. Quanto a nós, é espiritualmente, da fé, que aguardamos a justiça esperada.
+6. Estar circuncidado ou incircunciso de nada vale em Cristo Jesus, mas sim a fé que opera pela caridade.
+7. Corríeis bem. Quem, pois, vos cortou os passos para não obedecerdes à verdade?
+8. Esta sugestão não vem daquele que vos chama.
+9. Um pouco de fermento leveda toda a massa.
+10. Tenho confiança no Senhor a vosso respeito, que de maneira alguma mudareis de sentir. Portanto, quem vos perturbar responderá por isto, seja quem for.
+11. Se é verdade, irmãos, que ainda prego a circuncisão, por que, então, sou perseguido? Assim o escândalo da cruz teria cessado!
+12. Oxalá acabem por mutilar-se os que vos inquietam!
+13. Vós, irmãos, fostes chamados à liberdade. Não abuseis, porém, da liberdade como pretexto para prazeres carnais. Pelo contrário, fazei-vos servos uns dos outros pela caridade,
+14. porque toda a lei se encerra num só preceito: Amarás o teu próximo como a ti mesmo (Lv 19,18).
+15. Mas, se vos mordeis e vos devorais, vede que não acabeis por vos destruirdes uns aos outros.
+16. Digo, pois: deixai-vos conduzir pelo Espírito, e não satisfareis os apetites da carne.
+17. Porque os desejos da carne se opõem aos do Espírito, e estes aos da carne; pois são contrários uns aos outros. É por isso que não fazeis o que quereríeis.
+18. Se, porém, vos deixais guiar pelo Espírito, não estais sob a lei.
+19. Ora, as obras da carne são estas: fornicação, impureza, libertinagem,
+20. idolatria, superstição, inimizades, brigas, ciúmes, ódio, ambição, discórdias, partidos,
+21. invejas, bebedeiras, orgias e outras coisas semelhantes. Dessas coisas vos previno, como já vos preveni: os que as praticarem não herdarão o Reino de Deus!
+22. Ao contrário, o fruto do Espírito é caridade, alegria, paz, paciência, afabilidade, bondade, fidelidade,
+23. brandura, temperança. Contra estas coisas não há lei.
+24. Pois os que são de Jesus Cristo crucificaram a carne, com as paixões e concupiscências.
+25. Se vivemos pelo Espírito, andemos também de acordo com o Espírito.
+26. Não sejamos ávidos da vanglória. Nada de provocações, nada de invejas entre nós.Gálatas, 6
+1. Irmãos, se alguém for surpreendido numa falta, vós, que sois animados pelo Espírito, admoestai-o em espírito de mansidão. E tem cuidado de ti mesmo, para que não caias também em tentação!
+2. Ajudai-vos uns aos outros a carregar os vossos fardos, e deste modo cumprireis a lei de Cristo.
+3. Quem pensa ser alguma coisa, não sendo nada, engana-se a si mesmo.
+4. Cada um examine o seu procedimento. Então poderá gloriar-se do que lhe pertence e não do que pertence a outro.
+5. Pois cada um deve carregar o seu próprio fardo.
+6. Aquele que recebe a catequese da palavra, reparta de todos os seus bens com aquele que o instrui.
+7. Não vos enganeis: de Deus não se zomba. O que o homem semeia, isso mesmo colherá.
+8. Quem semeia na carne, da carne colherá a corrupção; quem semeia no Espírito, do Espírito colherá a vida eterna.
+9. Não nos cansemos de fazer o bem, porque a seu tempo colheremos, se não relaxarmos.
+10. Por isso, enquanto temos tempo, façamos o bem a todos os homens, mas particularmente aos irmãos na fé.
+11. Vede com que tamanho de letras vos escrevo, de próprio punho!
+12. Os que vos obrigam à circuncisão são homens que se querem impor, só para não serem perseguidos por causa da cruz de Cristo.
+13. Pois nem os próprios circuncisos observam a lei. E se fazem questão de que vos mandeis circuncidar, é para terem motivo de se gloriarem na vossa carne.
+14. Quanto a mim, não pretendo, jamais, gloriar-me, a não ser na cruz de nosso Senhor Jesus Cristo, pela qual o mundo está crucificado para mim e eu para o mundo.
+15. Porque a circuncisão e a incircuncisão de nada valem, mas sim a nova criatura.
+16. A todos que seguirem esta regra, a paz e a misericórdia, assim como ao Israel de Deus.
+17. De ora em diante ninguém me moleste, porque trago em meu corpo as marcas de Jesus.
+18. A graça de nosso Senhor Jesus Cristo esteja com vosso espírito, irmãos. Amém.Efésios, 1
+1. Paulo, apóstolo de Jesus Cristo, pela vontade de Deus, aos cristãos de Éfeso e aos que crêem em Jesus Cristo.
+2. A vós, graça e paz da parte de Deus, nosso Pai, e da parte do Senhor Jesus Cristo!
+3. Bendito seja Deus, Pai de nosso Senhor Jesus Cristo, que do alto do céu nos abençoou com toda a bênção espiritual em Cristo,
+4. e nos escolheu nele antes da criação do mundo, para sermos santos e irrepreensíveis, diante de seus olhos.
+5. No seu amor nos predestinou para sermos adotados como filhos seus por Jesus Cristo, segundo o beneplácito de sua livre vontade,
+6. para fazer resplandecer a sua maravilhosa graça, que nos foi concedida por ele no Bem-amado.
+7. Nesse Filho, pelo seu sangue, temos a Redenção, a remissão dos pecados, segundo as riquezas da sua graça
+8. que derramou profusamente sobre nós, em torrentes de sabedoria e de prudência.
+9. Ele nos manifestou o misterioso desígnio de sua vontade, que em sua benevolência formara desde sempre,
+10. para realizá-lo na plenitude dos tempos - desígnio de reunir em Cristo todas as coisas, as que estão nos céus e as que estão na terra.
+11. Nele é que fomos escolhidos, predestinados segundo o desígnio daquele que tudo realiza por um ato deliberado de sua vontade,
+12. para servirmos à celebração de sua glória, nós que desde o começo voltamos nossas esperanças para Cristo.
+13. Nele também vós, depois de terdes ouvido a palavra da verdade, o Evangelho de vossa salvação no qual tendes crido, fostes selados com o Espírito Santo que fora prometido,
+14. que é o penhor da nossa herança, enquanto esperamos a completa redenção daqueles que Deus adquiriu para o louvor da sua glória.
+15. Por isso também eu, tendo ouvido falar da vossa fé no Senhor Jesus, e do amor para com todos os cristãos,
+16. não cesso de dar graças a Deus por vós, lembrando-me de vós nas minhas orações.
+17. Rogo ao Deus de nosso Senhor Jesus Cristo, o Pai da glória, vos dê um espírito de sabedoria que vos revele o conhecimento dele;
+18. que ilumine os olhos do vosso coração, para que compreendais a que esperança fostes chamados, quão rica e gloriosa é a herança que ele reserva aos santos,
+19. e qual a suprema grandeza de seu poder para conosco, que abraçamos a fé. É o mesmo poder extraordinário que
+20. ele manifestou na pessoa de Cristo, ressuscitando-o dos mortos e fazendo-o sentar à sua direita no céu,
+21. acima de todo principado, potestade, virtude, dominação e de todo nome que possa haver neste mundo como no futuro.
+22. E sujeitou a seus pés todas as coisas, e o constituiu chefe supremo da Igreja,
+23. que é o seu corpo, o receptáculo daquele que enche todas as coisas sob todos os aspectos.Efésios, 2
+1. E vós outros estáveis mortos por vossas faltas, pelos pecados
+2. que cometestes outrora seguindo o modo de viver deste mundo, do príncipe das potestades do ar, do espírito que agora atua nos rebeldes.
+3. Também todos nós éramos deste número quando outrora vivíamos nos desejos carnais, fazendo a vontade da carne e da concupiscência. Éramos como os outros, por natureza, verdadeiros objetos da ira (divina).
+4. Mas Deus, que é rico em misericórdia, impulsionado pelo grande amor com que nos amou,
+5. quando estávamos mortos em conseqüência de nossos pecados, deu-nos a vida juntamente com Cristo - é por graça que fostes salvos! -,
+6. juntamente com ele nos ressuscitou e nos fez assentar nos céus, com Cristo Jesus.
+7. Ele demonstrou assim pelos séculos futuros a imensidão das riquezas de sua graça, pela bondade que tem para conosco, em Jesus Cristo.
+8. Porque é gratuitamente que fostes salvos mediante a fé. Isto não provém de vossos méritos, mas é puro dom de Deus.
+9. Não provém das obras, para que ninguém se glorie.
+10. Somos obra sua, criados em Jesus Cristo para as boas ações, que Deus de antemão preparou para que nós as praticássemos.
+11. Lembrai-vos, pois, de que outrora vós, gentios por nascimento - que sois chamados incircuncisos por aqueles que se dizem circuncida dos, os que levam na carne a circuncisão feita por mãos humanas -,
+12. lembrai-vos de que naquele tempo estáveis sem Cristo, sem direito da cidadania em Israel, alheios às alianças, sem esperança da promessa e sem Deus, neste mundo.
+13. Agora, porém, graças a Jesus Cristo, vós que antes estáveis longe, vos tornastes presentes, pelo sangue de Cristo.
+14. Porque é ele a nossa paz, ele que de dois povos fez um só, destruindo o muro de inimizade que os separava,
+15. abolindo na própria carne a lei, os preceitos e as prescrições. Desse modo, ele queria fazer em si mesmo dos dois povos uma única humanidade nova pelo restabelecimento da paz,
+16. e reconciliá-los ambos com Deus, reunidos num só corpo pela virtude da cruz, aniquilando nela a inimizade.
+17. Veio para anunciar a paz a vós que estáveis longe, e a paz também àqueles que estavam perto;
+18. porquanto é por ele que ambos temos acesso junto ao Pai num mesmo espírito.
+19. Conseqüentemente, já não sois hóspedes nem peregrinos, mas sois concidadãos dos santos e membros da família de Deus,
+20. edificados sobre o fundamento dos apóstolos e profetas, tendo por pedra angular o próprio Cristo Jesus.
+21. É nele que todo edifício, harmonicamente disposto, se levanta até formar um templo santo no Senhor.
+22. É nele que também vós outros entrais conjuntamente, pelo Espírito, na estrutura do edifício que se torna a habitação de Deus.Efésios, 3
+1. Por essa causa é que eu, Paulo, prisioneiro de Jesus Cristo por amor de vós, gentios... -
+2. Vós deveis ter aprendido o modo como Deus me concedeu esta graça que me foi feita a vosso respeito.
+3. Foi por revelação que me foi manifestado o mistério que acabo de esboçar.
+4. Lendo-me, podereis entender a compreensão que me foi concedida do mistério cristão,
+5. que em outras gerações não foi manifestado aos homens da maneira como agora tem sido revelado pelo Espírito aos seus santos apóstolos e profetas.
+6. A saber: que os gentios são co-herdeiros conosco (que somos judeus), são membros do mesmo corpo e participantes da promessa em Jesus Cristo pelo Evangelho.
+7. Eu me tornei servo deste Evangelho em virtude da graça que me foi dada pela onipotente ação divina.
+8. A mim, o mais insignificante dentre todos os santos, coube-me a graça de anunciar entre os pagãos a inexplorável riqueza de Cristo,
+9. e a todos manifestar o desígnio salvador de Deus, mistério oculto desde a eternidade em Deus, que tudo criou.
+10. Assim, de ora em diante, as dominações e as potestades celestes podem conhecer, pela Igreja, a infinita diversidade da sabedoria divina,
+11. de acordo com o desígnio eterno que Deus realizou em Jesus Cristo, nosso Senhor.
+12. Pela fé que nele depositamos, temos plena confiança de aproximar-nos junto de Deus.
+13. Por isso vos rogo que não desfaleçais nas minhas tribulações que sofro por vós: elas são a vossa glória.
+14. Por esta causa dobro os joelhos em presença do Pai,
+15. ao qual deve a sua existência toda família no céu e na terra,
+16. para que vos conceda, segundo seu glorioso tesouro, que sejais poderosamente robustecidos pelo seu Espírito em vista do crescimento do vosso homem interior.
+17. Que Cristo habite pela fé em vossos corações, arraigados e consolidados na caridade,
+18. a fim de que possais, com todos os cristãos, compreender qual seja a largura, o comprimento, a altura e a profundidade,
+19. isto é, conhecer a caridade de Cristo, que desafia todo o conhecimento, e sejais cheios de toda a plenitude de Deus.
+20. Àquele que, pela virtude que opera em nós, pode fazer infinitamente mais do que tudo quanto pedimos ou entendemos,
+21. a ele seja dada glória na Igreja, e em Cristo Jesus, por todas as gerações de eternidade. Amém.Efésios, 4
+1. Exorto-vos, pois, - prisioneiro que sou pela causa do Senhor -, que leveis uma vida digna da vocação à qual fostes chamados,
+2. com toda a humildade e amabilidade, com grandeza de alma, suportando-vos mutuamente com caridade.
+3. Sede solícitos em conservar a unidade do Espírito no vínculo da paz.
+4. Sede um só corpo e um só espírito, assim como fostes chamados pela vossa vocação a uma só esperança.
+5. Há um só Senhor, uma só fé, um só batismo.
+6. Há um só Deus e Pai de todos, que atua acima de todos, por todos e em todos.
+7. Mas a cada um de nós foi dada a graça, segundo a medida do dom de Cristo,
+8. pelo que diz: Quando subiu ao alto, levou muitos cativos, cumulou de dons os homens (Sl 67,19).
+9. Ora, que quer dizer ele subiu, senão que antes havia descido a esta terra?
+10. Aquele que desceu é também o que subiu acima de todos os céus, para encher todas as coisas.
+11. A uns ele constituiu apóstolos; a outros, profetas; a outros, evangelistas, pastores, doutores,
+12. para o aperfeiçoamento dos cristãos, para o desempenho da tarefa que visa à construção do corpo de Cristo,
+13. até que todos tenhamos chegado à unidade da fé e do conhecimento do Filho de Deus, até atingirmos o estado de homem feito, a estatura da maturidade de Cristo.
+14. Para que não continuemos crianças ao sabor das ondas, agitados por qualquer sopro de doutrina, ao capricho da malignidade dos homens e de seus artifícios enganadores.
+15. Mas, pela prática sincera da caridade, cresçamos em todos os sentidos, naquele que é a cabeça, Cristo.
+16. É por ele que todo o corpo - coordenado e unido por conexões que estão ao seu dispor, trabalhando cada um conforme a atividade que lhe é própria - efetua esse crescimento, visando a sua plena edificação na caridade.
+17. Portanto, eis o que digo e conjuro no Senhor: não persistais em viver como os pagãos, que andam à mercê de suas idéias frívolas.
+18. Têm o entendimento obscurecido. Sua ignorância e o endurecimento de seu coração mantêm-nos afastados da vida de Deus.
+19. Indolentes, entregaram-se à dissolução, à prática apaixonada de toda espécie de impureza.
+20. Vós, porém, não foi para isto que vos tornastes discípulos de Cristo,
+21. se é que o ouvistes e dele aprendestes, como convém à verdade em Jesus.
+22. Renunciai à vida passada, despojai-vos do homem velho, corrompido pelas concupiscências enganadoras.
+23. Renovai sem cessar o sentimento da vossa alma,
+24. e revesti-vos do homem novo, criado à imagem de Deus, em verdadeira justiça e santidade.
+25. Por isso, renunciai à mentira. Fale cada um a seu próximo a verdade, pois somos membros uns dos outros.
+26. Mesmo em cólera, não pequeis. Não se ponha o sol sobre o vosso ressentimento.
+27. Não deis lugar ao demônio.
+28. Quem era ladrão não torne a roubar, antes trabalhe seriamente por realizar o bem com as suas próprias mãos, para ter com que socorrer os necessitados.
+29. Nenhuma palavra má saia da vossa boca, mas só a que for útil para a edificação, sempre que for possível, e benfazeja aos que ouvem.
+30. Não contristeis o Espírito Santo de Deus, com o qual estais selados para o dia da Redenção.
+31. Toda amargura, ira, indignação, gritaria e calúnia sejam desterradas do meio de vós, bem como toda malícia.
+32. Antes, sede uns com os outros bondosos e compassivos. Perdoai-vos uns aos outros, como também Deus vos perdoou, em Cristo.Efésios, 5
+1. Sede, pois, imitadores de Deus, como filhos muito amados.
+2. Progredi na caridade, segundo o exemplo de Cristo, que nos amou e por nós se entregou a Deus como oferenda e sacrifício de agradável odor.
+3. Quanto à fornicação, à impureza, sob qualquer forma, ou à avareza, que disto nem se faça menção entre vós, como convém a santos.
+4. Nada de obscenidades, de conversas tolas ou levianas, porque tais coisas não convêm; em vez disto, ações de graças.
+5. Porque sabei-o bem: nenhum dissoluto, ou impuro, ou avarento - verdadeiros idólatras! - terá herança no Reino de Cristo e de Deus.
+6. E ninguém vos seduza com vãos discursos. Estes são os pecados que atraem a ira de Deus sobre os rebeldes.
+7. Não vos comprometais com eles.
+8. Outrora éreis trevas, mas agora sois luz no Senhor: comportai-vos como verdadeiras luzes.
+9. Ora, o fruto da luz é bondade, justiça e verdade.
+10. Procurai o que é agradável ao Senhor,
+11. e não tenhais cumplicidade nas obras infrutíferas das trevas; pelo contrário, condenai-as abertamente.
+12. Porque as coisas que tais homens fazem ocultamente é vergonhoso até falar delas.
+13. Mas tudo isto, ao ser reprovado, torna-se manifesto pela luz.
+14. E tudo o que se manifesta deste modo torna-se luz. Por isto (a Escritura) diz: Desperta, tu que dormes! Levanta-te dentre os mortos e Cristo te iluminará (Is 26,19; 60,1)!
+15. Vigiai, pois, com cuidado sobre a vossa conduta: que ela não seja conduta de insensatos, mas de sábios
+16. que aproveitam ciosamente o tempo, pois os dias são maus.
+17. Não sejais imprudentes, mas procurai compreender qual seja a vontade de Deus.
+18. Não vos embriagueis com vinho, que é uma fonte de devassidão, mas enchei-vos do Espírito.
+19. Recitai entre vós salmos, hinos e cânticos espirituais. Cantai e celebrai de todo o coração os louvores do Senhor.
+20. Rendei graças, sem cessar e por todas as coisas, a Deus Pai, em nome de nosso Senhor Jesus Cristo!
+21. Sujeitai-vos uns aos outros no temor de Cristo.
+22. As mulheres sejam submissas a seus maridos, como ao Senhor,
+23. pois o marido é o chefe da mulher, como Cristo é o chefe da Igreja, seu corpo, da qual ele é o Salvador.
+24. Ora, assim como a Igreja é submissa a Cristo, assim também o sejam em tudo as mulheres a seus maridos.
+25. Maridos, amai as vossas mulheres, como Cristo amou a Igreja e se entregou por ela,
+26. para santificá-la, purificando-a pela água do batismo com a palavra,
+27. para apresentá-la a si mesmo toda gloriosa, sem mácula, sem ruga, sem qualquer outro defeito semelhante, mas santa e irrepreensível.
+28. Assim os maridos devem amar as suas mulheres, como a seu próprio corpo. Quem ama a sua mulher, ama-se a si mesmo.
+29. Certamente, ninguém jamais aborreceu a sua própria carne; ao contrário, cada qual a alimenta e a trata, como Cristo faz à sua Igreja -
+30. porque somos membros de seu corpo.
+31. Por isso, o homem deixará pai e mãe e se unirá à sua mulher, e os dois constituirão uma só carne (Gn 2,24).
+32. Este mistério é grande, quero dizer, com referência a Cristo e à Igreja.
+33. Em resumo, o que importa é que cada um de vós ame a sua mulher como a si mesmo, e a mulher respeite o seu marido.Efésios, 6
+1. Filhos, obedecei a vossos pais segundo o Senhor; porque isto é justo.
+2. O primeiro mandamento acompanhado de uma promessa é: Honra teu pai e tua mãe,
+3. para que sejas feliz e tenhas longa vida sobre a terra (Dt 5,16).
+4. Pais, não exaspereis vossos filhos. Pelo contrário, criai-os na educação e doutrina do Senhor.
+5. Servos, obedecei aos vossos senhores temporais, com temor e solicitude, de coração sincero, como a Cristo,
+6. não por mera ostentação, só para agradar aos homens, mas como servos de Cristo, que fazem de bom grado a vontade de Deus.
+7. Servi com dedicação, como servos do Senhor e não dos homens.
+8. E estai certos de que cada um receberá do Senhor a recompensa do bem que tiver feito, quer seja escravo quer livre.
+9. Senhores, procedei também assim com os servos. Deixai as ameaças. E tende em conta que o Senhor está no céu, Senhor tanto deles como vosso, que não faz distinção de pessoas.
+10. Finalmente, irmãos, fortalecei-vos no Senhor, pelo seu soberano poder.
+11. Revesti-vos da armadura de Deus, para que possais resistir às ciladas do demônio.
+12. Pois não é contra homens de carne e sangue que temos de lutar, mas contra os principados e potestades, contra os príncipes deste mundo tenebroso, contra as forças espirituais do mal (espalhadas) nos ares.
+13. Tomai, por tanto, a armadura de Deus, para que possais resistir nos dias maus e manter-vos inabaláveis no cumprimento do vosso dever.
+14. Ficai alerta, à cintura cingidos com a verdade, o corpo vestido com a couraça da justiça,
+15. e os pés calçados de prontidão para anunciar o Evangelho da paz.
+16. Sobretudo, embraçai o escudo da fé, com que possais apagar todos os dardos inflamados do Maligno.
+17. Tomai, enfim, o capacete da salvação e a espada do Espírito, isto é, a palavra de Deus.
+18. Intensificai as vossas invocações e súplicas. Orai em toda circunstância, pelo Espírito, no qual perseverai em intensa vigília de súplica por todos os cristãos.
+19. E orai também por mim, para que me seja dado anunciar corajosamente o mistério do Evangelho,
+20. do qual eu sou embaixador, prisioneiro. E que eu saiba apregoá-lo publicamente, e com desassombro, como é meu dever!
+21. E para que também vós estejais a par da minha situação e do que faço aqui, Tíquico, o irmão muito amado e fiel ministro no Senhor, vos informará de tudo.
+22. Eu vo-lo envio precisamente para isto: para que sejais informados do que se passa conosco e para que ele conforte os vossos corações.
+23. Paz aos irmãos, amor e fé, da parte de Deus Pai e do Senhor Jesus Cristo.
+24. A graça esteja com todos os que amam nosso Senhor Jesus Cristo com amor inalterável e eterno.Filipenses, 1
+1. Paulo e Timóteo, servos de Jesus Cristo, a todos os santos em Jesus Cristo, que se acham em Filipos, juntamente com os bispos e diáconos:
+2. a vós, graça e paz da parte de Deus, nosso Pai, e da parte do Senhor Jesus Cristo!
+3. Dou graças a meu Deus, cada vez que de vós me lembro.
+4. Em todas as minhas orações, rezo sempre com alegria por todos vós,
+5. recordando-me da cooperação que haveis dado na difusão do Evangelho, desde o primeiro dia até agora.
+6. Estou persuadido de que aquele que iniciou em vós esta obra excelente lhe dará o acabamento até o dia de Jesus Cristo.
+7. É justo que eu tenha bom conceito de todos vós, porque vos trago no coração, por terdes tomado parte na graça que me foi dada, tanto na minha prisão como na defesa e na confirmação do Evangelho.
+8. Deus me é testemunha da ternura que vos consagro a todos, pelo entranhado amor de Jesus Cristo!
+9. Peço, na minha oração, que a vossa caridade se enriqueça cada vez mais de compreensão e critério,
+10. com que possais discernir o que é mais perfeito e vos torneis puros e irrepreensíveis para o dia de Cristo,
+11. cheios de frutos da justiça, que provêm de Jesus Cristo, para a glória e louvor de Deus.
+12. Meus irmãos, quero fazer-vos saber que os acontecimentos que me envolvem estão redundando em maior proveito do Evangelho.
+13. Em todo o pretório e por toda parte tornou-se conhecido que é por causa de Cristo que estou preso.
+14. A maior parte dos irmãos, ante a notícia das minhas cadeias, cobrou nova confiança no Senhor e maior entusiasmo em anunciar sem temor a palavra de Deus.
+15. É verdade que alguns pregam Cristo por inveja a mim e por discórdia, mas outros o fazem com a melhor boa vontade.
+16. Estes, por caridade, sabendo que tenho por missão a defesa do Evangelho;
+17. aqueles, ao contrário, pregam Cristo por espírito de intriga, e não com reta intenção, no intuito de agravar meu sofrimento nesta prisão.
+18. Mas não faz mal! Contanto que de todas as maneiras, por pretexto ou por verdade, Cristo seja anunciado, nisto não só me alegro, mas sempre me alegrarei.
+19. Pois sei que isto me resultará em salvação, graças às vossas orações e ao socorro do Espírito de Jesus Cristo.
+20. Meu ardente desejo e minha esperança são que em nada serei confundido, mas que, hoje como sempre, Cristo será glorificado no meu corpo (tenho toda a certeza disto), quer pela minha vida quer pela minha morte.
+21. Porque para mim o viver é Cristo e o morrer é lucro.
+22. Mas, se o viver no corpo é útil para o meu trabalho, não sei então o que devo preferir.
+23. Sinto-me pressionado dos dois lados: por uma parte, desejaria desprender-me para estar com Cristo - o que seria imensamente melhor;
+24. mas, de outra parte, continuar a viver é mais necessário, por causa de vós...
+25. Persuadido disto, sei que ficarei e continuarei com todos vós, para proveito vosso e consolação da vossa fé.
+26. Assim, minha volta para junto de vós vos dará um novo motivo de alegria em Cristo Jesus.
+27. Cumpre, somente, que vos mostreis em vosso proceder dignos do Evangelho de Cristo. Quer eu vá ter convosco quer permaneça ausente, desejo ouvir que estais firmes em um só espírito, lutando unanimemente pela fé do Evangelho,
+28. sem vos deixardes intimidar em nada pelos vossos adversários. Isto para eles é motivo de perdição; para vós outros, de salvação. E é a vontade de Deus,
+29. porque a vós vos é dado não somente crer em Cristo, mas ainda por ele sofrer.
+30. Sustentais o mesmo combate que me tendes visto travar e no qual sabeis que eu continuo agora.Filipenses, 2
+1. Se me é possível, pois, alguma consolação em Cristo, algum caridoso estímulo, alguma comunhão no Espírito, alguma ternura e compaixão,
+2. completai a minha alegria, permanecendo unidos. Tende um mesmo amor, uma só alma e os mesmos pensamentos.
+3. Nada façais por espírito de partido ou vanglória, mas que a humildade vos ensine a considerar os outros superiores a vós mesmos.
+4. Cada qual tenha em vista não os seus próprios interesses, e sim os dos outros.
+5. Dedicai-vos mutuamente a estima que se deve em Cristo Jesus.
+6. Sendo ele de condição divina, não se prevaleceu de sua igualdade com Deus,
+7. mas aniquilou-se a si mesmo, assumindo a condição de escravo e assemelhando-se aos homens.
+8. E, sendo exteriormente reconhecido como homem, humilhou-se ainda mais, tornando-se obediente até a morte, e morte de cruz.
+9. Por isso Deus o exaltou soberanamente e lhe outorgou o nome que está acima de todos os nomes,
+10. para que ao nome de Jesus se dobre todo joelho no céu, na terra e nos infernos.
+11. E toda língua confesse, para a glória de Deus Pai, que Jesus Cristo é Senhor.
+12. Assim, meus caríssimos, vós que sempre fostes obedientes, trabalhai na vossa salvação com temor e tremor, não só como quando eu estava entre vós, mas muito mais agora na minha ausência.
+13. Porque é Deus quem, segundo o seu beneplácito, realiza em vós o querer e o executar.
+14. Fazei todas as coisas sem murmurações nem críticas,
+15. a fim de serdes irrepreensíveis e inocentes, filhos de Deus íntegros no meio de uma sociedade depravada e maliciosa, onde brilhais como luzeiros no mundo,
+16. a ostentar a palavra da vida. Dessa forma, no dia de Cristo, sentirei alegria em não ter corrido em vão, em não ter trabalhado em vão.
+17. Ainda que tenha de derramar o meu sangue sobre o sacrifício em homenagem à vossa fé, eu me alegro e vos felicito.
+18. Vós outros, também, alegrai-vos e regozijai-vos comigo.
+19. Espero no Senhor Jesus enviar-vos dentro em breve Timóteo, para que me traga notícias vossas e eu me sinta reconfortado.
+20. Pois não há ninguém como ele, tão unido comigo em sentimento, que com tão sincera afeição se interesse por vós.
+21. Todos os demais buscam os próprios interesses e não os de Jesus Cristo.
+22. Quanto a ele, conheceis a sua inabalável fidelidade: tal como um filho ao pai, ele se dedica, comigo, ao serviço do Evangelho.
+23. É ele que eu pretendo enviar-vos, logo que eu puder entrever o desfecho da minha causa.
+24. Aliás, confio no Senhor que também eu irei visitar-vos em breve.
+25. Julguei necessário enviar-vos nosso irmão Epafrodito, meu companheiro de labor e de lutas, que designastes para assistir-me em minhas necessidades.
+26. Ele estava com saudades de todos vós e visivelmente preocupado, por terdes tido notícia da sua doença.
+27. De fato esteve mal, às portas da morte! Mas Deus teve compaixão dele, e não somente dele, mas também de mim, para que eu não tivesse aflição sobre aflição.
+28. Esta é a razão por que procurei enviá-lo antes, para que, vendo-o, novamente vos alegreis e eu também fique menos preocupado.
+29. Portanto, acolhei-o no Senhor com toda a alegria e tratai com grande estima homens assim.
+30. Porque foi pela causa de Cristo que esteve próximo da morte, e arriscou a própria vida, para prestar-me os serviços que vós não podíeis prestar em pessoa.Filipenses, 3
+1. No mais, meus irmãos, alegrai-vos no Senhor. Tornar a escrever-vos as mesmas recomendações, a mim por certo não me é penoso, e a vós vos é conveniente.
+2. Cuidado com esses cães! Cuidado com esses charlatães! Cuidado com esses mutilados!
+3. Porque os verdadeiros circuncisos somos nós, que prestamos culto a Deus pelo Espírito de Deus, e pomos nossa glória em Jesus Cristo, e não confiamos na carne.
+4. No entanto, eu poderia confiar também na carne. Se há quem julgue ter motivos humanos para se gloriar, maiores os possuo eu:
+5. circuncidado ao oitavo dia, da raça de Israel, da tribo de Benjamim, hebreu e filho de hebreus. Quanto à lei, fariseu;
+6. quanto ao zelo, perseguidor da Igreja; quanto à justiça legal, declaradamente irrepreensível.
+7. Mas tudo isso, que para mim eram vantagens, considerei perda por Cristo.
+8. Na verdade, julgo como perda todas as coisas, em comparação com esse bem supremo: o conhecimento de Jesus Cristo, meu Senhor. Por ele tudo desprezei e tenho em conta de esterco, a fim de ganhar Cristo
+9. e estar com ele. Não com minha justiça, que vem da lei, mas com a justiça que se obtém pela fé em Cristo, a justiça que vem de Deus pela fé.
+10. Anseio pelo conhecimento de Cristo e do poder da sua Ressurreição, pela participação em seus sofrimentos, tornando-me semelhante a ele na morte,
+11. com a esperança de conseguir a ressurreição dentre os mortos.
+12. Não pretendo dizer que já alcancei (esta meta) e que cheguei à perfeição. Não. Mas eu me empenho em conquistá-la, uma vez que também eu fui conquistado por Jesus Cristo.
+13. Consciente de não tê-la ainda conquistado, só procuro isto: prescindindo do passado e atirando-me ao que resta para a frente,
+14. persigo o alvo, rumo ao prêmio celeste, ao qual Deus nos chama, em Jesus Cristo.
+15. Nós, mais aperfeiçoados que somos, ponhamos nisto o nosso afeto; e se tendes outro sentir, sobre isto Deus vos há de esclarecer.
+16. Contudo, seja qual for o grau a que chegamos, o que importa é prosseguir decididamente.
+17. Irmãos, sede meus imitadores, e olhai atentamente para os que vivem segundo o exemplo que nós vos damos.
+18. Porque há muitos por aí, de quem repetidas vezes vos tenho falado e agora o digo chorando, que se portam como inimigos da cruz de Cristo,
+19. cujo destino é a perdição, cujo deus é o ventre, para quem a própria ignomínia é causa de envaidecimento, e só têm prazer no que é terreno.
+20. Nós, porém, somos cidadãos dos céus. É de lá que ansiosamente esperamos o Salvador, o Senhor Jesus Cristo,
+21. que transformará nosso mísero corpo, tornando-o semelhante ao seu corpo glorioso, em virtude do poder que tem de sujeitar a si toda criatura.Filipenses, 4
+1. Portanto, meus muito amados e saudosos irmãos, alegria e coroa minha, continuai assim firmes no Senhor, caríssimos.
+2. Exorto a Evódia, exorto igualmente a Síntique que vivam em paz no Senhor.
+3. E a ti, fiel Sínzigo, também rogo que as ajudes, pois que trabalharam comigo no Evangelho, com Clemente e com os demais colaboradores meus, cujos nomes estão inscritos no livro da vida.
+4. Alegrai-vos sempre no Senhor. Repito: alegrai-vos!
+5. Seja conhecida de todos os homens a vossa bondade. O Senhor está próximo.
+6. Não vos inquieteis com nada! Em todas as circunstâncias apresentai a Deus as vossas preocupações, mediante a oração, as súplicas e a ação de graças.
+7. E a paz de Deus, que excede toda a inteligência, haverá de guardar vossos corações e vossos pensamentos, em Cristo Jesus.
+8. Além disso, irmãos, tudo o que é verdadeiro, tudo o que é nobre, tudo o que é justo, tudo o que é puro, tudo o que é amável, tudo o que é de boa fama, tudo o que é virtuoso e louvável, eis o que deve ocupar vossos pensamentos.
+9. O que aprendestes, recebestes, ouvistes e observastes em mim, isto praticai, e o Deus da paz estará convosco.
+10. Fiquei imensamente contente, no Senhor, porque, finalmente, vi reflorescer o vosso interesse por mim. É verdade que sempre pensáveis nisso, mas vos faltava oportunidade de mostrá-lo.
+11. Não é minha penúria que me faz falar. Aprendi a contentar-me com o que tenho.
+12. Sei viver na penúria, e sei também viver na abundância. Estou acostumado a todas as vicissitudes: a ter fartura e a passar fome, a ter abundância e a padecer necessidade.
+13. Tudo posso naquele que me conforta.
+14. Contudo, fizestes bem em tomar parte na minha tribulação.
+15. Vós que sois de Filipos, bem sabeis como, no início do meu ministério evangélico, quando parti da Macedônia, nenhuma comunidade abriu comigo contas de deve-haver, senão vós somente.
+16. Já por duas vezes mandastes para Tessalônica o que me era necessário.
+17. Não é o donativo em si que eu procuro, e sim os lucros que vão aumentando a vosso crédito.
+18. Recebi tudo, e em abundância. Estou bem provido, depois que recebi de Epafrodito a vossa oferta: foi um suave perfume, um sacrifício que Deus aceita com agrado.
+19. Em recompensa, o meu Deus há de prover magnificamente a todas as vossas necessidades, segundo a sua glória, em Jesus Cristo.
+20. A Deus, nosso Pai, seja a glória, por toda a eternidade! Amém.
+21. Saudai em Jesus Cristo todos os santos. Os irmãos que estão comigo vos saúdam.
+22. Todos os santos vos saúdam, especialmente os da casa de César.
+23. A graça do Senhor Jesus Cristo esteja com o vosso espírito!Colossenses, 1
+1. Paulo, apóstolo de Jesus Cristo pela vontade de Deus, e o irmão Timóteo,
+2. aos irmãos em Cristo, santos e fiéis de Colossos: a vós, graça e paz da parte de Deus, nosso Pai!
+3. Nas contínuas orações que por vós fazemos, damos graças a Deus, Pai de nosso Senhor Jesus Cristo,
+4. porque temos ouvido falar da vossa fé em Jesus Cristo e da vossa caridade com os irmãos,
+5. em vista da esperança que vos está reservada nos céus. Esperança que vos foi transmitida pela pregação da verdade do Evangelho,
+6. que chegou até vós, assim como toma incremento no mundo inteiro e produz frutos sempre mais abundantes. É o que acontece entre vós, desde o dia em que ouvistes anunciar a graça de Deus e verdadeiramente a conhecestes,
+7. pela pregação de Epafras, nosso muito amado companheiro no ministério. Ele nos ajuda como fiel ministro de Cristo.
+8. Foi ele que nos informou do amor com que o Espírito vos anima.
+9. Por isso, também nós, desde o dia em que o soubemos, não cessamos de orar por vós e pedir a Deus para que vos conceda pleno conhecimento da sua vontade, perfeita sabedoria e penetração espiritual,
+10. para que vos comporteis de maneira digna do Senhor, procurando agradar-lhe em tudo, frutificando em toda boa obra e crescendo no conhecimento de Deus.
+11. Para que, confortados em tudo pelo seu glorioso poder, tenhais a paciência de tudo suportar com longanimidade.
+12. Sede contentes e agradecidos ao Pai, que vos fez dignos de participar da herança dos santos na luz.
+13. Ele nos arrancou do poder das trevas e nos introduziu no Reino de seu Filho muito amado,
+14. no qual temos a redenção, a remissão dos pecados.
+15. Ele é a imagem de Deus invisível, o Primogênito de toda a criação.
+16. Nele foram criadas todas as coisas nos céus e na terra, as criaturas visíveis e as invisíveis. Tronos, dominações, principados, potestades: tudo foi criado por ele e para ele.
+17. Ele existe antes de todas as coisas, e todas as coisas subsistem nele.
+18. Ele é a Cabeça do corpo, da Igreja. Ele é o Princípio, o primogênito dentre os mortos e por isso tem o primeiro lugar em todas as coisas.
+19. Porque aprouve a Deus fazer habitar nele toda a plenitude
+20. e por seu intermédio reconciliar consigo todas as criaturas, por intermédio daquele que, ao preço do próprio sangue na cruz, restabeleceu a paz a tudo quanto existe na terra e nos céus.
+21. Há bem pouco tempo, sendo vós alheios a Deus e inimigos pelos vossos pensamentos e obras más,
+22. eis que agora ele vos reconciliou pela morte de seu corpo humano, para que vos possais apresentar santos, imaculados, irrepreensíveis aos olhos do Pai.
+23. Para isto, é necessário que permaneçais fundados e firmes na fé, inabaláveis na esperança do Evangelho que ouvistes, que foi pregado a toda criatura que há debaixo do céu, e do qual eu, Paulo, fui constituído ministro.
+24. Agora me alegro nos sofrimentos suportados por vós. O que falta às tribulações de Cristo, completo na minha carne, por seu corpo que é a Igreja.
+25. Dela fui constituído ministro, em virtude da missão que Deus me conferiu de anunciar em vosso favor a realização da palavra de Deus,
+26. mistério este que esteve escondido desde a origem às gerações (passadas), mas que agora foi manifestado aos seus santos.
+27. A estes quis Deus dar a conhecer a riqueza e glória deste mistério entre os gentios: Cristo em vós, esperança da glória!
+28. A ele é que anunciamos, admoestando todos os homens e instruindo-os em toda a sabedoria, para tornar todo homem perfeito em Cristo.
+29. Eis a finalidade do meu trabalho, a razão por que luto auxiliado por sua força que atua poderosamente em mim.Colossenses, 2
+1. Desejo realmente que estejais informados do árduo combate que sustento por amor de vós e dos de Laodicéia, assim como de todos os que ainda não me viram pessoalmente!
+2. Tudo sofro para que os seus corações sejam reconfortados e que, estreitamente unidos pela caridade, sejam enriquecidos de uma plenitude de inteligência, para conhecerem o mistério de Deus, isto é, Cristo,
+3. no qual estão escondidos todos os tesouros da sabedoria e da ciência.
+4. Digo-vos isso para que ninguém vos engane com discursos sedutores.
+5. Porque, embora corporalmente distante, estou presente a vós em espírito, e me alegro em ver a firmeza da vossa fé em Cristo.
+6. Como (de nossa pregação) recebestes o Senhor Jesus Cristo, vivei nele,
+7. enraizados e edificados nele, inabaláveis na fé em que fostes instruídos, com o coração a transbordar de gratidão!
+8. Estai de sobreaviso, para que ninguém vos engane com filosofias e vãos sofismas baseados nas tradições humanas, nos rudimentos do mundo, em vez de se apoiar em Cristo.
+9. Pois nele habita corporalmente toda a plenitude da divindade.
+10. Tendes tudo plenamente nele, que é a cabeça de todo principado e potestade.
+11. Nele também fostes circuncidados com circuncisão não feita por mão de homem, mas com a circuncisão de Cristo, que consiste no despojamento do nosso ser carnal.
+12. Sepultados com ele no batismo, com ele também ressuscitastes por vossa fé no poder de Deus, que o ressuscitou dos mortos.
+13. Mortos pelos vossos pecados e pela incircuncisão da vossa carne, chamou-vos novamente à vida em companhia com ele. É ele que nos perdoou todos os pecados,
+14. cancelando o documento escrito contra nós, cujas prescrições nos condenavam. Aboliu-o definitivamente, ao encravá-lo na cruz.
+15. Espoliou os principados e potestades, e os expôs ao ridículo, triunfando deles pela cruz.
+16. Ninguém, pois, vos critique por causa de comida ou bebida, ou espécies de festas ou de luas novas ou de sábados.
+17. Tudo isto não é mais que sombra do que devia vir. A realidade é Cristo.
+18. Ninguém vos roube a seu bel-prazer a palma da corrida, sob pretexto de humildade e culto dos anjos. Desencaminham-se estas pessoas em suas próprias visões e, cheias do vão orgulho de seu espírito materialista,
+19. não se mantêm unidas à Cabeça, da qual todo o corpo, pela união das junturas e articulações, se alimenta e cresce conforme um crescimento disposto por Deus.
+20. Se em Cristo estais mortos aos princípios deste mundo, por que ainda vos deixais impor proibições, como se vivêsseis no mundo?
+21. Não pegues! Não proves! Não toques!,
+22. proibições estas que se tornam perniciosas pelo uso que delas se faz, e que não passam de normas e doutrinas humanas.
+23. Elas podem, sem dúvida, dar a impressão de sabedoria, enquanto exibem culto voluntário, de humildade e austeridade corporal. Mas não têm nenhum valor real, e só servem para satisfazer a carne.Colossenses, 3
+1. Se, portanto, ressuscitastes com Cristo, buscai as coisas lá do alto, onde Cristo está sentado à direita de Deus.
+2. Afeiçoai-vos às coisas lá de cima, e não às da terra.
+3. Porque estais mortos e a vossa vida está escondida com Cristo em Deus.
+4. Quando Cristo, vossa vida, aparecer, então também vós aparecereis com ele na glória.
+5. Mortificai, pois, os vossos membros no que têm de terreno: a devassidão, a impureza, as paixões, os maus desejos, a cobiça, que é uma idolatria.
+6. Dessas coisas provém a ira de Deus sobre os descrentes.
+7. Outrora também vós assim vivíeis, mergulhados como estáveis nesses vícios.
+8. Agora, porém, deixai de lado todas estas coisas: ira, animosidade, maledicência, maldade, palavras torpes da vossa boca,
+9. nem vos enganeis uns aos outros. Vós vos despistes do homem velho com os seus vícios,
+10. e vos revestistes do novo, que se vai restaurando constantemente à imagem daquele que o criou, até atingir o perfeito conhecimento.
+11. Aí não haverá mais grego nem judeu, nem bárbaro nem cita, nem escravo nem livre, mas somente Cristo, que será tudo em todos.
+12. Portanto, como eleitos de Deus, santos e queridos, revesti-vos de entranhada misericórdia, de bondade, humildade, doçura, paciência.
+13. Suportai-vos uns aos outros e perdoai-vos mutuamente, toda vez que tiverdes queixa contra outrem. Como o Senhor vos perdoou, assim perdoai também vós.
+14. Mas, acima de tudo, revesti-vos da caridade, que é o vínculo da perfeição.
+15. Triunfe em vossos corações a paz de Cristo, para a qual fostes chamados a fim de formar um único corpo. E sede agradecidos.
+16. A palavra de Cristo permaneça entre vós em toda a sua riqueza, de sorte que com toda a sabedoria vos possais instruir e exortar mutuamente. Sob a inspiração da graça cantai a Deus de todo o coração salmos, hinos e cânticos espirituais.
+17. Tudo quanto fizerdes, por palavra ou por obra, fazei-o em nome do Senhor Jesus, dando por ele graças a Deus Pai.
+18. Mulheres, sede submissas a vossos maridos, porque assim convém, no Senhor.
+19. Maridos, amai as vossas mulheres e não as trateis com aspereza.
+20. Filhos, obedecei em tudo a vossos pais, porque isto agrada ao Senhor.
+21. Pais, deixai de irritar vossos filhos, para que não se tornem desanimados.
+22. Servos, obedecei em tudo a vossos senhores terrenos, servindo não por motivo de que estais sendo vistos, como quem busca agradar a homens, mas com sinceridade de coração, por temor a Deus.
+23. Tudo o que fizerdes, fazei-o de bom coração, como para o Senhor e não para os homens,
+24. certos de que recebereis, como recompensa, a herança das mãos do Senhor. Servi a Cristo, Senhor.
+25. Quem cometer injustiça, pagará pelo que fez injustamente; e não haverá distinção de pessoas.Colossenses, 4
+1. Senhores, tratai vossos servos com justiça e igualdade. Sabeis perfeitamente que também vós tendes um Senhor no céu.
+2. Sede perseverantes, sede vigilantes na oração, acompanhada de ações de graças.
+3. Orai também por nós. Pedi a Deus que dê livre curso à nossa palavra para que possamos anunciar o mistério de Cristo. É por causa deste mistério que estou preso.
+4. Possa eu fazê-lo conhecido, como é meu dever.
+5. Procedei com sabedoria no trato com os de fora. Sabei aproveitar todas as circunstâncias.
+6. Que as vossas conversas sejam sempre amáveis, temperadas com sal, e sabei responder a cada um devidamente.
+7. Quanto ao que me concerne, o caríssimo irmão Tíquico, ministro fiel e companheiro no Senhor, vos informará de tudo.
+8. Eu vo-lo envio para este fim, para que conheçais nossa situação e console os vossos corações.
+9. Ele vai juntamente com Onésimo, nosso caríssimo e fiel irmão, conterrâneo vosso. Ambos vos informarão de tudo o que aqui se passa.
+10. Saúda-vos Aristarco, meu companheiro de prisão, e Marcos, primo de Barnabé, a respeito do qual já recebestes instruções. (Se este for ter convosco, acolhei-o bem.)
+11. Também Jesus, chamado o Justo, vos saúda. São os únicos da circuncisão que trabalham comigo no Reino de Deus. Eles se têm tornado a minha consolação.
+12. Saúda-vos Epafras, vosso concidadão, servo de Jesus Cristo. Ele não cessa de lutar por vós em suas orações, para que, numa perfeita e plena convicção, permaneçais plenamente submissos à vontade divina.
+13. Posso assegurar-vos que muito trabalha por vós e pelos que estão em Laodicéia e em Hierápolis.
+14. Saúda-vos Lucas, o caríssimo médico, e Demas.
+15. Saudai os irmãos de Laodicéia, como também a Ninfas e a igreja que está em sua casa.
+16. Uma vez lida esta carta entre vós, fazei com que ela o seja também na igreja dos laodicenses. E vós, lede a de Laodicéia.
+17. Finalmente, dizei a Arquipo: Vê bem o ministério que recebeste em nome do Senhor, e desempenha-o plenamente.
+18. Minha saudação, de próprio punho: PAULO. Lembrai-vos das minhas cadeias. A graça esteja convosco!I Tessalonicenses, 1
+1. Paulo, Silvano e Timóteo à igreja dos tessalonicenses, reunida em Deus Pai e no Senhor Jesus Cristo. A vós, graça e paz!
+2. Não cessamos de dar graças a Deus por todos vós, e de lembrar-vos em nossas orações.
+3. Com efeito, diante de Deus, nosso Pai, pensamos continuamente nas obras da vossa fé, nos sacrifícios da vossa caridade e na firmeza da vossa esperança em nosso Senhor Jesus Cristo, sob o olhar de Deus, nosso Pai.
+4. Sabemos, irmãos amados de Deus, que sois eleitos.
+5. O nosso Evangelho vos foi pregado não somente por palavra, mas também com poder, com o Espírito Santo e com plena convicção. Sabeis o que temos sido entre vós para a vossa salvação.
+6. E vós vos fizestes imitadores nossos e do Senhor, ao receberdes a palavra, apesar das muitas tribulações, com a alegria do Espírito Santo,
+7. de sorte que vos tornastes modelo para todos os fiéis da Macedônia e da Acaia.
+8. Em verdade, partindo de vós, não só ressoou a palavra do Senhor pela Macedônia e Acaia, mas também se propagou a fama de vossa fé em Deus por toda parte, de maneira que não temos necessidade de dizer coisa alguma.
+9. De fato, a nosso respeito, conta-se por toda parte qual foi o acolhimento que da vossa parte tivemos, e como abandonastes os ídolos e vos convertestes a Deus, para servirdes ao Deus vivo e verdadeiro,
+10. e aguardardes dos céus seu Filho que Deus ressuscitou dos mortos, Jesus, que nos livra da ira iminente.I Tessalonicenses, 2
+1. Bem sabeis, irmãos, que a nossa ida a vós não foi em vão.
+2. Apesar de maltratados e ultrajados em Filipos, como sabeis, ousamos, confiados em nosso Deus, pregar-vos o Evangelho de Deus em meio de muitas lutas.
+3. A nossa pregação não provém de erro, nem de intenções fraudulentas, nem de engano.
+4. Mas, como Deus nos julgou dignos de nos confiar o Evangelho, falamos, não para agradar aos homens, e sim a Deus, que sonda os nossos corações.
+5. Com efeito, nunca usamos de adulação, como sabeis, nem fomos levados por fins interesseiros. Deus é testemunha.
+6. Não buscamos glórias humanas, nem de vós nem de outros.
+7. Na qualidade de apóstolos de Cristo, poderíamos apresentar-nos como pessoas de autoridade. Todavia, nos fizemos discretos no meio de vós. Como a mãe a acariciar os seus filhinhos,
+8. assim, em nossa ternura por vós, desejávamos não só comunicar-vos o Evangelho de Deus, mas até a nossa própria vida, porquanto nos sois muito queridos.
+9. Vós vos lembrais, irmãos, dos nossos trabalhos e de nossa fadiga. Trabalhando noite e dia, para não sermos pesados a nenhum de vós, pregamo-vos o Evangelho de Deus.
+10. Vós sois testemunhas, e também Deus, de quão santa, justa e irrepreensivelmente nos portamos convosco que crestes.
+11. E sabeis que procedemos com cada um de vós como um pai com seus filhos:
+12. nós vos temos exortado, estimulado, conjurado a vos comportardes de maneira digna de Deus, que vos chama ao seu Reino e à sua glória.
+13. Por isso é que também nós não cessamos de dar graças a Deus, porque recebestes a palavra de Deus, que de nós ouvistes, e a acolhestes, não como palavra de homens, mas como aquilo que realmente é, como palavra de Deus, que age eficazmente em vós, os fiéis.
+14. Com efeito, irmãos, vós vos tornastes imitadores das igrejas de Deus que estão na Judéia, das igrejas de Jesus Cristo. Tivestes que sofrer da parte dos vossos compatriotas o mesmo que eles sofreram dos judeus,
+15. aqueles judeus que mataram o Senhor Jesus, que nos perseguiram, que não são do agrado de Deus, que são inimigos de todos os homens,
+16. visto que nos proíbem pregar aos gentios para que se salvem. E com isto vão enchendo sempre mais a medida dos seus pecados. Mas a ira de Deus acabou por atingi-los.
+17. Nós, irmãos, separados de vós por algum tempo - de vista, não de coração -, temos o mais vivo e ardente desejo de vos rever.
+18. Pelo que fizemos o possível por ir visitar-vos, ao menos eu, Paulo, em diversas ocasiões. Mas Satanás nos impediu.
+19. Pois quem, senão vós, será a nossa esperança, a nossa alegria e a nossa coroa de glória ante nosso Senhor Jesus, no dia de sua vinda?
+20. Sim, sois vós a nossa glória e a nossa alegria!I Tessalonicenses, 3
+1. Assim, não podendo mais esperar, resolvemos ficar sozinhos em Atenas,
+2. e enviar-vos Timóteo, nosso irmão e ministro de Deus no Evangelho de Cristo. Ele tem a missão de vos fortalecer e encorajar na vossa fé,
+3. a fim de que, em meio às presentes tribulações, ninguém se amedronte. Vós mesmos sabeis que esta é a nossa sorte.
+4. Estando ainda convosco, vos predizíamos que haveríamos de padecer tribulações. É o que aconteceu e estais sabendo.
+5. É este o motivo por que, não podendo mais suportar a demora, mandei colher informações a respeito da vossa fé, pois receava que o tentador vos tivesse seduzido e resultasse em nada o nosso trabalho.
+6. Mas, agora, Timóteo acaba de voltar da visita que vos fez, trazendo excelentes notícias da vossa fé e caridade. Ele nos falou da afetuosa lembrança que de nós sempre guardais e do desejo que tendes de nos rever, desejo que é também nosso.
+7. Assim, irmãos, fomos consolados por vós, no meio de todas as nossas angústias e tribulações, em virtude da vossa fé.
+8. Agora, sim, tornamos a viver, porque permaneceis firmes no Senhor.
+9. E como poderíamos agradecer a Deus por vós, por toda a alegria que tivemos diante dele por vossa causa?!
+10. Noite e dia, com intenso, extremo fervor, oramos para que nos seja dado ver novamente a vossa face e completar o que ainda falta à vossa fé.
+11. Que Deus, nosso Pai, e nosso Senhor Jesus nos preparem o caminho até vós!
+12. Que o Senhor vos faça crescer e avantajar na caridade mútua e para com todos os homens, como é o nosso amor para convosco.
+13. Que ele confirme os vossos corações, e os torne irrepreensíveis e santos na presença de Deus, nosso Pai, por ocasião da vinda de nosso Senhor Jesus com todos os seus santos!I Tessalonicenses, 4
+1. No mais, irmãos, aprendestes de nós a maneira como deveis proceder para agradar a Deus - e já o fazeis. Rogamo-vos, pois, e vos exortamos no Senhor Jesus a que progridais sempre mais.
+2. Pois conheceis que preceitos vos demos da parte do Senhor Jesus.
+3. Esta é a vontade de Deus: a vossa santificação; que eviteis a impureza;
+4. que cada um de vós saiba possuir o seu corpo santa e honestamente,
+5. sem se deixar levar pelas paixões desregradas, como os pagãos que não conhecem a Deus;
+6. e que ninguém, nesta matéria, oprima nem defraude a seu irmão, porque o Senhor faz justiça de todas estas coisas, como já antes vo-lo temos dito e asseverado.
+7. Pois Deus não nos chamou para a impureza, mas para a santidade.
+8. Por conseguinte, desprezar estes preceitos é desprezar não a um homem, mas a Deus, que nos deu o seu Espírito Santo.
+9. A respeito da caridade fraterna, não temos necessidade de vos escrever, porquanto vós mesmos aprendestes de Deus a vos amar uns aos outros.
+10. E é o que estais praticando para com todos os irmãos em toda a Macedônia. Mas ainda vos rogamos, irmãos, que vos aperfeiçoeis mais e mais.
+11. Procurai viver com serenidade, ocupando-vos das vossas próprias coisas e trabalhando com vossas mãos, como vo-lo temos recomendado.
+12. É assim que vivereis honrosamente em presença dos de fora e não sereis pesados a ninguém.
+13. Irmãos, não queremos que ignoreis coisa alguma a respeito dos mortos, para que não vos entristeçais, como os outros homens que não têm esperança.
+14. Se cremos que Jesus morreu e ressuscitou, cremos também que Deus levará com Jesus os que nele morreram.
+15. Eis o que vos declaramos, conforme a palavra do Senhor: por ocasião da vinda do Senhor, nós que ficamos ainda vivos não precederemos os mortos.
+16. Quando for dado o sinal, à voz do arcanjo e ao som da trombeta de Deus, o mesmo Senhor descerá do céu e os que morreram em Cristo ressurgirão primeiro.
+17. Depois nós, os vivos, os que estamos ainda na terra, seremos arrebatados juntamente com eles sobre nuvens ao encontro do Senhor nos ares, e assim estaremos para sempre com o Senhor.
+18. Portanto, consolai-vos uns aos outros com estas palavras.I Tessalonicenses, 5
+1. A respeito da época e do momento, não há necessidade, irmãos, de que vos escrevamos.
+2. Pois vós mesmos sabeis muito bem que o dia do Senhor virá como um ladrão de noite.
+3. Quando os homens disserem: Paz e segurança!, então repentinamente lhes sobrevirá a destruição, como as dores à mulher grávida. E não escaparão.
+4. Mas vós, irmãos, não estais em trevas, de modo que esse dia vos surpreenda como um ladrão.
+5. Porque todos vós sois filhos da luz e filhos do dia. Não somos da noite nem das trevas.
+6. Não durmamos, pois, como os demais. Mas vigiemos e sejamos sóbrios.
+7. Porque os que dormem, dormem de noite; e os que se embriagam, embriagam-se de noite.
+8. Nós, ao contrário, que somos do dia, sejamos sóbrios. Tomemos por couraça a fé e a caridade, e por capacete a esperança da salvação.
+9. Porquanto não nos destinou Deus para a ira, mas para alcançar a salvação por nosso Senhor Jesus Cristo.
+10. Ele morreu por nós, a fim de que nós, quer em estado de vigília, quer de sono, vivamos em união com ele.
+11. Assim, pois, consolai-vos mutuamente e edificai-vos uns aos outros, como já o fazeis.
+12. Suplicamo-vos, irmãos, que reconheçais aqueles que arduamente trabalham entre vós para dirigir-vos no Senhor e vos admoestar.
+13. Tende para com eles singular amor, em vista do cargo que exercem. Conservai a paz entre vós.
+14. Pedimo-vos, porém, irmãos, corrigi os desordeiros, encorajai os tímidos, amparai os fracos e tende paciência para com todos.
+15. Vede que ninguém pague a outro mal por mal. Antes, procurai sempre praticar o bem entre vós e para com todos.
+16. Vivei sempre contentes.
+17. Orai sem cessar.
+18. Em todas as circunstâncias, dai graças, porque esta é a vosso respeito a vontade de Deus em Jesus Cristo.
+19. Não extingais o Espírito.
+20. Não desprezeis as profecias.
+21. Examinai tudo: abraçai o que é bom.
+22. Guardai-vos de toda a espécie de mal.
+23. O Deus da paz vos conceda santidade perfeita. Que todo o vosso ser, espírito, alma e corpo, seja conservado irrepreensível para a vinda de nosso Senhor Jesus Cristo!
+24. Fiel é aquele que vos chama, e o cumprirá.
+25. Irmãos, orai também por nós.
+26. Saudai a todos os irmãos com o ósculo santo.
+27. Peço-vos encarecidamente, no Senhor, que esta carta seja lida a todos os irmãos.
+28. A graça de nosso Senhor Jesus Cristo esteja convosco!II Tessalonicenses, 1
+1. Paulo, Silvano e Timóteo à igreja dos tessalonicenses, reunida em Deus, nosso Pai, e no Senhor Jesus Cristo.
+2. A vós, graça e paz da parte de Deus Pai e do Senhor Jesus Cristo!
+3. Sentimo-nos na obrigação de incessantemente dar graças a Deus a respeito de vós, irmãos. Aliás, com muita razão, visto que a vossa fé vai progredindo sempre mais e desenvolvendo-se a caridade que tendes uns para com os outros.
+4. De sorte que nos gloriamos de vós nas igrejas de Deus, pela vossa constância e fidelidade no meio de todas as perseguições e tribulações que sofreis.
+5. Elas constituem um indício do justo juízo de Deus e de que sereis considerados dignos do Reino de Deus, pelo qual padeceis.
+6. De fato, justo é que Deus dê em paga aflição àqueles que vos afligem;
+7. e a vós, que sois afligidos, o alívio, juntamente conosco, no dia da manifestação do Senhor Jesus. Ele descerá do céu com os mensageiros do seu poder,
+8. por entre chamas de fogo, para fazer justiça àqueles que não reconhecem a Deus e aos que não obedecem ao Evangelho de nosso Senhor Jesus.
+9. Eles sofrerão como castigo a perdição eterna, longe da face do Senhor, e da sua suprema glória.
+10. Naquele dia ele virá e será a glória dos seus santos e a admiração de todos os fiéis, e vossa também, porque crestes no testemunho que vos demos.
+11. Nesta esperança suplicamos incessantemente por vós, para que nosso Deus vos faça dignos da vossa vocação e que leve eficazmente a bom termo todo o vosso zelo pelo bem e a atividade de vossa fé.
+12. Para que seja glorificado o nome de nosso Senhor Jesus em vós, e vós nele, segundo a graça de nosso Deus e do Senhor Jesus Cristo.II Tessalonicenses, 2
+1. No que diz respeito à vinda de nosso Senhor Jesus Cristo e nossa reunião com ele, rogamo-vos, irmãos,
+2. não vos deixeis facilmente perturbar o espírito e alarmar-vos, nem por alguma pretensa revelação nem por palavra ou carta tidas como procedentes de nós e que vos afirmassem estar iminente o dia do Senhor.
+3. Ninguém de modo algum vos engane. Porque primeiro deve vir a apostasia, e deve manifestar-se o homem da iniqüidade, o filho da perdição,
+4. o adversário, aquele que se levanta contra tudo o que é divino e sagrado, a ponto de tomar lugar no templo de Deus, e apresentar-se como se fosse Deus.
+5. Não vos lembrais de que vos dizia estas coisas, quando estava ainda convosco?
+6. Agora, sabeis perfeitamente que algo o detém, de modo que ele só se manifestará a seu tempo.
+7. Porque o mistério da iniqüidade já está em ação, apenas esperando o desaparecimento daquele que o detém.
+8. Então o tal ímpio se manifestará. Mas o Senhor Jesus o destruirá com o sopro de sua boca e o aniquilará com o resplendor da sua vinda.
+9. A manifestação do ímpio será acompanhada, graças ao poder de Satanás, de toda a sorte de portentos, sinais e prodígios enganadores.
+10. Ele usará de todas as seduções do mal com aqueles que se perdem, por não terem cultivado o amor à verdade que os teria podido salvar.
+11. Por isso, Deus lhes enviará um poder que os enganará e os induzirá a acreditar no erro.
+12. Desse modo, serão julgados e condenados todos os que não deram crédito à verdade, mas consentiram no mal.
+13. Nós, porém, sentimo-nos na obrigação de incessantemente dar graças a Deus a respeito de vós, irmãos queridos de Deus, porque desde o princípio vos escolheu Deus para vos dar a salvação, pela santificação do Espírito e pela fé na verdade.
+14. E pelo anúncio do nosso Evangelho vos chamou para tomardes parte na glória de nosso Senhor Jesus Cristo.
+15. Assim, pois, irmãos, ficai firmes e conservai os ensinamentos que de nós aprendestes, seja por palavras, seja por carta nossa.
+16. Nosso Senhor Jesus Cristo e Deus, nosso Pai, que nos amou e nos deu consolação eterna e boa esperança pela sua graça, consolem os vossos corações e os confirmem para toda boa obra e palavra!II Tessalonicenses, 3
+1. Por fim, irmãos, orai por nós, para que a palavra do Senhor se propague e seja estimada, tal como acontece entre vós,
+2. e para que sejamos livres dos homens perversos e maus; porque nem todos possuem a fé.
+3. Mas o Senhor é fiel, e ele há de vos dar forças e vos preservar do mal.
+4. Quanto a vós, temos plena certeza no Senhor de que estareis cumprindo e continuareis a cumprir o que vos prescrevemos.
+5. Que o Senhor dirija os vossos corações para o amor de Deus e a paciência de Cristo.
+6. Intimamo-vos, irmãos, em nome de nosso Senhor Jesus Cristo, que eviteis a convivência de todo irmão que leve vida ociosa e contrária à tradição que de nós tendes recebido.
+7. Sabeis perfeitamente o que deveis fazer para nos imitar. Não temos vivido entre vós desregradamente,
+8. nem temos comido de graça o pão de ninguém. Mas, com trabalho e fadiga, labutamos noite e dia, para não sermos pesados a nenhum de vós.
+9. Não porque não tivéssemos direito para isso, mas foi para vos oferecer em nós mesmos um exemplo a imitar.
+10. Aliás, quando estávamos convosco, nós vos dizíamos formalmente: Quem não quiser trabalhar, não tem o direito de comer.
+11. Entretanto, soubemos que entre vós há alguns desordeiros, vadios, que só se preocupam em intrometer-se em assuntos alheios.
+12. A esses indivíduos ordenamos e exortamos a que se dediquem tranqüilamente ao trabalho para merecerem ganhar o que comer.
+13. Vós, irmãos, não vos canseis de fazer o bem.
+14. Se alguém não obedecer ao que ordenamos por esta carta, notai-o e, para que ele se envergonhe, deixai de ter familiaridade com ele.
+15. Porém, não deveis considerá-lo como inimigo, mas repreendê-lo como irmão.
+16. O Senhor da paz vos conceda a paz em todo o tempo e em todas as circunstâncias. O Senhor esteja com todos vós.
+17. A saudação vai de meu próprio punho: PAULO. É esta a minha assinatura em todas as minhas cartas. É assim que eu escrevo.
+18. A graça de nosso Senhor Jesus Cristo esteja com todos vós!I Timóteo, 1
+1. Paulo, apóstolo de Jesus Cristo por ordem de Deus, nosso Salvador, e de Jesus Cristo, nossa esperança,
+2. a Timóteo, meu verdadeiro filho na fé: graça, misericórdia, paz da parte de Deus Pai e de Jesus Cristo, nosso Senhor!
+3. Torno a lembrar-te a recomendação que te dei, quando parti para a Macedônia: devias permanecer em Éfeso para impedir que certas pessoas andassem a ensinar doutrinas extravagantes,
+4. e a preocupar-se com fábulas e genealogias. Essas coisas, em vez de promoverem a obra de Deus, que se baseia na fé, só servem para ocasionar disputas.
+5. Esta recomendação só visa a estabelecer a caridade, nascida de um coração puro, de uma boa consciência e de uma fé sincera.
+6. Apartando-se desta norma, alguns se entregaram a discursos vãos.
+7. Pretensos doutores da lei, que não compreendem nem o que dizem nem o que afirmam.
+8. Sabemos que a lei é boa, contanto que se faça dela uso legítimo,
+9. e se tenha em conta que a lei não foi feita para o justo, mas para os transgressores e os rebeldes, para os ímpios e os pecadores, para os irreligiosos e os profanadores, para os que ultrajam pai e mãe, os homicidas,
+10. os impudicos, os infames, os traficantes de homens, os mentirosos, os perjuros e tudo o que se opõe à sã doutrina
+11. e ao Evangelho glorioso de Deus bendito, que me foi confiado.
+12. Dou graças àquele que me deu forças, Jesus Cristo, nosso Senhor, porque me julgou digno de confiança e me chamou ao ministério,
+13. a mim que outrora era blasfemo, perseguidor e injuriador. Mas alcancei misericórdia, porque ainda não tinha recebido a fé e o fazia por ignorância.
+14. E a graça de nosso Senhor foi imensa, juntamente com a fé e a caridade que está em Jesus Cristo.
+15. Eis uma verdade absolutamente certa e merecedora de fé: Jesus Cristo veio a este mundo para salvar os pecadores, dos quais sou eu o primeiro.
+16. Se encontrei misericórdia, foi para que em mim primeiro Jesus Cristo manifestasse toda a sua magnanimidade e eu servisse de exemplo para todos os que, a seguir, nele crerem, para a vida eterna.
+17. Ao Rei dos séculos, Deus único, invisível e imortal, honra e glória pelos séculos dos séculos! Amém.
+18. Eis aqui uma recomendação que te dou, meu filho Timóteo, de acordo com aquelas profecias que foram feitas a teu respeito: amparado nelas, sustenta o bom combate,
+19. com fidelidade e boa consciência, que alguns desprezaram e naufragaram na fé.
+20. É o caso de Himeneu e Alexandre, que entreguei a Satanás, para que aprendam a não blasfemar.I Timóteo, 2
+1. Acima de tudo, recomendo que se façam preces, orações, súplicas, ações de graças por todos os homens,
+2. pelos reis e por todos os que estão constituídos em autoridade, para que possamos viver uma vida calma e tranqüila, com toda a piedade e honestidade.
+3. Isto é bom e agradável diante de Deus, nosso Salvador,
+4. o qual deseja que todos os homens se salvem e cheguem ao conhecimento da verdade.
+5. Porque há um só Deus e há um só mediador entre Deus e os homens: Jesus Cristo, homem
+6. que se entregou como resgate por todos. Tal é o fato, atestado em seu tempo;
+7. e deste fato - digo a verdade, não minto - fui constituído pregador, apóstolo e doutor dos gentios, na fé e na verdade.
+8. Quero, pois, que os homens orem em todo lugar, levantando as mãos puras, superando todo ódio e ressentimento.
+9. Do mesmo modo, quero que as mulheres usem traje honesto, ataviando-se com modéstia e sobriedade. Seus enfeites consistam não em primorosos penteados, ouro, pérolas, vestidos de luxo,
+10. e sim em boas obras, como convém a mulheres que professam a piedade.
+11. A mulher ouça a instrução em silêncio, com espírito de submissão.
+12. Não permito à mulher que ensine nem que se arrogue autoridade sobre o homem, mas permaneça em silêncio.
+13. Pois o primeiro a ser criado foi Adão, depois Eva.
+14. E não foi Adão que se deixou iludir, e sim a mulher que, enganada, se tornou culpada de transgressão.
+15. Contudo, ela poderá salvar-se, cumprindo os deveres de mãe, contanto que permaneça com modéstia na fé, na caridade e na santidade.I Timóteo, 3
+1. Eis uma coisa certa: quem aspira ao episcopado, saiba que está desejando uma função sublime.
+2. Porque o bispo tem o dever de ser irrepreensível, casado uma só vez, sóbrio, prudente, regrado no seu proceder, hospitaleiro, capaz de ensinar.
+3. Não deve ser dado a bebidas, nem violento, mas condescendente, pacífico, desinteressado;
+4. deve saber governar bem a sua casa, educar os seus filhos na obediência e na castidade.
+5. Pois quem não sabe governar a sua própria casa, como terá cuidado da Igreja de Deus?
+6. Não pode ser um recém-convertido, para não acontecer que, ofuscado pela vaidade, venha a cair na mesma condenação que o demônio.
+7. Importa, outrossim, que goze de boa consideração por parte dos de fora, para que não se exponha ao desprezo e caia assim nas ciladas diabólicas.
+8. Do mesmo modo, os diáconos sejam honestos, não de duas atitudes nem propensos ao excesso da bebida e ao espírito de lucro;
+9. que guardem o mistério da fé numa consciência pura.
+10. Antes de poderem exercer o seu ministério, sejam provados para que se tenha certeza de que são irrepreensíveis.
+11. As mulheres também sejam honestas, não difamadoras, mas sóbrias e fiéis em tudo.
+12. Os diáconos não sejam casados senão uma vez, e saibam governar os filhos e a casa.
+13. E os que desempenharem bem este ministério, alcançarão honrosa posição e grande confiança na fé, em Jesus Cristo.
+14. Estas coisas te escrevo, mas espero ir visitar-te muito em breve.
+15. Todavia, se eu tardar, quero que saibas como deves portar-te na casa de Deus, que é a Igreja de Deus vivo, coluna e sustentáculo da verdade.
+16. Sim, é tão sublime - unanimemente o proclamamos - o mistério da bondade divina: manifestado na carne, justificado no Espírito, visto pelos anjos, anunciado aos povos, acreditado no mundo, exaltado na glória!I Timóteo, 4
+1. O Espírito diz expressamente que, nos tempos vindouros, alguns hão de apostatar da fé, dando ouvidos a espíritos embusteiros e a doutrinas diabólicas,
+2. de hipócritas e impostores que, marcados na própria consciência com o ferrete da infâmia,
+3. proíbem o casamento, assim como o uso de alimentos que Deus criou para que sejam tomados com ação de graças pelos fiéis e pelos que conhecem a verdade.
+4. Pois tudo o que Deus criou é bom e nada há de reprovável, quando se usa com ação de graças.
+5. Porque se torna santificado pela palavra de Deus e pela oração.
+6. Recomenda esta doutrina aos irmãos, e serás bom ministro de Jesus Cristo, alimentado com as palavras da fé e da sã doutrina que até agora seguiste com exatidão.
+7. Quanto às fábulas profanas, esses contos extravagantes de comadres, rejeita-as.
+8. Exercita-te na piedade. Se o exercício corporal traz algum pequeno proveito, a piedade, esta sim, é útil para tudo, porque tem a promessa da vida presente e da futura.
+9. Eis uma verdade absolutamente certa e digna de fé:
+10. se nos afadigamos e sofremos ultrajes, é porque pusemos a nossa esperança em Deus vivo, que é o Salvador de todos os homens, sobretudo dos fiéis.
+11. Seja este o objeto de tuas prescrições e dos teus ensinamentos.
+12. Ninguém te despreze por seres jovem. Ao contrário, torna-te modelo para os fiéis, no modo de falar e de viver, na caridade, na fé, na castidade.
+13. Enquanto eu não chegar, aplica-te à leitura, à exortação, ao ensino.
+14. Não negligencies o carisma que está em ti e que te foi dado por profecia, quando a assembléia dos anciãos te impôs as mãos.
+15. Põe nisto toda a diligência e empenho, de tal modo que se torne manifesto a todos o teu aproveitamento.
+16. Olha por ti e pela instrução dos outros. E persevera nestas coisas. Se isto fizeres, salvar-te-ás a ti mesmo e aos que te ouvirem.I Timóteo, 5
+1. Ao ancião não repreendas com aspereza, mas adverte-o como a um pai, aos moços como a irmãos,
+2. às mulheres de idade como a mães, às jovens como a irmãs, com toda a pureza.
+3. Honra as viúvas que são realmente viúvas.
+4. Se uma viúva tem filhos ou netos, como primeira obrigação aprendam estes a exercer com a própria família o dever da piedade filial e a retribuir aos pais o que deles receberam, porque isto é agradável a Deus.
+5. Mas a que verdadeiramente é viúva e desamparada, põe a sua esperança em Deus e persevera noite e dia em orações e súplicas.
+6. Aquela, pelo contrário, que vive nos prazeres, embora viva, está morta.
+7. Recorda-lhes isto, para que sejam irrepreensíveis.
+8. Quem se descuida dos seus, e principalmente dos de sua própria família, é um renegado, pior que um infiel.
+9. Poderá ser inscrita como viúva apenas quem tenha pelo menos sessenta anos de idade, casada uma só vez,
+10. conhecida pelo seu bom comportamento, tenha educado bem os filhos, exercido a hospitalidade, lavado os pés dos santos, socorrido os infelizes e praticado toda espécie de boas obras.
+11. Não admitas viúvas jovens, porque, ao sentirem os atrativos da paixão contrária a Cristo, quererão casar-se outra vez
+12. e incorrerão na censura de ter violado o primeiro compromisso.
+13. Além disso, habituam-se a andar ociosas de casa em casa; e não só ociosas, mas também indiscretas e curiosas, falando coisas que não devem.
+14. Quero, pois, que as viúvas jovens se casem, cumpram os deveres de mãe e cuidem do próprio lar, para não dar a ninguém ensejo de crítica.
+15. Algumas já se perverteram, para irem após Satanás.
+16. Se algum fiel tem viúvas em casa, procure dar-lhes assistência, de tal maneira que elas não sejam um peso para a Igreja, a fim de que esta possa socorrer as que verdadeiramente são viúvas.
+17. Os presbíteros que desempenham bem o encargo de presidir sejam honrados com dupla remuneração, principalmente os que trabalham na pregação e no ensino.
+18. Pois diz a Escritura: Não atarás a boca ao boi quando ele pisar o grão (Dt 25,4); e ainda: O operário é digno do seu salário (Lc 10,7).
+19. Não recebas acusação contra um presbítero, senão por duas ou três testemunhas.
+20. Aos que faltam às suas obrigações, repreende-os diante de todos, para que também os demais se atemorizem.
+21. Eu te conjuro, diante de Deus e de Cristo Jesus e dos anjos escolhidos, a que guardes essas regras sem prevenção, nada fazendo por espírito de parcialidade.
+22. A ninguém imponhas as mãos inconsideradamente, para que não venhas a tornar-te cúmplice dos pecados alheios. Conserva-te puro.
+23. Não continues a beber só água, mas toma também um pouco de vinho, por causa do teu estômago e das tuas freqüentes indisposições.
+24. Os pecados dos homens às vezes são conhecidos já antes de levados a juízo; outras vezes o serão depois.
+25. Da mesma forma, as boas obras: ou já são manifestas ou não poderão permanecer ocultas.I Timóteo, 6
+1. Todos os que vivem sob o jugo da servidão considerem seus senhores dignos de toda honra, para que não sejam caluniados o nome de Deus e sua doutrina.
+2. E os que têm patrões que abraçaram a fé, nem por isto os menosprezem, sob pretexto de serem irmãos. Ao contrário, deverão servi-los ainda melhor, pelo fato de que eles são fiéis amados de Deus e participantes de seus benefícios. Tal deve ser o tema de teus ensinamentos e de tuas exortações.
+3. Quem ensina de outra forma e discorda das salutares palavras de nosso Senhor Jesus Cristo, bem como da doutrina conforme à piedade,
+4. é um obcecado pelo orgulho, um ignorante, doentio por questões ociosas e contendas de palavras. Daí se originam a inveja, a discórdia, os insultos, as suspeitas injustas,
+5. os vãos conflitos entre homens de coração corrompido e privados da verdade, que só vêem na piedade uma fonte de lucro.
+6. Sem dúvida, grande fonte de lucro é a piedade, porém quando acompanhada de espírito de desprendimento.
+7. Porque nada trouxemos ao mundo, como tampouco nada poderemos levar.
+8. Tendo alimento e vestuário, contentemo-nos com isto.
+9. Aqueles que ambicionam tornar-se ricos caem nas armadilhas do demônio e em muitos desejos insensatos e nocivos, que precipitam os homens no abismo da ruína e da perdição.
+10. Porque a raiz de todos os males é o amor ao dinheiro. Acossados pela cobiça, alguns se desviaram da fé e se enredaram em muitas aflições.
+11. Mas tu, ó homem de Deus, foge desses vícios e procura com todo empenho a piedade, a fé, a caridade, a paciência, a mansidão.
+12. Combate o bom combate da fé. Conquista a vida eterna, para a qual foste chamado e fizeste aquela nobre profissão de fé perante muitas testemunhas.
+13. Em presença de Deus, que dá a vida a todas as coisas, e de Cristo Jesus, que ante Pôncio Pilatos abertamente testemunhou a verdade,
+14. recomendo-te que guardes o mandamento sem mácula, irrepreensível, até a aparição de nosso Senhor Jesus Cristo,
+15. a qual a seu tempo será realizada pelo bem-aventurado e único Soberano, Rei dos reis e Senhor dos senhores,
+16. o único que possui a imortalidade e habita em luz inacessível, a quem nenhum homem viu, nem pode ver. A ele, honra e poder eterno! Amém.
+17. Exorta os ricos deste mundo a que não sejam orgulhosos nem ponham sua esperança nas riquezas volúveis, mas em Deus, que nos dá abundantemente todas as coisas para delas fruirmos.
+18. Que pratiquem o bem, se enriqueçam de boas obras, sejam generosos, comunicativos,
+19. ajuntem um tesouro sólido e excelente para seu futuro, a fim de conquistarem a verdadeira vida.
+20. Ó Timóteo, guarda o bem que te foi confiado! Evita as conversas frívolas e mundanas, assim como as contradições de pretensa ciência.
+21. Alguns, por segui-las, se transviaram da fé. A graça esteja convosco.II Timóteo, 1
+1. Paulo, apóstolo de Jesus Cristo pela vontade de Deus para anunciar a promessa da vida que está em Jesus Cristo,
+2. a Timóteo, filho caríssimo: graça, misericórdia, paz, da parte de Deus Pai e de Jesus Cristo, nosso Senhor!
+3. Dou graças a Deus, a quem sirvo com pureza de consciência, tal como aprendi de meus pais, e me lembro de ti sem cessar nas minhas orações, de noite e de dia.
+4. Quando me vêm ao pensamento as tuas lágrimas, sinto grande desejo de te ver para me encher de alegria.
+5. Conservo a lembrança daquela tua fé tão sincera, que foi primeiro a de tua avó Lóide e de tua mãe Eunice e que, não tenho a menor dúvida, habita em ti também.
+6. Por esse motivo, eu te exorto a reavivar a chama do dom de Deus que recebeste pela imposição das minhas mãos.
+7. Pois Deus não nos deu um espírito de timidez, mas de fortaleza, de amor e de sabedoria.
+8. Não te envergonhes, portanto, do testemunho de nosso Senhor, nem de mim, seu prisioneiro, mas sofre comigo pelo Evangelho, fortificado pelo poder de Deus.
+9. Deus nos salvou e chamou para a santidade, não em atenção às nossas obras, mas em virtude do seu desígnio, da graça que desde a eternidade nos destinou em Cristo Jesus,
+10. e agora nos manifestou mediante a aparição de nosso Salvador Jesus Cristo, que destruiu a morte e suscitou a vida e a imortalidade, pelo Evangelho,
+11. do qual fui constituído pregador, apóstolo e mestre entre os gentios.
+12. É este o motivo por que estou sofrendo assim. Mas não me queixo, não. Sei em quem pus minha confiança, e estou certo de que é assaz poderoso para guardar meu depósito até aquele dia.
+13. Toma por modelo os ensinamentos salutares que recebeste de mim sobre a fé e o amor a Jesus Cristo.
+14. Guarda o precioso depósito, pela virtude do Espírito Santo que habita em nós.
+15. Sabes que todos os da Ásia se apartaram de mim, entre eles Figelo e Hermógenes.
+16. O Senhor conceda sua misericórdia à casa de Onesíforo, que muitas vezes me reconfortou e não se envergonhou das minhas cadeias!
+17. Pelo contrário, quando veio a Roma, procurou-me com solicitude e me encontrou.
+18. O Senhor lhe conceda a graça de obter misericórdia junto do Senhor naquele dia. Sabes melhor que ninguém quantos bons serviços ele prestou em Éfeso.II Timóteo, 2
+1. Tu, portanto, meu filho, procura progredir na graça de Jesus Cristo.
+2. O que de mim ouviste em presença de muitas testemunhas, confia-o a homens fiéis que, por sua vez, sejam capazes de instruir a outros.
+3. Suporta comigo os trabalhos, como bom soldado de Jesus Cristo.
+4. Nenhum soldado pode implicar-se em negócios da vida civil, se quer agradar ao que o alistou.
+5. Nenhum atleta será coroado, se não tiver lutado segundo as regras.
+6. É preciso que o lavrador trabalhe antes com afinco, se quer boa colheita.
+7. Entende bem o que eu quero dizer. O Senhor há de dar-te inteligência em tudo.
+8. Lembra-te de Jesus Cristo, saído da estirpe de Davi e ressuscitado dos mortos, segundo o meu Evangelho,
+9. pelo qual estou sofrendo até as cadeias como um malfeitor. Mas a palavra de Deus, esta não se deixa acorrentar.
+10. Pelo que tudo suporto por amor dos escolhidos, para que também eles consigam a salvação em Jesus Cristo, com a glória eterna.
+11. Eis uma verdade absolutamente certa: Se morrermos com ele, com ele viveremos.
+12. Se soubermos perseverar, com ele reinaremos.
+13. Se, porém, o renegarmos, ele nos renegará. Se formos infiéis... ele continua fiel, e não pode desdizer-se.
+14. Lembra-lhes estas coisas e conjura-os, por Deus, a evitarem discussões de palavras, que só servem para a perdição dos ouvintes.
+15. Empenha-te em te apresentares diante de Deus como homem digno de aprovação, operário que não tem de que se envergonhar, íntegro distribuidor da palavra da verdade.
+16. Procura esquivar-te das conversas frívolas dos mundanos, que só contribuem para a impiedade.
+17. As palavras dessa gente destroem como a gangrena. Entre eles estão Himeneu e Fileto,
+18. que se desviaram da verdade dizendo que a ressurreição já aconteceu e transtornaram a fé em alguns.
+19. Contudo, o sólido fundamento de Deus se mantém firme, porque vem selado com estas palavras: O Senhor conhece os que são seus (Nm 16,5); e: Renuncie à iniqüidade todo aquele que pronuncia o nome do Senhor (Is 26,13).
+20. Numa grande casa não há somente utensílios de ouro e de prata, mas também de madeira e de barro. Aqueles para ocasiões finas, estes para uso ordinário.
+21. Quem, portanto, se conservar puro e isento dessas doutrinas, será um utensílio nobre, santificado, útil ao seu possuidor, preparado para todo uso benéfico.
+22. Foge das paixões da mocidade, busca com empenho a justiça, a fé, a caridade, a paz, com aqueles que invocam o Senhor com pureza de coração.
+23. Rejeita as discussões tolas e absurdas, visto que geram contendas.
+24. Não convém a um servo do Senhor altercar; bem ao contrário, seja ele condescendente com todos, capaz de ensinar, paciente em suportar os males.
+25. É com brandura que deve corrigir os adversários, na esperança de que Deus lhes conceda o arrependimento e o conhecimento da verdade,
+26. e voltem a si, uma vez livres dos laços do demônio, que os mantém cativos e submetidos aos seus caprichos.II Timóteo, 3
+1. Nota bem o seguinte: nos últimos dias haverá um período difícil.
+2. Os homens se tornarão egoístas, avarentos, fanfarrões, soberbos, rebeldes aos pais, ingratos, malvados,
+3. desalmados, desleais, caluniadores, devassos, cruéis, inimigos dos bons,
+4. traidores, insolentes, cegos de orgulho, amigos dos prazeres e não de Deus,
+5. ostentarão a aparência de piedade, mas desdenharão a realidade. Dessa gente, afasta-te!
+6. Deles fazem parte os que se insinuam jeitosamente pelas casas e enfeitiçam mulherzinhas carregadas de pecados, atormentadas por toda espécie de paixões,
+7. sempre a aprender sem nunca chegar ao conhecimento da verdade.
+8. Como Janes e Jambres resistiram a Moisés, assim também estes homens de coração pervertido, reprovados na fé, tentam resistir à verdade.
+9. Mas não irão longe, porque será manifesta a todos a sua insensatez, como o foi a daqueles dois.
+10. Tu, pelo contrário, te aplicaste a seguir-me de perto na minha doutrina, no meu modo de vida, nos meus planos, na minha fé, na minha paciência, na minha caridade, na minha constância,
+11. nas minhas perseguições, nas provações que me sobrevieram em Antioquia, em Icônio, em Listra. Que perseguições tive que sofrer! E de todas me livrou o Senhor.
+12. Pois todos os que quiserem viver piedosamente, em Jesus Cristo, terão de sofrer a perseguição.
+13. Mas os homens perversos e impostores irão de mal a pior, sedutores e seduzidos.
+14. Tu, porém, permanece firme naquilo que aprendeste e creste. Sabes de quem aprendeste.
+15. E desde a infância conheces as Sagradas Escrituras e sabes que elas têm o condão de te proporcionar a sabedoria que conduz à salvação, pela fé em Jesus Cristo.
+16. Toda a Escritura é inspirada por Deus, e útil para ensinar, para repreender, para corrigir e para formar na justiça.
+17. Por ela, o homem de Deus se torna perfeito, capacitado para toda boa obra.II Timóteo, 4
+1. Eu te conjuro em presença de Deus e de Jesus Cristo, que há de julgar os vivos e os mortos, por sua aparição e por seu Reino:
+2. prega a palavra, insiste oportuna e importunamente, repreende, ameaça, exorta com toda paciência e empenho de instruir.
+3. Porque virá tempo em que os homens já não suportarão a sã doutrina da salvação. Levados pelas próprias paixões e pelo prurido de escutar novidades, ajustarão mestres para si.
+4. Apartarão os ouvidos da verdade e se atirarão às fábulas.
+5. Tu, porém, sê prudente em tudo, paciente nos sofrimentos, cumpre a missão de pregador do Evangelho, consagra-te ao teu ministério.
+6. Quanto a mim, estou a ponto de ser imolado e o instante da minha libertação se aproxima.
+7. Combati o bom combate, terminei a minha carreira, guardei a fé.
+8. Resta-me agora receber a coroa da justiça, que o Senhor, justo Juiz, me dará naquele dia, e não somente a mim, mas a todos aqueles que aguardam com amor a sua aparição.
+9. Procura vir ter comigo quanto antes.
+10. Demas me abandonou, por amor das coisas do século presente, e se foi para Tessalônica. Crescente, para a Galácia; Tito, para a Dalmácia.
+11. Só Lucas está comigo. Toma contigo Marcos e traze-o, porque me é bem útil para o ministério.
+12. Tíquico enviei-o para Éfeso.
+13. Quando vieres, traze contigo a capa que deixei em Trôade na casa de Carpo, e também os livros, principalmente os pergaminhos.
+14. Alexandre, o ferreiro, me tratou muito mal. O Senhor há de lhe pagar pela sua conduta.
+15. Tu também guarda-te dele, porque fez oposição cerrada à nossa pregação.
+16. Em minha primeira defesa não houve quem me assistisse; todos me desampararam! (Que isto não seja imputado.)
+17. Contudo, o Senhor me assistiu e me deu forças, para que, por meu intermédio, a boa mensagem fosse plenamente anunciada e chegasse aos ouvidos de todos os pagãos. E fui salvo das fauces do leão.
+18. O Senhor me salvará de todo mal e me preservará para o seu Reino celestial. A ele a glória por toda a eternidade! Amém.
+19. Saúda Prisca e Áquila, e a família de Onesíforo.
+20. Erasto ficou em Corinto. Deixei Trófimo doente em Mileto.
+21. Apressa-te a vir antes do inverno. Saúdam-te Eubulo, Pudente, Lino, Cláudia e todos os irmãos.
+22. O Senhor esteja com o teu espírito! A graça esteja convosco!Tito, 1
+1. Paulo, servo de Deus, apóstolo de Jesus Cristo para levar aos eleitos de Deus a fé e o profundo conhecimento da verdade que conduz à piedade,
+2. na esperança da vida eterna prometida em tempos longínquos por Deus veraz e fiel,
+3. que na ocasião escolhida manifestou a sua palavra mediante a pregação que me foi confiada por ordem de Deus, nosso Salvador,
+4. a Tito, meu verdadeiro filho em nossa fé comum: graça e paz da parte de Deus Pai e de Jesus Cristo, nosso Salvador!
+5. Eu te deixei em Creta para acabares de organizar tudo e estabeleceres anciãos em cada cidade, de acordo com as normas que te tracei.
+6. (Devem ser escolhidos entre) quem seja irrepreensível, casado uma só vez, tenha filhos fiéis e não acusados de má conduta ou insubordinação.
+7. Porquanto é mister que o bispo seja irrepreensível, como administrador que é posto por Deus. Não arrogante, nem colérico, nem intemperante, nem violento, nem cobiçoso.
+8. Ao contrário, seja hospitaleiro, amigo do bem, prudente, justo, piedoso, continente,
+9. firmemente apegado à doutrina da fé tal como foi ensinada, para poder exortar segundo a sã doutrina e rebater os que a contradizem.
+10. Com efeito, há muitos insubmissos, charlatães e sedutores, principalmente entre os da circuncisão.
+11. É necessário tapar-lhes a boca, porque transtornam famílias inteiras, ensinando o que não convém, e isso por vil espírito de lucro.
+12. Um dentre eles, o profeta deles disse: Os cretenses são sempre mentirosos, feras selvagens, glutões preguiçosos.
+13. Esta asserção reflete a verdade. Portanto, repreende-os severamente, para que se mantenham sãos na fé,
+14. e não dêem ouvidos a fábulas judaicas nem a preceitos de homens avessos à verdade.
+15. Para os puros todas as coisas são puras. Para os corruptos e descrentes nada é puro: até a sua mente e consciência são corrompidas.
+16. Proclamam que conhecem a Deus, mas na prática o renegam, detestáveis que são, rebeldes e incapazes de qualquer boa obra.Tito, 2
+1. O teu ensinamento, porém, seja conforme à sã doutrina.
+2. Os mais velhos sejam sóbrios, graves, prudentes, fortes na fé, na caridade, na paciência.
+3. Assim também as mulheres de mais idade mostrem no seu exterior uma compostura santa, não sejam maldizentes nem intemperantes, mas mestras de bons conselhos.
+4. Que saibam ensinar as jovens a amarem seus maridos, a quererem bem seus filhos,
+5. a serem prudentes, castas, cuidadosas da casa, bondosas, submissas a seus maridos, para que a palavra de Deus não seja desacreditada.
+6. Exorta igualmente os moços a serem morigerados,
+7. e mostra-te em tudo modelo de bom comportamento: pela integridade na doutrina, gravidade,
+8. linguagem sã e irrepreensível, para que o adversário seja confundido, não tendo a dizer de nós mal algum.
+9. Exorta os servos a que sejam submissos a seus senhores e atentos em agradar-lhes. Em lugar de reclamar deles
+10. e defraudá-los, procurem em tudo testemunhar-lhes incondicional fidelidade, para que por todos seja respeitada a doutrina de Deus, nosso Salvador.
+11. Manifestou-se, com efeito, a graça de Deus, fonte de salvação para todos os homens.
+12. Veio para nos ensinar a renunciar à impiedade e às paixões mundanas e a viver neste mundo com toda sobriedade, justiça e piedade,
+13. na expectativa da nossa esperança feliz, a aparição gloriosa de nosso grande Deus e Salvador, Jesus Cristo,
+14. que se entregou por nós, a fim de nos resgatar de toda a iniqüidade, nos purificar e nos constituir seu povo de predileção, zeloso na prática do bem.
+15. Eis o que deves ensinar, pregar e defender com toda a autoridade. E que ninguém te menospreze!Tito, 3
+1. Admoesta-os a que sejam submissos aos magistrados e às autoridades, sejam obedientes, estejam prontos para qualquer obra boa,
+2. não falem mal dos outros, sejam pacíficos, afáveis e saibam dar provas de toda mansidão para com todos os homens.
+3. Porque também nós outrora éramos insensatos, rebeldes, transviados, escravos de paixões de toda espécie, vivendo na malícia e na inveja, detestáveis, odiando-nos uns aos outros.
+4. Mas um dia apareceu a bondade de Deus, nosso Salvador, e o seu amor para com os homens.
+5. E, não por causa de obras de justiça que tivéssemos praticado, mas unicamente em virtude de sua misericórdia, ele nos salvou mediante o batismo da regeneração e renovação, pelo Espírito Santo,
+6. que nos foi concedido em profusão, por meio de Cristo, nosso Salvador,
+7. para que a justificação obtida por sua graça nos torne, em esperança, herdeiros da vida eterna.
+8. Certa é esta doutrina, e quero que a ensines com constância e firmeza, para que os que abraçaram a fé em Deus se esforcem por se aperfeiçoar na prática do bem. Isto é bom e útil aos homens.
+9. Quanto a questões tolas, genealogias, contendas e disputas relativas à lei, foge delas, porque são inúteis e vãs.
+10. O homem que assim fomenta divisões, depois de advertido uma primeira e uma segunda vez, evita-o,
+11. visto que esse tal é um perverso que, perseverando no seu pecado, se condena a si próprio.
+12. Logo que eu te enviar Ártemas ou Tíquico, apressa-te a vir ter comigo em Nicópolis, onde decidi passar o inverno.
+13. Prepara com cuidado a viagem do jurista Zenas e de Apolo, de maneira que nada lhes venha a faltar.
+14. Urge também que os nossos aprendam a aplicar-se às boas obras para atender às necessidades mais prementes. Assim não ficarão infrutuosos.
+15. Todos os que estão comigo te saúdam. Saúda todos aqueles que nos amam na fé. A graça esteja com todos vós!Filêmon, 1
+1. Paulo, prisioneiro de Jesus Cristo, e seu irmão Timóteo, a Filêmon, nosso muito amado colaborador,
+2. a Ápia, nossa irmã, a Arquipo, nosso companheiro de armas, e à igreja que se reúne em tua casa.
+3. A vós, graça e paz da parte de Deus, nosso Pai, e da parte do Senhor Jesus Cristo!
+4. Não cesso de dar graças a meu Deus e lembrar-me de ti nas minhas orações,
+5. ao receber notícia da tua caridade e da fé que tens no Senhor Jesus e para com todos os santos,
+6. para que esta tua fé, que compartilhas conosco, seja atuante e faça conhecer todo o bem que se realiza entre nós por causa de Cristo.
+7. Tua caridade me trouxe grande alegria e conforto, porque os corações dos santos encontraram alívio por teu intermédio, irmão.
+8. Por esse motivo, se bem que eu tenha plena autoridade em Cristo para prescrever-te o que é da tua obrigação,
+9. prefiro fazer apenas um apelo à tua caridade. Eu, Paulo, idoso como estou, e agora preso por Jesus Cristo,
+10. venho suplicar-te em favor deste filho meu, que gerei na prisão, Onésimo.
+11. Ele poderá ter sido de pouca serventia para ti, mas agora será muito útil tanto a ti como a mim.
+12. Torno a enviá-lo para junto de ti, e é como se fora o meu próprio coração.
+13. Quisera conservá-lo comigo, para que em teu nome ele continuasse a assistir-me nesta minha prisão pelo Evangelho.
+14. Mas, sem o teu consentimento, nada quis resolver, para que tenhas ocasião de praticar o bem (em meu favor), não por imposição, mas sim de livre vontade.
+15. Se ele se apartou de ti por algum tempo, foi sem dúvida para que o pudesses reaver para sempre.
+16. Agora, não já como escravo, mas bem mais do que escravo, como irmão caríssimo, meu e sobretudo teu, tanto por interesses temporais como no Senhor.
+17. Portanto, se me tens por amigo, recebe-o como a mim.
+18. Se ele te causou qualquer prejuízo ou está devendo alguma coisa, lança isto em minha conta.
+19. Eu, Paulo, escrevo de próprio punho: Eu pagarei. Para não te dizer que tu mesmo te deves inteiramente a mim!
+20. Sim, irmão, quisera eu receber de ti esta alegria no Senhor! Dá esta alegria ao meu coração, em Cristo!
+21. Eu te escrevi, certo de que me atenderás e sabendo que farás ainda mais do que estou pedindo.
+22. Ao mesmo tempo, prepara-me pousada, porque espero, pelas vossas orações, ser-vos restituído em breve.
+23. Enviam-te saudações Epafras, meu companheiro de prisão em Cristo Jesus,
+24. assim como Marcos, Aristarco, Demas e Lucas, meus colaboradores.
+25. A graça do Senhor Jesus Cristo esteja com o vosso espírito!Hebreus, 1
+1. Muitas vezes e de diversos modos outrora falou Deus aos nossos pais pelos profetas.
+2. Ultimamente nos falou por seu Filho, que constituiu herdeiro universal, pelo qual criou todas as coisas.
+3. Esplendor da glória (de Deus) e imagem do seu ser, sustenta o universo com o poder da sua palavra. Depois de ter realizado a purificação dos pecados, está sentado à direita da Majestade no mais alto dos céus,
+4. tão superior aos anjos quanto excede o deles o nome que herdou.
+5. Pois a quem dentre os anjos disse Deus alguma vez: Tu és meu Filho; eu hoje te gerei (Sl 2,7)? Ou então: Eu serei seu Pai e ele será meu Filho (II Sm 7,14)?
+6. E novamente, ao introduzir o seu Primogênito na terra, diz: Todos os anjos de Deus o adorem (Sl 96,7).
+7. Por outro lado, a respeito dos anjos, diz: Ele faz dos seus anjos sopros de vento e dos seus ministros chamas de fogo (Sl 103,4),
+8. ao passo que do Filho diz: O teu trono, ó Deus, subsiste para a eternidade. O cetro do teu Reino é cetro de justiça.
+9. Amaste a justiça e odiaste a iniqüidade. Por isso, ó Deus, o teu Deus te ungiu com óleo de alegria, mais que aos teus companheiros (Sl 44,7s);
+10. e ainda: Tu, Senhor, no princípio dos tempos fundaste a terra, e os céus são obra de tuas mãos.
+11. Eles passarão, mas tu permaneces. Todos envelhecerão como uma veste;
+12. tu os envolvas como uma capa, e serão mudados. Tu, ao contrário, és sempre o mesmo e os teus anos não acabarão (Sl 103,26s).
+13. Pois a qual dos anjos disse alguma vez: Assenta-te à minha direita até que eu ponha os teus inimigos por escabelo dos teus pés (Sl 109,1)?
+14. Não são todos os anjos espíritos ao serviço de Deus, que lhes confia missões para o bem daqueles que devem herdar a salvação?Hebreus, 2
+1. Por isso, é necessário prestarmos a maior atenção à mensagem que temos recebido, para não acontecer que nos desviemos do caminho reto.
+2. A palavra anunciada por intermédio dos anjos era a tal ponto válida, que toda transgressão ou desobediência recebeu o justo castigo.
+3. Como, então, escaparemos nós se agora desprezarmos a mensagem da salvação, tão sublime, anunciada primeiramente pelo Senhor e depois confirmada pelos que a ouviram,
+4. comprovando-a o próprio Deus por sinais, prodígios, milagres e pelos dons do Espírito Santo, repartidos segundo a sua vontade?
+5. Não foi tampouco aos anjos que Deus submeteu o mundo vindouro, de que falamos.
+6. Alguém em certa passagem afirmou: Que é o homem para que dele te lembres, ou o filho do homem, para que o visites?
+7. Por pouco tempo o colocaste inferior aos anjos; de glória e de honra o coroaste,
+8. e sujeitaste a seus pés todas as coisas (Sl 8,5s). Ora, se lhe sujeitou todas as coisas, nada deixou que não lhe ficasse sujeito. Atualmente, é verdade, não vemos que tudo lhe esteja sujeito.
+9. Mas aquele que fora colocado por pouco tempo abaixo dos anjos, Jesus, nós o vemos, por sua Paixão e morte, coroado de glória e de honra. Assim, pela graça de Deus, a sua morte aproveita a todos os homens.
+10. Aquele para quem e por quem todas as coisas existem, desejando conduzir à glória numerosos filhos, deliberou elevar à perfeição, pelo sofrimento, o autor da salvação deles,
+11. para que santificador e santificados formem um só todo. Por isso, (Jesus) não hesita em chamá-los seus irmãos,
+12. dizendo: Anunciarei teu nome a meus irmãos, no meio da assembléia cantarei os teus louvores (Sl 21,23).
+13. E outra vez: Quanto a mim, ponho nele a minha confiança (Is 8,17); e: Eis-me aqui, eu e os filhos que Deus me deu (Is 8,18).
+14. Porquanto os filhos participam da mesma natureza, da mesma carne e do sangue, também ele participou, a fim de destruir pela morte aquele que tinha o império da morte, isto é, o demônio,
+15. e libertar aqueles que, pelo medo da morte, estavam toda a vida sujeitos a uma verdadeira escravidão.
+16. Veio em socorro, não dos anjos, e sim da raça de Abraão;
+17. e por isso convinha que ele se tornasse em tudo semelhante aos seus irmãos, para ser um pontífice compassivo e fiel no serviço de Deus, capaz de expiar os pecados do povo.
+18. De fato, por ter ele mesmo suportado tribulações, está em condição de vir em auxílio dos que são atribulados.Hebreus, 3
+1. Portanto, irmãos santos, participantes da vocação que vos destina à herança do céu, considerai o mensageiro e pontífice da fé que professamos, Jesus.
+2. Ele é fiel àquele que o constituiu, como também Moisés o foi em toda a sua casa (Nm 12,7).
+3. Porém, é tido muito superior em glória a Moisés, tanto quanto o fundador de uma casa é mais digno do que a própria casa.
+4. Pois toda casa tem seu construtor, mas o construtor de todas as coisas é Deus.
+5. Moisés foi fiel em toda a sua casa, como servo e testemunha das palavras de Deus.
+6. Cristo, porém, o foi como Filho à frente de sua própria casa. E sua casa somos nós, contanto que permaneçamos firmes, até o fim, professando intrepidamente a nossa fé e ufanos da esperança que nos pertence.
+7. Por isso, como diz o Espírito Santo: Hoje, se ouvirdes a sua voz,
+8. não endureçais os vossos corações, como por ocasião da revolta, como no dia da tentação no deserto,
+9. quando vossos pais me puseram à prova e viram o meu poder por quarenta anos.
+10. Eu me indignei contra aquela geração, porque andavam sempre extraviados em seu coração e não compreendiam absolutamente nada dos meus desígnios.
+11. Por isso, em minha ira, jurei que não haveriam de entrar no lugar de descanso que lhes prometera (Sl 94,8-11)!
+12. Tomai precaução, meus irmãos, para que ninguém de vós venha a perder interiormente a fé, a ponto de abandonar o Deus vivo.
+13. Antes, animai-vos mutuamente cada dia durante todo o tempo compreendido na palavra hoje, para não acontecer que alguém se torne empedernido com a sedução do pecado.
+14. Porque somos incorporados a Cristo, mas sob a condição de conservarmos firme até o fim nossa fé dos primeiros dias,
+15. enquanto se nos diz: Hoje, se ouvirdes a sua voz, não endureçais os vossos corações, como aconteceu no tempo da revolta.
+16. E quais foram os que se revoltaram contra o Senhor depois de terem ouvido a sua voz? Não foram todos os que saíram do Egito, conduzidos por Moisés?
+17. Contra quem esteve indignado o Senhor durante quarenta anos? Não foi contra os revoltosos, cujos corpos caíram no deserto?
+18. E a quem jurou que não entrariam no seu descanso senão a estes rebeldes?
+19. Portanto, estamos vendo: foi por causa da sua descrença que não puderam entrar.Hebreus, 4
+1. Enquanto, pois, subsiste a promessa de entrar no seu descanso, tenhamos cuidado em que ninguém de nós corra o risco de ser excluído.
+2. A boa nova nos foi trazida a nós, como o foi a eles. Mas a eles de nada aproveitou, porque caíram na descrença.
+3. Nós, porém, se tivermos fé, haveremos de entrar no descanso. Ele disse: Eu jurei na minha ira: não entrarão no lugar do meu descanso. Ora, as obras de Deus estão concluídas desde a criação do mundo;
+4. pois, em certa passagem, falou do sétimo dia o seguinte: E, terminado o seu trabalho, descansou Deus no sétimo dia (Gn 2,2).
+5. Se, pois, ele repete: Não entrarão no lugar do meu descanso,
+6. é sinal de que outros são chamados a entrar nele. E como aqueles a quem primeiro foi anunciada a promessa não entraram por não ter tido a fé,
+7. Deus, após muitos anos, por meio de Davi, estabelece um novo dia, um hoje, ao pronunciar as palavras mencionadas: Hoje, se ouvirdes a sua voz, não endureçais os vossos corações.
+8. Se Josué lhes houvesse dado repouso, não teria depois disso falado dum outro dia.
+9. Por isso, resta um repouso sabático para o povo de Deus.
+10. E quem entrar nesse repouso descansará das suas obras, assim como descansou Deus das suas.
+11. Assim, apressemo-nos a entrar neste descanso para não cairmos por nossa vez na mesma incredulidade.
+12. Porque a palavra de Deus é viva, eficaz, mais penetrante do que uma espada de dois gumes e atinge até a divisão da alma e do corpo, das juntas e medulas, e discerne os pensamentos e intenções do coração.
+13. Nenhuma criatura lhe é invisível. Tudo é nu e descoberto aos olhos daquele a quem havemos de prestar contas.
+14. Temos, portanto, um grande Sumo Sacerdote que penetrou nos céus, Jesus, Filho de Deus. Conservemos firme a nossa fé.
+15. Porque não temos nele um pontífice incapaz de compadecer-se das nossas fraquezas. Ao contrário, passou pelas mesmas provações que nós, com exceção do pecado.
+16. Aproximemo-nos, pois, confiadamente do trono da graça, a fim de alcançar misericórdia e achar a graça de um auxílio oportuno.Hebreus, 5
+1. Em verdade, todo pontífice é escolhido entre os homens e constituído a favor dos homens como mediador nas coisas que dizem respeito a Deus, para oferecer dons e sacrifícios pelos pecados.
+2. Sabe compadecer-se dos que estão na ignorância e no erro, porque também ele está cercado de fraqueza.
+3. Por isso, ele deve oferecer sacrifícios tanto pelos próprios pecados quanto pelos pecados do povo.
+4. Ninguém se apropria desta honra, senão somente aquele que é chamado por Deus, como Aarão.
+5. Assim também Cristo não se atribuiu a si mesmo a glória de ser pontífice. Esta lhe foi dada por aquele que lhe disse: Tu és meu Filho, eu hoje te gerei (Sl 2,7),
+6. como também diz em outra passagem: Tu és sacerdote eternamente, segundo a ordem de Melquisedec (Sl 109,4).
+7. Nos dias de sua vida mortal, dirigiu preces e súplicas, entre clamores e lágrimas, àquele que o podia salvar da morte, e foi atendido pela sua piedade.
+8. Embora fosse Filho de Deus, aprendeu a obediência por meio dos sofrimentos que teve.
+9. E uma vez chegado ao seu termo, tornou-se autor da salvação eterna para todos os que lhe obedecem,
+10. porque Deus o proclamou sacerdote segundo a ordem de Melquisedec.
+11. Teríamos muita coisa a dizer sobre isso, e coisas bem difíceis de explicar, dada a vossa lentidão em compreender...
+12. A julgar pelo tempo, já devíeis ser mestres! Contudo, ainda necessitais que vos ensinem os primeiros rudimentos da palavra de Deus; e vos tornastes tais, que precisais de leite em vez de alimento sólido!
+13. Ora, quem se alimenta de leite não é capaz de compreender uma doutrina profunda, porque é ainda criança.
+14. Mas o alimento sólido é para os adultos, para aqueles que a experiência já exercitou na distinção do bem e do mal.Hebreus, 6
+1. Pelo que, transpondo os ensinamentos elementares da doutrina de Cristo, procuremos alcançar-lhe a plenitude. Não queremos agora insistir nas noções fundamentais da conversão, da renúncia ao pecado, da fé em Deus,
+2. a doutrina dos vários batismos, da imposição das mãos, da ressurreição dos mortos e do julgamento eterno.
+3. Isto faremos, se Deus o permitir.
+4. Porque aqueles que foram uma vez iluminados saborearam o dom celestial, participaram dos dons do Espírito Santo,
+5. experimentaram a doçura da palavra de Deus e as maravilhas do mundo vindouro e, apesar disso, caíram na apostasia,
+6. é impossível que se renovem outra vez para a penitência, visto que, da sua parte, crucificaram de novo o Filho de Deus e publicamente o escarneceram.
+7. O terreno que recebe chuvas freqüentes e fornece ao agricultor boas searas, é abençoado por Deus.
+8. O que produz só espinhos e abrolhos, é abandonado, não demora que será amaldiçoado e acabará sendo incendiado.
+9. Embora vos falemos desse modo, caríssimos, temos a melhor idéia a vosso respeito e de vossa salvação.
+10. Deus não é injusto e não esquecerá vossas obras e a caridade que mostrastes por amor de seu nome, vós que servistes e continuais a servir os santos.
+11. Desejamos, apenas, que ponhais todo o empenho em guardar intata a vossa esperança até o fim,
+12. e que, longe de vos tornardes negligentes, sejais imitadores daqueles que pela fé e paciência se tornam herdeiros das promessas.
+13. Quando Deus fez a promessa a Abraão, como não houvesse ninguém maior por quem jurar, jurou por si mesmo,
+14. dizendo: Em verdade eu te abençoarei, e multiplicarei a tua posteridade (Gn 22,16s).
+15. E Abraão, esperando com paciência, alcançou a realização da promessa.
+16. Os homens, com efeito, juram por quem é maior do que eles, e o juramento serve de garantia e põe fim a toda controvérsia.
+17. Por isso, querendo Deus mostrar mais seguramente aos herdeiros da promessa a imutabilidade da sua resolução, interpôs o juramento.
+18. Por este ato duplamente irrevogável, pelo qual o próprio Deus se proibia de desdizer-se, encontramos motivo de profunda consolação, nós que pusemos nossa perspectiva em alcançar a esperança proposta.
+19. Esperança esta que seguramos qual âncora de nossa alma, firme e sólida, e que penetra até além do véu, no santuário
+20. onde Jesus entrou por nós como precursor, Pontífice eterno, segundo a ordem de Melquisedec.Hebreus, 7
+1. Este Melquisedec, rei de Salém, sacerdote do Deus Altíssimo, que saiu ao encontro de Abraão quando este regressava da derrota dos reis e o abençoou,
+2. ao qual Abraão ofereceu o dízimo de todos os seus despojos, é, conforme seu nome indica, primeiramente "rei de justiça" e, depois, rei de Salém, isto é, "rei de paz".
+3. Sem pai, sem mãe, sem genealogia, a sua vida não tem começo nem fim; comparável sob todos os pontos ao Filho de Deus, permanece sacerdote para sempre.
+4. Considerai, pois, quão grande é aquele a quem até o patriarca Abraão deu o dízimo dos seus mais ricos espólios.
+5. Os filhos de Levi, revestidos do sacerdócio, na qualidade de filhos de Abraão, têm por missão receber o dízimo legal do povo, isto é, de seus irmãos.
+6. Naquele caso, porém, foi um estrangeiro que recebeu os dízimos de Abraão e abençoou o detentor das promessas.
+7. Ora, é indiscutível: é o inferior que recebe a. bênção do que é superior.
+8. De mais, aqui, os levitas que recebem os dízimos são homens mortais; lá, porém, se trata de alguém do qual é atestado que vive.
+9. Por fim, por assim dizer, também Levi, que recebe os dízimos, pagou-os na pessoa de Abraão,
+10. pois ele já estava em germe no íntimo deste, quando aconteceu o encontro com Melquisedec.
+11. Se a perfeição tivesse sido realizada pelo sacerdócio levítico (porque é sobre este que se funda a legislação dada ao povo), que necessidade havia ainda de que surgisse outro sacerdote segundo a ordem de Melquisedec, e não segundo a ordem de Aarão?
+12. Pois, transferido o sacerdócio, forçoso é que se faça também a mudança da lei.
+13. De fato, aquele ao qual se aplicam estas palavras é de outra tribo, da qual ninguém foi encarregado do serviço do altar.
+14. E é notório que nosso Senhor nasceu da tribo de Judá, tribo à qual Moisés nada encarregou ao falar do sacerdócio.
+15. Isto se torna ainda mais evidente se se tem em conta que este outro sacerdote, que surge à semelhança de Melquisedec,
+16. foi constituído não por prescrição de uma lei humana, mas pela sua imortalidade.
+17. Porque está escrito: Tu és sacerdote eternamente, segundo a ordem de Melquisedec.
+18. Com isso, está abolida a antiga legislação, por causa de sua ineficácia e inutilidade.
+19. Pois a lei nada levou à perfeição. Apenas foi portadora de uma esperança melhor que nos leva a Deus.
+20. E isso não foi feito sem juramento. Os outros sacerdotes foram instituídos sem juramento.
+21. Para ele, ao contrário, interveio o juramento daquele que disse: Jurou o Senhor e não se arrependerá: tu és sacerdote eternamente.
+22. E esta aliança da qual Jesus é o Senhor, é-lhe muito superior.
+23. Além disso, os primeiros sacerdotes deviam suceder-se em grande número, porquanto a morte não permitia que permanecessem sempre.
+24. Este, porque vive para sempre, possui um sacerdócio eterno.
+25. É por isso que lhe é possível levar a termo a salvação daqueles que por ele vão a Deus, porque vive sempre para interceder em seu favor.
+26. Tal é, com efeito, o Pontífice que nos convinha: santo, inocente, imaculado, separado dos pecadores e elevado além dos céus,
+27. que não tem necessidade, como os outros sumos sacerdotes, de oferecer todos os dias sacrifícios, primeiro pelos pecados próprios, depois pelos do povo; pois isto o fez de uma só vez para sempre, oferecendo-se a si mesmo.
+28. Enquanto a lei elevava ao sacerdócio homens sujeitos às fraquezas, o juramento, que sucedeu à lei, constitui o Filho, que é eternamente perfeito.Hebreus, 8
+1. O ponto essencial do que acabamos de dizer é este: temos um Sumo Sacerdote, que está sentado à direita do trono da Majestade divina nos céus,
+2. Ministro do santuário e do verdadeiro tabernáculo, erigido pelo Senhor, e não por homens.
+3. Todo pontífice é constituído para oferecer dons e sacrifícios. Portanto, é necessário que ele tenha algo para oferecer.
+4. Por conseguinte, se ele estivesse na terra, nem mesmo sacerdote seria, porque já existem aqui sacerdotes que têm a missão, de oferecer os dons prescritos pela lei.
+5. O culto que estes celebram é, aliás, apenas a imagem, sombra das realidades celestiais, como foi revelado a Moisés quando estava para construir o tabernáculo: Olha, foi-lhe dito, faze todas as coisas conforme o modelo que te foi mostrado no monte (Ex 25,40).
+6. Ao nosso Sumo Sacerdote, entretanto, compete ministério tanto mais excelente quanto ele é mediador de uma aliança mais perfeita, selada por melhores promessas.
+7. Porque, se a primeira tivesse sido sem defeito, certamente não haveria lugar para outra.
+8. Ora, sem dúvida, há uma censura nestas palavras: Eis que virão dias - oráculo do Senhor - em que estabelecerei, com a casa de Israel e com a casa de Judá uma aliança nova.
+9. Não coma a aliança que fiz com os seus pais no dia em que os tomei pela mão para tirá-los da terra do Egito. Como eles não permaneceram fiéis ao pacto, eu me desinteressei deles - oráculo do Senhor.
+10. Mas esta é a aliança que estabelecerei com a casa de Israel depois daqueles dias: imprimirei as minhas leis no seu espírito e as gravarei no seu coração. Eu serei seu Deus, e eles serão meu povo.
+11. Ninguém mais terá que ensinar a seu concidadão, ninguém a seu irmão, dizendo: "Conhece o Senhor", porque todos me conhecerão, desde o menor até o maior.
+12. Eu lhes perdoarei as suas iniqüidades, e já não me lembrarei dos seus pecados (Jr 31,31-34).
+13. Se Deus fala de uma aliança nova é que ele declara antiquada a precedente. Ora, o que é antiquado e envelhecido está certamente fadado a desaparecer.Hebreus, 9
+1. A primeira aliança, na verdade, teve regulamentos rituais e seu santuário terrestre.
+2. Consistia numa tenda: a parte anterior encerrava o candelabro e a mesa com os pães da proposição; chamava-se Santo.
+3. Atrás do segundo véu achava-se a parte chamada Santo dos Santos.
+4. Aí estava o altar de ouro para os perfumes, e a Arca da Aliança coberta de ouro por todos os lados; dentro dela, a urna de ouro contendo o maná, a vara de Aarão que floresceu e as tábuas da aliança;
+5. em cima da arca, os querubins da glória estendendo a sombra de suas asas sobre o propiciatório. Mas não é aqui o lugar de falarmos destas coisas pormenorizadamente.
+6. Assim sendo, enquanto na primeira parte do tabernáculo entram continuamente os sacerdotes para desempenhar as funções,
+7. no segundo entra apenas o sumo sacerdote, somente uma vez ao ano, e ainda levando consigo o sangue para oferecer pelos seus próprios pecados e pelos do povo.
+8. Com o que significava o Espírito Santo que o caminho do Santo dos Santos ainda não estava livre, enquanto subsistisse o primeiro tabernáculo.
+9. Isto é também uma figura que se refere ao tempo presente, sinal de que os dons e sacrifícios que se ofereciam eram incapazes de justificar a consciência daquele que praticava o culto.
+10. Culto que consistia unicamente em comidas, bebidas e abluções diversas, ritos materiais que só podiam ter valor enquanto não fossem instituídos outros mais perfeitos.
+11. Porém, já veio Cristo, Sumo Sacerdote dos bens vindouros. E através de um tabernáculo mais excelente e mais perfeito, não construído por mãos humanas (isto é, não deste mundo),
+12. sem levar consigo o sangue de carneiros ou novilhos, mas com seu próprio sangue, entrou de uma vez por todas no santuário, adquirindo-nos uma redenção eterna.
+13. Pois se o sangue de carneiros e de touros e a cinza de uma vaca, com que se aspergem os impuros, santificam e purificam pelo menos os corpos,
+14. quanto mais o sangue de Cristo, que pelo Espírito eterno se ofereceu como vítima sem mácula a Deus, purificará a nossa consciência das obras mortas para o serviço do Deus vivo?
+15. Por isso ele é mediador do novo testamento. Pela sua morte expiou os pecados cometidos no decorrer do primeiro testamento, para que os eleitos recebam a herança eterna que lhes foi prometida.
+16. Porque, onde há testamento, é necessário que intervenha a morte do testador.
+17. Um testamento só entra em vigor depois da morte do testador. Permanece sem efeito enquanto ele vive.
+18. Por essa razão, nem mesmo o primeiro testamento foi inaugurado sem uma efusão de sangue.
+19. Moisés, ao concluir a proclamação de todos os mandamentos da lei, em presença de todo o povo reunido, tomou o sangue dos touros e dos cabritos imolados, bem como água, lã escarlate e hissopo, aspergiu com sangue não só o próprio livro, como também todo o povo,
+20. dizendo: Este é o sangue da aliança que Deus contraiu convosco (Ex 24,8).
+21. E da mesma maneira aspergiu o tabernáculo e todos os objetos do culto.
+22. Aliás, conforme a lei, o sangue é utilizado, para quase todas as purificações, e sem efusão de sangue não há perdão.
+23. Se os meros símbolos das realidades celestes exigiam uma tal purificação, necessário se tornava que as realidades mesmo fossem purificadas por sacrifícios ainda superiores.
+24. Eis por que Cristo entrou, não em santuário feito por mãos de homens, que fosse apenas figura do santuário verdadeiro, mas no próprio céu, para agora se apresentar intercessor nosso ante a face de Deus.
+25. E não entrou para se oferecer muitas vezes a si mesmo, como o pontífice que entrava todos os anos no santuário para oferecer sangue alheio.
+26. Do contrário, lhe seria necessário padecer muitas vezes desde o princípio do mundo; quando é certo que apareceu uma só vez ao final dos tempos para destruição do pecado pelo sacrifício de si mesmo.
+27. Como está determinado que os homens morram uma só vez, e logo em seguida vem o juízo,
+28. assim Cristo se ofereceu uma só vez para tomar sobre si os pecados da multidão, e aparecerá uma segunda vez, não porém em razão do pecado, mas para trazer a salvação àqueles que o esperam.Hebreus, 10
+1. A lei, por ser apenas a sombra dos bens futuros, não sua expressão real, é de todo impotente para aperfeiçoar aqueles que assistem aos sacrifícios que se renovam indefinidamente cada ano.
+2. Realmente, se os fiéis, uma vez purificados, não tivessem mais pecado algum na consciência, não teriam cessado de oferecê-los?
+3. Pelo contrário, pelos sacrifícios se renova cada ano a memória dos pecados.
+4. Pois é impossível que o sangue de touros e de carneiros tire pecados.
+5. Eis por que, ao entrar no mundo, Cristo diz: Não quiseste sacrifício nem oblação, mas me formaste um corpo.
+6. Holocaustos e sacrifícios pelo pecado não te agradam.
+7. Então eu disse: Eis que venho (porque é de mim que está escrito no rolo do livro), venho, ó Deus, para fazer a tua vontade (Sl 39,7ss).
+8. Disse primeiro: Tu não quiseste, tu não recebeste com agrado os sacrifícios nem as ofertas, nem os holocaustos, nem as vítimas pelo pecado (quer dizer, as imolações legais).
+9. Em seguida, ajuntou: Eis que venho para fazer a tua vontade. Assim, aboliu o antigo regime e estabeleceu uma nova economia.
+10. Foi em virtude desta vontade de Deus que temos sido santificados uma vez para sempre, pela oblação do corpo de Jesus Cristo.
+11. Enquanto todo sacerdote se ocupa diariamente com o seu ministério e repete inúmeras vezes os mesmos sacrifícios que, todavia, não conseguem apagar os pecados,
+12. Cristo ofereceu pelos pecados um único sacrifício e logo em seguida tomou lugar para sempre à direita de Deus,
+13. onde espera de ora em diante que os seus inimigos sejam postos por escabelo dos seus pés (Sl 109,1).
+14. Por uma só oblação ele realizou a perfeição definitiva daqueles que recebem a santificação.
+15. É o que nos confirma o testemunho do Espírito Santo. Depois de ter dito:
+16. Eis a aliança que, depois daqueles dias, farei com eles - oráculo do Senhor: imprimirei as minhas leis nos seus corações e as escreverei no seu espírito,
+17. acrescenta: dos seus pecados e das suas iniqüidades já não mais me lembrarei (Jr 31,33s).
+18. Ora, onde houve plena remissão dos pecados não há por que oferecer sacrifício por eles.
+19. Por esse motivo, irmãos, temos ampla confiança de poder entrar no santuário eterno, em virtude do sangue de Jesus,
+20. pelo caminho novo e vivo que nos abriu através do véu, isto é, o caminho de seu próprio corpo.
+21. E dado que temos um Sumo-sacerdote estabelecido sobre a casa de Deus,
+22. acheguemo-nos a ele com coração sincero, com plena firmeza da fé, o mais íntimo da alma isento de toda mácula de pecado e o corpo lavado com a água purificadora (do batismo).
+23. Conservemo-nos firmemente apegados à nossa esperança, porque é fiel aquele cuja promessa aguardamos.
+24. Olhemos uns pelos outros para estímulo à caridade e às boas obras.
+25. Não abandonemos a nossa assembléia, como é costume de alguns, mas admoestemo-nos mutuamente, e tanto mais quando vedes aproximar-se o Grande Dia.
+26. Depois de termos recebido e conhecido a verdade, se a abandonarmos voluntariamente, já não haverá sacrifício para expiar este pecado.
+27. Só teremos que esperar um juízo tremendo e o fogo ardente que há de devorar os rebeldes.
+28. Se alguém transgredir a Lei de Moisés - e isto provado com duas ou três testemunhas -, deverá ser morto sem misericórdia.
+29. Quanto pior castigo julgais que merece quem calcar aos pés o Filho de Deus, profanar o sangue da aliança, em que foi santificado, e ultrajar o Espírito Santo, autor da graça!
+30. Pois bem sabemos quem é que disse: Minha é a vingança; eu a exercerei (Dt 32,35). E ainda: O Senhor julgará o seu povo (Sl 134,14).
+31. É horrendo cair nas mãos de Deus vivo.
+32. Lembrai-vos dos dias de outrora, logo que fostes iluminados. Quão longas e dolorosas lutas sustentastes.
+33. Seja tornando-vos alvo de toda espécie de opróbrios e humilhações, seja tomando moralmente parte nos sofrimentos daqueles que os tiveram que suportar.
+34. Não só vos compadecestes dos encarcerados, mas aceitastes com alegria a confiscação dos vossos bens, pela certeza de possuirdes riquezas muito melhores e imperecíveis.
+35. Não percais esta convicção a que está vinculada uma grande recompensa,
+36. pois vos é necessária a perseverança para fazerdes a vontade de Deus e alcançardes os bens prometidos.
+37. Ainda um pouco de tempo - sem dúvida, bem pouco -, e o que há de vir virá e não tardará.
+38. Meu justo viverá da fé. Porém, se ele desfalecer, meu coração já não se agradará dele (Hab 2,3s).
+39. Não somos, absolutamente, de perder o ânimo para nossa ruína; somos de manter a fé, para nossa salvação!Hebreus, 11
+1. A fé é o fundamento da esperança, é uma certeza a respeito do que não se vê.
+2. Foi ela que fez a glória dos nossos, antepassados.
+3. Pela fé reconhecemos que o mundo foi formado pela palavra de Deus e que as coisas visíveis se originaram do invisível.
+4. Pela fé Abel ofereceu a Deus um sacrifício bem superior ao de Caim, e mereceu ser chamado justo, porque Deus aceitou as suas ofertas. Graças a ela é que, apesar de sua morte, ele ainda fala.
+5. Pela fé Henoc foi arrebatado, sem ter conhecido a morte: e não foi achado, porquanto Deus o arrebatou; mas a Escritura diz que, antes de ser arrebatado, ele tinha agradado a Deus (Gn 5,24).
+6. Ora, sem fé é impossível agradar a Deus, pois para se achegar a ele é necessário que se creia primeiro que ele existe e que recompensa os que o procuram.
+7. Pela fé na palavra de Deus, Noé foi avisado a respeito de acontecimentos imprevisíveis; cheio de santo temor, construiu a arca para salvar a sua família. Pela fé ele condenou o mundo e se tornou o herdeiro da justificação mediante a fé.
+8. Foi pela fé que Abraão, obedecendo ao apelo divino, partiu para uma terra que devia receber em herança. E partiu não sabendo para onde ia.
+9. Foi pela fé que ele habitou na terra prometida, como em terra estrangeira, habitando aí em tendas com Isaac e Jacó, co-herdeiros da mesma promessa.
+10. Porque tinha a esperança fixa na cidade assentada sobre os fundamentos (eternos), cujo arquiteto e construtor é Deus.
+11. Foi pela fé que a própria Sara cobrou o vigor de conceber, apesar de sua idade avançada, porque acreditou na fidelidade daquele que lhe havia prometido.
+12. Assim, de um só homem quase morto nasceu uma posteridade tão numerosa como as estrelas do céu e inumerável como os grãos de areia da praia do mar.
+13. Foi na fé que todos (nossos pais) morreram. Embora sem atingir o que lhes tinha sido prometido, viram-no e o saudaram de longe, confessando que eram só estrangeiros e peregrinos sobre a terra (Gn 23,4).
+14. Dizendo isto, declaravam que buscavam uma pátria.
+15. E se se referissem àquela donde saíram, ocasião teriam de tornar a ela...
+16. Mas não. Eles aspiravam a uma pátria melhor, isto é, à celestial. Por isso, Deus não se dedigna de ser chamado o seu Deus; de fato, ele lhes preparou uma cidade.
+17. Foi pela sua fé que Abraão, submetido à prova, ofereceu Isaac, seu único filho,
+18. depois de ter recebido a promessa e ouvido as palavras: Uma posteridade com o teu nome te será dada em Isaac (Gn 21,12).
+19. Estava ciente de que Deus é poderoso até para ressuscitar alguém dentre os mortos. Assim, ele conseguiu que seu filho lhe fosse devolvido. E isso é um ensinamento para nós!
+20. Foi inspirado pela fé que Isaac deu a Jacó e a Esaú uma bênção em vista de acontecimentos futuros.
+21. Foi pela fé que Jacó, estando para morrer, abençoou cada um dos filhos de José e venerou a extremidade do seu bastão.
+22. Foi pela fé que José, quando estava para morrer, fez menção da partida dos filhos de Israel e dispôs a respeito dos seus despojos.
+23. Foi pela fé que os pais de Moisés, vendo nele uma criança encantadora, o esconderam durante três meses e não temeram o edito real.
+24. Foi pela fé que Moisés, uma vez crescido, renunciou a ser tido como filho da filha do faraó,
+25. preferindo participar da sorte infeliz do povo de Deus, a fruir dos prazeres culpáveis e passageiros.
+26. Com os olhos fixos na recompensa, considerava os ultrajes por amor de Cristo como um bem mais precioso que todos os tesouros dos egípcios.
+27. Foi pela fé que deixou o Egito, não temendo a cólera do rei, com tanta segurança como estivesse vendo o invisível.
+28. Foi pela fé que mandou celebrar a Páscoa e aspergir (os portais) com sangue, para que o anjo exterminador dos primogênitos poupasse os dos filhos de Israel.
+29. Foi pela fé que os fez atravessar o mar Vermelho, como por terreno seco, ao passo que os egípcios que se atreveram a persegui-los foram afogados.
+30. Foi pela fé que desabaram as muralhas de Jericó, depois de rodeadas por sete dias.
+31. Foi pela fé que Raab, a meretriz, não pereceu com aqueles que resistiram, por ter dado asilo aos espias.
+32. Que mais direi? Faltar-me-á o tempo, se falar de Gedeão, Barac, Sansão, Jefté, Davi, Samuel e dos profetas.
+33. Graças à sua fé conquistaram reinos, praticaram a justiça, viram se realizar as promessas. Taparam bocas de leões,
+34. extinguiram a violência do fogo, escaparam ao fio de espada, triunfaram de enfermidades, foram corajosos na guerra e puseram em debandada exércitos estrangeiros.
+35. Devolveram vivos às suas mães os filhos mortos. Alguns foram torturados, por recusarem ser libertados, movidos pela esperança de uma ressurreição mais gloriosa.
+36. Outros sofreram escárnio e açoites, cadeias e prisões.
+37. Foram apedrejados, massacrados, serrados ao meio, mortos a fio de espada. Andaram errantes, vestidos de pele de ovelha e de cabra, necessitados de tudo, perseguidos e maltratados,
+38. homens de que o mundo não era digno! Refugiaram-se nas solidões das montanhas, nas cavernas e em antros subterrâneos.
+39. E, no entanto, todos estes mártires da fé não conheceram a realização das promessas!
+40. Porque Deus, que tinha para nós uma sorte melhor, não quis que eles chegassem sem nós à perfeição (da felicidade).Hebreus, 12
+1. Desse modo, cercados como estamos de uma tal nuvem de testemunhas, desvencilhemo-nos das cadeias do pecado. Corramos com perseverança ao combate proposto, com o olhar fixo no autor e consumador de nossa fé, Jesus.
+2. Em vez de gozo que se lhe oferecera, ele suportou a cruz e está sentado à direita do trono de Deus.
+3. Considerai, pois, atentamente aquele que sofreu tantas contrariedades dos pecadores, e não vos deixeis abater pelo desânimo.
+4. Ainda não tendes resistido até o sangue, na luta contra o pecado.
+5. Estais esquecidos da palavra de animação que vos é dirigida como a filhos: Filho meu, não desprezes a correção do Senhor. Não desanimes, quando repreendido por ele;
+6. pois o Senhor corrige a quem ama e castiga todo aquele que reconhece por seu filho (Pr 3,11s).
+7. Estais sendo provados para a vossa correção: é Deus que vos trata como filhos. Ora, qual é o filho a quem seu pai não corrige?
+8. Mas se permanecêsseis sem a correção que é comum a todos, seríeis bastardos e não filhos legítimos.
+9. Aliás, temos na terra nossos pais que nos corrigem e, no entanto, os olhamos com respeito. Com quanto mais razão nos havemos de submeter ao Pai de nossas almas, o qual nos dará a vida?
+10. Os primeiros nos educaram para pouco tempo, segundo a sua própria conveniência, ao passo que este o faz para nosso bem, para nos comunicar sua santidade.
+11. E verdade que toda correção parece, de momento, antes motivo de pesar que de alegria. Mais tarde, porém, granjeia aos que por ela se exercitaram o melhor fruto de justiça e de paz.
+12. Levantai, pois, vossas mãos fatigadas e vossos joelhos trêmulos (Is 35,3).
+13. Dirigi os vossos passos pelo caminho certo. Os que claudicam tornem ao bom caminho e não se desviem.
+14. Procurai a paz com todos e ao mesmo tempo a santidade, sem a qual ninguém pode ver o Senhor.
+15. Estai alerta para que ninguém deixe passar a graça de Deus, e para que não desponte nenhuma planta amarga, capaz de estragar e contaminar a massa inteira.
+16. Que não haja entre vós ninguém sensual nem profanador como Esaú, que, por um prato de comida, vendeu o seu direito de primogenitura.
+17. E sabeis que, desejando ele em seguida receber a bênção do herdeiro, lhe foi recusada. E não bastaram todas as súplicas e lágrimas para que seu pai mudasse de sentimento...
+18. Em verdade, não vos aproximastes de uma montanha palpável, invadida por fogo violento, nuvem, trevas, tempestade,
+19. som da trombeta e aquela voz tão terrível que os que a ouviram suplicaram que ela não lhes falasse mais.
+20. Estavam verdadeiramente aterrados por esta ordem: Todo aquele que tocar a montanha, mesmo que seja um animal, será apedrejado (Ex 19,12).
+21. E tão terrível era o espetáculo, que Moisés exclamou: Eu tremo de pavor (Dt 9,19).
+22. Vós, ao contrário, vos aproximastes da montanha de Sião, da cidade do Deus vivo, da Jerusalém celestial, das miríades de anjos,
+23. da assembléia festiva dos primeiros inscritos no livro dos céus, e de Deus, juiz universal, e das almas dos justos que chegaram à perfeição,
+24. enfim, de Jesus, o mediador da Nova Aliança, e do sangue da aspersão, que fala com mais eloqüência que o sangue de Abel.
+25. Guardai-vos, pois, de recusar ouvir aquele que fala. Porque, se não escaparam do castigo aqueles que dele se desviaram, quando lhes falava na terra, muito menos escaparemos nós, se o repelirmos, quando nos fala desde o céu.
+26. Depois de ter outrora abalado a terra pela sua voz, ele hoje nos faz esta solene declaração: Ainda uma vez por todas moverei, não só a terra, mas também o céu (Ag 2,6).
+27. As palavras ainda uma vez indicam o desaparecimento do que é caduco, do que foi criado, para que só subsista o que é imutável.
+28. sim, possuindo nós um reino inabalável, dediquemos a Deus um reconhecimento que lhe torne agradável o nosso culto com temor e respeito. Porque nosso Deus é um fogo devorador (Dt 4,24).Hebreus, 13
+1. Conserve-se entre vós a caridade fraterna.
+2. Não vos esqueçais da hospitalidade, pela qual alguns, sem o saberem, hospedaram anjos.
+3. Lembrai-vos dos encarcerados, como se vós mesmos estivésseis presos com eles. E dos maltratados, como se habitásseis no mesmo corpo com eles.
+4. Vós todos considerai o matrimônio com respeito e conservai o leito conjugal imaculado, porque Deus julgará os impuros e os adúlteros.
+5. Vivei sem avareza. Contentai-vos com o que tendes, pois Deus mesmo disse: Não te deixarei nem desampararei (Dt 31,6).
+6. Por isso é que podemos dizer com confiança: O Senhor é meu socorro, e nada tenho que temer. Que me poderá fazer o homem (Sl 117,6)?
+7. Lembrai-vos de vossos guias que vos pregaram a palavra de Deus. Considerai como souberam encerrar a carreira. E imitai-lhes a fé.
+8. Jesus Cristo é sempre o mesmo: ontem, hoje e por toda a eternidade.
+9. Não vos deixeis desviar pela diversidade de doutrinas estranhas. É muito melhor fortificar a alma pela graça do que por alimentos que nenhum proveito trazem aos que a eles se entregam.
+10. Temos um altar do qual não têm direito de comer os que se empregam no serviço do tabernáculo (mosaico).
+11. Porque, quando o sumo sacerdote levava ao santuário o sangue dos animais imolados para a expiação do pecado, os corpos desses animais eram inteiramente consumidos fora da entrada.
+12. Por esta razão, Jesus, querendo purificar o povo pelo seu próprio sangue, padeceu fora das portas.
+13. Saiamos, pois, a ele fora da entrada, levando a sua ignomínia.
+14. Aliás, não temos aqui cidade permanente, mas vamos em busca da futura.
+15. Por ele ofereçamos a Deus sem cessar sacrifícios de louvor, isto é, o fruto dos lábios que celebram o seu nome (Os 14,2).
+16. Não negligencieis a beneficência e a liberalidade. Estes são sacrifícios que agradam a Deus!
+17. Sede submissos e obedecei aos que vos guiam (pois eles velam por vossas almas e delas devem dar conta). Assim, eles o farão com alegria, e não a gemer, que isto vos seria funesto.
+18. Orai por nós. Estamos persuadidos de ter a consciência em paz, pois estamos decididos a procurar o bem em tudo.
+19. Com o maior encarecimento, porém, vos rogo que oreis, para que mais depressa eu vos seja restituído.
+20. E o Deus da paz que, no sangue da eterna aliança, ressuscitou dos mortos o grande pastor das ovelhas, nosso Senhor Jesus,
+21. queira dispor-vos ao bem e vos conceder que cumprais,a sua vontade, realizando ele próprio em vós o que é agradável aos seus olhos, por Jesus Cristo, a quem seja dada a glória por toda a eternidade. Amém.
+22. Rogo-vos, irmãos, que aceiteis de boa mente estas exortações, pois vos escrevi com brevidade.
+23. Sabei que nosso irmão Timóteo foi posto em liberdade; se ele voltar a tempo, irei com ele ver-vos.
+24. Saudai a todos os que vos guiam e a todos os santos. Os irmãos da Itália vos saúdam.
+25. A graça esteja com todos vós. Amém.São Tiago, 1
+1. Tiago, servo de Deus e do Senhor Jesus Cristo, às doze tribos da dispersão, saúde!
+2. Considerai que é suma alegria, meus irmãos, quando passais por diversas provações,
+3. sabendo que a prova da vossa fé produz a paciência.
+4. Mas é preciso que a paciência efetue a sua obra, a fim de serdes perfeitos e íntegros, sem fraqueza alguma.
+5. Se alguém de vós necessita de sabedoria, peça-a a Deus - que a todos dá liberalmente, com simplicidade e sem recriminação - e ser-lhe-á dada.
+6. Mas peça-a com fé, sem nenhuma vacilação, porque o homem que vacila assemelha-se à onda do mar, levantada pelo vento e agitada de um lado para o outro.
+7. Não pense, portanto, tal homem que alcançará alguma coisa do Senhor,
+8. pois é um homem irresoluto, inconstante em todo o seu proceder.
+9. Mas que os irmãos humildes se gloriem de sua elevação;
+10. os ricos, pelo contrário, de sua humilhação, porque passarão como a flor dos campos.
+11. Desponta o sol com ardor, seca a erva, cai sua flor e perde a beleza do seu aspecto. Assim murcha também o rico em suas empresas.
+12. Feliz o homem que suporta a tentação. Porque, depois de sofrer a provação, receberá a coroa da vida que Deus prometeu aos que o amam.
+13. Ninguém, quando for tentado, diga: É Deus quem me tenta. Deus é inacessível ao mal e não tenta a ninguém.
+14. Cada um é tentado pela sua própria concupiscência, que o atrai e alicia.
+15. A concupiscência, depois de conceber, dá à luz o pecado; e o pecado, uma vez consumado, gera a morte.
+16. Não vos iludais, pois, irmãos meus muito amados.
+17. Toda dádiva boa e todo dom perfeito vêm de cima: descem do Pai das luzes, no qual não há mudança, nem mesmo aparência de instabilidade.
+18. Por sua vontade é que nos gerou pela palavra da verdade, a fim de que sejamos como que as primícias das suas criaturas.
+19. Já o sabeis, meus diletíssimos irmãos: todo homem deve ser pronto para ouvir, porém tardo para falar e tardo para se irar;
+20. porque a ira do homem não cumpre a justiça de Deus.
+21. Rejeitai, pois, toda impureza e todo vestígio de malícia e recebei com mansidão a palavra em vós semeada, que pode salvar as vossas almas.
+22. Sede cumpridores da palavra e não apenas ouvintes; isto equivaleria a vos enganardes a vós mesmos.
+23. Aquele que escuta a palavra sem a realizar assemelha-se a alguém que contempla num espelho a fisionomia que a natureza lhe deu:
+24. contempla-se e, mal sai dali, esquece-se de como era.
+25. Mas aquele que procura meditar com atenção a lei perfeita da liberdade e nela persevera - não como ouvinte que facilmente se esquece, mas como cumpridor fiel do preceito -, este será feliz no seu proceder.
+26. Se alguém pensa ser piedoso, mas não refreia a sua língua e engana o seu coração, então é vã a sua religião.
+27. A religião pura e sem mácula aos olhos de Deus e nosso Pai é esta: visitar os órfãos e as viúvas nas suas aflições, e conservar-se puro da corrupção deste mundo.São Tiago, 2
+1. Meus irmãos, na vossa fé em nosso glorioso Senhor Jesus Cristo, guardai-vos de toda consideração de pessoas.
+2. Suponde que entre na vossa reunião um homem com anel de ouro e ricos trajes, e entre também um pobre com trajes gastos;
+3. se atenderdes ao que está magnificamente trajado, e lhe disserdes: Senta-te aqui, neste lugar de honra, e disserdes ao pobre: Fica ali de pé, ou: Senta-te aqui junto ao estrado dos meus pés,
+4. não é verdade que fazeis distinção entre vós, e que sois juízes de pensamentos iníquos?
+5. Ouvi, meus caríssimos irmãos: porventura não escolheu Deus os pobres deste mundo para que fossem ricos na fé e herdeiros do Reino prometido por Deus aos que o amam?
+6. Mas vós desprezastes o pobre! Não são porventura os ricos os que vos oprimem e vos arrastam aos tribunais?
+7. Não blasfemam eles o belo nome que trazeis?
+8. Se cumprirdes a lei régia da Escritura: Amarás o teu próximo como a ti mesmo (Lv 19,18), sem dúvida fazeis bem.
+9. Mas se vos deixais levar por distinção de pessoas, cometeis uma falta e sereis condenados pela lei como transgressores.
+10. Pois quem guardar os preceitos da lei, mas faltar em um só ponto, tornar-se-á culpado de toda ela.
+11. Porque aquele que disse: Não cometerás adultério, disse também: Não matarás (Ex 20,13s). Se, pois, matares, embora não tenhas cometido adultério, tornas-te transgressor da lei.
+12. Falai, pois, de tal modo e de tal modo procedei, como se estivésseis para ser julgados pela lei da liberdade.
+13. Haverá juízo sem misericórdia para aquele que não usou de misericórdia. A misericórdia triunfa sobre o julgamento.
+14. De que aproveitará, irmãos, a alguém dizer que tem fé, se não tiver obras? Acaso esta fé poderá salvá-lo?
+15. Se a um irmão ou a uma irmã faltarem roupas e o alimento cotidiano,
+16. e algum de vós lhes disser: Ide em paz, aquecei-vos e fartai-vos, mas não lhes der o necessário para o corpo, de que lhes aproveitará?
+17. Assim também a fé: se não tiver obras, é morta em si mesma.
+18. Mas alguém dirá: Tu tens fé, e eu tenho obras. Mostra-me a tua fé sem obras e eu te mostrarei a minha fé pelas minhas obras.
+19. Crês que há um só Deus. Fazes bem. Também os demônios crêem e tremem.
+20. Queres ver, ó homem vão, como a fé sem obras é estéril?
+21. Abraão, nosso pai, não foi justificado pelas obras, oferecendo o seu filho Isaac sobre o altar?
+22. Vês como a fé cooperava com as suas obras e era completada por elas.
+23. Assim se cumpriu a Escritura, que diz: Abraão creu em Deus e isto lhe foi tido em conta de justiça, e foi chamado amigo de Deus (Gn 15,6).
+24. Vedes como o homem é justificado pelas obras e não somente pela fé?
+25. Do mesmo modo Raab, a meretriz, não foi ela justificada pelas obras, por ter recebido os mensageiros e os ter feito sair por outro caminho?
+26. Assim como o corpo sem a alma é morto, assim também a fé sem obras é morta.São Tiago, 3
+1. Meus irmãos, não haja muitos entre vós a se arvorar em mestres; sabeis que seremos julgados mais severamente,
+2. porque todos nós caímos em muitos pontos. Se alguém não cair por palavra, este é um homem perfeito, capaz de refrear todo o seu corpo.
+3. Quando pomos o freio na boca dos cavalos, para que nos obedeçam, governamos também todo o seu corpo.
+4. Vede também os navios: por grandes que sejam e embora agitados por ventos impetuosos, são governados com um pequeno leme à vontade do piloto.
+5. Assim também a língua é um pequeno membro, mas pode gloriar-se de grandes coisas. Considerai como uma pequena chama pode incendiar uma grande floresta!
+6. Também a língua é um fogo, um mundo de iniqüidade. A língua está entre os nossos membros e contamina todo o corpo; e sendo inflamada pelo inferno, incendeia o curso da nossa vida.
+7. Todas as espécies de feras selvagens, de aves, de répteis e de peixes do mar se domam e têm sido domadas pela espécie humana.
+8. A língua, porém, nenhum homem a pode domar. É um mal irrequieto, cheia de veneno mortífero.
+9. Com ela bendizemos o Senhor, nosso Pai, e com ela amaldiçoamos os homens, feitos à semelhança de Deus.
+10. De uma mesma boca procede a bênção e a maldição. Não convém, meus irmãos, que seja assim.
+11. Porventura lança uma fonte por uma mesma bica água doce e água amargosa?
+12. Acaso, meus irmãos, pode a figueira dar azeitonas ou a videira dar figos? Do mesmo modo a fonte de água salobra não pode dar água doce.
+13. Quem dentre vós é sábio e inteligente? Mostre com um bom proceder as suas obras repassadas de doçura e de sabedoria.
+14. Mas, se tendes no coração um ciúme amargo e gosto pelas contendas, não vos glorieis, nem mintais contra a verdade.
+15. Esta não é a sabedoria que vem do alto, mas é uma sabedoria terrena, humana, diabólica.
+16. Onde houver ciúme e contenda, ali há também perturbação e toda espécie de vícios.
+17. A sabedoria, porém, que vem de cima, é primeiramente pura, depois pacífica, condescendente, conciliadora, cheia de misericórdia e de bons frutos, sem parcialidade, nem fingimento.
+18. O fruto da justiça semeia-se na paz para aqueles que praticam a paz.São Tiago, 4
+1. Donde vêm as lutas e as contendas entre vós? Não vêm elas de vossas paixões, que combatem em vossos membros?
+2. Cobiçais, e não recebeis; sois invejosos e ciumentos, e não conseguis o que desejais; litigais e fazeis guerra. Não obtendes, porque não pedis.
+3. Pedis e não recebeis, porque pedis mal, com o fim de satisfazerdes as vossas paixões.
+4. Adúlteros, não sabeis que o amor do mundo é abominado por Deus? Todo aquele que quer ser amigo do mundo constitui-se inimigo de Deus.
+5. Ou imaginais que em vão diz a Escritura: Sois amados até o ciúme pelo espírito que habita em vós?
+6. Deus, porém, dá uma graça ainda mais abundante. Por isso, ele diz: Deus resiste aos soberbos, mas dá sua graça aos humildes (Pr 3,34).
+7. Sede submissos a Deus. Resisti ao demônio, e ele fugirá para longe de vós.
+8. Aproximai-vos de Deus, e ele se aproximará de vós. Lavai as mãos, pecadores, e purificai os vossos corações, ó homens de dupla atitude.
+9. Reconhecei a vossa miséria, afligi-vos e chorai. Converta-se o vosso riso em pranto e a vossa alegria em tristeza.
+10. Humilhai-vos na presença do Senhor, e ele vos exaltará.
+11. Meus irmãos, não faleis mal uns dos outros. Quem fala mal de seu irmão, ou o julga, fala mal da lei e julga a lei. E se julgas a lei, já não és observador da lei, mas seu juiz.
+12. Não há mais que um legislador e um juiz: aquele que pode salvar e perder. Mas quem és tu, que julgas o teu próximo?
+13. Agora dizeis: Hoje ou amanhã iremos a tal cidade, ficaremos ali um ano, comerciaremos e tiraremos o nosso lucro.
+14. E, entretanto, não sabeis o que acontecerá amanhã! Pois que é a vossa vida? Sois um vapor que aparece por um instante e depois se desvanece.
+15. Em vez de dizerdes: Se Deus quiser, viveremos e faremos esta ou aquela coisa.
+16. Mas agora vós vos jactais das vossas presunções. Toda jactância desse gênero é viciosa.
+17. Aquele que souber fazer o bem, e não o faz, peca.São Tiago, 5
+1. Vós, ricos, chorai e gemei por causa das desgraças que sobre vós virão.
+2. Vossas riquezas apodreceram e vossas roupas foram comidas pela traça.
+3. Vosso ouro e vossa prata enferrujaram-se e a sua ferrugem dará testemunho contra vós e devorará vossas carnes como fogo. Entesourastes nos últimos dias!
+4. Eis que o salário, que defraudastes aos trabalhadores que ceifavam os vossos campos, clama, e seus gritos de ceifadores chegaram aos ouvidos do Senhor dos exércitos.
+5. Tendes vivido em delícias e em dissoluções sobre a terra, e saciastes os vossos corações para o dia da matança!
+6. Condenastes e matastes o justo, e ele não vos resistiu.
+7. Tende, pois, paciência, meus irmãos, até a vinda do Senhor. Vede o lavrador: ele aguarda o precioso fruto da terra e tem paciência até receber a chuva do outono e a da primavera.
+8. Tende também vós paciência e fortalecei os vossos corações, porque a vinda do Senhor está próxima.
+9. Não vos queixeis uns dos outros, para que não sejais julgados. Eis que o juiz está à porta.
+10. Tomai, irmãos, por modelo de paciência e de coragem os profetas, que falaram em nome do Senhor.
+11. Vós sabeis que felicitamos os que suportam os sofrimentos de Jó. Vós conheceis o fim em que o Senhor o colocou, porque o Senhor é misericordioso e compassivo.
+12. Antes de mais nada, meus irmãos, abstende-vos de jurar. Não jureis nem pelo céu nem pela terra, nem empregueis qualquer outra fórmula de juramento. Que vosso sim, seja sim; que vosso não, seja não. Assim não caireis ao golpe do julgamento.
+13. Alguém entre vós está triste? Reze! Está alegre? Cante.
+14. Está alguém enfermo? Chame os sacerdotes da Igreja, e estes façam oração sobre ele, ungindo-o com óleo em nome do Senhor.
+15. A oração da fé salvará o enfermo e o Senhor o restabelecerá. Se ele cometeu pecados, ser-lhe-ão perdoados.
+16. Confessai os vossos pecados uns aos outros, e orai uns pelos outros para serdes curados. A oração do justo tem grande eficácia.
+17. Elias era um homem pobre como nós e orou com fervor para que não chovesse sobre a terra, e por três anos e seis meses não choveu.
+18. Orou de novo, e o céu deu chuva, e a terra deu o seu fruto.
+19. Meus irmãos, se alguém fizer voltar ao bom caminho algum de vós que se afastou para longe da verdade,
+20. saiba: aquele que fizer um pecador retroceder do seu erro, salvará sua alma da morte e fará desaparecer uma multidão de pecados.I São Pedro, 1
+1. Pedro, apóstolo de Jesus Cristo, aos eleitos que são estrangeiros e estão espalhados no Ponto, Galácia, Capadócia, Ásia e Bitínia
+2. - eleitos segundo a presciência de Deus Pai, e santificados pelo Espírito, para obedecer a Jesus Cristo e receber a sua parte da aspersão do seu sangue. A graça e a paz vos sejam dadas em abundância.
+3. Bendito seja Deus, o Pai de nosso Senhor Jesus Cristo! Na sua grande misericórdia ele nos fez renascer pela ressurreição de Jesus Cristo dentre os mortos, para uma viva esperança,
+4. para uma herança incorruptível, incontaminável e imarcescível, reservada para vós nos céus;
+5. para vós que sois guardados pelo poder de Deus, por causa da vossa fé, para a salvação que está pronta para se manifestar nos últimos tempos.
+6. É isto o que constitui a vossa alegria, apesar das aflições passageiras a vos serem causadas ainda por diversas provações,
+7. para que a prova a que é submetida a vossa fé (mais preciosa que o ouro perecível, o qual, entretanto, não deixamos de provar ao fogo) redunde para vosso louvor, para vossa honra e para vossa glória, quando Jesus Cristo se manifestar.
+8. Este Jesus vós o amais, sem o terdes visto; credes nele, sem o verdes ainda, e isto é para vós a fonte de uma alegria inefável e gloriosa,
+9. porque vós estais certos de obter, como preço de vossa fé, a salvação de vossas almas.
+10. Esta salvação tem sido o objeto das investigações e das meditações dos profetas que proferiram oráculos sobre a graça que vos era destinada.
+11. Eles investigaram a época e as circunstâncias indicadas pelo Espírito de Cristo, que neles estava e que profetizava os sofrimentos do mesmo Cristo e as glórias que os deviam seguir.
+12. Foi-lhes revelado que propunham não para si mesmos, senão para vós, estas revelações que agora vos têm sido anunciadas por aqueles que vos pregaram o Evangelho da parte do Espírito Santo enviado do céu. Revelações estas, que os próprios anjos desejam contemplar.
+13. Cingi, portanto, os rins do vosso espírito, sede sóbrios e colocai toda vossa esperança na graça que vos será dada no dia em que Jesus Cristo aparecer.
+14. À maneira de filhos obedientes, já não vos amoldeis aos desejos que tínheis antes, no tempo da vossa ignorância.
+15. A exemplo da santidade daquele que vos chamou, sede também vós santos em todas as vossas ações, pois está escrito:
+16. Sede santos, porque eu sou santo (Lv 11,44).
+17. Se invocais como Pai aquele que, sem distinção de pessoas, julga cada um segundo as suas obras, vivei com temor durante o tempo da vossa peregrinação.
+18. Porque vós sabeis que não é por bens perecíveis, como a prata e o ouro, que tendes sido resgatados da vossa vã maneira de viver, recebida por tradição de vossos pais, mas pelo precioso sangue de Cristo,
+19. o Cordeiro imaculado e sem defeito algum, aquele que foi predestinado antes da criação do mundo
+20. e que nos últimos tempos foi manifestado por amor de vós.
+21. Por ele tendes fé em Deus, que o ressuscitou dos mortos e glorificou, a fim de que vossa fé e vossa esperança se fixem em Deus.
+22. Em obediência à verdade, tendes purificado as vossas almas para praticardes um amor fraterno sincero. Amai-vos, pois, uns aos outros, ardentemente e do fundo do coração.
+23. Pois fostes regenerados não duma semente corruptível, mas pela palavra de Deus, semente incorruptível, viva e eterna.
+24. Porque toda carne é como a erva, e toda a sua glória como a flor da erva. Seca-se a erva e cai a flor, mas a palavra do Senhor permanece eternamente (Is 40,6s). Ora, esta palavra é a que vos foi anunciada pelo Evangelho.I São Pedro, 2
+1. Deponde, pois, toda malícia, toda astúcia, fingimentos, invejas e toda espécie de maledicência.
+2. Como crianças recém-nascidas desejai com ardor o leite espiritual que vos fará crescer para a salvação,
+3. se é que tendes saboreado quão suave é o Senhor (Sl 33,9).
+4. Achegai-vos a ele, pedra viva que os homens rejeitaram, mas escolhida e preciosa aos olhos de Deus;
+5. e quais outras pedras vivas, vós também vos tornais os materiais deste edifício espiritual, um sacerdócio santo, para oferecer vítimas espirituais, agradáveis a Deus, por Jesus Cristo.
+6. Por isso lê-se na Escritura: Eis que ponho em Sião uma pedra angular, escolhida, preciosa: quem nela puser sua confiança não será confundido (Is 28,16).
+7. Para vós, portanto, que tendes crido, cabe a honra. Mas, para os incrédulos, a pedra que os edificadores rejeitaram tornou-se a pedra angular, uma pedra de tropeço, uma pedra de escândalo (Sl 117,22; Is 8,14).
+8. Nela tropeçam porque não obedecem à palavra; e realmente era tal o seu destino.
+9. Vós, porém, sois uma raça escolhida, um sacerdócio régio, uma nação santa, um povo adquirido para Deus, a fim de que publiqueis as virtudes daquele que das trevas vos chamou à sua luz maravilhosa.
+10. Vós que outrora não éreis seu povo, mas agora sois povo de Deus; vós que outrora não tínheis alcançado misericórdia (Os 2,25), mas agora alcançastes misericórdia.
+11. Caríssimos, rogo-vos que, como estrangeiros e peregrinos, vos abstenhais dos desejos da carne, que combatem contra a alma.
+12. Comportai-vos nobremente entre os pagãos. Assim, naquilo em que vos caluniam como malfeitores, chegarão, considerando vossas boas obras, a glorificar a Deus no dia em que ele os visitar.
+13. Por amor do Senhor, sede submissos, pois, a toda autoridade humana,
+14. quer ao rei como a soberano, quer aos governadores como enviados por ele para castigo dos malfeitores e para favorecer as pessoas honestas.
+15. Porque esta é a vontade de Deus que, praticando o bem, façais emudecer a ignorância dos insensatos.
+16. Comportai-vos como homens livres, e não à maneira dos que tomam a liberdade como véu para encobrir a malícia, mas vivendo como servos de Deus.
+17. Sede educados para com todos, amai os irmãos, temei a Deus, respeitai o rei.
+18. Servos, sede obedientes aos senhores com todo o respeito, não só aos bons e moderados, mas também aos de caráter difícil.
+19. Com efeito, é coisa agradável a Deus sofrer contrariedades e padecer injustamente, por motivo de consciência para com Deus.
+20. Que mérito teria alguém se suportasse pacientemente os açoites por ter praticado o mal? Ao contrário, se é por ter feito o bem que sois maltratados, e se o suportardes pacientemente, isto é coisa agradável aos olhos de Deus.
+21. Ora, é para isto que fostes chamados. Também Cristo padeceu por vós, deixando-vos exemplo para que sigais os seus passos.
+22. Ele não cometeu pecado, nem se achou falsidade em sua boca (Is 53,9).
+23. Ele, ultrajado, não retribuía com idêntico ultraje; ele, maltratado, não proferia ameaças, mas entregava-se àquele que julga com justiça.
+24. Carregou os nossos pecados em seu corpo sobre o madeiro para que, mortos aos nossos pecados, vivamos para a justiça. Por fim, por suas chagas fomos curados (Is 53,5).
+25. Porque éreis como ovelhas desgarradas, mas agora retornastes ao Pastor e guarda das vossas almas.1I São Pedro, 3
+1. Vós, também, ó mulheres, sede submissas aos vossos maridos. Se alguns não obedecem à palavra, serão conquistados, mesmo sem a palavra da pregação, pelo simples procedimento de suas mulheres,
+2. ao observarem vossa vida casta e reservada.
+3. Não seja o vosso adorno o que aparece externamente: cabelos trançados, ornamentos de ouro, vestidos elegantes;
+4. mas tende aquele ornato interior e oculto do coração, a pureza incorruptível de um espírito suave e pacífico, o que é tão precioso aos olhos de Deus.
+5. Era assim que outrora se ornavam as santas mulheres que esperavam em Deus; eram submissas a seus maridos,
+6. como Sara que obedecia a Abraão, chamando-o de senhor. Dela vos tornais filhas pela prática do bem sem temor de perturbação alguma.
+7. Do mesmo modo vós, ó maridos, comportai-vos sabiamente no vosso convívio com as vossas mulheres, pois são de um sexo mais fraco. Porquanto elas são herdeiras, com o mesmo direito que vós outros, da graça que dá a vida. Tratai-as com todo respeito para que nada se oponha às vossas orações.
+8. Finalmente, tende todos um só coração e uma só alma, sentimentos de amor fraterno, de misericórdia, de humildade.
+9. Não pagueis mal com mal, nem injúria com injúria. Ao contrário, abençoai, pois para isto fostes chamados, para que sejais herdeiros da bênção.
+10. Com efeito, quem quiser amar a vida e ver dias felizes, refreie sua língua do mal e seus lábios de palavras enganadoras;
+11. aparte-se do mal e faça o bem, busque a paz e siga-a.
+12. Porque os olhos do Senhor estão sobre os justos e seus ouvidos, atentos a seus rogos; mas a força do Senhor está contra os que fazem o mal (Sl 33,13-17).
+13. Se fordes zelosos do bem, quem vos poderá fazer mal?
+14. E até sereis felizes, se padecerdes alguma coisa por causa da justiça!
+15. Portanto, não temais as suas ameaças e não vos turbeis. Antes santificai em vossos corações Cristo, o Senhor. Estai sempre prontos a responder para vossa defesa a todo aquele que vos pedir a razão de vossa esperança, mas fazei-o com suavidade e respeito.
+16. Tende uma consciência reta a fim de que, mesmo naquilo em que dizem mal de vós, sejam confundidos os que desacreditam o vosso santo procedimento em Cristo.
+17. Aliás, é melhor padecer, se Deus assim o quiser, por fazer o bem do que por fazer o mal.
+18. Pois também Cristo morreu uma vez pelos nossos pecados - o Justo pelos injustos - para nos conduzir a Deus. Padeceu a morte em sua carne, mas foi vivificado quanto ao espírito.
+19. É neste mesmo espírito que ele foi pregar aos espíritos que eram detidos no cárcere, àqueles que outrora, nos dias de Noé, tinham sido rebeldes,
+20. quando Deus aguardava com paciência, enquanto se edificava a arca, na qual poucas pessoas, isto é, apenas oito se salvaram através da água.
+21. Esta água prefigurava o batismo de agora, que vos salva também a vós, não pela purificação das impurezas do corpo, mas pela que consiste em pedir a Deus uma consciência boa, pela ressurreição de Jesus Cristo.
+22. Esse Jesus Cristo, tendo subido ao céu, está assentado à direita de Deus, depois de ter recebido a submissão dos anjos, dos principados e das potestades.I São Pedro, 4
+1. Assim, pois, como Cristo padeceu na carne, armai-vos também vós deste mesmo pensamento: quem padeceu na carne rompeu com o pecado,
+2. a fim de que, no tempo que lhe resta para o corpo, já não viva segundo as paixões humanas, mas segundo a vontade de Deus.
+3. Baste-vos que no tempo passado tenhais vivido segundo os caprichos dos pagãos, em luxúrias, concupiscências, embriaguez, orgias, bebedeiras e criminosas idolatrias.
+4. Estranham eles agora que já não vos lanceis com eles nos mesmos desregramentos de libertinagem, e por isso vos cobrem de calúnias.
+5. Eles darão conta àquele que está pronto para julgar os vivos e os mortos.
+6. Pois para isto foi o Evangelho pregado também aos mortos; para que, embora sejam condenados em sua humanidade de carne, vivam segundo Deus quanto ao espírito.
+7. O fim de todas as coisas está próximo. Sede, portanto, prudentes e vigiai na oração.
+8. Antes de tudo, mantende entre vós uma ardente caridade, porque a caridade cobre a multidão dos pecados (Pr 10,12).
+9. Exercei a hospitalidade uns para com os outros, sem murmuração.
+10. Como bons dispensadores das diversas graças de Deus, cada um de vós ponha à disposição dos outros o dom que recebeu:
+11. a palavra, para anunciar as mensagens de Deus; um ministério, para exercê-lo com uma força divina, a fim de que em todas as coisas Deus seja glorificado por Jesus Cristo. A ele seja dada a glória e o poder por toda a eternidade! Amém.
+12. Caríssimos, não vos perturbeis no fogo da provação, como se vos acontecesse alguma coisa extraordinária.
+13. Pelo contrário, alegrai-vos em ser participantes dos sofrimentos de Cristo, para que vos possais alegrar e exultar no dia em que for manifestada sua glória.
+14. Se fordes ultrajados pelo nome de Cristo, bem-aventurados sois vós, porque o Espírito de glória, o Espírito de Deus repousa sobre vós.
+15. Que ninguém de vós sofra como homicida, ou ladrão, ou difamador, ou cobiçador do alheio.
+16. Se, porém, padecer como cristão, não se envergonhe; pelo contrário, glorifique a Deus por ter este nome.
+17. Porque vem o momento em que se começará o julgamento pela casa de Deus. Ora, se ele começa por nós, qual será a sorte daqueles que são infiéis ao Evangelho de Deus?
+18. E, se o justo se salva com dificuldade, que será do ímpio e do pecador?
+19. Assim também aqueles que sofrem segundo a vontade de Deus encomendem as suas almas ao Criador fiel, praticando o bem.I São Pedro, 5
+1. Eis a exortação que dirijo aos anciãos que estão entre vós; porque sou ancião como eles, fui testemunha dos sofrimentos de Cristo e serei participante com eles daquela glória que se há de manifestar.
+2. Velai sobre o rebanho de Deus, que vos é confiado. Tende cuidado dele, não constrangidos, mas espontaneamente; não por amor de interesse sórdido, mas com dedicação;
+3. não como dominadores absolutos sobre as comunidades que vos são confiadas, mas como modelos do vosso rebanho.
+4. E, quando aparecer o supremo Pastor, recebereis a coroa imperecível de glória.
+5. Semelhantemente, vós outros que sois mais jovens, sede submissos aos anciãos. Todos vós, em vosso mútuo tratamento, revesti-vos de humildade; porque Deus resiste aos soberbos, mas dá a sua graça aos humildes (Pr 3,34).
+6. Humilhai-vos, pois, debaixo da poderosa mão de Deus, para que ele vos exalte no tempo oportuno.
+7. Confiai-lhe todas as vossas preocupações, porque ele tem cuidado de vós.
+8. Sede sóbrios e vigiai. Vosso adversário, o demônio, anda ao redor de vós como o leão que ruge, buscando a quem devorar.
+9. Resisti-lhe fortes na fé. Vós sabeis que os vossos irmãos, que estão espalhados pelo mundo, sofrem os mesmos padecimentos que vós.
+10. O Deus de toda graça, que vos chamou em Cristo à sua eterna glória, depois que tiverdes padecido um pouco, vos aperfeiçoará, vos tornará inabaláveis, vos fortificará.
+11. A ele o poder na eternidade! Amém.
+12. Por meio de Silvano, que estimo como a um irmão fiel, vos escrevi essas poucas palavras. Minha intenção é de admoestar-vos e assegurar-vos que esta é a verdadeira graça de Deus, na qual estais firmes.
+13. A igreja escolhida de Babilônia saúda-vos, assim como também Marcos, meu filho.
+14. Saudai-vos uns aos outros com o ósculo afetuoso. A paz esteja com todos vós que estais em Cristo.II São Pedro, 1
+1. Simão Pedro, servo e apóstolo de Jesus Cristo, àqueles que, pela justiça do nosso Deus e do Salvador Jesus Cristo, alcançaram por partilha uma fé tão preciosa como a nossa,
+2. graça e paz vos sejam dadas em abundância por um profundo conhecimento de Deus e de Jesus, nosso Senhor!
+3. O poder divino deu-nos tudo o que contribui para a vida e a piedade, fazendo-nos conhecer aquele que nos chamou por sua glória e sua virtude.
+4. Por elas, temos entrado na posse das maiores e mais preciosas promessas, a fim de tornar-vos por este meio participantes da natureza divina, subtraindo-vos à corrupção que a concupiscência gerou no mundo.
+5. Por estes motivos, esforçai-vos quanto possível por unir à vossa fé a virtude, à virtude a ciência,
+6. à ciência a temperança, à temperança a paciência, à paciência a piedade,
+7. à piedade o amor fraterno, e ao amor fraterno a caridade.
+8. Se estas virtudes se acharem em vós abundantemente, elas não vos deixarão inativos nem infrutuosos no conhecimento de nosso Senhor Jesus Cristo.
+9. Porque quem não tiver estas coisas é míope, cego: esqueceu-se da purificação dos seus antigos pecados.
+10. Portanto, irmãos, cuidai cada vez mais em assegurar a vossa vocação e eleição. Procedendo deste modo, não tropeçareis jamais.
+11. Assim vos será aberta largamente a entrada no Reino eterno de nosso Senhor e Salvador Jesus Cristo.
+12. Eis por que não cessarei de vos trazer à memória essas coisas, embora estejais instruídos e confirmados na presente verdade.
+13. Tenho por meu dever, enquanto estiver neste tabernáculo, de manter-vos vigilantes com minhas admoestações.
+14. Porque sei que em breve terei que deixá-lo, assim como nosso Senhor Jesus Cristo me fez conhecer.
+15. Mas cuidarei para que, ainda depois do meu falecimento, possais conservar sempre a lembrança dessas coisas.
+16. Na realidade, não é baseando-nos em hábeis fábulas imaginadas que nós vos temos feito conhecer o poder e a vinda de nosso Senhor Jesus Cristo, mas por termos visto a sua majestade com nossos próprios olhos.
+17. Porque ele recebeu de Deus Pai honra e glória, quando do seio da glória magnífica lhe foi dirigida esta voz: Este é o meu Filho muito amado, em quem tenho posto todo o meu afeto.
+18. Esta mesma voz que vinha do céu nós a ouvimos, quando estávamos com ele no monte santo.
+19. Assim demos ainda maior crédito à palavra dos profetas, à qual fazeis bem em atender, como a uma lâmpada que brilha em um lugar tenebroso até que desponte o dia e a estrela da manhã se levante em vossos corações.
+20. Antes de tudo, sabei que nenhuma profecia da Escritura é de interpretação pessoal.
+21. Porque jamais uma profecia foi proferida por efeito de uma vontade humana. Homens inspirados pelo Espírito Santo falaram da parte de Deus.II São Pedro, 2
+1. Assim como houve entre o povo falsos profetas, assim também haverá entre vós falsos doutores que introduzirão disfarçadamente seitas perniciosas. Eles, renegando assim o Senhor que os resgatou, atrairão sobre si uma ruína repentina.
+2. Muitos os seguirão nas suas desordens e serão deste modo a causa de o caminho da verdade ser caluniado.
+3. Movidos por cobiça, eles vos hão de explorar por palavras cheias de astúcia. Há muito tempo a condenação os ameaça, e a sua ruína não dorme.
+4. Pois se Deus não poupou os anjos que pecaram, mas os precipitou nos abismos tenebrosos do inferno onde os reserva para o julgamento;
+5. se não poupou o mundo antigo, e só preservou oito pessoas, dentre as quais Noé, esse pregador da justiça, quando desencadeou o dilúvio sobre um mundo de ímpios;
+6. se condenou à destruição e reduziu à cinzas as cidades de Sodoma e Gomorra para servir de exemplo para os ímpios do porvir;
+7. se, enfim, livrou o justo Lot, revoltado com a vida dissoluta daquela gente perversa
+8. (esse justo que habitava no meio deles sentia cada dia atormentada sua alma virtuosa, pelo que via e ouvia dos seus procedimentos infames),
+9. é porque o Senhor sabe livrar das provações os homens piedosos e reservar os ímpios para serem castigados no dia do juízo,
+10. principalmente aqueles que correm com desejos impuros atrás dos prazeres da carne e desprezam a autoridade. Audaciosos, arrogantes, não temem falar injuriosamente das glórias,
+11. embora os anjos, superiores em força e poder, não pronunciem contra elas, aos olhos do Senhor, o julgamento injurioso.
+12. Mas estes, quais brutos destinados pela lei natural para a presa e para a perdição, injuriam o que ignoram, e assim da mesma forma perecerão. Este será o salário de sua iniqüidade.
+13. Encontram as suas delícias em se entregar em pleno dia às suas libertinagens. Homens pervertidos e imundos, sentem prazer em enganar, enquanto se banqueteiam convosco.
+14. Têm, os olhos cheios de adultério e são insaciáveis no pecar. Seduzem pelos seus atrativos as almas inconstantes; têm o coração acostumado à cobiça; são filhos da maldição.
+15. Deixaram o caminho reto, para se extraviarem no caminho de Balaão, filho de Bosor, que amou o salário da iniqüidade.
+16. Mas foi repreendido pela sua desobediência: um animal mudo, falando com voz humana, refreou a loucura do profeta.
+17. Estes são fontes sem água e nuvens agitadas por turbilhões, destinados à profundeza das trevas.
+18. Com palavras tão vãs quanto enganadoras, atraem pelas paixões carnais e pela devassidão aqueles que mal acabam de escapar dos homens que vivem no erro.
+19. Prometem-lhes a liberdade, quando eles mesmos são escravos da corrupção, pois o homem é feito escravo daquele que o venceu.
+20. Com efeito, se aqueles que renunciaram às corrupções do mundo pelo conhecimento de Jesus Cristo nosso Senhor e Salvador nelas se deixam de novo enredar e vencer, seu último estado torna-se pior do que o primeiro.
+21. Melhor fora não terem conhecido o caminho da justiça do que, depois de tê-lo conhecido, tornarem atrás, abandonando a lei santa que lhes foi ensinada.
+22. Aconteceu-lhes o que diz com razão o provérbio: O cão voltou ao seu vômito (Pr 26,11); e: A porca lavada volta a revolver-se no lamaçal.II São Pedro, 3
+1. Caríssimos, esta é a segunda carta que vos escrevo. Tanto numa como noutra, apelo às vossas recordações para despertar em vós uma sã compreensão,
+2. e para vos lembrar as predições dos santos profetas, bem como o mandamento de nosso Senhor e Salvador, ensinado por vossos apóstolos.
+3. Sabei antes de tudo o seguinte: nos últimos tempos virão escarnecedores cheios de zombaria, que viverão segundo as suas próprias concupiscências.
+4. Eles dirão: Onde está a promessa de sua vinda? Desde que nossos pais morreram, tudo continua como desde o princípio do mundo.
+5. Esquecem-se propositadamente que desde o princípio existiam os céus e igualmente uma terra que a palavra de Deus fizera surgir do seio das águas, no meio da água,
+6. e deste modo o mundo de então perecia afogado na água.
+7. Mas os céus e a terra que agora existem são guardados pela mesma palavra divina e reservados para o fogo no dia do juízo e da perdição dos ímpios.
+8. Mas há uma coisa, caríssimos, de que não vos deveis esquecer: um dia diante do Senhor é como mil anos, e mil anos como, um dia.
+9. O Senhor não retarda o cumprimento de sua promessa, como alguns pensam, mas usa da paciência para convosco. Não quer que alguém pereça; ao contrário, quer que todos se arrependam.
+10. Entretanto, virá o dia do Senhor como ladrão. Naquele dia os céus passarão com ruído, os elementos abrasados se dissolverão, e será consumida a terra com todas as obras que ela contém.
+11. Uma vez que todas estas coisas se hão de desagregar, considerai qual deve ser a santidade de vossa vida e de vossa piedade,
+12. enquanto esperais e apressais o dia de Deus, esse dia em que se hão de dissolver os céus inflamados e se hão de fundir os elementos abrasados!
+13. Nós, porém, segundo sua promessa, esperamos novos céus e uma nova terra, nos quais habitará a justiça.
+14. Portanto, caríssimos, esperando estas coisas, esforçai-vos em ser por ele achados sem mácula e irrepreensíveis na paz.
+15. Reconhecei que a longa paciência de nosso Senhor vos é salutar, como também vosso caríssimo irmão Paulo vos escreveu, segundo o dom de sabedoria que lhe foi dado.
+16. É o que ele faz em todas as suas cartas, nas quais fala nestes assuntos. Nelas há algumas passagens difíceis de entender, cujo sentido os espíritos ignorantes ou pouco fortalecidos deturpam, para a sua própria ruína, como o fazem também com as demais Escrituras.
+17. Vós, pois, caríssimos, advertidos de antemão, tomai cuidado para que não caiais da vossa firmeza, levados pelo erro destes homens ímpios.
+18. Mas crescei na graça e no conhecimento de nosso Senhor e Salvador Jesus Cristo. A ele a glória agora e eternamente.I São João, 1
+1. O que era desde o princípio, o que temos ouvido, o que temos visto com os nossos olhos, o que temos contemplado e as nossas mãos têm apalpado no tocante ao Verbo da vida -
+2. porque a vida se manifestou, e nós a temos visto; damos testemunho e vos anunciamos a vida eterna, que estava no Pai e que se nos manifestou -,
+3. o que vimos e ouvimos nós vos anunciamos, para que também vós tenhais comunhão conosco. Ora, a nossa comunhão é com o Pai e com o seu Filho Jesus Cristo.
+4. Escrevemo-vos estas coisas para que a vossa alegria seja completa.
+5. A nova que dele temos ouvido e vos anunciamos é esta: Deus é luz e nele não há treva alguma.
+6. Se dizemos ter comunhão com ele, mas andamos nas trevas, mentimos e não seguimos a verdade.
+7. Se, porém, andamos na luz como ele mesmo está na luz, temos comunhão recíproca uns com os outros, e o sangue de Jesus Cristo, seu Filho, nos purifica de todo pecado.
+8. Se dizemos que não temos pecado, enganamo-nos a nós mesmos, e a verdade não está em nós.
+9. Se reconhecemos os nossos pecados, (Deus aí está) fiel e justo para nos perdoar os pecados e para nos purificar de toda iniqüidade.
+10. Se pensamos não ter pecado, nós o declaramos mentiroso e a sua palavra não está em nós.I São João, 2
+1. Filhinhos meus, isto vos escrevo para que não pequeis. Mas, se alguém pecar, temos um intercessor junto ao Pai, Jesus Cristo, o Justo.
+2. Ele é a expiação pelos nossos pecados, e não somente pelos nossos, mas também pelos de todo o mundo.
+3. Eis como sabemos que o conhecemos: se guardamos os seus mandamentos.
+4. Aquele que diz conhecê-lo e não guarda os seus mandamentos é mentiroso e a verdade não está nele.
+5. Aquele, porém, que guarda a sua palavra, nele o amor de Deus é verdadeiramente perfeito. É assim que conhecemos se estamos nele:
+6. aquele que afirma permanecer nele deve também viver como ele viveu.
+7. Caríssimos, não vos escrevo nenhum mandamento novo, mas sim o mandamento antigo, que recebestes desde o princípio. Este mandamento antigo é a palavra que acabais de ouvir.
+8. Todavia, eu vos escrevo agora um mandamento novo - verdadeiramente novo, nele como em vós, porque as trevas passam e já resplandece a verdadeira luz.
+9. Aquele que diz estar na luz, e odeia seu irmão, jaz ainda nas trevas.
+10. Quem ama seu irmão permanece na luz e não se expõe a tropeçar.
+11. Mas quem odeia seu irmão está nas trevas e anda nas trevas, sem saber para onde dirige os passos; as trevas cegaram seus olhos.
+12. Filhinhos, eu vos escrevo, porque vossos pecados vos foram perdoados pelo seu nome.
+13. Pais, eu vos escrevo, porque conheceis aquele que existe desde o princípio. Jovens, eu vos escrevo, porque vencestes o Maligno.
+14. Crianças, eu vos escrevo, porque conheceis o Pai. Pais, eu vos escrevi, porque conheceis aquele que existe desde o princípio. Jovens, eu vos escrevi, porque sois fortes e a palavra de Deus permanece em vós, e vencestes o Maligno.
+15. Não ameis o mundo nem as coisas do mundo. Se alguém ama o mundo, não está nele o amor do Pai.
+16. Porque tudo o que há no mundo - a concupiscência da carne, a concupiscência dos olhos e a soberba da vida - não procede do Pai, mas do mundo.
+17. O mundo passa com as suas concupiscências, mas quem cumpre a vontade de Deus permanece eternamente.
+18. Filhinhos, esta é a última hora. Vós ouvistes dizer que o Anticristo vem. Eis que já há muitos anticristos, por isto conhecemos que é a última hora.
+19. Eles saíram dentre nós, mas não eram dos nossos. Se tivessem sido dos nossos, ficariam certamente conosco. Mas isto se dá para que se conheça que nem todos são dos nossos.
+20. Vós, porém, tendes a unção do Santo e sabeis todas as coisas.
+21. Não vos escrevi como se ignorásseis a verdade, mas porque a conheceis, e porque nenhuma mentira vem da verdade.
+22. Quem é mentiroso senão aquele que nega que Jesus é o Cristo? Esse é o Anticristo, que nega o Pai e o Filho.
+23. Todo aquele que nega o Filho não tem o Pai. Todo aquele que proclama o Filho tem também o Pai.
+24. Que permaneça em vós o que tendes ouvido desde o princípio. Se permanecer em vós o que ouvistes desde o princípio, permanecereis também vós no Filho e no Pai.
+25. Eis a promessa que ele nos fez: a vida eterna.
+26. Era isto o que eu vos tinha a escrever a respeito dos que vos seduzem.
+27. Quanto a vós, a unção que dele recebestes permanece em vós. E não tendes necessidade de que alguém vos ensine; mas, como a sua unção vos ensina todas as coisas, assim é ela verdadeira e não mentira. Permanecei nele, como ela vos ensinou.
+28. E agora, filhinhos, permanecei nele, para que, quando aparecer, tenhamos confiança e não sejamos confundidos por ele, na sua vinda.
+29. Se sabeis que ele é justo, sabei também que todo aquele que pratica a justiça é nascido dele.I São João, 3
+1. Considerai com que amor nos amou o Pai, para que sejamos chamados filhos de Deus. E nós o somos de fato. Por isso, o mundo não nos conhece, porque não o conheceu.
+2. Caríssimos, desde agora somos filhos de Deus, mas não se manifestou ainda o que havemos de ser. Sabemos que, quando isto se manifestar, seremos semelhantes a Deus, porquanto o veremos como ele é.
+3. E todo aquele que nele tem esta esperança torna-se puro, como ele é puro.
+4. Todo aquele que peca transgride a lei, porque o pecado é transgressão da lei.
+5. Sabeis que (Jesus) apareceu para tirar os pecados, e que nele não há pecado.
+6. Todo aquele que permanece nele não peca; e todo o que peca não o viu, nem o conheceu.
+7. Filhinhos, ninguém vos seduza: aquele que pratica a justiça é justo, como também (Jesus) é justo.
+8. Aquele que peca é do demônio, porque o demônio peca desde o princípio. Eis por que o Filho de Deus se manifestou: para destruir as obras do demônio.
+9. Todo o que é nascido de Deus não peca, porque o germe divino reside nele; e não pode pecar, porque nasceu de Deus.
+10. É nisto que se conhece quais são os filhos de Deus e quais os do demônio: todo o que não pratica a justiça não é de Deus, como também aquele que não ama o seu irmão.
+11. Pois esta é a mensagem que tendes ouvido desde o princípio: que nos amemos uns aos outros.
+12. Não façamos como Caim, que era do Maligno e matou seu irmão. E por que o matou? Porque as suas obras eram más, e as do seu irmão, justas.
+13. Não vos admireis, irmãos, se o mundo vos odeia.
+14. Nós sabemos que fomos trasladados da morte para a vida, porque amamos nossos irmãos. Quem não ama permanece na morte.
+15. Quem odeia seu irmão é assassino. E sabeis que a vida eterna não permanece em nenhum assassino.
+16. Nisto temos conhecido o amor: (Jesus) deu sua vida por nós. Também nós outros devemos dar a nossa vida pelos nossos irmãos.
+17. Quem possuir bens deste mundo e vir o seu irmão sofrer necessidade, mas lhe fechar o seu coração, como pode estar nele o amor de Deus?
+18. Meus filhinhos, não amemos com palavras nem com a língua, mas por atos e em verdade.
+19. Nisto é que conheceremos se somos da verdade, e tranqüilizaremos a nossa consciência diante de Deus,
+20. caso nossa consciência nos censure, pois Deus é maior do que nossa consciência e conhece todas as coisas.
+21. Caríssimos, se a nossa consciência nada nos censura, temos confiança diante de Deus,
+22. e tudo o que lhe pedirmos, receberemos dele porque guardamos os seus mandamentos e fazemos o que é agradável a seus olhos.
+23. Eis o seu mandamento: que creiamos no nome do seu Filho Jesus Cristo, e nos amemos uns aos outros, como ele nos mandou.
+24. Quem observa os seus mandamentos permanece em (Deus) e (Deus) nele. É nisto que reconhecemos que ele permanece em nós: pelo Espírito que nos deu.I São João, 4
+1. Caríssimos, não deis fé a qualquer espírito, mas examinai se os espíritos são de Deus, porque muitos falsos profetas se levantaram no mundo.
+2. Nisto se reconhece o Espírito de Deus: todo espírito que proclama que Jesus Cristo se encarnou é de Deus;
+3. todo espírito que não proclama Jesus esse não é de Deus, mas é o espírito do Anticristo de cuja vinda tendes ouvido, e já está agora no mundo.
+4. Vós, filhinhos, sois de Deus, e os vencestes, porque o que está em vós é maior do que aquele que está no mundo.
+5. Eles são do mundo. É por isto que falam segundo o mundo, e o mundo os ouve.
+6. Nós, porém, somos de Deus. Quem conhece a Deus, ouve-nos; quem não é de Deus, não nos ouve. É nisto que conhecemos o Espírito da Verdade e o espírito do erro.
+7. Caríssimos, amemo-nos uns aos outros, porque o amor vem de Deus, e todo o que ama é nascido de Deus e conhece a Deus.
+8. Aquele que não ama não conhece a Deus, porque Deus é amor.
+9. Nisto se manifestou o amor de Deus para conosco: em nos ter enviado ao mundo o seu Filho único, para que vivamos por ele.
+10. Nisto consiste o amor: não em termos nós amado a Deus, mas em ter-nos ele amado, e enviado o seu Filho para expiar os nossos pecados.
+11. Caríssimos, se Deus assim nos amou, também nós nos devemos amar uns aos outros.
+12. Ninguém jamais viu a Deus. Se nos amarmos mutuamente, Deus permanece em nós e o seu amor em nós é perfeito.
+13. Nisto é que conhecemos que estamos nele e ele em nós, por ele nos ter dado o seu Espírito.
+14. E nós vimos e testemunhamos que o Pai enviou seu Filho como Salvador do mundo.
+15. Todo aquele que proclama que Jesus é o Filho de Deus, Deus permanece nele e ele em Deus.
+16. Nós conhecemos e cremos no amor que Deus tem para conosco. Deus é amor, e quem permanece no amor permanece em Deus e Deus nele.
+17. Nisto é perfeito em nós o amor: que tenhamos confiança no dia do julgamento, pois, como ele é, assim também nós o somos neste mundo.
+18. No amor não há temor. Antes, o perfeito amor lança fora o temor, porque o temor envolve castigo, e quem teme não é perfeito no amor.
+19. Mas amamos, porque Deus nos amou primeiro.
+20. Se alguém disser: Amo a Deus, mas odeia seu irmão, é mentiroso. Porque aquele que não ama seu irmão, a quem vê, é incapaz de amar a Deus, a quem não vê.
+21. Temos de Deus este mandamento: o que amar a Deus, ame também a seu irmão.I São João, 5
+1. Todo o que crê que Jesus é o Cristo, nasceu de Deus; e todo o que ama aquele que o gerou, ama também aquele que dele foi gerado.
+2. Nisto conhecemos que amamos os filhos de Deus: se amamos a Deus e guardamos os seus mandamentos.
+3. Eis o amor de Deus: que guardemos seus mandamentos. E seus mandamentos não são penosos,
+4. porque todo o que nasceu de Deus vence o mundo. E esta é a vitória que vence o mundo: a nossa fé.
+5. Quem é o vencedor do mundo senão aquele que crê que Jesus é o Filho de Deus?
+6. Ei-lo, Jesus Cristo, aquele que veio pela água e pelo sangue; não só pela água, mas pela água e pelo sangue. E o Espírito é quem dá testemunho dele, porque o Espírito é a verdade.
+7. São, assim, três os que dão testemunho:
+8. o Espírito, a água e o sangue; estes três dão o mesmo testemunho.
+9. Aceitamos o testemunho dos homens. Ora, maior é o testemunho de Deus, porque se trata do próprio testemunho de Deus, aquele que ele deu do seu próprio Filho.
+10. Aquele que crê no Filho de Deus tem em si o testemunho de Deus. Aquele que não crê em Deus, o faz mentiroso, porque não crê no testemunho que Deus deu a respeito de seu Filho.
+11. E o testemunho é este: Deus nos deu a vida eterna, e esta vida está em seu Filho.
+12. Quem possui o Filho possui a vida; quem não tem o Filho de Deus não tem a vida.
+13. Isto vos escrevi para que saibais que tendes a vida eterna, vós que credes no nome do Filho de Deus.
+14. A confiança que depositamos nele é esta: em tudo quanto lhe pedirmos, se for conforme à sua vontade, ele nos atenderá.
+15. E se sabemos que ele nos atende em tudo quanto lhe pedirmos, sabemos daí que já recebemos o que pedimos.
+16. Se alguém vê seu irmão cometer um pecado que não o conduza à morte, reze, e Deus lhe dará a vida; isto para aqueles que não pecam para a morte. Há pecado que é para morte; não digo que se reze por este.
+17. Toda iniqüidade é pecado, mas há pecado que não leva à morte.
+18. Sabemos que aquele que nasceu de Deus não peca; mas o que é gerado de Deus se acautela, e o Maligno não o toca.
+19. Sabemos que somos de Deus, e que o mundo todo jaz sob o Maligno.
+20. Sabemos que o Filho de Deus veio e nos deu entendimento para conhecermos o Verdadeiro. E estamos no Verdadeiro, nós que estamos em seu Filho Jesus Cristo. Este é o verdadeiro Deus e a vida eterna.
+21. Filhinhos, guardai-vos dos ídolos!II São João, 1
+1. O ancião à Senhora eleita e a seus filhos, que amo na verdade. Não somente eu, mas também todos os que conheceram a verdade,
+2. por causa da verdade que permanece em nós e que ficará conosco eternamente.
+3. Estejam convosco, na verdade e no amor: graça, misericórdia e paz da parte de Deus Pai e de Jesus Cristo, Filho do Pai.
+4. Muito me alegrei por ter achado entre teus filhos alguns que andam na verdade, conforme o mandamento que temos recebido do Pai.
+5. E agora rogo-te, Senhora, não como quem te escreve um novo mandamento, mas sim o que tivemos desde o princípio: que nos amemos uns aos outros.
+6. Nisto consiste o amor: que vivamos segundo seus mandamentos. É este o mandamento que tendes ouvido desde o princípio, e segundo o qual deveis viver.
+7. Muitos sedutores têm saído pelo mundo afora, os quais não proclamam Jesus Cristo que se encarnou. Quem assim proclama é o sedutor e o Anticristo.
+8. Acautelai-vos, para que não percais o fruto de nosso trabalho, mas antes possais receber plena recompensa.
+9. Todo aquele que caminha sem rumo e não permanece na doutrina de Cristo, não tem Deus. Quem permanece na doutrina, este possui o Pai e o Filho.
+10. Se alguém vier a vós sem trazer esta doutrina, não o recebais em vossa casa, nem o saudeis.
+11. Porque quem o saúda toma parte em suas obras más.
+12. Apesar de ter mais coisas que vos escrever, não o quis fazer com papel e tinta, mas espero estar entre vós e conversar de viva voz, para que a vossa alegria seja perfeita.
+13. Saúdam-te os filhos de tua irmã, a escolhida.III São João, 1
+1. O ancião ao caríssimo Gaio, a quem amo na verdade.
+2. Caríssimo, desejo que prosperes em todos os teus empreendimentos, que estejas bem e igualmente que tua alma prospere.
+3. Alegrei-me muito com a vinda dos irmãos e com o testemunho que deram da tua verdade, de como andas na verdade.
+4. Não tenho maior alegria do que ouvir dizer que os meus filhos caminham na verdade.
+5. Caríssimo, fazes obras de fé em tudo o que realizas para os teus irmãos, mesmo para os irmãos estrangeiros.
+6. Estes, perante a comunidade, deram testemunho do teu amor. Farás bem em provê-los para a sua viagem, de um modo digno de Deus.
+7. Pois por amor do seu nome partiram, sem nada receber dos pagãos.
+8. Devemos, portanto, receber a tais homens, para cooperar com eles pela verdade.
+9. Escrevi uma palavra à Igreja. Mas Diótrefes, homem ambicioso do poder, não nos quer receber.
+10. Por isso, quando eu for aí, hei de recordar as obras que ele pratica, espalhando contra nós coisas más. Não contente com isto, ele não só recusa receber os irmãos, como até proíbe de recebê-los aos que o quereriam fazer, e os exclui da comunidade.
+11. Caríssimo, não imites o mal, mas sim o bem. Quem pratica o bem nasceu de Deus. Quem pratica o mal não viu a Deus.
+12. A respeito de Demétrio, todos e a mesma verdade dão testemunho, e nós também lhe damos testemunho; e tu sabes que o nosso testemunho é verdadeiro.
+13. Tinha muitas coisas para te escrever, mas não quero fazê-lo com tinta e pena.
+14. Espero ir ver-te em breve e então falaremos de viva voz.
+15. A paz esteja contigo! Os amigos te saúdam. Saúda os amigos cada um em particular.São Judas, 1
+1. Judas, servo de Jesus Cristo e irmão de Tiago, aos eleitos bem-amados em Deus Pai e reservados para Jesus Cristo.
+2. Que a misericórdia, a paz e o amor se realizem em vós copiosamente.
+3. Caríssimos, estando eu muito preocupado em vos escrever a respeito da nossa comum salvação, senti a necessidade de dirigir-vos esta carta para exortar-vos a pelejar pela fé, confiada de uma vez para sempre aos santos.
+4. Pois certos homens ímpios se introduziram furtivamente entre nós, os quais desde muito tempo estão destinados para este julgamento; eles transformam em dissolução a graça de nosso Deus e negam Jesus Cristo, nosso único Mestre e Senhor.
+5. Quisera trazer-vos à memória, embora saibais todas estas coisas: o Senhor, depois de ter salvo o povo da terra do Egito, fez em seguida perecer os incrédulos.
+6. Os anjos que não tinham guardado a dignidade de sua classe, mas abandonado os seus tronos, ele os guardou com laços eternos nas trevas para o julgamento do Grande Dia.
+7. Da mesma forma Sodoma, Gomorra e as cidades circunvizinhas, que praticaram as mesmas impurezas e se entregaram a vícios contra a natureza, jazem lá como exemplo, sofrendo a pena do fogo eterno.
+8. Assim também estes homens, em seu louco desvario, contaminam igualmente a carne, desprezam a soberania e maldizem as glórias.
+9. Ora, quando o arcanjo Miguel discutia com o demônio e lhe disputava o corpo de Moisés, não ousou fulminar contra ele uma sentença de execração, mas disse somente: Que o próprio Senhor te repreenda!
+10. Estes, porém, falam mal do que ignoram. Encontram eles a sua perdição naquilo que não conhecem, senão de um modo natural, à maneira dos animais destituídos de razão.
+11. Ai deles, porque andaram pelo caminho de Caim, e por amor do lucro caíram no erro de Balaão e pereceram na revolta de Coré.
+12. Esses fazem escândalos nos vossos ágapes. Banqueteiam-se convosco despudoradamente e se saciam a si mesmos. São nuvens sem água, que os ventos levam! Árvores de fim de outono, sem fruto, duas vezes mortas, desarraigadas!
+13. Ondas furiosas do mar, que arrojam as espumas da sua torpeza! Estrelas errantes, para as quais está reservada a escuridão das trevas para toda a eternidade!
+14. Também Henoc, que foi o oitavo patriarca depois de Adão, profetizou a respeito deles, dizendo: Eis que veio o Senhor entre milhares de seus santos
+15. para julgar a todos e confundir a todos os ímpios por causa das obras de impiedade que praticaram, e por causa de todas as palavras injuriosas que eles, ímpios, têm proferido contra Deus.
+16. Estes são murmuradores descontentes, homens que vivem segundo as suas paixões, cuja boca profere palavras soberbas e que admiram os demais por interesse.
+17. Mas vós, caríssimos, lembrai-vos das palavras que vos foram preditas pelos apóstolos de nosso Senhor Jesus Cristo,
+18. os quais vos diziam: No fim dos tempos virão impostores, que viverão segundo as suas ímpias paixões;
+19. homens que semeiam a discórdia, homens sensuais que não têm o Espírito.
+20. Mas vós, caríssimos, edificai-vos mutuamente sobre o fundamento da vossa santíssima fé. Orai no Espírito Santo.
+21. Conservai-vos no amor de Deus, aguardando a misericórdia de nosso Senhor Jesus Cristo, para a vida eterna.
+22. Para com uns exercei a vossa misericórdia, repreendendo-os,
+23. e salvai-os, arrebatando-os do fogo. Dos demais tende compaixão, repassada de temor, detestando até a túnica manchada pela carne.
+24. Àquele, que é poderoso para nos preservar de toda queda e nos apresentar diante de sua glória, imaculados e cheios de alegria,
+25. ao Deus único, Salvador nosso, por Jesus Cristo, Senhor nosso, sejam dadas glória, magnificência, império e poder desde antes de todos os tempos, agora e para sempre. Amém.Apocalipse, 1
+1. Revelação de Jesus Cristo, que lhe foi confiada por Deus para manifestar aos seus servos o que deve acontecer em breve. Ele, por sua vez, por intermédio de seu anjo, comunicou ao seu servo João,
+2. o qual atesta, como palavra de Deus, o testemunho de Jesus Cristo e tudo o que viu.
+3. Feliz o leitor e os ouvintes se observarem as coisas nela escritas, porque o tempo está próximo.
+4. João às sete igrejas que estão na Ásia: a vós, graça e paz da parte daquele que é, que era e que vem da parte dos sete Espíritos que estão diante do seu trono
+5. e da parte de Jesus Cristo, testemunha fiel, primogênito dentre os mortos e soberano dos reis da terra. Àquele que nos ama, que nos lavou de nossos pecados no seu sangue
+6. e que fez de nós um reino de sacerdotes para Deus e seu Pai, glória e poder pelos séculos dos séculos! Amém.
+7. Ei-lo que vem com as nuvens. Todos os olhos o verão, mesmo aqueles que o traspassaram. Por sua causa, hão de lamentar-se todas as raças da terra. Sim. Amém.
+8. Eu sou o Alfa e o Ômega, diz o Senhor Deus, aquele que é, que era e que vem, o Dominador.
+9. Eu, João, vosso irmão e companheiro nas tribulações, na realeza e na paciência em união com Jesus, estava na ilha de Patmos por causa da palavra de Deus e do testemunho de Jesus.
+10. Num domingo, fui arrebatado em êxtase, e ouvi, por trás de mim, voz forte como de trombeta,
+11. que dizia: O que vês, escreve-o num livro e manda-o às sete igrejas: a Éfeso, a Esmirna, a Pérgamo, a Tiatira, a Sardes, a Filadélfia e a Laodicéia.
+12. Voltei-me para saber que voz falava comigo. Tendo-me voltado, vi sete candelabros de ouro
+13. e, no meio dos candelabros, alguém semelhante ao Filho do Homem, vestindo longa túnica até os pés, cingido o peito por um cinto de ouro.
+14. Tinha ele cabeça e cabelos brancos como lã cor de neve. Seus olhos eram como chamas de fogo.
+15. Seus pés se pareciam ao bronze fino incandescido na fornalha. Sua voz era como o ruído de muitas águas.
+16. Segurava na mão direita sete estrelas. De sua boca saía uma espada afiada, de dois gumes. O seu rosto se assemelhava ao sol, quando brilha com toda a força.
+17. Ao vê-lo, caí como morto aos seus pés. Ele, porém, pôs sobre mim sua mão direita e disse: Não temas! Eu sou o Primeiro e o Último, e o que vive.
+18. Pois estive morto, e eis-me de novo vivo pelos séculos dos séculos; tenho as chaves da morte e da região dos mortos.
+19. Escreve, pois, o que viste, tanto as coisas atuais como as futuras.
+20. Eis o simbolismo das sete estrelas que viste na minha mão direita e dos sete candelabros de ouro: as sete estrelas são os anjos das sete igrejas, e os sete candelabros, as sete igrejas.Apocalipse, 2
+1. Ao anjo da igreja de Éfeso, escreve: Eis o que diz aquele que segura as sete estrelas na sua mão direita, aquele que anda pelo meio dos sete candelabros de ouro.
+2. Conheço tuas obras, teu trabalho e tua paciência: não podes suportar os maus, puseste à prova os que se dizem apóstolos e não o são e os achaste mentirosos.
+3. Tens perseverança, sofreste pelo meu nome e não desanimaste.
+4. Mas tenho contra ti que arrefeceste o teu primeiro amor.
+5. Lembra-te, pois, donde caíste. Arrepende-te e retorna às tuas primeiras obras. Senão, virei a ti e removerei o teu candelabro do seu lugar, caso não te arrependas.
+6. Mas isto tens de bem: detestas as obras dos nicolaítas, como eu as detesto.
+7. Quem tiver ouvidos, ouça o que o Espírito diz às igrejas: Ao vencedor darei de comer (do fruto) da árvore da vida, que se acha no paraíso de Deus.
+8. Ao anjo da igreja de Esmirna, escreve: Eis o que diz o Primeiro e o Último, que foi morto e retomou a vida.
+9. Eu conheço a tua angústia e a tua pobreza - ainda que sejas rico - e também as difamações daqueles que se dizem judeus e não o são; são apenas uma sinagoga de Satanás.
+10. Nada temas ante o que hás de sofrer. Por estes dias o demônio vai lançar alguns de vós na prisão, para pôr-vos à prova. Tereis tribulações durante dez dias. Sê fiel até a morte e te darei a coroa da vida.
+11. Quem tiver ouvidos, ouça o que o Espírito diz às igrejas: O vencedor não sofrerá dano algum da segunda morte.
+12. Ao anjo da igreja de Pérgamo, escreve: Eis o que diz aquele que tem a espada afiada de dois gumes.
+13. Sei onde habitas: aí se acha o trono de Satanás. Mas tu te apegas firmemente ao meu nome e não renegaste a minha fé, mesmo naqueles dias em que minha fiel testemunha Antipas foi morto entre vós, onde Satanás habita.
+14. Todavia, tenho alguma coisa contra ti: é que tens aí sequazes da doutrina de Balaão, o qual ensinou Balac a fazer tropeçar os filhos de Israel, para levá-los a comer carne imolada aos ídolos e praticar imundícies.
+15. Tens também sequazes da doutrina dos nicolaítas.
+16. Arrepende-te, pois; senão virei em breve a ti e combaterei contra eles com a espada da minha boca.
+17. Quem tiver ouvidos, ouça o que o Espírito diz às igrejas: Ao vencedor darei o maná escondido e lhe entregarei uma pedra branca, na qual está escrito um nome novo que ninguém conhece, senão aquele que o receber.
+18. Ao anjo da igreja de Tiatira, escreve: Eis o que diz o Filho de Deus, que tem os olhos como chamas de fogo e os pés semelhantes ao fino bronze.
+19. Conheço tuas obras, teu amor, tua fidelidade, tua generosidade, tua paciência e persistência; e as tuas últimas obras, que excedem as primeiras.
+20. Mas tenho contra ti que permites a Jezabel, mulher que se diz profetisa, seduzir meus servos e ensinar-lhes a praticar imundícies e comer carne imolada aos ídolos.
+21. Eu lhe dei tempo para arrepender-se, mas não quer arrepender-se de suas imundícies.
+22. Desta vez a lançarei num leito, e com ela os cúmplices de seus adultérios para aí sofrerem muito, se não se arrependerem das suas obras.
+23. Farei perecer pela peste os seus filhos, e todas as igrejas hão de saber que eu sou aquele que sonda os rins e os corações, porque darei a cada um de vós segundo as suas obras.
+24. A vós, porém, e aos demais de Tiatira que não seguis esta doutrina e não conheceis (como dizem) as profundezas de Satanás, não imporei outro fardo.
+25. Mas guardai o que tendes até que eu venha.
+26. Então ao vencedor, ao que praticar minhas obras até o fim, dar-lhe-ei poder sobre as nações pagãs.
+27. Ele as regerá com cetro de ferro, como se quebra um vaso de argila,
+28. assim como eu mesmo recebi o poder de meu Pai; e dar-lhe-ei a Estrela da manhã.
+29. Quem tiver ouvidos, ouça o que o Espírito diz às igrejas.Apocalipse, 3
+1. Ao anjo da igreja de Sardes, escreve: Eis o que diz aquele que tem os sete Espíritos de Deus e as sete estrelas. Conheço as tuas obras: és considerado vivo, mas estás morto.
+2. Sê vigilante e consolida o resto que ia morrer, pois não achei tuas obras perfeitas diante de meu Deus.
+3. Lembra-te de como recebeste e ouviste a doutrina. Observa-a e arrepende-te. Se não vigiares, virei a ti como um ladrão, e não saberás a que horas te surpreenderei.
+4. Todavia, tens em Sardes algumas pessoas que não contaminaram suas vestes; andarão comigo vestidas de branco, porque o merecem.
+5. O vencedor será assim revestido de vestes brancas. Jamais apagarei o seu nome do livro da vida, e o proclamarei diante do meu Pai e dos seus anjos.
+6. Quem tiver ouvidos, ouça o que o Espírito diz às igrejas.
+7. Ao anjo da igreja de Filadélfia, escreve: Eis o que diz o Santo e o Verdadeiro, aquele que tem a chave de Davi - que abre e ninguém pode fechar; que fecha e ninguém pode abrir.
+8. Conheço as tuas obras: eu pus diante de ti uma porta aberta, que ninguém pode fechar; porque, apesar de tua fraqueza, guardaste a minha palavra e não renegaste o meu nome.
+9. Eu te entrego adeptos da sinagoga de Satanás, desses que se dizem judeus, e não o são, mas mentem. Eis que os farei vir prostrar-se aos teus pés e reconhecerão que eu te amo.
+10. Porque guardaste a palavra de minha paciência, também eu te guardarei da hora da provação, que está para sobrevir ao mundo inteiro, para provar os habitantes da terra.
+11. Venho em breve. Conserva o que tens, para que ninguém tome a tua coroa.
+12. Farei do vencedor uma coluna no templo de meu Deus, de onde jamais sairá, e escreverei sobre ele o nome de meu Deus, e o nome da cidade de meu Deus, a nova Jerusalém, que desce dos céus enviada por meu Deus, assim como o meu nome novo.
+13. Quem tiver ouvidos, ouça o que o Espírito diz às igrejas.
+14. Ao anjo da igreja de Laodicéia, escreve: Eis o que diz o Amém, a Testemunha fiel e verdadeira, o Princípio da criação de Deus.
+15. Conheço as tuas obras: não és nem frio nem quente. Oxalá fosses frio ou quente!
+16. Mas, como és morno, nem frio nem quente, vou vomitar-te.
+17. Pois dizes: Sou rico, faço bons negócios, de nada necessito - e não sabes que és infeliz, miserável, pobre, cego e nu.
+18. Aconselho-te que compres de mim ouro provado ao fogo, para ficares rico; roupas alvas para te vestires, a fim de que não apareça a vergonha de tua nudez; e um colírio para ungir os olhos, de modo que possas ver claro.
+19. Eu repreendo e castigo aqueles que amo. Reanima, pois, o teu zelo e arrepende-te.
+20. Eis que estou à porta e bato: se alguém ouvir a minha voz e me abrir a porta, entrarei em sua casa e cearemos, eu com ele e ele comigo.
+21. Ao vencedor concederei assentar-se comigo no meu trono, assim como eu venci e me assentei com meu Pai no seu trono.
+22. Quem tiver ouvidos, ouça o que o Espírito diz às igrejas.Apocalipse, 4
+1. Depois disso, tive uma visão: vi uma porta aberta no céu, e a voz que falara comigo, como uma trombeta, dizia: Sobe aqui e mostrar-te-ei o que está para acontecer depois disso.
+2. Imediatamente, fui arrebatado em espírito; no céu havia um trono, e nesse trono estava sentado um Ser.
+3. E quem estava sentado assemelhava-se pelo aspecto a uma pedra de jaspe e de sardônica. Um halo, semelhante à esmeralda, nimbava o trono.
+4. Ao redor havia vinte e quatro tronos, e neles, sentados, vinte e quatro Anciãos vestidos de vestes brancas e com coroas de ouro na cabeça.
+5. Do trono saíam relâmpagos, vozes e trovões. Diante do trono ardiam sete tochas de fogo, que são os sete Espíritos de Deus.
+6. Havia ainda diante do trono um mar límpido como cristal. Diante do trono e ao redor, quatro Animais vivos cheios de olhos na frente e atrás.
+7. O primeiro animal vivo assemelhava-se a um leão; o segundo, a um touro; o terceiro tinha um rosto como o de um homem; e o quarto era semelhante a uma águia em pleno vôo.
+8. Estes Animais tinham cada um seis asas cobertas de olhos por dentro e por fora. Não cessavam de clamar dia e noite: Santo, Santo, Santo é o Senhor Deus, o Dominador, o que é, o que era e o que deve voltar.
+9. E cada vez que aqueles Animais rendiam glória, honra e ação de graças àquele que vive pelos séculos dos séculos,
+10. os vinte e quatro Anciãos inclinavam-se profundamente diante daquele que estava no trono e prostravam-se diante daquele que vive pelos séculos dos séculos, e depunham suas coroas diante do trono, dizendo:
+11. Tu és digno Senhor, nosso Deus, de receber a honra, a glória e a majestade, porque criaste todas as coisas, e por tua vontade é que existem e foram criadas.Apocalipse, 5
+1. Eu vi também, na mão direita do que estava assentado no trono, um livro escrito por dentro e por fora, selado com sete selos.
+2. Vi então um anjo vigoroso, que clamava em alta voz: Quem é digno de abrir o livro e desatar os seus selos?
+3. Mas ninguém, nem no céu, nem na terra, nem debaixo da terra, podia abrir o livro ou examiná-lo.
+4. Eu chorava muito, porque ninguém fora achado digno de abrir o livro e examiná-lo.
+5. Então um dos Anciãos me falou: Não chores! O Leão da tribo de Judá, o descendente de Davi achou meio de abrir o livro e os sete selos.
+6. Eu vi no meio do trono, dos quatro Animais e no meio dos Anciãos um Cordeiro de pé, como que imolado. Tinha ele sete chifres e sete olhos (que são os sete Espíritos de Deus, enviados por toda a terra).
+7. Veio e recebeu o livro da mão direita do que se assentava no trono.
+8. Quando recebeu o livro, os quatro Animais e os vinte e quatro Anciãos prostraram-se diante do Cordeiro, tendo cada um uma cítara e taças de ouro cheias de perfume (que são as orações dos santos).
+9. Cantavam um cântico novo, dizendo: Tu és digno de receber o livro e de abrir-lhe os selos, porque foste imolado e resgataste para Deus, ao preço de teu sangue, homens de toda tribo, língua, povo e raça;
+10. e deles fizeste para nosso Deus um reino de sacerdotes, que reinam sobre a terra.
+11. Na minha visão ouvi também, ao redor do trono, dos Animais e dos Anciãos, a voz de muitos anjos, em número de miríades de miríades e de milhares de milhares,
+12. bradando em alta voz: Digno é o Cordeiro imolado de receber o poder, a riqueza, a sabedoria, a força, a glória, a honra e o louvor.
+13. E todas as criaturas que estão no céu, na terra, debaixo da terra e no mar, e tudo que contêm, eu as ouvi clamar: Àquele que se assenta no trono e ao Cordeiro, louvor, honra, glória e poder pelos séculos dos séculos.
+14. E os quatro Animais diziam: Amém! Os Anciãos prostravam-se e adoravam.Apocalipse, 6
+1. Depois, vi o Cordeiro abrir o primeiro selo e ouvi um dos quatro Animais clamar com voz de trovão: Vem!
+2. Vi aparecer então um cavalo branco. O seu cavaleiro tinha um arco; foi-lhe dada uma coroa e ele partiu como vencedor para tornar a vencer.
+3. Quando abriu o segundo selo, ouvi o segundo animal clamar: Vem!
+4. Partiu então outro cavalo, vermelho. Ao que o montava foi dado tirar a paz da terra, de modo que os homens se matassem uns aos outros; e foi-lhe dada uma grande espada.
+5. Quando abriu o terceiro selo, ouvi o terceiro animal clamar: Vem! E vi aparecer um cavalo preto. Seu cavaleiro tinha uma balança na mão.
+6. Ouvi então como que uma voz clamar no meio dos quatro Animais: Uma medida de trigo por um denário, e três medidas de cevada por um denário; mas não danifiques o azeite e o vinho!
+7. Quando abriu o quarto selo, ouvi a voz do quarto animal, que clamava: Vem!
+8. E vi aparecer um cavalo esverdeado. Seu cavaleiro tinha por nome Morte; e a região dos mortos o seguia. Foi-lhe dado poder sobre a quarta parte da terra, para matar pela espada, pela fome, pela peste e pelas feras.
+9. Quando abriu o quinto selo, vi debaixo do altar as almas dos homens imolados por causa da palavra de Deus e por causa do testemunho de que eram depositários.
+10. E clamavam em alta voz, dizendo: Até quando tu, que és o Senhor, o Santo, o Verdadeiro, ficarás sem fazer justiça e sem vingar o nosso sangue contra os habitantes da terra?
+11. Foi então dada a cada um deles uma veste branca, e foi-lhes dito que aguardassem ainda um pouco, até que se completasse o número dos companheiros de serviço e irmãos que estavam com eles para ser mortos.
+12. Depois vi o Cordeiro abrir o sexto selo; e sobreveio então um grande terremoto. O sol se escureceu como um tecido de crina, a lua tornou-se toda vermelha como sangue
+13. e as estrelas do céu caíram na terra, como frutos verdes que caem da figueira agitada por forte ventania.
+14. O céu desapareceu como um pedaço de papiro que se enrola e todos os montes e ilhas foram tirados dos seus lugares.
+15. Então os reis da terra, os grandes, os chefes, os ricos, os poderosos, todos, tanto escravos como livres, esconderam-se nas cavernas e grutas das montanhas.
+16. E diziam às montanhas e aos rochedos: Caí sobre nós e escondei-nos da face daquele que está sentado no trono e da ira do Cordeiro,
+17. porque chegou o Grande Dia da sua ira, e quem poderá subsistir?Apocalipse, 7
+1. Depois disso, vi quatro Anjos que se conservavam em pé nos quatro cantos da terra, detendo os quatro ventos da terra, para que nenhum vento soprasse sobre a terra, sobre o mar ou sobre árvore alguma.
+2. Vi ainda outro anjo subir do oriente; trazia o selo de Deus vivo, e pôs-se a clamar com voz retumbante aos quatro Anjos, aos quais fora dado danificar a terra e o mar, dizendo:
+3. Não danifiqueis a terra, nem o mar, nem as árvores, até que tenhamos assinalado os servos de nosso Deus em suas frontes.
+4. Ouvi então o número dos assinalados: cento e quarenta e quatro mil assinalados, de toda tribo dos filhos de Israel;
+5. da tribo de Judá, doze mil assinalados; da tribo de Rubem, doze mil; da tribo de Gad, doze mil;
+6. da tribo de Aser, doze mil; da tribo de Neftali, doze mil; da tribo de Manassés, doze mil;
+7. da tribo de Simeão, doze mil; da tribo de Levi, doze mil; da tribo de Issacar, doze mil;
+8. da tribo de Zabulon, doze mil; da tribo de José, doze mil; da tribo de Benjamim, doze mil assinalados.
+9. Depois disso, vi uma grande multidão que ninguém podia contar, de toda nação, tribo, povo e língua: conservavam-se em pé diante do trono e diante do Cordeiro, de vestes brancas e palmas na mão,
+10. e bradavam em alta voz: A salvação é obra de nosso Deus, que está assentado no trono, e do Cordeiro.
+11. E todos os Anjos estavam ao redor do trono, dos Anciãos e dos quatro Animais; prostravam-se de face em terra diante do trono e adoravam a Deus, dizendo:
+12. Amém, louvor, glória, sabedoria, ação de graças, honra, poder e força ao nosso Deus pelos séculos dos séculos! Amém.
+13. Então um dos Anciãos falou comigo e perguntou-me: Esses, que estão revestidos de vestes brancas, quem são e de onde vêm?
+14. Respondi-lhe: Meu Senhor, tu o sabes. E ele me disse: Esses são os sobreviventes da grande tribulação; lavaram as suas vestes e as alvejaram no sangue do Cordeiro.
+15. Por isso, estão diante do trono de Deus e o servem, dia e noite, no seu templo. Aquele que está sentado no trono os abrigará em sua tenda. Já não terão fome, nem sede, nem o sol ou calor algum os abrasará,
+16. porque o Cordeiro, que está no meio do trono, será o seu pastor e os levará às fontes das águas vivas; e Deus enxugará toda lágrima de seus olhos.Apocalipse, 8
+1. Quando, enfim, abriu o sétimo selo, fez-se silêncio no céu cerca de meia hora.
+2. Eu vi os sete Anjos que assistem diante de Deus. Foram-lhes dadas sete trombetas.
+3. Adiantou-se outro anjo e pôs-se junto ao altar, com um turíbulo de ouro na mão. Foram-lhe dados muitos perfumes, para que os oferecesse com as orações de todos os santos no altar de ouro, que está adiante do trono.
+4. A fumaça dos perfumes subiu da mão do anjo com as orações dos santos, diante de Deus.
+5. Depois disso, o anjo tomou o turíbulo, encheu-o de brasas do altar e lançou-o por terra; e houve trovões, vozes, relâmpagos e terremotos.
+6. Então os sete Anjos, que tinham as trombetas, prepararam-se para tocar.
+7. O primeiro anjo tocou. Saraiva e fogo, misturados com sangue, foram lançados à terra; e queimou-se uma terça parte da terra, uma terça parte das árvores e toda erva verde.
+8. O segundo anjo tocou. Caiu então no mar como que grande montanha, ardendo em fogo, e transformou-se em sangue uma terça parte do mar,
+9. morreu uma terça parte das criaturas que estavam no mar e pereceu uma terça parte dos navios.
+10. O terceiro anjo tocou a trombeta. Caiu então do céu uma grande estrela a arder como um facho; caiu sobre a terça parte dos rios e sobre as fontes.
+11. O nome da estrela era Absinto. Assim, uma terça parte das águas transformou-se em absinto e muitos homens morreram por ter bebido dessas águas envenenadas.
+12. O quarto anjo tocou. Foi atingida então uma terça parte do sol, da lua e das estrelas, de modo que se obscureceram em um terço; e o dia perdeu um terço da claridade, bem como a noite.
+13. A esta altura de minha visão, eu ouvi uma águia que voava pelo meio dos céus, clamando em alta voz: Ai, ai, ai dos habitantes da terra, por causa dos restantes sons das trombetas dos três Anjos que ainda vão tocar.Apocalipse, 9
+1. O quinto anjo tocou a trombeta. Vi então uma estrela cair do céu na terra, e foi-lhe dada a chave do poço do abismo;
+2. ela o abriu e saiu do poço uma fumaça como a de uma grande fornalha. O sol e o ar obscureceram-se com a fumaça do poço.
+3. Da fumaça saíram gafanhotos pela terra, e foi-lhes dado poder semelhante ao dos escorpiões da terra.
+4. Mas foi-lhes dito que não causassem dano à erva, verdura, ou árvore alguma, mas somente aos homens que não têm o selo de Deus na fronte.
+5. Foi-lhes ordenado que não os matassem, mas os afligissem por cinco meses. Seu tormento era como o da picada do escorpião.
+6. Naqueles dias, os homens buscarão a morte e não a conseguirão; desejarão morrer, e a morte fugirá deles.
+7. O aspecto desses gafanhotos era o de cavalos aparelhados para a guerra. Nas suas cabeças havia uma espécie de coroa com reflexos dourados. Seus rostos eram como rostos de homem,
+8. seus cabelos como os de mulher e seus dentes, como os dentes de leão.
+9. Seus tórax pareciam envoltos em ferro, e o ruído de suas asas era como o ruído de carros de muitos cavalos, correndo para a guerra.
+10. Tinham caudas semelhantes à do escorpião, com ferrões e o poder de afligir os homens por cinco meses.
+11. Têm eles por rei o anjo do abismo; chama-se em hebraico Abadon, e em grego, Apolion.
+12. Terminado assim o primeiro ai, eis que, depois dele, vêm ainda dois outros.
+13. O sexto anjo tocou a trombeta. Ouvi então uma voz que vinha dos quatro cantos do altar de ouro, que está diante de Deus,
+14. e que dizia ao sexto anjo que tinha a trombeta: Solta os quatro Anjos que estão acorrentados à beira do grande rio Eufrates.
+15. Então foram soltos os quatro Anjos que se conservavam preparados para a hora, o dia, o mês e o ano da matança da terça parte dos homens...
+16. O número de soldados desta cavalaria era de duzentos milhões. Eu ouvi o seu número.
+17. E foi assim que eu vi os cavalos e os que os montavam: estes últimos eram couraçados de uma chama sulfurosa azul. Os cavalos tinham crina como uma juba de leão e de suas narinas saíam fogo, fumaça e enxofre.
+18. E uma terça parte dos homens foi morta por esses três flagelos (fogo, fumaça e enxofre) que lhes saíam das narinas.
+19. Porque o poder nocivo dos cavalos estava também nas caudas; tinham cabeças como serpentes e causavam dano com elas.
+20. Mas o restante dos homens, que não foram mortos por esses três flagelos, não se arrependeu das obras de suas mãos. Não cessaram de adorar o demônio e os ídolos de ouro, de prata, de bronze, de pedra e de madeira, que não podem ver, nem ouvir, nem andar.
+21. Não se arrependeram de seus homicídios, seus malefícios, suas imundícies e furtos.Apocalipse, 10
+1. Vi então outro anjo vigoroso descer do céu, revestido de uma nuvem e com o arco-íris em torno da cabeça. Seu rosto era como sol, e as suas pernas como colunas de fogo.
+2. Segurava na mão um pequeno livro aberto. Pôs o pé direito sobre o mar, o esquerdo sobre a terra
+3. e começou a clamar em alta voz, como um leão que ruge. Quando clamou, os sete trovões ressoaram.
+4. Quando cessaram de falar, dispunha-me a escrever, mas ouvi uma voz do céu que dizia: Sela o que falaram os sete trovões e não o escrevas.
+5. Então o anjo, que eu vira de pé sobre o mar e a terra, levantou a mão direita para o céu
+6. e jurou por aquele que vive pelos séculos dos séculos, que criou o céu e tudo o que há nele, a terra e tudo o que ela contém, o mar e tudo o que encerra, que não haveria mais tempo;
+7. mas nos dias em que soasse a trombeta do sétimo anjo, se cumpriria o mistério de Deus, de acordo com a boa nova que confiou a seus servos, os profetas.
+8. Então a voz que ouvi do céu falou-me de novo, e disse: Vai e toma o pequeno livro aberto da mão do anjo que está em pé sobre o mar e a terra.
+9. Fui eu, pois, ter com o anjo, dizendo-lhe que me desse o pequeno livro. E ele me disse: Toma e devora-o! Ele te será amargo nas entranhas, mas, na boca, doce como o mel.
+10. Tomei então o pequeno livro da mão do anjo e o comi. De fato, em minha boca tinha a doçura do mel, mas depois de o ter comido, amargou-me nas entranhas.
+11. Então foi-me explicado: Urge que ainda profetizes de novo a numerosas nações, povos, línguas e reis.Apocalipse, 11
+1. Foi-me dada uma vara semelhante a uma vara de agrimensor, e disseram-me: Levanta-te! Mede o templo de Deus e o altar com seus adoradores.
+2. O átrio fora do templo, porém, deixa-o de lado e não o meças: foi dado aos gentios, que hão de calcar aos pés a Cidade Santa por quarenta e dois meses.
+3. Mas incumbirei às minhas duas testemunhas, vestidas de saco, de profetizarem por mil duzentos e sessenta dias.
+4. São eles as duas oliveiras e os dois candelabros que se mantêm diante do Senhor da terra.
+5. Se alguém lhes quiser causar dano, sairá fogo de suas bocas e devorará os inimigos. Com efeito, se alguém os quiser ferir, cumpre que assim seja morto.
+6. Esses homens têm o poder de fechar o céu para que não caia chuva durante os dias de sua profecia; têm poder sobre as águas, para transformá-las em sangue, e de ferir a terra, sempre que quiserem, com toda sorte de flagelos.
+7. Mas, depois de terem terminado integralmente o seu testemunho, a Fera que sobe do abismo lhes fará guerra, os vencerá e os matará.
+8. Seus cadáveres (jazerão) na rua da grande cidade que se chama espiritualmente Sodoma e Egito (onde o seu Senhor foi crucificado).
+9. Muitos dentre os povos, tribos, línguas e nações virão para vê-los por três dias e meio, e não permitirão que sejam sepultados.
+10. Os habitantes da terra alegrar-se-ão por causa deles, felicitar-se-ão mutuamente e mandarão presentes uns aos outros, porque esses dois profetas tinham sido seu tormento.
+11. Mas, depois de três dias e meio, um sopro de vida, vindo de Deus, os penetrou. Puseram-se de pé e grande terror caiu sobre aqueles que os viam.
+12. Ouviram uma forte voz do céu que dizia: Subi aqui! Subiram então para o céu numa nuvem, enquanto os seus inimigos os olhavam.
+13. Naquela mesma hora produziu-se grande terremoto, caiu uma décima parte da cidade e pereceram no terremoto sete mil pessoas. As demais, aterrorizadas, deram glória ao Deus do céu.
+14. Terminou assim a segunda desgraça. E eis que depressa sobrevém a terceira.
+15. O sétimo anjo tocou a trombeta. Ressoaram então no céu altas vozes que diziam: O império de nosso Senhor e de seu Cristo estabeleceu-se sobre o mundo, e ele reinará pelos séculos dos séculos.
+16. Os vinte e quatro Anciãos, que se assentam nos seus tronos diante de Deus, prostraram-se de rosto em terra e adoraram a Deus,
+17. dizendo: Graças te damos, Senhor, Deus Dominador, que és e que eras, porque assumiste a plenitude de teu poder real.
+18. Irritaram-se os pagãos, mas eis que sobreveio a tua ira e o tempo de julgar os mortos, de dar a recompensa aos teus servos, aos profetas, aos santos, aos que temem o teu nome, pequenos e grandes, e de exterminar os que corromperam a terra.
+19. Abriu-se o templo de Deus no céu e apareceu, no seu templo, a arca do seu testamento. Houve relâmpagos, vozes, trovões, terremotos e forte saraiva.Apocalipse, 12
+1. Apareceu em seguida um grande sinal no céu: uma Mulher revestida do sol, a lua debaixo dos seus pés e na cabeça uma coroa de doze estrelas.
+2. Estava grávida e gritava de dores, sentindo as angústias de dar à luz.
+3. Depois apareceu outro sinal no céu: um grande Dragão vermelho, com sete cabeças e dez chifres, e nas cabeças sete coroas.
+4. Varria com sua cauda uma terça parte das estrelas do céu, e as atirou à terra. Esse Dragão deteve-se diante da Mulher que estava para dar à luz, a fim de que, quando ela desse à luz, lhe devorasse o filho.
+5. Ela deu à luz um Filho, um menino, aquele que deve reger todas as nações pagãs com cetro de ferro. Mas seu Filho foi arrebatado para junto de Deus e do seu trono.
+6. A Mulher fugiu então para o deserto, onde Deus lhe tinha preparado um retiro para aí ser sustentada por mil duzentos e sessenta dias.
+7. Houve uma batalha no céu. Miguel e seus anjos tiveram de combater o Dragão. O Dragão e seus anjos travaram combate,
+8. mas não prevaleceram. E já não houve lugar no céu para eles.
+9. Foi então precipitado o grande Dragão, a primitiva Serpente, chamado Demônio e Satanás, o sedutor do mundo inteiro. Foi precipitado na terra, e com ele os seus anjos.
+10. Eu ouvi no céu uma voz forte que dizia: Agora chegou a salvação, o poder e a realeza de nosso Deus, assim como a autoridade de seu Cristo, porque foi precipitado o acusador de nossos irmãos, que os acusava, dia e noite, diante do nosso Deus.
+11. Mas estes venceram-no por causa do sangue do Cordeiro e de seu eloqüente testemunho. Desprezaram a vida até aceitar a morte.
+12. Por isso alegrai-vos, ó céus, e todos que aí habitais. Mas, ó terra e mar, cuidado! Porque o Demônio desceu para vós, cheio de grande ira, sabendo que pouco tempo lhe resta.
+13. O Dragão, vendo que fora precipitado na terra, perseguiu a Mulher que dera à luz o Menino.
+14. Mas à Mulher foram dadas duas asas de grande águia, a fim de voar para o deserto, para o lugar de seu retiro, onde é alimentada por um tempo, dois tempos e a metade de um tempo, fora do alcance da cabeça da Serpente.
+15. A Serpente vomitou contra a Mulher um rio de água, para fazê-la submergir.
+16. A terra, porém, acudiu à Mulher, abrindo a boca para engolir o rio que o Dragão vomitara.
+17. Este, então, se irritou contra a Mulher e foi fazer guerra ao resto de sua descendência, aos que guardam os mandamentos de Deus e têm o testemunho de Jesus.
+18. E ele se estabeleceu na praia.Apocalipse, 13
+1. Vi, então, levantar-se do mar uma Fera que tinha dez chifres e sete cabeças; sobre os chifres, dez diademas; e nas suas cabeças, nomes blasfematórios.
+2. A Fera que eu vi era semelhante a uma pantera: os pés como de urso, e as fauces como de leão. Deu-lhe o Dragão o seu poder, o seu trono e grande autoridade.
+3. Uma das suas cabeças estava como que ferida de morte, mas essa ferida de morte fora curada. E todos, pasmados de admiração, seguiram a Fera
+4. e prostraram-se diante do Dragão, porque dera seu prestígio à Fera, e prostraram-se igualmente diante da Fera, dizendo: Quem é semelhante à Fera e quem poderá lutar com ela?
+5. Foi-lhe dada a faculdade de proferir arrogâncias e blasfêmias, e foi-lhe dado o poder de agir por quarenta e dois meses.
+6. Abriu, pois, a boca em blasfêmias contra Deus, para blasfemar o seu nome, o seu tabernáculo e os habitantes do céu.
+7. Foi-lhe dado, também, fazer guerra aos santos e vencê-los. Recebeu autoridade sobre toda tribo, povo, língua e nação,
+8. e hão de adorá-la todos os habitantes da terra, cujos nomes não estão escritos desde a origem do mundo no livro da vida do Cordeiro imolado.
+9. Quem tiver ouvidos, ouça!
+10. Quem procura prender será preso. Quem matar pela espada, pela espada deve ser morto. Esta é a ocasião para a constância e a confiança dos santos!
+11. Vi, então, outra Fera subir da terra. Tinha dois chifres como um cordeiro, mas falava como um dragão.
+12. Ela exercia todo o poder da primeira Fera, sob a vigilância desta, e fez com que a terra e os seus habitantes adorassem a primeira Fera (cuja ferida de morte havia sido curada).
+13. Realizou grandes prodígios, de modo que até fez descer fogo do céu sobre a terra, à vista dos homens.
+14. Seduziu os habitantes da terra com os prodígios que lhe era dado fazer sob a vigilância da Fera, persuadindo-os a fazer uma imagem da Fera que sobrevivera ao golpe da espada.
+15. Foi-lhe dado, também, comunicar espírito à imagem da Fera, de modo que essa imagem se pusesse a falar e fizesse com que fosse morto todo aquele que não se prostrasse diante dela.
+16. Conseguiu que todos, pequenos e grandes, ricos e pobres, livres e escravos, tivessem um sinal na mão direita e na fronte,
+17. e que ninguém pudesse comprar ou vender, se não fosse marcado com o nome da Fera, ou o número do seu nome.
+18. Eis aqui a sabedoria! Quem tiver inteligência, calcule o número da Fera, porque é número de um homem, e esse número é seiscentos e sessenta e seis.Apocalipse, 14
+1. Eu vi ainda: o Cordeiro estava de pé no monte Sião, e perto dele cento e quarenta e quatro mil pessoas que traziam escritos na fronte o nome dele e o nome de seu Pai.
+2. Ouvia, entretanto, um coro celeste semelhante ao ruído de muitas águas e ao ribombar de potente trovão. Esse coro que eu ouvia era ainda semelhante a músicos tocando as suas cítaras.
+3. Cantavam como que um cântico novo diante do trono, diante dos quatro Animais e dos Anciãos. Ninguém podia aprender este cântico, a não ser aqueles cento e quarenta e quatro mil que foram resgatados da terra.
+4. Estes são os que não se contaminaram com mulheres, pois são virgens. São eles que acompanham o Cordeiro por onde quer que vá; foram resgatados dentre os homens, como primícias oferecidas a Deus e ao Cordeiro.
+5. Em sua boca não se achou mentira, pois são irrepreensíveis.
+6. Vi, então, outro anjo que voava pelo meio do céu, tendo um evangelho eterno para anunciar aos habitantes da terra e a toda nação, tribo, língua e povo.
+7. Clamava em alta voz: Temei a Deus, e dai-lhe glória, porque é chegada a hora do seu julgamento. Adorai aquele que fez o céu e a terra, o mar e as fontes.
+8. Outro anjo seguiu-o, dizendo: Caiu, caiu a grande Babilônia, por ter dado de beber a todas as nações do vinho de sua imundície desenfreada.
+9. Um terceiro anjo seguiu-os, dizendo em alta voz: Se alguém adorar a Fera e a sua imagem, e aceitar o seu sinal na fronte ou na mão,
+10. há de beber também o vinho da cólera divina, o vinho puro deitado no cálice da sua ira. Será atormentado pelo fogo e pelo enxofre diante dos seus santos anjos e do Cordeiro.
+11. A fumaça do seu tormento subirá pelos séculos dos séculos. Não terão descanso algum, dia e noite, esses que adoram a Fera e a sua imagem, e todo aquele que acaso tenha recebido o sinal do seu nome.
+12. Eis o momento para apelar para a paciência dos santos, dos fiéis, aos mandamentos de Deus e à fé em Jesus.
+13. Eu ouvi uma voz do céu, que dizia: Escreve: Felizes os mortos que doravante morrem no Senhor. Sim, diz o Espírito, descansem dos seus trabalhos, pois as suas obras os seguem.
+14. Eu vi ainda uma nuvem branca, sobre a qual se sentava como que um Filho do Homem, com a cabeça cingida de coroa de ouro e na mão uma foice afiada.
+15. Outro anjo saiu do templo, gritando em voz alta para aquele que estava assentado na nuvem: Lança a tua foice e ceifa, porque é chegada a hora de ceifar, pois está madura a seara da terra.
+16. O Ser que estava assentado na nuvem lançou então a foice à terra, e a terra foi ceifada.
+17. Outro anjo saiu do templo do céu. Tinha também uma foice afiada.
+18. E outro anjo, aquele que tem poder sobre o fogo, saiu do altar e bradou em alta voz para aquele que tinha a foice afiada: Lança a foice afiada e vindima os cachos da vinha da terra, porque maduras estão as suas uvas.
+19. O anjo lançou a sua foice à terra e vindimou a vinha da terra, e atirou os cachos no grande lagar da ira de Deus.
+20. O lagar foi pisado fora da cidade, e do lagar saiu sangue que atingiu até o nível dos freios dos cavalos pelo espaço de mil e seiscentos estádios.Apocalipse, 15
+1. Vi ainda, no céu, outro sinal, grande e maravilhoso: sete Anjos que tinham os sete últimos flagelos, porque por eles é que se deve consumar a ira de Deus.
+2. Vi também como que um mar transparente, irisado de fogo, e os vencedores, que haviam escapado à Fera, à sua imagem e ao número do seu nome, conservavam-se de pé sobre esse mar com as cítaras de Deus.
+3. Cantavam o cântico de Moisés, o servo de Deus, e o cântico do Cordeiro, dizendo: Grandes e admiráveis são as tuas obras, Senhor Deus Dominador. Justos e verdadeiros são os teus caminhos, ó Rei das nações!
+4. Quem não temerá, Senhor, e não glorificará o teu nome? Só tu és santo e todas as nações virão prostrar-se diante de ti, porque se tornou manifesta a retidão dos teus juízos.
+5. Depois disso, eu vi abrir-se no céu o templo que encerra o Tabernáculo do Testemunho.
+6. Os sete Anjos que tinham os sete flagelos saíram do templo, vestidos de linho puro e resplandecente, cingidos ao peito com cintos de ouro.
+7. Um dos quatro Animais deu-lhes então sete taças de ouro, cheias da ira de Deus que vive pelos séculos dos séculos.
+8. Encheu-se o templo de fumaça provinda da glória de Deus e do seu poder. E ninguém podia entrar, enquanto não se consumassem os sete flagelos dos sete Anjos.Apocalipse, 16
+1. Ouvi, então, uma voz forte saindo do templo, que dizia aos sete Anjos: Ide, e derramai sobre a terra as sete taças da ira de Deus.
+2. O primeiro, portanto, pôs-se a derramar a sua taça sobre a terra. Formou-se uma úlcera atroz e maligna nos homens que tinham o sinal da Fera e que se prostravam diante de sua imagem.
+3. O segundo derramou a sua taça sobre o mar. Este tornou-se sangue, como o de um morto, e pereceu todo ser que estava no mar.
+4. O terceiro derramou a sua taça sobre os rios e as fontes das águas, e transformaram-se em sangue.
+5. Ouvi, então, o anjo das águas dizer: Tu és justo, tu que és e que eras o Santo, que assim julgas.
+6. Porque eles derramaram o sangue dos santos e dos profetas, tu lhes deste também sangue para beber. Eles o merecem.
+7. Ouvi o altar dizer: Sim, Senhor Deus Dominador, são verdadeiros e justos os teus julgamentos.
+8. O quarto derramou a sua taça sobre o sol, e foi-lhe dado queimar os homens com o fogo.
+9. E os homens foram queimados por grande calor, e amaldiçoaram o nome de Deus, que pode desencadear esses flagelos; e não quiseram arrepender-se e dar-lhe glória.
+10. O quinto derramou a sua taça sobre o trono da Fera. Seu reino se escureceu e seus súditos mordiam a língua de dor.
+11. Amaldiçoaram o Deus do céu por causa de seus sofrimentos e das suas feridas, sem se arrependerem dos seus atos.
+12. O sexto derramou a sua taça sobre o grande rio Eufrates, e secaram-se as suas águas para que se abrisse caminho aos reis do oriente.
+13. Vi (sair) da boca do Dragão, da boca da Fera e da boca do falso profeta três espíritos imundos semelhantes a rãs;
+14. são os espíritos de demônios que realizam prodígios, e vão ter com os reis de toda a terra, a fim de reuni-los para a batalha do Grande Dia do Deus Dominador.
+15. (Eis que venho como um ladrão! Feliz aquele que vigia e guarda as suas vestes para que não ande nu, ostentando a sua vergonha!)
+16. Eles os reuniram num lugar chamado em hebraico Har-Magedon.
+17. O sétimo derramou a sua taça pelos ares e saiu do templo uma grande voz do trono, que dizia: Está pronto!
+18. Houve, então, relâmpagos, vozes e trovões, assim como um terremoto tão grande como jamais houve desde que há homens na terra.
+19. A grande cidade foi dividida em três partes, e as cidades das nações caíram, e Deus lembrou-se da grande Babilônia, para lhe dar de beber o cálice do vinho de sua ira ardente.
+20. Todas as ilhas fugiram, e montanha alguma foi encontrada.
+21. Grandes pedras de gelo, que podiam pesar um talento, caíram do céu sobre os homens. Os homens amaldiçoaram a Deus por causa do flagelo da saraiva, pois este foi terrível.Apocalipse, 17
+1. Veio, então, um dos sete Anjos que tinham as sete taças e falou comigo: Vem, e eu te mostrarei a condenação da grande meretriz, que se assenta à beira das muitas águas,
+2. com a qual se contaminaram os reis da terra. Ela inebriou os habitantes da terra com o vinho da sua luxúria.
+3. Transportou-me, então, em espírito ao deserto. Eu vi uma mulher assentada em cima de uma fera escarlate, cheia de nomes blasfematórios, com sete cabeças e dez chifres.
+4. A mulher estava vestida de púrpura e escarlate, adornada de ouro, pedras preciosas e pérolas. Tinha na mão uma taça de ouro, cheia de abominação e de imundície de sua prostituição.
+5. Na sua fronte estava escrito um nome simbólico: Babilônia, a Grande, a mãe da prostituição e das abominações da terra.
+6. Vi que a mulher estava ébria do sangue dos santos e do sangue dos mártires de Jesus; e esta visão encheu-me de espanto.
+7. Mas o anjo me disse: Por que te admiras? Eu mesmo te vou dizer o simbolismo da mulher e da Fera de sete cabeças e dez chifres que a carrega.
+8. A Fera que tu viste era, mas já não é; ela deve subir do abismo, mas irá à perdição. Admirar-se-ão os habitantes da terra, cujos nomes não estão escritos no livro da vida, desde o começo do mundo, vendo reaparecer a Fera que era e já não é mais.
+9. Aqui se requer uma inteligência penetrante. As sete cabeças são sete montanhas sobre as quais se assenta a mulher.
+10. São também sete reis: cinco já caíram, um subsiste, o outro ainda não veio; e quando vier, deve permanecer pouco tempo.
+11. Quanto à Fera que era e já não é, ela mesma é um oitavo (rei). Todavia, é um dos sete e caminha para a perdição.
+12. Os dez chifres que viste são dez reis que ainda não receberam o reino, mas que receberão por um momento poder real com a Fera.
+13. Eles têm o mesmo pensamento: transmitir à Fera a sua força e o seu poder.
+14. Combaterão contra o Cordeiro, mas o Cordeiro os vencerá, porque é Senhor dos senhores e Rei dos reis. Aqueles que estão com ele são os chamados, os escolhidos, os fiéis.
+15. O anjo me disse: As águas que viste, à beira das quais a Prostituta se assenta, são povos e multidões, nações e línguas.
+16. Os dez chifres que viste, assim como a Fera, odiarão a Prostituta. Hão de despojá-la e desnudá-la. Hão de comer-lhe as carnes e a queimarão ao fogo.
+17. Porque Deus lhes incutiu o desejo de executarem os seus desígnios, de concordarem em ceder sua soberania à Fera, até que se cumpram as palavras de Deus.
+18. A mulher que viste é a grande cidade, aquela que reina sobre os reis da terra.Apocalipse, 18
+1. Depois disso, vi descer do céu outro anjo que tinha grande poder, e a terra foi iluminada por sua glória.
+2. Clamou em alta voz, dizendo: Caiu, caiu Babilônia, a Grande. Tornou-se morada dos demônios, prisão dos espíritos imundos e das aves impuras e abomináveis,
+3. porque todas as nações beberam do vinho da ira de sua luxúria, pecaram com ela os reis da terra e os mercadores da terra se enriqueceram com o excesso do seu luxo.
+4. Ouvi outra voz do céu que dizia: Meu povo, sai de seu meio para que não participes de seus pecados e não tenhas parte nas suas pragas,
+5. porque seus pecados se acumularam até o céu, e Deus se lembrou das suas injustiças.
+6. Faze com ela o que fez (contigo), e retribui-lhe o dobro de seus malefícios; na taça que ela deu de beber, dá-lhe o dobro.
+7. Na mesma proporção em que fez ostentação de luxo, dá-lhe em tormentos e prantos. Pois ela disse no seu coração: Estou no trono como rainha, e não viúva, e nunca conhecerei o luto.
+8. Por isso, num só dia virão sobre ela as pragas: morte, pranto, fome. Ela será consumida pelo fogo, porque forte é o Senhor Deus que a condenou.
+9. Hão de chorar e lamentar-se por sua causa os reis da terra que com ela se contaminaram e pecaram, quando avistarem a fumaça do seu incêndio.
+10. Parados ao longe, de medo de seus tormentos, eles dirão: Ai, ai da grande cidade, Babilônia, cidade poderosa! Bastou um momento para tua execução!
+11. Também os negociantes da terra choram e se lamentam a seu respeito, porque já não há ninguém que lhes compre os carregamentos:
+12. carregamento de ouro e prata, pedras preciosas e pérolas, linho e púrpura, seda e escarlate, bem como de toda espécie de madeira odorífera, objetos de marfim e madeira preciosa; de bronze, ferro e mármore;
+13. de cinamomo e essência; de aromas, mirra e incenso; de vinho e óleo, de farinha e trigo, de animais de carga, ovelhas, cavalos e carros, escravos e outros homens.
+14. Eis que o bom tempo de tuas paixões animalescas se escoou. Toda a magnificência e todo o brilho se apagaram, e jamais serão reencontrados.
+15. Os mercadores destas coisas, que delas se enriqueceram, pararão ao longe, de medo de seus tormentos, e hão de chorar e lamentar-se, dizendo:
+16. Ai, ai da grande cidade, que se revestia de linho, púrpura e escarlate, toda ornada de ouro, pedras preciosas e pérolas.
+17. Num só momento toda essa riqueza foi devastada! Todos os pilotos e todos os navegantes, os marinheiros e todos os que trabalham no mar paravam ao longe
+18. e exclamavam, ao ver a fumaça do incêndio: Que havia de comparável a essa grande cidade?
+19. E lançavam pó sobre as cabeças, chorando e lamentando-se com estas palavras: Ai, ai da grande cidade, de cuja opulência se enriqueceram todos os que tinham navios no mar. Bastou um momento para ser arrasada!
+20. Exulta sobre ela, ó céu; e também vós, santos, apóstolos e profetas, porque Deus julgou contra ela a vossa causa.
+21. Então um anjo poderoso tomou uma pedra do tamanho de uma grande mó de moinho e lançou-a no mar, dizendo: Com tal ímpeto será precipitada Babilônia, a grande cidade, e jamais será encontrada.
+22. Já não se ouvirá mais em ti o som dos citaristas, dos cantores, dos tocadores de flauta, de trombetas. Nem se encontrará em ti artífice algum de qualquer espécie. Não se ouvirá mais em ti o ruído do moinho,
+23. não brilhará mais em ti a luz de lâmpada, não se ouvirá mais em ti a voz do esposo e da esposa; porque teus mercadores eram senhores do mundo, e todas as nações foram seduzidas por teus malefícios.
+24. Foi em ti que se encontrou o sangue dos profetas e dos santos, como também de todos aqueles que foram imolados na terra.Apocalipse, 19
+1. Depois disso, ouvi no céu como que um imenso coro que cantava: Aleluia! A nosso Deus a salvação, a glória e o poder,
+2. porque os seus juízos são verdadeiros e justos. Ele executou a grande Prostituta que corrompia a terra com a sua prostituição, e pediu-lhe contas do sangue dos seus servos.
+3. Depois recomeçaram: Aleluia! Sua fumaça sobe pelos séculos dos séculos.
+4. Então os vinte e quatro Anciãos e os quatro Animais prostraram-se e adoraram a Deus que se assenta no trono, dizendo: Amém! Aleluia!
+5. Do trono saiu uma voz que dizia: Cantai ao nosso Deus, vós todos, seus servos que o temeis, pequenos e grandes.
+6. Nisto ouvi como que um imenso coro, sonoro como o ruído de grandes águas e como o ribombar de possantes trovões, que cantava: Aleluia! Eis que reina o Senhor, nosso Deus, o Dominador!
+7. Alegremo-nos, exultemos e demos-lhe glória, porque se aproximam as núpcias do Cordeiro. Sua Esposa está preparada.
+8. Foi-lhe dado revestir-se de linho puríssimo e resplandecente. (Pois o linho são as boas obras dos santos.)
+9. Ele me diz, então: Escreve: Felizes os convidados para a ceia das núpcias do Cordeiro. Disse-me ainda: Estas são palavras autênticas de Deus.
+10. Prostrei-me aos seus pés para adorá-lo, mas ele me diz: Não faças isso! Eu sou um servo, como tu e teus irmãos, possuidores do testemunho de Jesus. Adora a Deus. Porque o espírito profético não é outro que o testemunho de Jesus.
+11. Vi ainda o céu aberto: eis que aparece um cavalo branco. Seu cavaleiro chama-se Fiel e Verdadeiro, e é com justiça que ele julga e guerreia.
+12. Tem olhos flamejantes. Há em sua cabeça muitos diademas e traz escrito um nome que ninguém conhece, senão ele.
+13. Está vestido com um manto tinto de sangue, e o seu nome é Verbo de Deus.
+14. Seguiam-no em cavalos brancos os exércitos celestes, vestidos de linho fino e de uma brancura imaculada.
+15. De sua boca sai uma espada afiada, para com ela ferir as nações pagãs, porque ele deve governá-las com cetro de ferro e pisar o lagar do vinho da ardente ira do Deus Dominador.
+16. Ele traz escrito no manto e na coxa: Rei dos reis e Senhor dos senhores!
+17. Vi, então, um anjo de pé sobre o sol, a chamar em alta voz a todas as aves que voam pelo meio dos céus: Vinde, reuni-vos para a grande ceia de Deus,
+18. para comerdes carnes de reis, carnes de generais e carnes de poderosos; carnes de cavalos e cavaleiros; carnes de homens, livres e escravos, pequenos e grandes.
+19. Eu vi a Fera e os reis da terra com os seus exércitos reunidos para fazer guerra ao Cavaleiro e ao seu exército.
+20. Mas a Fera foi presa, e com ela o falso profeta, que realizara prodígios sob o seu controle, com os quais seduzira aqueles que tinham recebido o sinal da Fera e se tinham prostrado diante de sua imagem. Ambos foram lançados vivos no lago de fogo sulfuroso.
+21. Os demais foram mortos pelo Cavaleiro, com a espada que lhe saía da boca. E todas as aves fartaram-se da suas carnes.Apocalipse, 20
+1. Vi, então, descer do céu um anjo que tinha na mão a chave do abismo e uma grande algema.
+2. Ele apanhou o Dragão, a primitiva Serpente, que é o Demônio e Satanás, e o acorrentou por mil anos.
+3. Atirou-o no abismo, que fechou e selou por cima, para que já não seduzisse as nações, até que se completassem mil anos. Depois disso, ele deve ser solto por um pouco de tempo.
+4. Vi também tronos, sobre os quais se assentaram aqueles que receberam o poder de julgar: eram as almas dos que foram decapitados por causa do testemunho de Jesus e da palavra de Deus, e todos aqueles que não tinham adorado a Fera ou sua imagem, que não tinham recebido o seu sinal na fronte nem nas mãos. Eles viveram uma vida nova e reinaram com Cristo por mil anos.
+5. (Os outros mortos não tornaram à vida até que se completassem os mil anos.) Esta é a primeira ressurreição.
+6. Feliz e santo é aquele que toma parte na primeira ressurreição! Sobre eles a segunda morte não tem poder, mas serão sacerdotes de Deus e de Cristo: reinarão com ele durante os mil anos.
+7. Depois de se completarem mil anos, Satanás será solto da prisão.
+8. Sairá dela para seduzir as nações dos quatro cantos da terra (Gog e Magog) e reuni-las para o combate. Serão numerosas como a areia do mar.
+9. Subiram à superfície da terra e cercaram o acampamento dos santos e a cidade querida. Mas desceu um fogo dos céus e as devorou.
+10. O Demônio, sedutor delas, foi lançado num lago de fogo e de enxofre, onde já estavam a Fera e o falso profeta, e onde serão atormentados, dia e noite, pelos séculos dos séculos.
+11. Vi, então, um grande trono branco e aquele que nele se assentava. Os céus e a terra fugiram de sua face, e já não se achou lugar para eles.
+12. Vi os mortos, grandes e pequenos, de pé, diante do trono. Abriram-se livros, e ainda outro livro, que é o livro da vida. E os mortos foram julgados conforme o que estava escrito nesse livro, segundo as suas obras.
+13. O mar restituiu os mortos que nele estavam. Do mesmo modo, a morte e a morada subterrânea. Cada um foi julgado segundo as suas obras.
+14. A morte e a morada subterrânea foram lançadas no tanque de fogo. A segunda morte é esta: o tanque de fogo.
+15. Todo o que não foi encontrado inscrito no livro da vida foi lançado ao fogo.Apocalipse, 21
+1. Vi, então, um novo céu e uma nova terra, pois o primeiro céu e a primeira terra desapareceram e o mar já não existia.
+2. Eu vi descer do céu, de junto de Deus, a Cidade Santa, a nova Jerusalém, como uma esposa ornada para o esposo.
+3. Ao mesmo tempo, ouvi do trono uma grande voz que dizia: Eis aqui o tabernáculo de Deus com os homens. Habitará com eles e serão o seu povo, e Deus mesmo estará com eles.
+4. Enxugará toda lágrima de seus olhos e já não haverá morte, nem luto, nem grito, nem dor, porque passou a primeira condição.
+5. Então o que está assentado no trono disse: Eis que eu renovo todas as coisas. Disse ainda: Escreve, porque estas palavras são fiéis e verdadeiras.
+6. Novamente me disse: Está pronto! Eu sou o Alfa e o Ômega, o Começo e o Fim. A quem tem sede eu darei gratuitamente de beber da fonte da água viva.
+7. O vencedor herdará tudo isso; e eu serei seu Deus, e ele será meu filho.
+8. Os tíbios, os infiéis, os depravados, os homicidas, os impuros, os maléficos, os idólatras e todos os mentirosos terão como quinhão o tanque ardente de fogo e enxofre, a segunda morte.
+9. Então veio um dos sete Anjos que tinham as sete taças cheias dos sete últimos flagelos e disse-me: Vem, e mostrar-te-ei a noiva, a esposa do Cordeiro.
+10. Levou-me em espírito a um grande e alto monte e mostrou-me a Cidade Santa, Jerusalém, que descia do céu, de junto de Deus,
+11. revestida da glória de Deus. Assemelhava-se seu esplendor a uma pedra muito preciosa, tal como o jaspe cristalino.
+12. Tinha grande e alta muralha com doze portas, guardadas por doze anjos. Nas portas estavam gravados os nomes das doze tribos dos filhos de Israel.
+13. Ao oriente havia três portas, ao setentrião três portas, ao sul três portas e ao ocidente três portas.
+14. A muralha da cidade tinha doze fundamentos com os nomes dos doze apóstolos do Cordeiro.
+15. Quem falava comigo trazia uma vara de ouro como medida para medir a cidade, as suas portas e a sua muralha.
+16. A cidade formava um quadrado: o comprimento igualava à largura. Mediu a cidade com a vara: doze mil estádios. O comprimento, a largura e a altura eram iguais.
+17. E mediu a muralha: cento e quarenta e quatro côvados, segundo a medida humana empregada pelo anjo.
+18. O material da muralha era jaspe, e a cidade ouro puro, semelhante a puro cristal.
+19. Os alicerces da muralha da cidade eram ornados de toda espécie de pedras preciosas: o primeiro era de jaspe, o segundo de safira, o terceiro de calcedônia, o quarto de esmeralda,
+20. o quinto de sardônica, o sexto de cornalina, o sétimo de crisólito, o oitavo de berilo, o nono de topázio, o décimo de crisóparo, o undécimo de jacinto e o duodécimo de ametista.
+21. Cada uma das doze portas era feita de uma só pérola e a avenida da cidade era de ouro, transparente como cristal.
+22. Não vi nela, porém, templo algum, porque o Senhor Deus Dominador é o seu templo, assim como o Cordeiro.
+23. A cidade não necessita de sol nem de lua para iluminar, porque a glória de Deus a ilumina, e a sua luz é o Cordeiro.
+24. As nações andarão à sua luz, e os reis da terra levar-lhe-ão a sua opulência.
+25. As suas portas não se fecharão diariamente, pois não haverá noite.
+26. Levar-lhe-ão a opulência e a honra das nações.
+27. Nela não entrará nada de profano nem ninguém que pratique abominações e mentiras, mas unicamente aqueles cujos nomes estão inscritos no livro da vida do Cordeiro.Apocalipse, 22
+1. Mostrou-me então o anjo um rio de água viva resplandecente como cristal de rocha, saindo do trono de Deus e do Cordeiro.
+2. No meio da avenida e às duas margens do rio, achava-se uma árvore da vida, que produz doze frutos, dando cada mês um fruto, servindo as folhas da árvore para curar as nações.
+3. Não haverá aí nada de execrável, mas nela estará o trono de Deus e do Cordeiro. Seus servos lhe prestarão um culto.
+4. Verão a sua face e o seu nome estará nas suas frontes.
+5. Já não haverá noite, nem se precisará da luz de lâmpada ou do sol, porque o Senhor Deus a iluminará, e hão de reinar pelos séculos dos séculos.
+6. Ele me disse: Estas palavras são fiéis e verdadeiras, e o Senhor Deus dos espíritos dos profetas enviou o seu anjo para mostrar aos seus servos o que deve acontecer em breve.
+7. Eis que venho em breve! Felizes aqueles que põem em prática as palavras da profecia deste livro.
+8. Fui eu, João, que vi e ouvi estas coisas. Depois de as ter ouvido e visto, prostrei-me aos pés do anjo que as mostrava.
+9. Mas ele me disse: Não faças isto! Sou um servo como tu e teus irmãos, os profetas, e aqueles que guardam as palavras deste livro. Prostra-te diante de Deus.
+10. Disse ele ainda: Não seles o texto profético deste livro, porque o momento está próximo.
+11. O injusto faça ainda injustiças, o impuro pratique impurezas. Mas o justo faça a justiça e o santo santifique-se ainda mais.
+12. Eis que venho em breve, e a minha recompensa está comigo, para dar a cada um conforme as suas obras.
+13. Eu sou o Alfa e o Ômega, o Primeiro e o Último, o Começo e o Fim.
+14. Felizes aqueles que lavam as suas vestes para ter direito à árvore da vida e poder entrar na cidade pelas portas.
+15. Fora os cães, os envenenadores, os impudicos, os homicidas, os idólatras e todos aqueles que amam e praticam a mentira!
+16. Eu, Jesus, enviei o meu anjo para vos atestar estas coisas a respeito das igrejas. Eu sou a raiz e o descendente de Davi, a estrela radiosa da manhã.
+17. O Espírito e a Esposa dizem: Vem! Possa aquele que ouve dizer também: Vem! Aquele que tem sede, venha! E que o homem de boa vontade receba, gratuitamente, da água da vida!
+18. Eu declaro a todos aqueles que ouvirem as palavras da profecia deste livro: se alguém lhes ajuntar alguma coisa, Deus ajuntará sobre ele as pragas descritas neste livro;
+19. e se alguém dele tirar qualquer coisa, Deus lhe tirará a sua parte da árvore da vida e da Cidade Santa, descritas neste livro.
+20. Aquele que atesta estas coisas diz: Sim! Eu venho depressa! Amém. Vem, Senhor Jesus!
+21. A graça do Senhor Jesus esteja com todos.
+`).then(e => console.log(`Código finalizado, ${e} mensagens enviadas`)).catch(console.error)
